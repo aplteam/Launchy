@@ -1,0 +1,8 @@
+ n←CreateMenubar n;∆;txt
+ n.MB←n.Form.⎕NEW(⊂'Menubar')
+ n←CreateMenu_File n
+ n←CreateMenu_Edit n
+ n←CreateMenu_Explore n
+ n←CreateMenu_Options n
+ n←CreateMenu_Help n
+⍝Done

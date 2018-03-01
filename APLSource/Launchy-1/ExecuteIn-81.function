@@ -1,0 +1,5 @@
+ ExecuteIn←{
+⍝ Returns either a path defined by Ini.CONFIG.homedir or the installation directory
+     ~0∊⍴wp←{0::'' ⋄ ⍎⍵}'Ini.CONFIG.workdir':Ini.CONFIG.workdir
+     ⍵
+ }

@@ -1,0 +1,19 @@
+ n←CreateWsSize n;∆;l;list
+ ∆←''
+ ∆,←⊂'Caption' 'WS size'
+ ∆,←⊂'Posn'(n.DebugGroup.Posn[1],(2⊃n.GeneralSubForm.Size)-70)
+ ∆,←⊂'Size'(45 65)
+ n.WssizeGroup←n.GeneralSubForm.⎕NEW'Group'∆
+
+ list←','U.Split Ini.WSSIZE.options
+ ∆←''
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Items'list
+ ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
+ ∆,←⊂'Posn'(20 3)
+ ∆,←⊂'Size'(⍬ 60)
+ ∆,←⊂'TipObj'n.tip
+ n.wssize←n.WssizeGroup.⎕NEW'Combo'∆
+ n.wssize.tip←'Workpace size' 'in Megabytes'
+ n.wssize.onSelect←'OnChanged' 'WSSIZE'
+ n.wssize.onKeyPress←'OnStandardKeyPress'

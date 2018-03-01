@@ -1,0 +1,5 @@
+ r←HasWorkDir
+ r←1
+ :If Ini.CONFIG.⎕NC'workDir'
+     r←~0∊⍴Ini.CONFIG.workDir
+ :EndIf

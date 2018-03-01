@@ -1,0 +1,5 @@
+ OnLostFocusDeselectContents←{
+⍝ Make sure that the contents of the edit control which just lost the focus is deselected.
+     rf←1⊃⍵
+     rf.SelText←1 1
+ }

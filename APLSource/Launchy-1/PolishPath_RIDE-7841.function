@@ -1,0 +1,9 @@
+ Ini←PolishPath_RIDE Ini;name;data
+⍝ If the RIDE paths contain the string "[you]" then name is replaced by ⎕AN.
+ name←'path2ride'
+ :If Ini.Exist'Ride'name
+     data←⊃Ini.Get'RIDE'name
+     data←'\[you]'⎕R ⎕AN⍠('IC' 1)⊣data
+     data Ini.Put'RIDE'name
+ :EndIf
+⍝Done

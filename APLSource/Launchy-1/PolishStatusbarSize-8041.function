@@ -1,0 +1,8 @@
+ PolishStatusbarSize←{
+     n←⍵
+     n.SB.Posn[1]-←3
+     n.SB.Size[1]+←3
+     n.statusbar.Size[1]+←2
+     n.sizeInfo.Size[1]+←2
+     n
+ }

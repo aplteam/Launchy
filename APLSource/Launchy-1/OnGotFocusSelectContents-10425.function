@@ -1,0 +1,5 @@
+ OnGotFocusSelectContents←{
+⍝ Make sure that the contents of the edit control which just got the focus is selected.
+     rf←1⊃⍵
+     rf.SelText←1,1+⍴,rf.Text
+ }

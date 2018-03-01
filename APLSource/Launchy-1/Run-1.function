@@ -1,0 +1,21 @@
+ Run;n;F;S;U;W;Ini;⎕TRAP
+ ⎕IO←1 ⋄ ⎕ML←1 ⋄ ⎕WX←3
+ #.FilesAndDirs.PolishCurrentDir
+ ⎕TRAP←#.HandleError.SetTrap ⍬
+ Init1 ⍬
+ #.⎕SHADOW'ErrorParms'
+ #.ErrorParms←#.HandleError.CreateParms
+ #.ErrorParms.customFnsParent←⎕THIS
+ #.ErrorParms.customFns←'SayGoodByeAfterError'
+ :If U.IsDevelopment
+     #.ErrorParms.errorFolder←(F.PWD),'\Errors\'
+ :Else
+     #.ErrorParms.errorFolder←(⊃⎕NPARTS⊃#.GetCommandLineArgs),'Errors\'
+ :EndIf
+ 'Create!'F.CheckPath #.ErrorParms.errorFolder
+ ⎕TRAP←#.HandleError.SetTrap'#.ErrorParms'
+ Ini←Init2 #.ErrorParms
+ n←CreateGui
+ SelectDefaults n
+ DQ n.AplVers
+ Shutdown ⍬

@@ -1,0 +1,14 @@
+ About←{
+⍝ Called by OnAbout
+     tx←''
+     tx,←⊂'Written by Kai Jaeger'
+     tx,←⊂'http://aplteam.com'
+     tx,←⊂'Homepage: http://aplwiki.com/Launchy'
+     tx,←⊂''
+     tx,←⊂'>>> Version ',2⊃Version
+     tx,←⊂''
+     buff←↓¯1↓1↓⍤1⊣2↓⎕CR'Version'
+     buff←⊃,/(-1+∧/¨(buff~¨' ')∊¨⊂⎕D,'.')↑¨(⊂⊂''),¨⊂¨buff
+     _←ShowMsg tx,buff
+     0
+ }

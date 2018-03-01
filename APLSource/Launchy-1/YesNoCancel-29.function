@@ -1,0 +1,11 @@
+ r←{caption}YesNoCancel question;∆;ms
+⍝ Returns 1 for OK, 0 for No and ¯1 for Cancel
+ caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
+ ∆←⊂'MsgBox'
+ ∆,←⊂caption
+ ∆,←⊂'Text'question
+ ∆,←⊂'Style' 'Query'
+ ∆,←⊂'Btns'('YES' 'NO' 'CANCEL')
+ ∆,←⊂'Event'('MsgBtn1' 'MsgBtn2' 'MsgBtn3')1
+ 'ms'⎕WC ∆
+ r←(1 0 ¯1)[('MsgBtn1' 'MsgBtn2' 'MsgBtn3')⍳⊂2⊃⎕DQ'ms']

@@ -1,0 +1,6 @@
+ r←GetProperAPL_FontSize;fnt;f
+ 'fnt'⎕WC'Font'('PName'Ini.FONT.name)('Size'Ini.FONT.size)
+ 'f'⎕WC'Form'('Coord' 'Pixel')('Visible' 0)
+ f.FontObj←fnt
+ 'f.l'⎕WC'Label'('Caption' '99')
+ r←f.l.GetTextSize'9'

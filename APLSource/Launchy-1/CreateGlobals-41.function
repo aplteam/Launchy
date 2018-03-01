@@ -1,0 +1,18 @@
+ {r}←CreateGlobals Ini;_
+ r←⍬
+ ⎕EX'G'
+ G←⎕NS''
+ G.Home←F.PWD   ⍝ This is not necessarily the working directory.
+ G.Posn←⍎Ini.CONFIG.GUI_posn R.GetString GetAplLauncherRegistryKey,⎕AN,'\Posn'
+ G.ShowTips←1 R.GetValue GetAplLauncherRegistryKey,⎕AN,'\ShowTips'
+ G.RestoreDefaults←0 R.GetValue GetAplLauncherRegistryKey,⎕AN,'\RestoreDefaults'
+ G.ShowCMD←0 R.GetValue GetAplLauncherRegistryKey,⎕AN,'\ShowCmd'
+ G.SE_FontSize←GetProperAPL_FontSize
+ G.ED_RowMax←⌈ScreenSize[1]÷1⊃G.SE_FontSize
+ G.ED_ColMax←⌈ScreenSize[2]÷2⊃G.SE_FontSize
+ G.AplVersions←GetAplVersions
+ G.CMDs←','U.Split''R.GetString GetAplLauncherRegistryKey,⎕AN,'\CommandLineArgs'
+ G.Default←GetDefaultFromRegistry G.AplVersions
+ G.RideVersions←Find_RIDE_Versions Ini
+ {}GetWinCoords G.Default
+⍝Done

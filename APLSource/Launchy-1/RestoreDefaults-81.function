@@ -1,0 +1,10 @@
+ RestoreDefaults←{
+⍝
+     n.wssize.SelItems←n.wssize.Items≡¨⊂Ini.WSSIZE.default
+     n.debug.SelItems←(⍴n.debug.Items)↑1
+     n.DYALOG_5977.State←Ini.DYALOG_5977.tick
+     n.propertyExposeRoot.State←Ini.PROPERTYEXPOSEROOT.tick
+     n.AplVers.SelItems←n.AplVers.Items≡¨⊂G.Default
+     n.statusbar.Text←'APL, WSSIZE, debug flags & Dyalog_5977 back on defaults'
+     ⍬
+ }

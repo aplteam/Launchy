@@ -1,0 +1,5 @@
+ OnStartExplorerInHelpDir←{
+⍝ Start Windows Explorer in the Help\ directory of the currently selected version of Dyalog
+     rc←StartExplorer(GetProperPath ⍬),'Help\'
+     ⍬
+ }

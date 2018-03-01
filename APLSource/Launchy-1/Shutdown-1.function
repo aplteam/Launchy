@@ -1,0 +1,8 @@
+ Shutdown dummy
+ #.IconObj←''
+ #.onActivateApp←0
+ SavePropsInRegistry
+ {}ReadWinCoords ⍬
+ {}SaveWinCoord ⍬
+ CloseForm ⍬
+ Off

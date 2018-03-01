@@ -1,0 +1,23 @@
+ OnContextMenu←{
+     m←⎕NS''
+     m.menu←⎕NEW⊂'Menu'
+     m.cancel←m.menu.⎕NEW'MenuItem'((⊂'Caption' 'Cancel'))
+     m.cancel.onSelect←1
+     m.sep1←m.menu.⎕NEW⊂'Separator'
+     n.statusbar.Text←'Current default is: ',G.Default
+     ∆←''
+     ∆,←⊂'Caption' 'Make this the default'
+     ∆,←⊂'Checked'(G.Default≡⊃n.AplVers.(SelItems/Items))
+     m.setDefault←m.menu.⎕NEW'MenuItem'∆
+     m.setDefault.onSelect←1
+     res←⎕DQ m.menu
+     m.cancel≡⊃res:⍬
+     0∊⍴res:⍬
+     n←({0<⍵.⎕NC'n':⍵ ⋄ ∇ ⍵.##}⊃⍵).n
+     G.Default←⊃n.AplVers.(SelItems/Items)
+     regKey←(GetAplLauncherRegistryKey,'DefaultAPL')
+     _←R.PutString regKey G.Default
+     G.LastSelectedVersion←G.Default
+     _←CheckDefaults'APL_Version'
+     ⍬
+ }

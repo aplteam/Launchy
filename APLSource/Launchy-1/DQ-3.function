@@ -1,0 +1,3 @@
+ DQ giveFocusTo
+ ⎕NQ giveFocusTo'GotFocus' ⋄ ⎕DQ'.'
+⍝Done

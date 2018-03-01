@@ -1,0 +1,4 @@
+ ToggleTipVisibility;list
+⍝ Toggles the visibility of all tips available depending on n.showTips.Checked
+ list←{⍵/⍨{⊃0<⍵.⎕NC'tip'}¨⍵}n.(⍎¨⎕NL-9)
+ list.Tip←n.showTips.Checked/¨list.tip

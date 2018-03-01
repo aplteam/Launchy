@@ -1,0 +1,23 @@
+ n←CreateDebugFlags n;∆;l;f
+ ∆←''
+ ∆,←⊂'Caption' ' Debug flags '
+ ∆,←⊂'Posn'(65 2)
+ ∆,←⊂'Size'(70 180)
+ n.DebugGroup←n.GeneralSubForm.⎕NEW'Group'∆
+
+ ∆←''
+ ∆,←⊂'Caption' 'Check workspace &integrity...'
+ ∆,←⊂'Posn'(15 5)
+ n.Info←n.DebugGroup.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Items'Ini.WS_CHECK.list
+ ∆,←⊂'SelItems'(Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list)
+ ∆,←⊂'Posn'(40 5)
+ ∆,←⊂'Size'(⍬ 170)
+ ∆,←⊂'TipObj'n.tip
+ n.debug←n.DebugGroup.⎕NEW'Combo'∆
+ n.debug.tip←'Specify one of these to get' 'an aplcore closer to the problem'
+ n.debug.onSelect←'OnChanged' 'DEBUGFLAG'
+ n.debug.onKeyPress←'OnStandardKeyPress'

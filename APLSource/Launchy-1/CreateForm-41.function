@@ -1,0 +1,32 @@
+ n←CreateForm;∆
+ n←##.RefNamespace.Create'Dyalog Launcher GUI'
+ #.Caption←GetCaption
+ ∆←''
+ ∆,←⊂'Caption'GetCaption
+ ∆,←⊂'Posn'G.Posn
+ ∆,←⊂'Size'(280 410)
+ ∆,←⊂'MaxButton' 0
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Sizeable' 0
+ n.Form←⎕NEW'Form'∆
+ n.Form.n←n
+ n.Form.onClose←1
+ n.Form.onKeyPress←'OnStandardKeyPress'
+
+ n.Icon←⎕NEW'Icon'(('CBits'TheIcon.CBits)('Mask'TheIcon.Mask))
+ n.Form.IconObj←n.Icon
+ #.IconObj←n.Icon
+ ∆←''
+ ∆,←⊂'PName' 'APL385 Unicode'
+ n.aplFont←n.Form.⎕NEW'Font'∆
+ n.aplFont.Size←15
+
+ ∆←''
+ ∆,←⊂'FontObj'n.aplFont
+ n.tip←n.Form.⎕NEW'TipField'∆
+
+ ∆←''
+ ∆,←⊂'Bits'(1⊃Dyalog_BM)
+ ∆,←⊂'CMap'(2⊃Dyalog_BM)
+ ∆,←⊂'Mask'(3⊃Dyalog_BM)
+ n.Icon←⎕NEW'Icon'∆

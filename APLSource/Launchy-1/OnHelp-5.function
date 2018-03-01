@@ -1,0 +1,15 @@
+ OnHelp←{
+⍝
+     fn←G.Home,'\launchy_manual.html'
+     flag←⎕NEXISTS fn
+     ((fn=' ')/fn)←⊂'%20'
+     fn←⊃,/fn
+     flag:0⊣U.GoToWebPage'file:///',fn
+     tx←''
+     tx,←⊂'Could not find the file:'
+     tx,←⊂fn
+     tx,←⊂''
+     tx,←⊂'You can download it from the APL wiki'
+     _←ShowMsg tx
+     0
+ }

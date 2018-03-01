@@ -1,0 +1,49 @@
+﻿[Config]
+GUI_posn    =   '80 60'
+workdir     =   ''  ⍝ Think thrice before settings this
+iconify		=	0
+; letscrash	=	0	; If this exists and is 1 then there is Help/Let's crash available (for testing error trapping)
+
+[WSSIZE]
+options     =   '32MB,64MB,128MB,256MB,512MB,1G,2G,4G'
+default     =   '64MB'
+
+[F32]
+active      =   1
+tick        =   0
+
+[DYALOG_5977]
+active      =   1
+tick        =   0
+
+[PropertyExposeRoot]
+active      =   1
+tick        =   1
+
+[FONT]          ; Make sure that these settings reflect your setting in []SE!
+name        =   'APL385 Unicode'
+size        =   19
+
+[WS_CHECK]          ; See combo box "check workspace integrity"
+list        =   ''
+list        ,=  'a) occasionally (default)' 
+list        ,=  'b) after each callback; -Dhc'
+list        ,=  'c) on return to session input; -Dhw'
+list        ,=  'd) combine b) and c); -Dhcw' 
+list        ,=  'e) getspace() (very slow); -DhW'
+val         =   ''
+val         ,=  ''
+default     =   'a' ; Can be one of: a,b,c,d 
+
+[RIDE]
+active      =   1               ; Use this only to disable RIDE permanently
+tick        =   0               ; Specify the default for whether the user shall be asked for a RIDE
+port        =   4502            ; The port Ride is offering APL interpreters for connection
+connect     =   '127.0.0.1'     ; Note: on some machines "localhost" does not work but 127.0.0.1 does.
+
+; This path:
+path2ride   =   'C:\Users\[you]\AppData\Local\Programs\Dyalog\RIDE'
+; refers to the default installation directory for Ride when `[you]` will be replaced by `⎕AN` at runtime. 
+; All installed main versions (like 3.0, 3.1 and 4.0) are going into the "File" menu.
+; You need to specify a different path only if you have decided to install Ride in a non-default location.
+; If several sub versions (say 3.0.1234 and 3.0.9876) are installed then Launchy determines the "best" version (3.0.9876 in our example) automatically.

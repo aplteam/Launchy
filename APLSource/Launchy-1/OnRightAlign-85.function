@@ -1,0 +1,7 @@
+ OnRightAlign←{
+⍝ Make sure that a new window is right aligned.
+     w←n.editWidth.Value
+     n.x.Value←(⌈ScreenSize[2]÷2⊃G.SE_FontSize)-w+2
+     _←1 ⎕NQ n.x'Change'
+     ⍬
+ }

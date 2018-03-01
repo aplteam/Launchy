@@ -1,0 +1,5 @@
+ {r}←CheckRide n
+ r←⍬
+ :If Ini.RIDE.active
+     n.RIDEflag.Active←14≤GetVersionOfSelectedAPL n
+ :EndIf

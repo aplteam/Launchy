@@ -1,0 +1,20 @@
+ OnLaunchAPL arg;rf;ct;ws;oldVals;newVals;ty;_;RIDE;msg
+ rf←1⊃arg                                                    ⍝ Ref to the button
+ rf.Active←0
+ ws←n.wssize.((SelItems⍳1)⊃Items)                            ⍝ Workspace size
+
+ (RIDE msg)←GetRideParms n
+ :If ¯1≢RIDE
+     :If LaunchDyalog WhichAPL ws'',n.(editHeight editWidth x y).Value,n.tracerFlag.State,(⊂GetCommandLineParms),n.DYALOG_5977.State RIDE
+         _←⎕DL 1
+         :If ~0∊⍴msg
+             {}'Launchy: RIDE'ShowMsg2 msg
+         :EndIf
+         rf.Active←1
+         :If n.iconify.Checked
+             n.Form ⎕WS'State' 1
+         :EndIf
+     :EndIf
+ :EndIf
+ rf.Active←1
+ n.runAsAdmin.State←0

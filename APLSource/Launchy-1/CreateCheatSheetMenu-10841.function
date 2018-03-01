@@ -1,0 +1,16 @@
+ n←CreateCheatSheetMenu n;∆;path;cheatsheets;cheatsheet;i;aplVersion;ref
+ ∆←''
+ ∆,←⊂'Caption'('Cheat sheets',(⎕UCS 9),'Ctrl+Shift+F1')
+ ∆,←⊂'Accelerator'(112 3)
+ n.CheatSheets←n.MenuHelp.⎕NEW'Menu'∆
+
+ aplVersion←⊃G.AplVersions  ⍝ Choose the latest (or best) version
+ path←(GetInstallPath aplVersion),'\help\'
+ cheatsheets←⍪⊃F.Dir path,'Cheatsheet*'
+ i←0
+ :For cheatsheet :In cheatsheets
+     i+←1
+     ∆←⊂'Caption'(U.dlb{⍵↓⍨⍵⍳'-'}2⊃⎕NPARTS cheatsheet)
+     ref←⍎'n.CheatSheet',(⍕i),'←n.CheatSheets.⎕NEW''MenuItem''∆'
+     ref.onSelect←'OnCheatSheet'cheatsheet
+ :EndFor

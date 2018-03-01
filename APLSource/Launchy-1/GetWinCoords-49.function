@@ -1,0 +1,17 @@
+ {r}←GetWinCoords aplVers;rp
+ ⍝ Set a couple of globals defining the coordinates of Edit windows and
+ ⍝ possibly also Tracer windows.
+ ⍝ Depends on the user's choice regarding the version of Dyalog.
+ r←⍬
+ :If 0∊⍴aplVers
+     G.ED_Cols←80
+     G.ED_Rows←50
+     G.ED_FirstX←0
+     G.ED_FirstY←0
+ :Else
+     rp←GetRegPathForCurrentDyalogVersion aplVers
+     G.ED_Cols←⍎'⍬'R.GetString rp,'\edit_cols'
+     G.ED_Rows←⍎'⍬'R.GetString rp,'\edit_rows'
+     G.ED_FirstX←⍎'⍬'R.GetString rp,'\edit_first_x'
+     G.ED_FirstY←⍎'⍬'R.GetString rp,'\edit_first_y'
+ :EndIf

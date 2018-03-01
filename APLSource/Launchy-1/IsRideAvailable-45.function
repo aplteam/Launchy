@@ -1,0 +1,7 @@
+ IsRideAvailable←{
+     version←⍵
+     0=Ini.RIDE.active:0
+     f1←0<Ini.RIDE.⎕NC'path2ride',⍕version
+     f2←0<Ini.RIDE.⎕NC'path2ride'
+     0<f1+f2
+ }

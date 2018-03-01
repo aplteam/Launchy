@@ -1,0 +1,3 @@
+ r←GetDyalogRegKey apl
+⍝ Returns the Registry key (path) to the currently selected APL
+ r←'HKCU\Software\Dyalog\',apl,'\'

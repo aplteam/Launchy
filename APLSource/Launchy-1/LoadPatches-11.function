@@ -1,0 +1,17 @@
+ {r}←LoadPatches dummy;this;rc;cs;∆;res;q;parms;aplPath
+ r←⍬
+ q←('Patch just ',WhichAPL,'?')'' '(No = all versions of Dyalog!)'
+ →(¯1≡res←YesNoCancel q)/0
+ :If 1≡res
+     r←LoadPatch ⍬
+ :Else
+     :For this :In G.AplVersions
+         parms←S.CreateParms_ShellExecute
+         aplPath←GetInstallPath this
+         parms.file←aplPath,'Base\Dyalog.exe"'
+         parms.lpParms←'"',aplPath,'WS\Patch.dws"'
+         parms.lpParms,←' session_file=null MAXWS=32000 '
+         rc←1 S.ShellExecute parms
+         {}⎕DL 0.25
+     :EndFor
+ :EndIf

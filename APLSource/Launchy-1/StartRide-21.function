@@ -1,0 +1,12 @@
+ {r}←StartRide(version path);parms;exe
+ r←0
+ parms←S.CreateParms_ShellExecute
+ exe←⊃⊃F.Dir path,'\ride*.exe'
+ parms.file←'"',exe,'"'
+ :If '2.0'≡version
+     parms.lpParms←' -listen=localhost:',⍕Ini.RIDE.port
+     {}S.ShellExecute parms
+ :Else
+     parms.lpParms←' -listen=',Ini.RIDE.connect,':',⍕Ini.RIDE.port
+     {}S.ShellExecute parms
+ :EndIf

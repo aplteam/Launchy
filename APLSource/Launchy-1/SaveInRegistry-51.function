@@ -1,0 +1,12 @@
+ SaveInRegistry←{
+⍝ Save Windows coordinates of the currently selected APL in Registry
+     kn←GetDyalogRegKey WhichAPL                                ⍝ Registry key name
+     _←R.PutString(kn,'\edit_rows')(⍕G.ED_Rows)
+     _←R.PutString(kn,'\edit_cols')(⍕G.ED_Cols)
+     _←R.PutString(kn,'\edit_first_x')(⍕G.ED_FirstX)
+     _←R.PutString(kn,'\edit_first_y')(⍕G.ED_FirstY)
+     ~n.tracerFlag.State:⍬                                      ⍝ Tracer is different? Done!
+     _←R.PutString(kn,'\trace_first_x')(⍕G.ED_FirstX)
+     _←R.PutString(kn,'\trace_first_y')(⍕G.ED_FirstY)
+     ⍬
+ }

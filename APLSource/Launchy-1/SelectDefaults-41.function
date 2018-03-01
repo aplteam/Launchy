@@ -1,0 +1,16 @@
+ {r}←SelectDefaults n
+ r←⍬
+ :If ∨/'-64 '⍷G.Default
+     1 ⎕NQ n.Width64'Select'
+     n.Width64.State←1
+ :Else
+     1 ⎕NQ n.Width32'Select'
+     n.Width32.State←1
+ :EndIf
+ :If ∨/'Unicode'⍷G.Default
+     1 ⎕NQ n.Unicode'Select'
+     n.Unicode.State←1
+ :Else
+     1 ⎕NQ n.Classic'Select'
+     n.Classic.State←1
+ :EndIf

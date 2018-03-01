@@ -1,0 +1,3 @@
+ r←ColorCode
+⍝ Returns the color code for drawing attention to non-defaults settings
+ r←150 0 255

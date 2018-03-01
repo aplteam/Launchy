@@ -1,0 +1,15 @@
+ {r}←GetRideParm n;flag;port
+ r←''
+ :If n.RIDEflag.Active
+ :AndIf 0=n.RIDEflag.State
+     :If
+         (flag port)←AskForRideAndPort n
+         :If ¯1≠flag  ⍝ Nor cancelled?
+         :AndIf 0≠flag
+             14=⍎3⊃' 'U.Split WhichAPL: ' RIDE_CONNECT=',Ini.RIDE.connect,':',⍕port
+             ' RIDE_INIT=CONNECT:',Ini.RIDE.connect,':',⍕port
+         :EndIf
+     :Else
+
+     :EndIf
+ :EndIf

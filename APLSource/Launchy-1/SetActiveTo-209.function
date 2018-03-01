@@ -1,0 +1,5 @@
+ SetActiveTo←{
+⍝ Use this to set the "Active" property of a group ⍺ and all its children to ⍵
+     ⍺.Active←⍵
+     ⍵{⍵.Active←⍺}¨⍎¨⎕WN⍕⍺
+ }

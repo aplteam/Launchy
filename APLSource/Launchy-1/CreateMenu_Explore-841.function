@@ -1,0 +1,23 @@
+ n←CreateMenu_Explore n;∆
+ n.MenuExplore←n.MB.⎕NEW'Menu'(⊂'Caption' 'E&xplore')
+
+ ∆←''
+ ∆,←⊂'Caption' 'DYALOG\'
+ ∆,←⊂'Hint' 'Starts Windows Explorer in installation directory of selected APL'
+ n.runExplorer←n.MenuExplore.⎕NEW'MenuItem'∆
+ n.runExplorer.onSelect←'OnStartExplorer'
+
+ ∆←''
+ ∆,←⊂'Caption' 'WorkDir'
+ ∆,←⊂'Active'HasWorkDir
+ ∆,←⊂'Hint' 'Starts Windows Explorer in the directory CONFIG[workDir] is pointing to'
+ n.runExplorerInWorkDir←n.MenuExplore.⎕NEW'MenuItem'∆
+ n.runExplorerInWorkDir.onSelect←'OnStartExplorerInWorkDir'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Help directory'
+ ∆,←⊂'Active'HasWorkDir
+ ∆,←⊂'Hint' 'Starts Windows Explorer in the Help\ folder of the currently selected APL'
+ n.runExplorerInHelpDir←n.MenuExplore.⎕NEW'MenuItem'∆
+ n.runExplorerInHelpDir.onSelect←'OnStartExplorerInHelpDir'
+⍝Done

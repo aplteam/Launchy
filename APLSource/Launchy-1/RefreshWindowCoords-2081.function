@@ -1,0 +1,10 @@
+ RefreshWindowCoords←{
+⍝ Write the values of some globals to the appropriate fields.
+⍝ Necessary to update the (edit & possibly tracer) window coordinates
+⍝ to the screen after a change of the selected APL version
+     n.editHeight.Value←G.ED_Rows
+     n.editWidth.Value←G.ED_Cols
+     n.x.Value←G.ED_FirstX
+     n.y.Value←G.ED_FirstY
+     ⍬
+ }

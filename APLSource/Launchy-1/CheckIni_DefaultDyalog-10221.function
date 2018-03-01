@@ -1,0 +1,17 @@
+ CheckIni_DefaultDyalog←{
+     f←IniHas_DyalogDefault Ini
+     f∧←¯1≡¯1 R.GetValue GetAplLauncherRegistryKey,'DyalogDefaultIniWarning'
+     ~f:⍬
+     msg←⊂'The INI file contains an entry:'
+     msg,←⊂''
+     msg,←⊂'  [DYALOG]'
+     msg,←⊂'  default=...'
+     msg,←⊂''
+     msg,←⊂'which is no longer used. You are adviced to remove'
+     msg,←⊂'this from your INI file in order to avoid confusion.'
+     msg,←⊂''
+     msg,←⊂'Please note: you won''t see this message again.'
+     _←ShowMsg msg
+     _←R.PutValue(GetAplLauncherRegistryKey,'DyalogDefaultIniWarning')1
+     ⍬
+ }

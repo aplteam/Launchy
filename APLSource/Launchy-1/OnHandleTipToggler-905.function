@@ -1,0 +1,6 @@
+ OnHandleTipToggler←{
+⍝
+     rf←1⊃⍵
+     rf.Checked←~rf.Checked
+     ToggleTipVisibility
+ }

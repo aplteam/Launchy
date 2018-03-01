@@ -1,0 +1,15 @@
+ CheckIni_Ride←{
+     0≠Ini.⎕NC'RIDE':⍬
+     msg←⊂'This version of Launchy expects a section [RIDE] to be found'
+     msg,←⊂'in the INI file.'
+     msg,←⊂''
+     msg,←⊂'That''s not the case. It will work anyway with default values'
+     msg,←⊂'but your are adviced to add such a section to the INI file.'
+     msg,←⊂''
+     msg,←⊂'See http://aplwiki.com/Launchy for details'
+     _←'RIDE'Ini.⎕NS''
+     Ini.RIDE.active←1
+     Ini.RIDE.port←4502
+     _←ShowMsg msg
+     ⍬
+ }

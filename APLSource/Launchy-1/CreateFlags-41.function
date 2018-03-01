@@ -1,0 +1,39 @@
+ n←CreateFlags n;∆;f;flag
+ ∆←''
+ ∆,←⊂'Posn'(70 190)
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Dyalog_5977'
+ ∆,←⊂'State'(Ini.DYALOG_5977.tick)
+ f←'APL/W 13.0'≢⊃n.AplVers.(SelItems/Items)
+ f∧←Ini.DYALOG_5977.active
+ ∆,←⊂'Active'f
+ ∆,←⊂'TipObj'n.tip
+ n.DYALOG_5977←n.GeneralSubForm.⎕NEW'Button'∆
+ n.DYALOG_5977.tip←'Disable the fix that corrected the result of ⍳⍬'
+ n.DYALOG_5977.onSelect←'OnChanged' '5977'
+ n.DYALOG_5977.onKeyPress←'OnStandardKeyPress'
+
+ ∆←''
+ ∆,←⊂'Posn'(90 190)
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'PropertyExposeRoot'
+ ∆,←⊂'State'(Ini.PROPERTYEXPOSEROOT.tick)
+ f←Ini.PROPERTYEXPOSEROOT.active
+ ∆,←⊂'Active'f
+ ∆,←⊂'TipObj'n.tip
+ n.propertyExposeRoot←n.GeneralSubForm.⎕NEW'Button'∆
+ n.propertyExposeRoot.tip←'Shall root properties be exposed like APL variables?'
+ n.propertyExposeRoot.onSelect←'OnChanged' 'EXPOSEROOTPROP'
+ n.propertyExposeRoot.onKeyPress←'OnStandardKeyPress'
+
+ ∆←''
+ ∆,←⊂'Posn'(110 190)
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Run as admin o&nce'
+ ∆,←⊂'TipObj'n.tip
+ n.runAsAdmin←n.GeneralSubForm.⎕NEW'Button'∆
+ n.runAsAdmin.tip←⊂'Run Dyalog with admin rights but just once.'
+ n.runAsAdmin.tip,←⊂'Note: NO drag''n-drop when running as an admin!'
+ n.runAsAdmin.onSelect←'OnChanged' 'RUNASADMIN'
+ n.runAsAdmin.onKeyPress←'OnStandardKeyPress'
+⍝Done

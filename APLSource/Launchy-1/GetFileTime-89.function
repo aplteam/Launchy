@@ -1,0 +1,3 @@
+ GetFileTime←{
+     (('FileTime' 1)W.DirX ⍵)[1;W.COL_LastWriteDate]
+ }

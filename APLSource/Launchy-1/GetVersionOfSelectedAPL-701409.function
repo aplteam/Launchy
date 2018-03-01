@@ -1,0 +1,5 @@
+ GetVersionOfSelectedAPL←{
+     n←⍵
+     0=+/n.AplVers.SelItems:0
+     ⍎3⊃' 'U.Split⊃n.AplVers.(SelItems/Items)
+ }

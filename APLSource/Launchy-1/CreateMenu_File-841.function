@@ -1,0 +1,31 @@
+ n←CreateMenu_File n;∆;txt;version;path
+ n.MenuFile←n.MB.⎕NEW'Menu'(⊂'Caption' '&File')
+
+ ∆←''
+ ∆,←⊂'Caption' 'Patch Dyalog...'
+ ∆,←⊂'Hint' 'Patch all or the currently selected version of Dyalog'
+ n.loadPatch←n.MenuFile.⎕NEW'MenuItem'∆
+ n.loadPatch.onSelect←'OnLoadPatch'
+
+ n.Sep1←n.MenuFile.⎕NEW(⊂'Separator')
+
+ n.runRide←⍬
+ :For version path :InEach ↓⍉G.RideVersions
+     ∆←''
+     ∆,←⊂'Caption'('Start Ride ',version,'.',⊃¯1↑'.'U.Split path)
+⍝     ∆,←⊂'HintObj'n.statusbar
+     txt←'Starts Ride ',version,' and listens on port ',(⍕Ini.RIDE.port),' by default.'
+     ∆,←⊂'Hint'txt
+     n.runRide,←n.MenuFile.⎕NEW'MenuItem'∆
+     (¯1↑n.runRide).onSelect←⊂'OnRunRide'(version path)
+ :EndFor
+
+ n.Sep2←n.MenuFile.⎕NEW(⊂'Separator')
+
+ ∆←''
+ ∆,←⊂'Caption' 'Quit'
+⍝ ∆,←⊂'HintObj'n.statusbar
+ ∆,←⊂'Hint' 'Quit Launchy'
+ n.quit←n.MenuFile.⎕NEW'MenuItem'∆
+ n.quit.onSelect←'OnQuit'
+⍝Done

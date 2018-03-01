@@ -1,0 +1,7 @@
+ ExchangeIn←{
+⍝ 'abc_de' ←→ '._' Exchange 'abc.de'
+     w←⍵
+     0=+/b←w=⍺[1]:w
+     (b/w)←⍺[2]
+     w
+ }

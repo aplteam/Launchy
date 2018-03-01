@@ -1,0 +1,28 @@
+ n←CreateMenu_Help n;∆
+ n.MenuHelp←n.MB.⎕NEW'Menu'(⊂'Caption' '&Help')
+
+ ∆←''
+ ∆,←⊂'Caption'('Help on Launchy',(⎕UCS 9),'F1')
+ ∆,←⊂'Accelerator'(112 0)
+ n.Help←n.MenuHelp.⎕NEW'MenuItem'∆
+ n.Help.onSelect←'OnHelp'
+
+ ∆,←⊂'Caption'('Dyalog online help',(⎕UCS 9),'Shift+F1')
+ ∆,←⊂'Accelerator'(112 1)
+ n.OnlineHelp←n.MenuHelp.⎕NEW'MenuItem'∆
+ n.OnlineHelp.onSelect←'OnOnlineHelp'
+ n.OnlineHelp.Hint←'Opens online help of currently selected APL'
+
+ n←CreateCheatSheetMenu n
+
+ n.Sep31←n.MenuHelp.⎕NEW(⊂'Separator')
+
+ n.about←n.MenuHelp.⎕NEW'MenuItem'(⊂'Caption' 'About...')
+ n.about.onSelect←'OnAbout'
+
+ :If 0<Ini.CONFIG.⎕NC'letscrash'
+ :AndIf Ini.CONFIG.letscrash
+     n.Sep41←n.MenuHelp.⎕NEW(⊂'Separator')
+     n.letscrash←n.MenuHelp.⎕NEW'MenuItem'(⊂'Caption' 'Let''s crash')
+     n.letscrash.onSelect←'OnLetsCrash'
+ :EndIf

@@ -1,0 +1,32 @@
+ {r}←CheckDefaults type;f;l
+⍝ Checks which data is different from defaults and hightlight it.
+ r←⍬
+ :Select type
+ :Case 'APL_Version'
+     f←WhichAPL≢G.Default
+     n.AplVersionGroup.FCol←ColorCode×f
+ :Case 'WSSIZE'
+     f←n.wssize.((SelItems⍳1)⊃Items)≢Ini.WSSIZE.default
+     n.WssizeGroup.FCol←ColorCode×f
+ :Case 'DEBUGFLAG'
+     f←1≠1⍴n.debug.SelItems
+     n.DebugGroup.FCol←ColorCode×f
+ :Case '5977'
+     f←n.DYALOG_5977.State≠Ini.DYALOG_5977.tick
+     n.DYALOG_5977.FCol←ColorCode×f
+ :Case 'EXPOSEROOTPROP'
+     f←n.propertyExposeRoot.State≠Ini.PROPERTYEXPOSEROOT.tick
+     n.propertyExposeRoot.FCol←ColorCode×f
+ :Case 'RIDE'
+     f←n.RIDEflag.State≠Ini.RIDE.tick
+     n.RIDEflag.FCol←ColorCode×f
+ :Case 'RUNASADMIN'
+     n.runAsAdmin.FCol←ColorCode×n.runAsAdmin.State
+ :Case 'CMDLINE'
+     n.LabelCmdLine.FCol←ColorCode×~0∊⍴⍴n.cmdLineArgs.(⊃SelItems/Items)
+ :Else
+     .    ⍝ Not yet
+ :EndSelect
+ l←n.(AplVersionGroup WssizeGroup DebugGroup DYALOG_5977 propertyExposeRoot RIDEflag LabelCmdLine)
+ n.reset.Active←∨/0<+/¨l.FCol
+⍝Done

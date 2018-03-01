@@ -1,0 +1,110 @@
+ n←CreateVersions n;∆;msg;whichVersion;okFlag
+⍝
+ whichVersion←G.AplVersions≡¨⊂G.Default
+ :If okFlag←1=+/whichVersion                ⍝ Exactly one default - fine!
+     G.LastSelectedVersion←(whichVersion⍳1)⊃G.AplVersions
+ :Else
+     :If IniHas_DyalogDefault Ini
+     :AndIf (⊂Ini.DYALOG.default)∊G.AplVersions
+     ⍝ We do this only once to support the user with old INI files.
+         G.Default←Ini.DYALOG.default
+         whichVersion←G.AplVersions≡¨⊂G.Default
+         okFlag←1
+     :Else
+         G.Default←⊃G.AplVersions               ⍝ Make the first one the default, at least for the time being
+         whichVersion←(⍴G.AplVersions)↑1
+     :EndIf
+     G.LastSelectedVersion←G.Default
+ :EndIf
+ ∆←''
+ ∆,←⊂'Caption'(' ',(⍕⍴G.AplVersions),' APL Version',((1<⍴G.AplVersions)/'s'),' in total ')
+ ∆,←⊂'Posn'(5 2)
+ ∆,←⊂'Size'(50,n.GeneralSubForm.Size[2]-5)
+ n.AplVersionGroup←n.GeneralSubForm.⎕NEW'Group'∆
+ n.TheList←G.AplVersions
+
+ ∆←''
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Posn'(20 5)
+ ∆,←⊂'Size'(⍬ 180)
+ ∆,←⊂'TipObj'n.tip
+ n.AplVers←n.AplVersionGroup.⎕NEW'Combo'∆
+ n.AplVers.onSelect←'OnSelectAplVersion' 'APL_Version'
+ n.AplVers.tip←'Offers all versions of Dyalog' 'found in the Windows Registry' 'but honours check boxes'
+ n.AplVers.onKeyPress←'OnStandardKeyPress'
+ n.AplVers.onContextMenu←'OnContextMenu'
+
+ ∆←''
+ ∆,←⊂'Caption' '&All'
+ ∆,←⊂'Posn'(16,(5+2⊃+⌿↑n.AplVers.(Posn Size)))
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'State' 0
+ n.All←n.AplVersionGroup.⎕NEW'Button'∆
+ n.All.tip←'If ticked all APL version are shown'
+ n.All.onSelect←'OnAllApls'
+
+ ∆←''
+ ∆,←⊂'Posn'(12,5+2⊃+⌿↑n.All.(Posn Size))
+ ∆,←⊂'Size'(35 62)
+ n.WidthGroup←n.AplVersionGroup.⎕NEW'Group'∆
+
+ ∆←''
+ ∆,←⊂'Caption' '&32 bit'
+ ∆,←⊂'Posn'(0 5)
+ ∆,←⊂'Style' 'Radio'
+ ∆,←⊂'Active'(⊃∨/~∨/¨'-64 '∘⍷¨G.AplVersions)
+ ∆,←⊂'TipObj'n.tip
+ n.Width32←n.WidthGroup.⎕NEW'Button'∆
+ n.Width32.tip←'If ticked only' '32-bit versions are shown'
+
+ ∆←''
+ ∆,←⊂'Caption' '&64 bit'
+ ∆,←⊂'Posn'(20 5)
+ ∆,←⊂'Style' 'Radio'
+ ∆,←⊂'Active'(⊃∨/∨/¨'-64 '∘⍷¨G.AplVersions)
+ ∆,←⊂'TipObj'n.tip
+ n.Width64←n.WidthGroup.⎕NEW'Button'∆
+ n.Width64.tip←'If ticked only' '64-bit versions are shown'
+
+
+ n.AplVers.Items←{⍵/⍨~⍣n.Width32.State⊣∨/¨'-64'∘⍷¨⍵}G.AplVersions
+ n.AplVers.SelItems←n.AplVers.Items≡¨⊂G.Default
+
+ ∆←''
+ ∆,←⊂'Posn'(12,10+2⊃+⌿↑n.WidthGroup.(Posn Size))
+ ∆,←⊂'Size'(35 70)
+ n.UnicodeGroup←n.AplVersionGroup.⎕NEW'Group'∆
+
+ ∆←''
+ ∆,←⊂'Caption' '&Unicode'
+ ∆,←⊂'Posn'(0 5)
+ ∆,←⊂'Style' 'Radio'
+ ∆,←⊂'Active'(∨/∨/¨'Unicode'∘⍷¨G.AplVersions)
+ ∆,←⊂'TipObj'n.tip
+ n.Unicode←n.UnicodeGroup.⎕NEW'Button'∆
+ n.Unicode.tip←'If ticked only' 'Unicode versions are shown'
+
+ ∆←''
+ ∆,←⊂'Caption' '&Classic'
+ ∆,←⊂'Posn'(20 5)
+ ∆,←⊂'Style' 'Radio'
+ ∆,←⊂'Active'(∨/~∨/¨'Unicode'∘⍷¨G.AplVersions)
+ ∆,←⊂'TipObj'n.tip
+ n.Classic←n.UnicodeGroup.⎕NEW'Button'∆
+ n.Classic.tip←'If ticked only' 'Classic versions are shown'
+
+ :If 0=okFlag
+     msg←''
+     msg,←⊂'There was no default version of Dyalog defined yet.'
+     msg,←⊂'This version was selected as default for you:'
+     msg,←⊂''
+     msg,←⊂'   ',G.Default
+     msg,←⊂''
+     msg,←⊂'You can change this by selecting the appropriate version'
+     msg,←⊂'and then right-click on it and select "Make this the default".'
+     ShowMsg msg
+ :EndIf
+ 'OnChangeWidthOrUnicode'∘{⍵.onSelect←⍺}¨⎕WN n.WidthGroup
+ 'OnChangeWidthOrUnicode'∘{⍵.onSelect←⍺}¨⎕WN n.UnicodeGroup
+⍝Done

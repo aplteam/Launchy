@@ -1,0 +1,18 @@
+ n←CreateButtons n;∆;l
+ ∆←''
+ ∆,←⊂'Caption' '&Launch APL'
+ ∆,←⊂'Size'(⍬ 90)
+ ∆,←⊂'Default' 1
+ n.ok←n.Form.⎕NEW'Button'∆
+ n.ok.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+15
+ n.ok.Posn[2]←10
+ n.ok.onSelect←'OnLaunchAPL'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Restore defaults'
+ ∆,←⊂'Size'(⍬ 110)
+ ∆,←⊂'Active' 0
+ n.reset←n.Form.⎕NEW'Button'∆
+ n.reset.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+15
+ n.reset.Posn[2]←n.Form.Size[2]-120
+ n.reset.onSelect←'OnResetDefaults'

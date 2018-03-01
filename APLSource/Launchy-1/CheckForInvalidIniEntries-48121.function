@@ -1,0 +1,12 @@
+ CheckForInvalidIniEntries←{
+     Ini←⍵
+     0=+/'path2ride'∘{⊃⍴(⍴⍺)↓⍵}¨' '~¨⍨↓Ini.RIDE.⎕NL 2:⍬
+     0=+/'path2ride'{⍺∘≡¨(⍴⍺)↑¨⍵/⍨⍺∘{⊃⍴(⍴⍺)↓⍵}¨⍵}' '~¨⍨↓Ini.RIDE.⎕NL 2:⍬
+     msg←⊂'I am afraid the INI file contains an invalid definition for'
+     msg,←⊂''
+     msg,←⊂'[Ride]path2ride*'
+     msg,←⊂''
+     msg,←'' 'Therefore Launchy cannot continue.'
+     _←ShowMsg msg
+     Off 1
+ }

@@ -1,0 +1,22 @@
+ {r}←SayGoodByeAfterError parms;⎕TRAP;dmx;msg;crashedIn;flag
+ r←''
+ flag←0<parms.⎕NC'addToErrMsg'
+ ⎕TRAP←0 'S'
+ dmx←⎕DMX
+ crashedIn←'#.HandleError.'{⊃⍵↓⍨+/∧\⍺∘≡¨(⍴⍺)↑¨⍵}1↓⎕XSI
+ :If flag
+     msg←⊂'Launchy has crashed in ',parms.addToErrMsg
+ :Else
+     msg←⊂'Launchy has crashed.'
+ :EndIf
+ msg,←⊂'Please check the folder:'
+ msg,←⊂parms.errorFolder
+ msg,←⊂'for additional information.'
+ msg,←⊂''
+ msg,←⊂'If you find yourself unable to fix the problem'
+ msg,←⊂'then please send the error WS to kai@aplteam.com.'
+ msg,←⊂''
+ msg,←⊂'The most likely reason for a crash is a missing'
+ msg,←⊂'or invalid INI file entry, especially after an update.'
+ ShowMsg msg
+⍝Done

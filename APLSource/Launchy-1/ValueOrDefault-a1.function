@@ -1,0 +1,7 @@
+ ValueOrDefault←{
+⍝ Returns either ⍵ if not empty or ⍺ which defaults to 50
+⍝ Useful for setting size etc.
+     ⍺←50
+     ⍬≡⍵:⍺
+     ⍵
+ }

@@ -1,0 +1,5 @@
+ IniHas_DyalogDefault←{
+     Ini←⍵
+     0=Ini.⎕NC'DYALOG':0
+     0<Ini.DYALOG.⎕NC'default'
+ }

@@ -1,0 +1,5 @@
+ OnCheatSheet←{
+     filename←⍺
+     _←##.OS.WinExecute'"',filename,'"'
+     ⍬
+ }

@@ -1,0 +1,4 @@
+ GetDefaultForIconify←{
+     0=Ini.CONFIG.⎕NC'iconify':0
+     Ini.CONFIG.iconify
+ }

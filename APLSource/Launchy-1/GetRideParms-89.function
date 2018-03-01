@@ -1,0 +1,35 @@
+ {(r msg)}←GetRideParms n;flag;port;startRide;msg;version
+ r←0
+ msg←''
+ :If n.RIDEflag.Active
+ :AndIf 0≠n.RIDEflag.State
+     r←¯1 ⍝ Means "Cancelled"
+     version←⍎3⊃' 'U.Split WhichAPL
+     (flag port)←AskForRideAndPort n version
+     :If ¯1≠flag  ⍝ Not cancelled?
+         r←''
+     :AndIf 0≠flag
+         :If 15≤version
+             :If 0=startRide←StartWhichRide'Launchy: Start RIDE'
+                 :Return
+             :EndIf
+             r←' RIDE_INIT=SERVE:',Ini.RIDE.connect,':',⍕port
+             {}StartRide G.RideVersions[startRide;]
+             msg←⊂'In RIDE make sure that:'
+             msg,←⊂'"Host" is ',Ini.RIDE.connect
+             msg,←⊂'and "port" is',(⍕port),'.'
+             msg,←⊂'Then select "Connect to an interpreter"'
+             msg,←⊂'and press the "Go" button.'
+         :Else
+             startRide←'Launchy RIDE'YesOrNo2'Do you want to start RIDE now?'
+             r←' RIDE_INIT=POLL:',Ini.RIDE.connect,':',⍕port
+             {}StartRide⍣startRide⊣G.RideVersions[1;]
+             msg←⊂'In RIDE check "Address:port" underneath'
+             msg,←⊂'"Listen for connections from interpreter"'
+             msg,←⊂'"Host" should be ',Ini.RIDE.connect
+             msg,←⊂'and "port" ',(⍕port),'.'
+             msg,←⊂'Then press the "Listen" button.'
+         :EndIf
+         ⎕DL startRide
+     :EndIf
+ :EndIf

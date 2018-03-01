@@ -1,0 +1,9 @@
+ {r}←CheckIni Ini;msg
+⍝ Checks certain things
+ r←⍬
+ {}CheckIni_Ride Ini
+ {}CheckIni_DefaultDyalog Ini
+ {}CheckIni_WsSize Ini
+ {}CheckIni_WsSizeDefault Ini
+ {}CheckForInvalidIniEntries Ini
+⍝Done

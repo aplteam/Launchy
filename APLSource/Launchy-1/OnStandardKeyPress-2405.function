@@ -1,0 +1,5 @@
+ OnStandardKeyPress←{
+⍝ Handles Alt+F4
+     (115 4≢2↑4↓⍵):1            ⍝ It is NOT Alt+F4?! Let it pass!
+     ⎕NQ n.Form'Close'
+ }

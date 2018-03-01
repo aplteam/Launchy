@@ -1,0 +1,13 @@
+ OnSpinnerKeyPress←{
+⍝ Handles "Up/PgUp" & "Down/PgDn" as well as "Home" and "End" speficially.
+     rf←1⊃⍵                             ⍝ Ref to spinner
+     kc←3⊃⍵                             ⍝ Key code
+     0 1∊⍨⍴kc:1                         ⍝ We investigate commands only
+     'UC'≡kc:{0}rf.Thumb+←1             ⍝ 1 up
+     'US'≡kc:{0}rf.Thumb+←rf.Step       ⍝ Step up
+     'DC'≡kc:{0}rf.Thumb-←1             ⍝ 1 down
+     'DS'≡kc:{0}rf.Thumb-←rf.Step       ⍝ Step down
+     'LL'≡kc:{0}rf.Thumb←rf.Limits[2]   ⍝ Max
+     'RL'≡kc:{0}rf.Thumb←rf.Limits[1]   ⍝ Min
+     1                                  ⍝ Pass
+ }

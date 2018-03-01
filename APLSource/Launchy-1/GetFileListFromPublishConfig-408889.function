@@ -1,0 +1,4 @@
+ GetFileListFromPublishConfig←{
+     xml←⎕XML'flat'U.ReadUtf8File'Files\publish.config'
+     (xml[;2]≡¨⊂'file')⌿xml[;3]
+ }

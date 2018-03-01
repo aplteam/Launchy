@@ -1,0 +1,20 @@
+ {r}←CheckIni_WsSize Ini;bool;v2;num;v;msg
+ r←⍬
+ :If ~0∊⍴v←','U.Split Ini.WSSIZE.options
+     num←∊⊃¨⎕VFI¨v
+     (num/v)←{0∊⍴⍵:⍬ ⋄ {⍵,'M'}¨⍵}num/v
+     v2←↑{⍵{(⍵↑⍺)(⍵↓⍺)}+/∧\⍵∊⎕D}¨v
+     bool←v2[;2]∊,¨'M' 'MB' 'G' 'GB'
+     :If ∧/bool
+         Ini.WSSIZE.options←↑,/{⍺,',',⍵}/v
+     :Else
+         msg←⊂'I am afraid the INI file contains invalid definitions for'
+         msg,←⊂''
+         msg,←⊂'[WSSIZE]'
+         msg,←⊂'options'
+         msg,←⊂'(',(⊃{⍺,',',⍵}/(~bool)/v),')'
+         msg,←'' 'Therefore Launchy cannot continue.'
+         ShowMsg msg
+         Off 1
+     :EndIf
+ :EndIf

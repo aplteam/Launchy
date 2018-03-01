@@ -1,0 +1,12 @@
+ GetAplList←{
+⍝ Returns all installed versions of APL that fit the current
+⍝ settings of the radio buttons in WidthGroup and UnicodeGroup
+     list←⍵
+     bool←∨/¨'-64 '∘⍷¨list
+     flag←1 0≡{⍵.State}¨⎕WN n.WidthGroup
+     list←(~⍣flag⊣bool)/list
+     bool←∨/¨'Unicode'∘⍷¨list
+     flag←0 1≡{⍵.State}¨⎕WN n.UnicodeGroup
+     list←(~⍣flag⊣bool)/list
+     list
+ }

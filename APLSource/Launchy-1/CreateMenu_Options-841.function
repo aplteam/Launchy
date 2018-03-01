@@ -1,0 +1,27 @@
+ n←CreateMenu_Options n;∆
+ n.MenuOptions←n.MB.⎕NEW'Menu'(⊂'Caption' '&Options')
+
+ ∆←''
+ ∆,←⊂'Caption' 'Show command before launch'
+ ∆,←⊂'Checked'G.ShowCMD
+ ∆,←⊂'Hint' 'When ticked the command that launches APL will be shown to you'
+ n.showCmd←n.MenuOptions.⎕NEW'MenuItem'∆
+ n.showCmd.onSelect←'OnHandleOption'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Show tips'
+ ∆,←⊂'Hint' 'Toggles the visibility of any tips'
+ ∆,←⊂'Checked'G.ShowTips
+ n.showTips←n.MenuOptions.⎕NEW'MenuItem'∆
+ n.showTips.onSelect←'OnHandleTipToggler'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Iconify after launch'
+ ∆,←⊂'Hint' 'Iconify "Launchy" whenever the "Launch APL" button was pressed.'
+ ∆,←⊂'Checked'G.ShowTips
+ ∆,←⊂'Checked'(GetDefaultForIconify ⍬)
+ ∆,←⊂'Posn' 3
+ n.iconify←n.MenuOptions.⎕NEW'MenuItem'∆
+ n.iconify.onSelect←'OnIconify'
+
+⍝Done

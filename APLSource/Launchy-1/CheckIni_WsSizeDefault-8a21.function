@@ -1,0 +1,16 @@
+ {r}←CheckIni_WsSizeDefault Ini;v2;msg
+ r←⍬
+ :If ~0∊⍴Ini.WSSIZE.default
+ :AndIf ⊃⎕VFI Ini.WSSIZE.default
+     Ini.WSSIZE.default,←'M'
+ :EndIf
+ v2←{⍵↓⍨+/∧\⍵∊⎕D}Ini.WSSIZE.default
+ :If ~(⊂v2)∊,¨'M' 'MB' 'G' 'GB'
+     msg←⊂'I am afraid the INI file contains an invalid definition for'
+     msg,←⊂''
+     msg,←⊂'[WSSIZE]'
+     msg,←⊂'default'
+     msg,←'' 'Therefore Launchy cannot continue.'
+     ShowMsg msg
+     Off 1
+ :EndIf

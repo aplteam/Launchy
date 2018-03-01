@@ -1,0 +1,6 @@
+ GetRideMsg←{
+     tip←⊂'RIDE is an option from version 14.0 onwards.'
+     tip,←⊂'When an older version is selected the RIDE'
+     tip,←⊂'option becomes inactive.'
+     tip
+ }

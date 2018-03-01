@@ -1,0 +1,57 @@
+ flag←{caption}YesOrNo2 question;∆;ms;n2;this;startAt;rf;i;res
+ caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
+ n2←⎕NS''
+ question←U.Nest question
+
+ ∆←''
+ ∆,←⊂'MaxButton' 0
+ ∆,←⊂'MinButton' 0
+ ∆,←⊂'SysMenu' 0
+ ∆,←⊂'Sizeable' 0
+ ∆,←⊂'Posn'((n.Form.Posn+50))
+ ∆,←⊂'Size'(300 400)
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Caption'caption
+ n2.Form←⎕NEW'Form'∆
+
+ startAt←10 10
+ i←0
+ :For this :In question
+     i+←1
+     ∆←''
+     ∆,←⊂'Caption'(i⊃,question)
+     ∆,←⊂'Posn'startAt
+     rf←n2.Form.⎕NEW'Label'∆
+     ⍎'n2.Label',(¯2↑'00',⍕i),'←rf'
+     startAt[1]+←rf.Size[1]
+ :EndFor
+
+ ∆←''
+ ∆,←⊂'Caption' 'Yes'
+ ∆,←⊂'Default' 1
+ ∆,←⊂'Posn'((25+1⊃AddPosnAndSize rf),10)
+ ∆,←⊂'Size'(⍬ 80)
+ n2.OK←n2.Form.⎕NEW'Button'∆
+ n2.OK.Size[1]+←3
+ n2.OK.onSelect←1
+
+ ∆←''
+ ∆,←⊂'Caption' 'No'
+ ∆,←⊂'Cancel' 1
+ ∆,←⊂'Posn'(n2.OK.Posn[1],10+2⊃AddPosnAndSize n2.OK)
+ ∆,←⊂'Size'(⍬ 80)
+ n2.Cancel←n2.Form.⎕NEW'Button'∆
+ n2.Cancel.Size[1]+←3
+ n2.Cancel.onSelect←1
+
+ n2.Form.Size[1]←10+1⊃AddPosnAndSize n2.OK
+ n2.Form.Size[2]←10+(⌈/2⊃¨AddPosnAndSize¨'Label'⎕WN n2.Form)⌈2⊃AddPosnAndSize n2.Cancel
+
+ ⎕NQ n2.OK'GotFocus' ⋄ res←n2.Form.Wait
+ :If 0∊⍴res
+ :OrIf n2.Cancel≡⊃res
+     flag←0
+ :Else
+     flag←1
+ :EndIf
+ ⍝Done

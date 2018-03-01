@@ -1,0 +1,7 @@
+ r←OnChangeWinCoord msg;_
+⍝ Saves all Windows coordinates (height, width, x, y) in the Windows Registry
+⍝ and on the internal global variables
+ r←1
+ G.(ED_Rows ED_Cols ED_FirstX ED_FirstY)←n.(editHeight editWidth x y).Value
+ _←SaveInRegistry ⍬
+⍝Done

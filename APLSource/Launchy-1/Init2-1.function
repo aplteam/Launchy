@@ -1,0 +1,8 @@
+ Ini←Init2 errorParms
+⍝ Establish a couple of essentials
+ Ini←ProcessIniFile errorParms
+ CreateGlobals Ini
+ {}F.Cd Ini.CONFIG.workdir
+ {}SetScaledPixel ⍬
+ ∆AskForCommandLineParms←1
+⍝Done

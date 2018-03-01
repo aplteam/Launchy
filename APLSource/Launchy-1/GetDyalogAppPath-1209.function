@@ -1,0 +1,8 @@
+ r←GetDyalogAppPath
+⍝ Returns the key for the definition of the "Open" command in the Registry
+ r←'HKEY_CLASSES_ROOT\Applications\dyalog.exe\shell\open\command'
+ :If ~R.DoesKeyExist r
+     r←'HKEY_CLASSES_ROOT\dwsfile\shell\open\command'
+ :AndIf ~R.DoesKeyExist r
+     r←''
+ :EndIf

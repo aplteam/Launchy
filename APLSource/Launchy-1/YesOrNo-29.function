@@ -1,0 +1,9 @@
+ flag←{caption}YesOrNo question;∆;ms
+ caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
+ ∆←⊂'MsgBox'
+ ∆,←⊂caption
+ ∆,←⊂'Text'question
+ ∆,←⊂'Style' 'Query'
+ ∆,←⊂'Event'('MsgBtn1' 'MsgBtn2')1
+ 'ms'⎕WC ∆
+ flag←'MsgBtn1'≡2⊃⎕DQ'ms'

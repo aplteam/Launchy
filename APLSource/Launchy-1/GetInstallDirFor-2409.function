@@ -1,0 +1,5 @@
+ GetInstallDirFor←{
+⍝ Returns the installation directory names in ⍵
+     key←'HKCU\Software\Dyalog\',⍵,'\dyalog'
+     R.GetString key
+ }

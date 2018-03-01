@@ -1,0 +1,3 @@
+ R←ScreenSize;OldCoord;Flag
+ ⍝⍝ Return the client area size of the (main) screen
+ R←S.(GetSystemMetrics¨SM_CYFULLSCREEN SM_CXFULLSCREEN)

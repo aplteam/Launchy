@@ -1,0 +1,25 @@
+ OnResetDefaults←{
+⍝ Restore all defaults
+     n.(WidthGroup UnicodeGroup).Visible←1
+     n.Width64.Active←⊃∨/flag←∨/¨'-64 '∘⍷¨G.AplVersions
+     n.Width32.Active←⊃∨/~flag
+     n.Width32.State←⊃~flag←∨/'-64 '⍷G.Default
+     n.Width64.State←⊃flag
+     n.Unicode.Active←∨/flag←∨/¨'Unicode'∘⍷¨G.AplVersions
+     n.Classic.Active←∨/~flag
+     n.Unicode.State←flag←∨/'Unicode'⍷G.Default
+     n.Classic.State←~flag
+     _←OnChangeWidthOrUnicode ⍬
+     n.wssize.SelItems←n.wssize.Items≡¨⊂Ini.WSSIZE.default
+     n.debug.SelItems←Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list
+     f←n.DYALOG_5977.State←Ini.DYALOG_5977.tick
+     f←n.propertyExposeRoot.State←Ini.PROPERTYEXPOSEROOT.tick
+     n.cmdLineArgs.SelItems←(⍴n.cmdLineArgs.SelItems)↑1
+     n.(AplVersionGroup WssizeGroup DebugGroup DYALOG_5977 propertyExposeRoot RIDEflag LabelCmdLine).FCol←0
+     n.RIDEflag.State←Ini.RIDE.tick
+     n.statusbar.Text←'APL, WSSIZE, debug flags & Dyalog_5977 back on defaults'
+     n.reset.Active←0
+     _←CheckRide n
+     ⍬
+⍝Done
+ }

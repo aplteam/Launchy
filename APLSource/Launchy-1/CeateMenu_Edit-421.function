@@ -1,0 +1,22 @@
+ n←CeateMenu_Edit n;∆
+ ∆←''
+ ∆,←⊂'Caption' 'INI file'
+ ∆,←⊂'HintObj'n.statusbar
+ ∆,←⊂'Hint' 'Starts Notepad on the Dyalog launcher''s INI file(s)'
+ n.editINI←n.MenuEdit.⎕NEW'MenuItem'∆
+ n.editINI.onSelect←'OnEditINI'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Edit Registry entries'
+ ∆,←⊂'HintObj'n.statusbar
+ ∆,←⊂'Hint' 'Starts RegEdit on the currently selected version of Dyalog'
+ n.regEdit←n.MenuEdit.⎕NEW'MenuItem'∆
+ n.regEdit.onSelect←'OnRegEdit'
+
+ ∆←''
+ ∆,←⊂'Caption' 'DSS credentials'
+ ∆,←⊂'HintObj'n.statusbar
+ ∆,←⊂'Hint' 'Overwrite the DSS credentials for all installed APLs in one step'
+ n.editCredentials←n.MenuEdit.⎕NEW'MenuItem'∆
+ n.editCredentials.onSelect←'OnEditCredentials'
+⍝Done

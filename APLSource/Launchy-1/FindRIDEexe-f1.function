@@ -1,0 +1,2 @@
+ r←FindRIDEexe path
+ F.Dir path,'*.exe'

@@ -1,0 +1,7 @@
+ r←GetCommandLineParms
+⍝ Returns the command line parms, if any
+ :If 0=+/n.cmdLineArgs.SelItems
+     r←n.cmdLineArgs.Text
+ :Else
+     r←n.cmdLineArgs.((SelItems⍳1)⊃Items)
+ :EndIf

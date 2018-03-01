@@ -1,0 +1,85 @@
+ (flag port)←AskForRideAndPort(n version);∆;n2;res
+ flag←0 ⋄ port←Ini.RIDE.port
+ :If 15≤version
+     :If 0=+/G.RideVersions[;1]≢¨⊂'2.0'
+         :Return
+     :EndIf
+ :Else
+     :If 0=+/G.RideVersions[;1]≡¨⊂'2.0'
+         :Return
+     :EndIf
+ :EndIf
+ n2←⎕NS''
+ ∆←''
+ ∆,←⊂'Posn'(50 50+n.Form.Posn)
+ ∆,←⊂'Size'(110 280)
+ ∆,←⊂'Caption' 'Ride'
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'SysMenu' 0
+ ∆,←⊂'Sizeable' 0
+ n2.Form←n.Form.⎕NEW'Form'∆
+
+ ∆←''
+ ∆,←⊂'Posn'(5 10)
+ ∆,←⊂'Caption' 'Do you want to have a Ride?'
+ n2.Label←n2.Form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Posn'((15+1⊃AddPosnAndSize n2.Label)10)
+ ∆,←⊂'Caption' 'Port:'
+ n2.PortLabel←n2.Form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Posn'(n2.PortLabel.Posn[1],1⊃AddPosnAndSize n2.PortLabel)
+ ∆,←⊂'Size'(⍬ 60)
+ ∆,←⊂'FieldType' 'Numeric'
+ ∆,←⊂'Value'port
+ n2.Port←n2.Form.⎕NEW'Edit'∆
+ n2.Port.Size-←5
+ n2.Port.Posn[2]←5+2⊃AddPosnAndSize n2.PortLabel
+
+ ∆←''
+ ∆,←⊂'Caption' 'Yes please'
+ ∆,←⊂'Default' 1
+ ∆,←⊂'Size'((n.reset.Size[1]),80)
+ n2.Yes←n2.Form.⎕NEW'Button'∆
+ n2.Yes.Size[1]+←2
+ n2.Yes.Posn←(n2.Form.Size[1]-n2.Yes.Size[1]+10),10
+
+ ∆←''
+ ∆,←⊂'Caption' 'No thanks'
+ ∆,←⊂'Cancel' 1
+ ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
+ n2.No←n2.Form.⎕NEW'Button'∆
+ n2.No.Size[1]←n2.Yes.Size[1]
+ n2.No.Posn←(n2.Yes.Posn[1],10+2⊃AddPosnAndSize n2.Yes)
+
+ ∆←''
+ ∆,←⊂'Caption' 'Cancel'
+ ∆,←⊂'Cancel' 1
+ ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
+ n2.Cancel←n2.Form.⎕NEW'Button'∆
+ n2.Cancel.Size[1]←n2.Yes.Size[1]
+ n2.Cancel.Posn←(n2.Yes.Posn[1],10+2⊃AddPosnAndSize n2.No)
+
+ n2.Buttons←n2.(Yes No Cancel)
+ n2.Buttons.onSelect←1
+ n2.Port.SelText←1,1+⍴⍕port
+
+ :Repeat
+     ⎕NQ n2.Port'GotFocus' ⋄ res←⎕DQ n2.Form
+     :If n2.Cancel≡⊃res
+         flag←¯1
+     :Else
+         :If n2.Yes≡⊃res
+             :If ~0∊⍴n2.Port.Text
+             :AndIf ⊃⎕VFI n2.Port.Text
+             :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
+                 flag←1
+                 port←n2.Port.Value
+             :EndIf
+         :Else
+             flag←0
+         :EndIf
+     :EndIf
+ :Until flag≢⍬

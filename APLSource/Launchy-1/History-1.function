@@ -1,0 +1,33 @@
+ History
+⍝ * 3.3.0
+⍝   * Converted from the APL wiki to GitHub.
+⍝ * 3.2.0
+⍝   * Cheat sheets are available from the Help menu now.
+⍝   * If no working directory is defined in the INI file Launchy falls back to the default,
+⍝     the installation directory of the APL in question.
+⍝ * 3.1.1
+⍝   * Bug fix: Launchy insisted on "MB" for MAXWS when "M" is actually the official shortcut while "MB" is just tolerated.
+⍝ * 3.1.0
+⍝   * When Launchy deteced an early problem then the attempt to inform the user was buggy.
+⍝   * Launchy crashed in case it could not find any version of Dyalog. This can happen in
+⍝     case the user thas not rebooted the machine after the installation!
+⍝   * Open an explorer window on the Help directory required admin rights.
+⍝   * F32 flag removed.
+⍝   * Size of the statusbar improved.
+⍝ * 3.0.0
+⍝   * When the `Run as admin` box is ticked it resets itself to unticked after one call.
+⍝   * Re-structuctured: just a namespace #.Launchy now.
+⍝   * `Launchy` is now managed by acre 3.
+⍝ * 2.9.1
+⍝   * For Ride the build id is now shown.
+⍝   * Bug fix: initial list of APL versions was incorrect
+⍝ * 2.9.0
+⍝   * The online help can now be referenced from the "Help" menu.
+⍝   * Ride 4.0 can be started from the "File" menu.
+⍝ * 2.8.2
+⍝   * In case Launchy crashed (missing INI etc) the error message crashed itself.
+⍝   * When for any reason for the selected APL no Registry was found Launchy went astray.
+⍝ * 2.8.1
+⍝   * Giving a RIDE had problems.
+⍝ * 2.8.0
+⍝   * Internal changes only. In particular WinFile was replaced by FilesAndDirs.
