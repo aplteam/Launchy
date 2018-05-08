@@ -2,6 +2,5 @@
 ⍝ Establish a couple of essentials
  (U F R S)←##.(APLTreeUtils FilesAndDirs WinReg WinSys)
  ∆HomeDir←F.PWD
- ⍝{}3502⌶'SERVE::4502'
- ⍝{}3502⌶1
+ EnableEralyRide 0    ⍝ For debugging Launchy's EXE
 ⍝Done

@@ -1,0 +1,4 @@
+ GetFolder←{
+     ~0∊⍴Ini.CONFIG.workdir:Ini.CONFIG.workdir
+     GetInstallPath G.CurrentAPL
+ }

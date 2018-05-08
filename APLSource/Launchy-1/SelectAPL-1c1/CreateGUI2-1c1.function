@@ -1,0 +1,66 @@
+ (n2 options favourite)←CreateGUI2(n aplList default);∆;l;i;ref;bit;type;this
+ n2←⎕NS''
+ ∆←''
+ ∆,←⊂'Caption' 'Launchy: APL selector'
+ ∆,←⊂'Posn'(n.Form.Posn+30 40)
+ ∆,←⊂'Size'(400 600)
+ ∆,←⊂'MaxButton' 0
+ ∆,←⊂'MinButton' 0
+ ∆,←⊂'Sizeable' 0
+ ∆,←⊂'Coord' 'Pixel'
+ n2.Form←n.Form.⎕NEW'Form'∆
+ n2.Form.MyFont←⎕NEW'Font'(('PName' 'APL385 Unicode')('Size' 16))
+
+ ∆←''
+ ∆,←⊂'Posn'(15 15)
+ ∆,←⊂'Size'(⍬ ⍬)
+ ∆,←⊂'Items'aplList
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Rows'(1+⊃⍴aplList)
+ n2.List←n2.Form.⎕NEW'ComboEx'∆
+
+ l←0
+ options←bit←type←⍬
+ :For i :In ⍳⍴aplList
+     this←i⊃aplList
+     l+←1
+     ∆←''
+     ∆,←⊂'Caption'this
+     ∆,←⊂'Style' 'Radio'
+     ∆,←⊂'FontObj'n2.Form.MyFont
+     ref←n2.Form.⎕NEW'Button'∆
+     ⍎'n2.ref',(¯2↑'0',⍕l),'←ref'
+     :If 1=i
+         ref.Posn←(15 15)
+     :Else
+         ref.Posn←(((24×type≢15↓this)+(16×bit≢this[13 14])+(⊃{+⌿↑⍵.(Posn Size)}⊃¯1↑options)),15)
+     :EndIf
+     options,←ref
+     bit←this[13 14]
+     type←15↓this
+ :EndFor
+
+ :If 0=+/default
+     favourite←⊃options
+ :Else
+     favourite←(default⍳1)⊃options
+ :EndIf
+ favourite.State←1
+
+ ∆←''
+ ∆,←⊂'Size'(⍬ 90)
+ ∆,←⊂'Default' 1
+ ∆,←⊂'Caption' 'OK'
+ n2.OK←n2.Form.⎕NEW'Button'∆
+ n2.OK.Posn←(15+1⊃⊃⌈/##.AddPosnAndSize¨options),15
+
+ ∆←''
+ ∆,←⊂'Size'(⍬ 90)
+ ∆,←⊂'Cancel' 1
+ ∆,←⊂'Caption' 'Cancel'
+ n2.Cancel←n2.Form.⎕NEW'Button'∆
+ n2.Cancel.Posn←((n2.OK.Posn[1])),15+2⊃+⌿↑n2.OK.(Posn Size)
+ n2.Form.Size[1]←(15+⊃+⌿↑n2.OK.(Posn Size))
+ n2.Form.Size[2]←(15+2⊃##.AddPosnAndSize n2.Cancel)
+
+ n2.(OK Cancel).onSelect←1

@@ -21,3 +21,4 @@
  n.debug.tip←'Specify one of these to get' 'an aplcore closer to the problem'
  n.debug.onSelect←'OnChanged' 'DEBUGFLAG'
  n.debug.onKeyPress←'OnStandardKeyPress'
+⍝Done

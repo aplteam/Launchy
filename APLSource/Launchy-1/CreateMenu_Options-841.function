@@ -1,5 +1,6 @@
  n←CreateMenu_Options n;∆
  n.MenuOptions←n.MB.⎕NEW'Menu'(⊂'Caption' '&Options')
+ n.MenuOptions.onDropDown←'OnMenuOptionsDropDown'
 
  ∆←''
  ∆,←⊂'Caption' 'Show command before launch'
@@ -18,10 +19,29 @@
  ∆←''
  ∆,←⊂'Caption' 'Iconify after launch'
  ∆,←⊂'Hint' 'Iconify "Launchy" whenever the "Launch APL" button was pressed.'
- ∆,←⊂'Checked'G.ShowTips
- ∆,←⊂'Checked'(GetDefaultForIconify ⍬)
+ ∆,←⊂'Checked'G.Iconify
  ∆,←⊂'Posn' 3
  n.iconify←n.MenuOptions.⎕NEW'MenuItem'∆
  n.iconify.onSelect←'OnIconify'
 
+ ∆←''
+ ∆,←⊂'Caption' 'Make currently selected APL the default'
+ ∆,←⊂'Hint' 'The default version will be pre-selected at restart.'
+ ∆,←⊂'Posn' 4
+ n.MakeDefault←n.MenuOptions.⎕NEW'MenuItem'∆
+ n.MakeDefault.onSelect←'OnMakeDefault'
+
+ ∆←''
+ ∆,←⊂'Caption'('Select the default version',(⎕UCS 9),'F4')
+ ∆,←⊂'Accelerator'(115 0)
+ ∆,←⊂'Posn' 5
+ n.SelectDefault←n.MenuOptions.⎕NEW'MenuItem'∆
+ n.SelectDefault.onSelect←'OnSelectDefault'
+
+ ∆←''
+ ∆,←⊂'Caption'('Give focus to the list of APLs',(⎕UCS 9),'F5')
+ ∆,←⊂'Accelerator'(116 0)
+ ∆,←⊂'Posn' 6
+ n.MoveFocusToList←n.MenuOptions.⎕NEW'MenuItem'∆
+ n.MoveFocusToList.onSelect←'OnMoveFocusToList'
 ⍝Done

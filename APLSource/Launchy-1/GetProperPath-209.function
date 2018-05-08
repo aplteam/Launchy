@@ -1,3 +1,3 @@
  r←GetProperPath dummy;rk
  rk←GetRegPathForCurrentDyalogVersion
- r←GetInstallPath WhichAPL
+ r←GetInstallPath GetCurrentlySelectedAPL

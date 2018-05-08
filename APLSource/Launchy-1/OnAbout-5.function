@@ -1,4 +1,5 @@
  OnAbout←{
 ⍝
-     About ⍬
+     n←GetRef2n⊃⍵
+     About n
  }

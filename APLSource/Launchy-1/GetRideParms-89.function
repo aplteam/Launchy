@@ -4,7 +4,7 @@
  :If n.RIDEflag.Active
  :AndIf 0≠n.RIDEflag.State
      r←¯1 ⍝ Means "Cancelled"
-     version←⍎3⊃' 'U.Split WhichAPL
+     version←⍎3⊃' 'U.Split GetCurrentlySelectedAPL
      (flag port)←AskForRideAndPort n version
      :If ¯1≠flag  ⍝ Not cancelled?
          r←''

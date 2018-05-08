@@ -1,0 +1,3 @@
+ r←GetCurrentlySelectedAPL
+ r←G.CurrentAPL←(n.List.SelItems⍳1)⊃n.List.∆Orig
+⍝Done

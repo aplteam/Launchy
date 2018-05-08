@@ -1,0 +1,7 @@
+ OnSelectLink←{
+     rf←⊃⍵
+     0=+/'https://'⍷rf.Caption:1
+     n←GetRef2n rf
+     _←U.GoToWebPage rf.Caption
+     1
+ }

@@ -1,4 +1,4 @@
- list←GetAplVersions;msg
+ list←GetInstalledAPLs dummy;msg
 ⍝ Examines the Registry in order to find out which versions of
 ⍝ Dyalog are installed on the current machine
  list←R.GetAllSubKeyNames'Software\Dyalog'

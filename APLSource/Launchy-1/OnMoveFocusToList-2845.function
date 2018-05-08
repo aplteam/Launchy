@@ -1,0 +1,6 @@
+ OnMoveFocusToList←{
+     n←GetRef2n⊃⍵
+     _←⎕NQ n.List'GotFocus'
+     _←⎕NQ n.List'KeyPress' 'DC' 0 40 4  ⍝ "DC" is required to get around bug 15644
+     0
+ }

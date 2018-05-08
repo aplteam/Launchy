@@ -1,0 +1,5 @@
+ OnSelectDefault←{
+     n←GetRef2n⊃⍵
+     n.List.SelItems←n.List.∆Orig≡¨⊂G.Default
+     0
+ }

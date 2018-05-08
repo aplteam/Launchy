@@ -1,4 +1,17 @@
  History
+⍝ * 4.0.0
+⍝   * The way an APL version can be selected was re-designed. It now fulfills the needs of those
+⍝     who start many different versions of APL per day but still allows you to switch only
+⍝     occasionally by defining a default version.
+⍝   * "F5" introduced for moving the focus to the list of installed APLs **and** open the combo box.
+⍝   * "F4" introduced for selecting the default version.
+⍝   * Bug fixes:
+⍝     * In case no `workdir` was defined the menu command "Explore > WorkDir" did not fall back to
+⍝       the installation directory as stated in the documentation.
+⍝     * On "ActivateApp" Launchy always gave the focus to the default button. It should go to the
+⍝       list of installed APLs.
+⍝     * "Run as Admin once" now activates the "Restore defaults" button, and clicking the button
+⍝       unticks the check box.
 ⍝ * 3.3.0
 ⍝   * Converted from the APL wiki to GitHub.
 ⍝ * 3.2.0
@@ -18,16 +31,3 @@
 ⍝   * When the `Run as admin` box is ticked it resets itself to unticked after one call.
 ⍝   * Re-structuctured: just a namespace #.Launchy now.
 ⍝   * `Launchy` is now managed by acre 3.
-⍝ * 2.9.1
-⍝   * For Ride the build id is now shown.
-⍝   * Bug fix: initial list of APL versions was incorrect
-⍝ * 2.9.0
-⍝   * The online help can now be referenced from the "Help" menu.
-⍝   * Ride 4.0 can be started from the "File" menu.
-⍝ * 2.8.2
-⍝   * In case Launchy crashed (missing INI etc) the error message crashed itself.
-⍝   * When for any reason for the selected APL no Registry was found Launchy went astray.
-⍝ * 2.8.1
-⍝   * Giving a RIDE had problems.
-⍝ * 2.8.0
-⍝   * Internal changes only. In particular WinFile was replaced by FilesAndDirs.

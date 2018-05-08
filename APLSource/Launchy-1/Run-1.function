@@ -16,6 +16,5 @@
  ⎕TRAP←#.HandleError.SetTrap'#.ErrorParms'
  Ini←Init2 #.ErrorParms
  n←CreateGui
- SelectDefaults n
- DQ n.AplVers
+ DQ'.'
  Shutdown ⍬

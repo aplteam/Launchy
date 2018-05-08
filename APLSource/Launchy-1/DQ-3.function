@@ -1,3 +1,9 @@
- DQ giveFocusTo
- ⎕NQ giveFocusTo'GotFocus' ⋄ ⎕DQ'.'
+ {r}←{giveFocusTo}DQ obj;⎕TRAP
+⍝ :If 0=⎕NC'giveFocusTo'
+⍝     giveFocusTo←n.ChangeAPL
+⍝ :EndIf
+ :If 0=⎕NC'giveFocusTo'
+     giveFocusTo←n.List
+ :EndIf
+ ⎕NQ giveFocusTo'GotFocus' ⋄ r←⎕DQ obj
 ⍝Done

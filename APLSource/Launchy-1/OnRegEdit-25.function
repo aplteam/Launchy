@@ -1,5 +1,5 @@
  OnRegEdit←{
-     vers←⊃n.AplVers.(SelItems/Items)
+     vers←⊃n.List.(SelItems/∆Orig)
      path←'Computer\HKEY_CURRENT_USER\Software\Dyalog\'
      rk←path,vers
      _←R.PutString'Software\Microsoft\Windows\CurrentVersion\Applets\Regedit\LastKey'rk

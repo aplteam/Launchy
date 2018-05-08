@@ -1,5 +1,5 @@
  GetDefaultFromRegistry←{
 ⍝ Returns the default version as defined in the Windows Registry
 ⍝ or an ampty vector if there is no such thing as of yet.
-     ''R.GetString GetAplLauncherRegistryKey,'DefaultAPL'
+     ''R.GetString GetAplLauncherRegistryKey,'DefaultVersion'
  }

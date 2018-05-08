@@ -1,13 +1,12 @@
  LaunchDyalog←{
 ⍝ Compiles the "batch script" and finally launches any version of Dyalog better than V11
      ⍺←''
-     (ty ws dseType h w x y tf clp d5977 ride)←⍵
+     (ty ws dseType h w x y tf clp ride)←⍵
      p←GetInstallPath ty
      0∊⍴p:TellRegistryProblem ty
      parms←S.CreateParms_ShellExecute
      parms.file←p,'Dyalog.exe'
      parms.lpParms←'MAXWS=',ws
-     parms.lpParms,←n.DYALOG_5977.State/' -DYALOG_5977=0'
      parms.lpParms,←' ',(GetDebugCode ⍬)
      parms.lpParms,←' PropertyExposeRoot=',(⍕n.propertyExposeRoot.State)
      parms.lpParms,←' ',clp                       ⍝ Add command line parameters
@@ -21,6 +20,6 @@
      (0=n.showCmd.Checked ShowCmd parms n.runAsAdmin.State):0
      rc←n.runAsAdmin.State S.ShellExecute parms
      0≠rc:0⊣ShowMsg'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
-     n.statusbar.Text←ty,' launched at ',U.FormatDateTime 6↑⎕TS
+     n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,' launched at ',U.FormatDateTime 6↑⎕TS
      1
  }

@@ -1,12 +1,12 @@
  type OnSelectAplVersion msg;rf;flag;ty;_
 ⍝ Toggle some options depending on the APL version selected
  rf←1⊃msg
- ty←WhichAPL
+ ty←G.Default
  flag←'11.0'≢ty
  _←ReadWinCoords ⍬
  _←SaveWinCoord G.LastSelectedVersion
  _←GetWinCoords ⍬
  _←RefreshWindowCoords ⍬
- G.LastSelectedVersion←WhichAPL
+ G.LastSelectedVersion←G.Default
  CheckRide n
  CheckDefaults type

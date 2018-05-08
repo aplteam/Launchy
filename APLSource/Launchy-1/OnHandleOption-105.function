@@ -1,5 +1,4 @@
  OnHandleOption←{
-⍝
      rf←1⊃⍵
      rf.Checked←~rf.Checked
      0

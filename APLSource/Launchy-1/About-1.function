@@ -1,14 +1,55 @@
- About←{
+ {r}←About n;tx;∆;n2;posn;i;ref;links;isLink
 ⍝ Called by OnAbout
-     tx←''
-     tx,←⊂'Written by Kai Jaeger'
-     tx,←⊂'http://aplteam.com'
-     tx,←⊂'Homepage: http://aplwiki.com/Launchy'
-     tx,←⊂''
-     tx,←⊂'>>> Version ',2⊃Version
-     tx,←⊂''
-     buff←↓¯1↓1↓⍤1⊣2↓⎕CR'Version'
-     buff←⊃,/(-1+∧/¨(buff~¨' ')∊¨⊂⎕D,'.')↑¨(⊂⊂''),¨⊂¨buff
-     _←ShowMsg tx,buff
-     0
- }
+ r←⍬
+ tx←''
+ tx,←⊂'Written by Kai Jaeger'
+ tx,←⊂'https://aplteam.com'
+ tx,←⊂'Homepage:'
+ tx,←⊂'https://github.com/aplteam/Launchy'
+
+ n2←⎕NS''
+ ∆←''
+ ∆,←⊂'Caption' 'About Launchy'
+ ∆,←⊂'Posn'(n.Form.Posn+20 50)
+ ∆,←⊂'Size'(300 400)
+ ∆,←⊂'MinButton' 0
+ ∆,←⊂'MaxButton' 0
+ ∆,←⊂'SysMenu' 0
+ n2.Form←n.Form.⎕NEW'Form'∆
+ n2.LinkFont←⎕NEW'Font'(('weight' 800)('Underline' 1))
+
+ posn←15 15
+ i←1
+ links←''
+ :For i :In ⍳⍴tx
+     ∆←''
+     ∆,←⊂'Caption'(i⊃tx)
+     ∆,←⊂'Posn'posn
+     ∆,←⊂'Attach'(4⍴'Top' 'Left')
+     :If isLink←'https://'{⍺≡(⍴⍺)↑⍵}i⊃tx
+         ∆,←⊂'FCol'(0 0 255)
+         ∆,←⊂'FontObj'n2.LinkFont
+
+     :EndIf
+     ref←n2.Form.⎕NEW'Label'∆
+     posn[1]+←ref.Size[1]
+     ⍎'n2.Field',(¯2↑'0',⍕i),'←ref'
+     :If isLink
+         links,←ref
+     :EndIf
+ :EndFor
+ :If ~0∊⍴links
+     links.onMouseUp←⊂'OnSelectLink'
+ :EndIf
+
+ ∆←''
+ ∆,←⊂'Caption' 'Close'
+ ∆,←⊂'Posn'((20+⊃AddPosnAndSize ref),15)
+ ∆,←⊂'Size'(⍬ 120)
+ ∆,←⊂'Default' 1
+ ∆,←⊂'Cancel' 1
+ n2.Close←n2.Form.⎕NEW'Button'∆
+ n2.Close.onSelect←1
+ n2.Form.Size←((15+⊃AddPosnAndSize n2.Close),30+⌈/{2⊃AddPosnAndSize ⍵}¨⎕WN n2.Form)
+ ⎕DQ n2.Form
+⍝Done

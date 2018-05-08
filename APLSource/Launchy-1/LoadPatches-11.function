@@ -1,6 +1,6 @@
  {r}←LoadPatches dummy;this;rc;cs;∆;res;q;parms;aplPath
  r←⍬
- q←('Patch just ',WhichAPL,'?')'' '(No = all versions of Dyalog!)'
+ q←('Patch just ',GetCurrentlySelectedAPL,'?')'' '(No = all versions of Dyalog!)'
  →(¯1≡res←YesNoCancel q)/0
  :If 1≡res
      r←LoadPatch ⍬

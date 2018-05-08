@@ -1,6 +1,6 @@
  GetRegPathForCurrentDyalogVersion←{
 ⍝ Returns full registry path for the currently selected version
-⍝ of Dyalog APL in case  ⍵ is empty or ⍵ otherwise (probably the default version)
-     v←{0∊⍴⍵:WhichAPL ⋄ ⍵}⍵
+⍝ of Dyalog APL in case  ⍵ is empty the default version is chosen.
+     v←{0∊⍴⍵:G.Default ⋄ ⍵}⍵
      GetRegPathForDyalog,v
  }

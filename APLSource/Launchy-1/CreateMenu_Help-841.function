@@ -13,8 +13,6 @@
  n.OnlineHelp.onSelect←'OnOnlineHelp'
  n.OnlineHelp.Hint←'Opens online help of currently selected APL'
 
- n←CreateCheatSheetMenu n
-
  n.Sep31←n.MenuHelp.⎕NEW(⊂'Separator')
 
  n.about←n.MenuHelp.⎕NEW'MenuItem'(⊂'Caption' 'About...')

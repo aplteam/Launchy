@@ -1,3 +1,0 @@
- r←WhichAPL
-⍝ Returns the caption of the currently selected APL or an empty vector if there is no APL selected.
- r←⊃n.AplVers.(SelItems/Items)

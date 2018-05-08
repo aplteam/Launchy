@@ -1,18 +1,24 @@
  n←CreateButtons n;∆;l
  ∆←''
- ∆,←⊂'Caption' '&Launch APL'
+ ∆,←⊂'Caption' 'Launch APL'
  ∆,←⊂'Size'(⍬ 90)
- ∆,←⊂'Default' 1
+ ∆,←⊂'Accelerator'(13 2)
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Tip' '"Click" with Ctrl+Enter'
  n.ok←n.Form.⎕NEW'Button'∆
- n.ok.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+15
+ n.ok.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+10
  n.ok.Posn[2]←10
  n.ok.onSelect←'OnLaunchAPL'
+ n.ok.onKeyPress←'OnKeyPressInPushButton'
 
  ∆←''
  ∆,←⊂'Caption' 'Restore defaults'
  ∆,←⊂'Size'(⍬ 110)
  ∆,←⊂'Active' 0
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Tip' 'Restore all controls to their default settings'
  n.reset←n.Form.⎕NEW'Button'∆
- n.reset.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+15
+ n.reset.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+10
  n.reset.Posn[2]←n.Form.Size[2]-120
  n.reset.onSelect←'OnResetDefaults'
+ n.reset.onKeyPress←'OnKeyPressInPushButton'

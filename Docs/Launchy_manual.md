@@ -1,4 +1,4 @@
-[parm]:title =   'Launchy Manual'
+`[parm]:title =   'Launchy Manual'
 
 # Launchy User Manual
 
@@ -9,48 +9,37 @@
 In a general INI file called Launchy.ini one can specify a couple of things. For a programmer it should be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that one.
 
 In addition to the general INI file one can also specify an INI file named "Launchy\_{machineName}.ini" which will only be instantiated on machines with matching names. This allows one to specify machine dependent INI entries, "workdir" and "wssize" being the most obvious candidates.
-
-## Features
-
-In addition to its main goal --- launching Dyalog --- Launchy offers these features:
-    
-* Store DSS credentials in the Registry.        
-* Patch the currently selected or all installed versions of Dyalog.
-* Edit the Registry entries for the currently selected version of Dyalog.
-* Display the online help for the currently selected version of Dyalog.
-* Provide access to all cheat sheets via the "Help" menu.
-* Open a Windows Explorer on...
-  * the install directory of the currently selected version of Dyalog.
-  * the current directory.
-  * the help directory of the currently selected version of Dyalog.
-* Edit Launchy's INI file.            
+          
 
 ## Notes
         
-* "workdir" is the directory which will become the current dir for any instance of Dyalog APL launched by Launchy. If the INI entry does not exist or is empty or the specified directory does not exist then the working directory will fall back to the default: the installation directory of the selected APL.
+* "workdir" is the directory which will become the current dir for any instance of Dyalog APL launched by Launchy.
+
+  If the INI entry does not exist or is empty or the specified directory then there will be no menu entry "Explore > WorkDir
+
+  
 * In case Launchy itself was launched with admin rights (by selecting "Run as administrator" from the context menu associated with Launchy exe for example) the string "Rights: extended" will be shown in the caption of the GUI. 
 
 ## Installation
     
-Move the contents of the ZIP file you've downloaded from the APL wiki into the appropriate folder.<<br>>A good place might be:
+Move the contents of the ZIP file you've downloaded into the appropriate folder.<<br>>A good place might be:
 
 `C:\Users\{YourUserName}\AppData\Local\Programs\Launchy\`
 
 or
 
-`C:\Users\All Users\AppData\Local\Programs\Dyalog\RIDE`
+`C:\Users\All Users\AppData\Local\Programs\Dyalog\Launchy`
 
-However, note that `AppData` is by default "invisible" to ordinary users.
+Notes:
 
-(Note that `Program Files` or `Program Files (x86)` are not exactly ideal because Microsoft keeps making it harder to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.)
+* `AppData` is by default invisible to ordinary users.
+
+* `Program Files` or `Program Files (x86)` are not exactly ideal because Microsoft keeps making it harder to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.)
 
 Now remove ".RemoveMe" from the name of the INI file which is by then "Launchy.ini.RemoveMe"; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.
 
 With a default RIDE installation it should work out of the box. With a non-standard installation of RIDE you need to make adjustments to the INI file.
 
-## Cheat sheets
-
-With version 3.2 Launchy offers access to the cheat sheets introduced with version 16.0 from the "Help" menu. Note that always the latest version of Dyalog is chosen as the source.
     
 ## How to update
 
@@ -59,7 +48,7 @@ With version 3.2 Launchy offers access to the cheat sheets introduced with versi
 * Compare "Launchy.ini" (your own INI file) with "Launchy.ini.RemoveMe" (the file you've just
   downloaded) in order to identify changes you have to adapt. 
   
-  Using a tool like [CompareIt!](http://www.grigsoft.com/wincmp3.htm) or [Beyond Compare](https://www.scootersoftware.com/) for this is recommended.
+  Using a tool like [CompareIt!](http://www.grigsoft.com/wincmp3.htm) or [Beyond Compare](https://www.scootersoftware.com/) is recommended for doing this.
 
   Then act sensibly and you will be fine.
   
@@ -95,11 +84,12 @@ However, with version 3.0 the check box "Run admin once" unticks itself, so you 
     
 Until version 1.7.1 the default version was defined by an INI entry. With version 1.8.0 this was changed. Now the default version is saved on a per-user basis in the Windows Registry.
 
-If there is no such RegKey yet, the first of the list of all installed APLs is defined as default. The user might change this at any time by...
+If there is no such RegKey yet, the first of the list of all installed APLs is defined as default. The user might change this at any time by selecting the appropriate version and then selecting "Make currently selected APL the defaults". 
 
-1. selecting the appropriate version.
-1. right-clicking at it.
-1. selecting "Make this the default" from the context menu.
+The default is used in two scenarios:
+
+* When Launchy is fired up the default version is pre-selected.
+* By selecting "Select the default version" from the "Options" menu (F5) you can easily jump to the default version.
 
 ## License, copyright, creator
 

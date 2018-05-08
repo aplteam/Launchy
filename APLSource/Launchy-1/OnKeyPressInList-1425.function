@@ -1,0 +1,12 @@
+ OnKeyPressInList←{
+     key←3⊃⍵
+     'ER'≡key:(2↑⍵),'EP' 27 27 0
+     (⍴,key)∊0 2:1
+     ref←⊃⍵
+     bool←key=¨⊃¨ref.Items
+     0=+/bool:0
+     ref.SelItems←bool
+     G.CurrentAPL←⊃bool/n.List.∆Orig
+     n←GetRef2n ref
+     0
+ }

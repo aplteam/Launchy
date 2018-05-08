@@ -1,0 +1,4 @@
+ OnSelectList←{
+     _←⎕NQ(⊃⍵)'GotFocus'
+     1
+ }

@@ -1,0 +1,4 @@
+ r←giveFocusTo DQ form;result
+ 2 ⎕NQ giveFocusTo'GotFocus' ⋄ result←⎕DQ form
+ r←n2.OK≡⊃result
+⍝Done

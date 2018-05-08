@@ -1,0 +1,8 @@
+ OnMenuOptionsDropDown←{
+⍝ Used to de-cativate the ..
+     n←GetRef2n⊃⍵
+     flag←G.Default≡⊃n.List.(SelItems/∆Orig)
+     n.(MakeDefault SelectDefault).Active←~flag
+     n.SelectDefault.Checked←flag
+     1
+ }

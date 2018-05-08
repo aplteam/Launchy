@@ -1,4 +1,4 @@
- n←CreateVersions n;∆;msg;whichVersion;okFlag
+ n←CreateVersions n;∆;msg;whichVersion;okFlag;orig;default;aplList
 ⍝
  whichVersion←G.AplVersions≡¨⊂G.Default
  :If okFlag←1=+/whichVersion                ⍝ Exactly one default - fine!
@@ -17,82 +17,26 @@
      G.LastSelectedVersion←G.Default
  :EndIf
  ∆←''
- ∆,←⊂'Caption'(' ',(⍕⍴G.AplVersions),' APL Version',((1<⍴G.AplVersions)/'s'),' in total ')
+ ∆,←⊂'Caption'(' ',(⍕⍴G.AplVersions),' APL Version',((1<⍴G.AplVersions)/'s'),' installed ')
  ∆,←⊂'Posn'(5 2)
  ∆,←⊂'Size'(50,n.GeneralSubForm.Size[2]-5)
  n.AplVersionGroup←n.GeneralSubForm.⎕NEW'Group'∆
  n.TheList←G.AplVersions
 
+ (aplList orig default)←GetListOfAPLs G
  ∆←''
+ ∆,←⊂'Posn'(17 10)
+ ∆,←⊂'Size'(⍬(n.AplVersionGroup.Size[2]-2×10))
+ ∆,←⊂'Items'aplList
  ∆,←⊂'Style' 'Drop'
- ∆,←⊂'Posn'(20 5)
- ∆,←⊂'Size'(⍬ 180)
+ ∆,←⊂'Rows'(1+⊃⍴aplList)
  ∆,←⊂'TipObj'n.tip
- n.AplVers←n.AplVersionGroup.⎕NEW'Combo'∆
- n.AplVers.onSelect←'OnSelectAplVersion' 'APL_Version'
- n.AplVers.tip←'Offers all versions of Dyalog' 'found in the Windows Registry' 'but honours check boxes'
- n.AplVers.onKeyPress←'OnStandardKeyPress'
- n.AplVers.onContextMenu←'OnContextMenu'
-
- ∆←''
- ∆,←⊂'Caption' '&All'
- ∆,←⊂'Posn'(16,(5+2⊃+⌿↑n.AplVers.(Posn Size)))
- ∆,←⊂'Style' 'Check'
- ∆,←⊂'TipObj'n.tip
- ∆,←⊂'State' 0
- n.All←n.AplVersionGroup.⎕NEW'Button'∆
- n.All.tip←'If ticked all APL version are shown'
- n.All.onSelect←'OnAllApls'
-
- ∆←''
- ∆,←⊂'Posn'(12,5+2⊃+⌿↑n.All.(Posn Size))
- ∆,←⊂'Size'(35 62)
- n.WidthGroup←n.AplVersionGroup.⎕NEW'Group'∆
-
- ∆←''
- ∆,←⊂'Caption' '&32 bit'
- ∆,←⊂'Posn'(0 5)
- ∆,←⊂'Style' 'Radio'
- ∆,←⊂'Active'(⊃∨/~∨/¨'-64 '∘⍷¨G.AplVersions)
- ∆,←⊂'TipObj'n.tip
- n.Width32←n.WidthGroup.⎕NEW'Button'∆
- n.Width32.tip←'If ticked only' '32-bit versions are shown'
-
- ∆←''
- ∆,←⊂'Caption' '&64 bit'
- ∆,←⊂'Posn'(20 5)
- ∆,←⊂'Style' 'Radio'
- ∆,←⊂'Active'(⊃∨/∨/¨'-64 '∘⍷¨G.AplVersions)
- ∆,←⊂'TipObj'n.tip
- n.Width64←n.WidthGroup.⎕NEW'Button'∆
- n.Width64.tip←'If ticked only' '64-bit versions are shown'
-
-
- n.AplVers.Items←{⍵/⍨~⍣n.Width32.State⊣∨/¨'-64'∘⍷¨⍵}G.AplVersions
- n.AplVers.SelItems←n.AplVers.Items≡¨⊂G.Default
-
- ∆←''
- ∆,←⊂'Posn'(12,10+2⊃+⌿↑n.WidthGroup.(Posn Size))
- ∆,←⊂'Size'(35 70)
- n.UnicodeGroup←n.AplVersionGroup.⎕NEW'Group'∆
-
- ∆←''
- ∆,←⊂'Caption' '&Unicode'
- ∆,←⊂'Posn'(0 5)
- ∆,←⊂'Style' 'Radio'
- ∆,←⊂'Active'(∨/∨/¨'Unicode'∘⍷¨G.AplVersions)
- ∆,←⊂'TipObj'n.tip
- n.Unicode←n.UnicodeGroup.⎕NEW'Button'∆
- n.Unicode.tip←'If ticked only' 'Unicode versions are shown'
-
- ∆←''
- ∆,←⊂'Caption' '&Classic'
- ∆,←⊂'Posn'(20 5)
- ∆,←⊂'Style' 'Radio'
- ∆,←⊂'Active'(∨/~∨/¨'Unicode'∘⍷¨G.AplVersions)
- ∆,←⊂'TipObj'n.tip
- n.Classic←n.UnicodeGroup.⎕NEW'Button'∆
- n.Classic.tip←'If ticked only' 'Classic versions are shown'
+ ∆,←⊂'Tip' 'The default version is marked with a ★'
+ ∆,←⊂'SelItems'default
+ n.List←n.AplVersionGroup.⎕NEW'Combo'∆
+ n.List.onKeyPress←'OnKeyPressInList'
+ n.List.onSelect←'OnSelectList'
+ n.List.∆Orig←orig
 
  :If 0=okFlag
      msg←''
@@ -101,10 +45,7 @@
      msg,←⊂''
      msg,←⊂'   ',G.Default
      msg,←⊂''
-     msg,←⊂'You can change this by selecting the appropriate version'
-     msg,←⊂'and then right-click on it and select "Make this the default".'
+     msg,←⊂'You can change this via the "Options" menu (F4).'
      ShowMsg msg
  :EndIf
- 'OnChangeWidthOrUnicode'∘{⍵.onSelect←⍺}¨⎕WN n.WidthGroup
- 'OnChangeWidthOrUnicode'∘{⍵.onSelect←⍺}¨⎕WN n.UnicodeGroup
 ⍝Done

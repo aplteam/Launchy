@@ -2,29 +2,24 @@
 
 ## Overview
 
-**_Launchy_** is useful for people with several versions of Dyalog installed on their machine(s). If your are like me then you have about 12 versions of Dyalog installed, and you need different versions for different projects / clients. Launchy simplifies the process of firing up an instance of Dyalog as well as making adjustments to the size of edit windows or passing parameters via the command line.
+**_Launchy_** is useful for people with several versions of Dyalog installed on their machine(s). 
 
-Launchy offers two tabs with settings that can be adjusted independently from each other for each version of Dyalog installed on your machine. This is the first (main) Tab:
+If your are like me then you have about 12 versions of Dyalog installed, and you need different versions for different projects / clients. Launchy simplifies the process of firing up an instance of Dyalog as well as making adjustments to the size of edit windows or passing parameters via the command line.
 
-![](images/LaunchyGui.png)
+In addition to its main goal Launchy offers these features:
 
-This is the second Tab:
-
-![](images/LaunchyGui2.png)
-
-Note that if you change any settings they will change color in order to allows you to spot any non-default settings with a glance.
-
-There is one exception: the color of the "Run with admin rights" check box will change as soon as it is ticked.
-
-In case the "Show command before launch" option is active Launchy shows the command just before it is going to be executed:
-
-![](images/LaunchyMSG.png)
-
-The "Ride" option is only visible when at least 14.0 is selected, and it is active only when the INI file does say so.
-
-Ticking the box makes Launchy ask whether you would like to give the instance a Ride:
-
-![](images/LaunchyMsg2.png)
+* Store DSS credentials in the Registry.
+* Patch the currently selected or all installed versions of Dyalog.
+* Edit the Registry entries for the currently selected version of Dyalog.
+* Display the online help for the currently selected version of Dyalog.
+* Provide access to all cheat sheets via the “Help” menu.
+* Open a Windows Explorer on...
+  * the install directory of the currently selected version of Dyalog.
+  * the current directory.
+  * the help directory of the currently selected version of Dyalog.
+* Edit Launchy's INI file.
+* Access Dyalog's online help
+* Start any version of Ride installed on your machine.
 
 
 ## Preconditions
