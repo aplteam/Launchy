@@ -1,5 +1,6 @@
- (flag port)←AskForRideAndPort(n version);∆;n2;res
- flag←0 ⋄ port←Ini.RIDE.port
+ (flag port rideExe)←AskForRideAndPort(n version);∆;n2;res
+ flag←0 ⋄ port←Ini.RIDE.port ⋄ rideExe←''
+
  :If 15≤version
      :If 0=+/G.RideVersions[;1]≢¨⊂'2.0'
          :Return
@@ -10,9 +11,10 @@
      :EndIf
  :EndIf
  n2←⎕NS''
+
  ∆←''
  ∆,←⊂'Posn'(50 50+n.Form.Posn)
- ∆,←⊂'Size'(110 280)
+ ∆,←⊂'Size'(160 310)
  ∆,←⊂'Caption' 'Ride'
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'SysMenu' 0
@@ -20,35 +22,66 @@
  n2.Form←n.Form.⎕NEW'Form'∆
 
  ∆←''
+ ∆,←⊂'Caption' 'Ride Options'
  ∆,←⊂'Posn'(5 10)
- ∆,←⊂'Caption' 'Do you want to have a Ride?'
- n2.Label←n2.Form.⎕NEW'Label'∆
+ ∆,←⊂'Size'(70 220)
+ n2.RideOptions←n2.Form.⎕NEW'Group'∆
 
  ∆←''
- ∆,←⊂'Posn'((15+1⊃AddPosnAndSize n2.Label)10)
- ∆,←⊂'Caption' 'Port:'
- n2.PortLabel←n2.Form.⎕NEW'Label'∆
+ ∆,←⊂'Caption' '&Listen for Ride on port:'
+ ∆,←⊂'Posn'(20 10)
+ ∆,←⊂'Style' 'Radio'
+ ∆,←⊂'State' 1
+⍝ ∆,←⊂'TipObj'
+⍝ ∆,←⊂'Tip' ''
+
+ n2.RideListen←n2.RideOptions.⎕NEW'Button'∆
 
  ∆←''
- ∆,←⊂'Posn'(n2.PortLabel.Posn[1],1⊃AddPosnAndSize n2.PortLabel)
- ∆,←⊂'Size'(⍬ 60)
+ ∆,←⊂'Posn'((n2.RideListen.Posn[1]+5),(10+2⊃AddPosnAndSize n2.RideListen))
+ ∆,←⊂'Size'(⍬ 50)
  ∆,←⊂'FieldType' 'Numeric'
  ∆,←⊂'Value'port
+ ∆,←⊂'MaxLength' 7
+ ∆,←⊂'Active' 1
  n2.Port←n2.Form.⎕NEW'Edit'∆
  n2.Port.Size-←5
- n2.Port.Posn[2]←5+2⊃AddPosnAndSize n2.PortLabel
+ n2.Port.(onGotFocus onLostFocus)←'OnPortGotFocus' 'OnPortLostFocus'
 
  ∆←''
- ∆,←⊂'Caption' 'Yes please'
+ ∆,←⊂'Caption' '&Start APL from Ride'
+ ∆,←⊂'Posn'((⊃AddPosnAndSize n2.RideListen),10)
+ ∆,←⊂'Style' 'Radio'
+ ∆,←⊂'State' 0
+ ∆,←⊂'Active' 0
+⍝ ∆,←⊂'TipObj'
+⍝ ∆,←⊂'Tip' ''
+ n2.RideSpawn←n2.RideOptions.⎕NEW'Button'∆
+
+ n2.(RideListen RideSpawn).onSelect←⊂'OnChangeRideType'
+
+ ∆←''
+ ∆,←⊂'Posn'((10+⊃AddPosnAndSize n2.RideOptions),10)
+ ∆,←⊂'Caption' 'Ride &version:'
+ n2.Label2←n2.Form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Items'({⊃,/¯2↑⎕NPARTS ⍵}¨G.RideVersions[;2])
+ ∆,←⊂'SelItems'(G.RideVersions[;2]≡¨⊂G.RideVersion)
+ ∆,←⊂'Posn'(n2.Label2.Posn[1],(2⊃AddPosnAndSize n2.Label2))
+ ∆,←⊂'Size'(⍬ 80)
+ n2.RideVersion←n2.Form.⎕NEW'Combo'∆
+
+ ∆←''
+ ∆,←⊂'Caption' 'Give me a Ride'
  ∆,←⊂'Default' 1
- ∆,←⊂'Size'((n.reset.Size[1]),80)
+ ∆,←⊂'Size'((n.reset.Size[1]),90)
  n2.Yes←n2.Form.⎕NEW'Button'∆
  n2.Yes.Size[1]+←2
  n2.Yes.Posn←(n2.Form.Size[1]-n2.Yes.Size[1]+10),10
 
  ∆←''
- ∆,←⊂'Caption' 'No thanks'
- ∆,←⊂'Cancel' 1
+ ∆,←⊂'Caption' '&No thanks'
  ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
  n2.No←n2.Form.⎕NEW'Button'∆
  n2.No.Size[1]←n2.Yes.Size[1]
@@ -64,7 +97,8 @@
 
  n2.Buttons←n2.(Yes No Cancel)
  n2.Buttons.onSelect←1
- n2.Port.SelText←1,1+⍴⍕port
+ ⍝TODO⍝  n2.Port.SelText←1,1+⍴⍕port
+ n2.Form.n←n2
 
  :Repeat
      ⎕NQ n2.Port'GotFocus' ⋄ res←⎕DQ n2.Form
@@ -72,14 +106,23 @@
          flag←¯1
      :Else
          :If n2.Yes≡⊃res
-             :If ~0∊⍴n2.Port.Text
-             :AndIf ⊃⎕VFI n2.Port.Text
-             :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
+             :If n2.RideSpawn.State
+                 rideExe←2⊃G.RideVersions[⊃⍸n2.RideVersion.SelItems;]
                  flag←1
-                 port←n2.Port.Value
+             :Else
+                 :If ~0∊⍴n2.Port.Text
+                 :AndIf ⊃⎕VFI n2.Port.Text
+                 :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
+                     flag←1
+                     port←n2.Port.Value
+                 :EndIf
              :EndIf
          :Else
              flag←0
          :EndIf
      :EndIf
  :Until flag≢⍬
+ ⎕NQ n2.Form'Close'
+ n2.n←⍬
+ {}⎕WA
+⍝Done

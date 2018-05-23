@@ -1,13 +1,13 @@
  n←CreateCommandLine n;∆
 
  ∆←''
- ∆,←⊂'Posn'(145 3)
+ ∆,←⊂'Posn'(140 3)
  ∆,←⊂'Caption' 'Command line parameters:'
  n.LabelCmdLine←n.GeneralSubForm.⎕NEW'Label'∆
 
  ∆←''
  ∆,←⊂'Style' 'DropEdit'
- ∆,←⊂'Posn'(165 2)
+ ∆,←⊂'Posn'(160 2)
  ∆,←⊂'Size'(⍬(n.Form.Size[2]-31))
  ∆,←⊂'Items'G.CMDs
  ∆,←⊂'TipObj'n.tip

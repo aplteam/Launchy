@@ -1,0 +1,5 @@
+ OnPortGotFocus←{
+     n←GetRef2n⊃,⍵
+     n.Port.SelText←1,8
+     1
+ }

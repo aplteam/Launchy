@@ -6,7 +6,7 @@
      ⍝ Not any more
  :Case 'WSSIZE'
      f←n.wssize.((SelItems⍳1)⊃Items)≢Ini.WSSIZE.default
-     n.WssizeGroup.FCol←ColorCode×f
+     n.wssize_Label.FCol←ColorCode×f
  :Case 'DEBUGFLAG'
      f←1≠1⍴n.debug.SelItems
      n.DebugGroup.FCol←ColorCode×f
@@ -23,6 +23,6 @@
  :Else
      .    ⍝ Not yet
  :EndSelect
- l←n.(AplVersionGroup WssizeGroup DebugGroup propertyExposeRoot RIDEflag LabelCmdLine runAsAdmin)
+ l←n.(AplVersionGroup wssize_Label DebugGroup propertyExposeRoot RIDEflag LabelCmdLine runAsAdmin)
  n.reset.Active←∨/0<+/¨l.FCol
 ⍝Done

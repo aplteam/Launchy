@@ -1,0 +1,4 @@
+ GetRideExeName←{
+     pathToExe←⍵
+     pathToExe,'\Ride-',(⊃¯2↑⎕NPARTS pathToExe),'.exe'
+ }

@@ -2,6 +2,7 @@
 ⍝ Examines the Registry in order to find out which versions of
 ⍝ Dyalog are installed on the current machine
  list←R.GetAllSubKeyNames'Software\Dyalog'
+ list←(50<⊃∘⍴¨R.GetAllValueNames¨(⊂'Software\Dyalog\'),¨list)/list
  :If 0∊⍴list
      msg←⊂'No version of Dyalog was found'
      msg,←⊂''

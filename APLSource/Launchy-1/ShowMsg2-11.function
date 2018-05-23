@@ -13,7 +13,7 @@
  ∆,←⊂'Size'(300 400)
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Caption'caption
- n2.Form←⎕NEW'Form'∆
+ n2.Form←n.Form.⎕NEW'Form'∆
 
  startAt←10 10
  i←0

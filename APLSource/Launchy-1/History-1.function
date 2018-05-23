@@ -1,4 +1,14 @@
  History
+⍝ * 4.1.0
+⍝   * Improved GUI for giving Dyalog a Ride.
+⍝   * Bug fixes:
+⍝     * Any attempt to start "Ride" from Launchy crashed it.
+⍝     * All dialog boxes are now children of the Launchy main form, making it impossible for them
+⍝       to be hidden behind that main form.
+⍝     * When a Dyalog installation was de-installed but the process was not fully successfully
+⍝       the mutilated Registry entries sometimes left behind could make Launchy crash.
+⍝     * The Ride dialog offered no shortcut for "No thanks".
+⍝     * The message regarding Ride started from Launchy was ill-formatted.
 ⍝ * 4.0.0
 ⍝   * The way an APL version can be selected was re-designed. It now fulfills the needs of those
 ⍝     who start many different versions of APL per day but still allows you to switch only

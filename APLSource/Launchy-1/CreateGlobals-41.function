@@ -14,6 +14,7 @@
  G.CMDs←','U.Split''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
  G.Default←GetDefaultFromRegistry G.AplVersions
  G.RideVersions←Find_RIDE_Versions Ini
+ G.RideVersion←2⊃⊢⌿G.RideVersions
  G.Iconify←Ini.CONFIG.iconify R.GetValue GetAplLauncherRegistryKey,'Iconify'
  {}GetWinCoords G.Default
 ⍝Done

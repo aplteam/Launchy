@@ -1,6 +1,6 @@
  AskForShowCommandLineParms←{
      ⎕THIS.∆AskForCommandLineParms←0 ⍝ Ask just once per session
-     m←⊂'You have specified specified parameters on the command line.'
+     m←⊂'You have specified parameters on the command line.'
      m,←⊂'Would you like to display them?'
      m,←'' '(This question will be asked only once per session)'
      YesOrNo m
