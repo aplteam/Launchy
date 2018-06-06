@@ -2,7 +2,10 @@
 ⍝ Returns a list with all major (like 3.0) and minor (like (3.1) versions of Ride found in the
 ⍝ path `[Ride]path2ride` is pointing to - if that exists at all.
 ⍝ If several builds are installed for a version then the latest one is chosen.
- :If 2=Ini.RIDE.⎕NC'path2ride'
+ r←''
+ :If 0<Ini.⎕NC'RIDE'
+ :AndIf 2=Ini.RIDE.⎕NC'path2ride'
+ :AndIf F.IsDir Ini.RIDE.path2ride
  :AndIf ~0∊⍴allRides←⌽⊃F.Dir Ini.RIDE.path2ride,'\*.*.*'
      versionNos←'\'U.Last¨allRides
      versionNos←{⍵/⍨2>+\'.'=⍵}¨versionNos

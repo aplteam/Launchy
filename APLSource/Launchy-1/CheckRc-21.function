@@ -1,0 +1,7 @@
+ {r}←msg CheckRc rc
+ r←0
+ msg←,⊆msg
+ ((⍴msg)⊃msg)←((⍴msg)⊃msg),'; rc=',⍕rc
+ :If 0≠rc
+     'Launchy problem'ShowMsg2 msg
+ :EndIf

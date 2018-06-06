@@ -7,9 +7,9 @@
  iniFilename←∆HomeDir,'\Launchy.ini'
  iniFilename2←∆HomeDir,'\Launchy_',S.GetComputerName,'.ini'
  :If ⎕NEXISTS iniFilename2
-     Ini←⎕NEW ##.IniFiles(,⊂iniFilename iniFilename2)
+     Ini←⎕NEW ##.##.IniFiles(,⊂iniFilename iniFilename2)
  :ElseIf ⎕NEXISTS iniFilename
-     Ini←⎕NEW ##.IniFiles(,⊂iniFilename)
+     Ini←⎕NEW ##.##.IniFiles(,⊂iniFilename)
  :Else
      ShowMsg'Cannot find the requiered INI file'
      Off

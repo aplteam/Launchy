@@ -12,14 +12,13 @@ In addition to its main goal Launchy offers these features:
 * Patch the currently selected or all installed versions of Dyalog.
 * Edit the Registry entries for the currently selected version of Dyalog.
 * Display the online help for the currently selected version of Dyalog.
-* Provide access to all cheat sheets via the “Help” menu.
 * Open a Windows Explorer on...
   * the install directory of the currently selected version of Dyalog.
   * the current directory.
   * the help directory of the currently selected version of Dyalog.
 * Edit Launchy's INI file.
 * Access Dyalog's online help
-* Start any version of Ride installed on your machine.
+* Start any major version of Ride installed on your machine.
 
 
 ## Preconditions

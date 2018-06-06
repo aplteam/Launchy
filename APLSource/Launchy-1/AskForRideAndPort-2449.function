@@ -48,12 +48,16 @@
  n2.Port.Size-←5
  n2.Port.(onGotFocus onLostFocus)←'OnPortGotFocus' 'OnPortLostFocus'
 
+
  ∆←''
  ∆,←⊂'Caption' '&Start APL from Ride'
  ∆,←⊂'Posn'((⊃AddPosnAndSize n2.RideListen),10)
  ∆,←⊂'Style' 'Radio'
  ∆,←⊂'State' 0
- ∆,←⊂'Active' 0
+
+ ∆,←⊂'Active' 0   ⍝ One day, when spawning an APL session allows passing command line parameters...
+ ∆,←⊂'Visible' 0  ⍝ One day, when spawning an APL session allows passing command line parameters...
+
 ⍝ ∆,←⊂'TipObj'
 ⍝ ∆,←⊂'Tip' ''
  n2.RideSpawn←n2.RideOptions.⎕NEW'Button'∆
@@ -81,7 +85,7 @@
  n2.Yes.Posn←(n2.Form.Size[1]-n2.Yes.Size[1]+10),10
 
  ∆←''
- ∆,←⊂'Caption' '&No thanks'
+ ∆,←⊂'Caption' '&Just APL'
  ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
  n2.No←n2.Form.⎕NEW'Button'∆
  n2.No.Size[1]←n2.Yes.Size[1]

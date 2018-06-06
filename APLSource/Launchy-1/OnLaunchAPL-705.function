@@ -6,7 +6,7 @@
  G.CurrentAPL←GetCurrentlySelectedAPL
  :If ¯1≢RIDE
      :If LaunchDyalog G.CurrentAPL ws'',n.(editHeight editWidth x y).Value,n.tracerFlag.State,GetCommandLineParms RIDE
-         ⎕DL 1
+         ⎕DL 0.1
          rf.Active←1
          :If n.iconify.Checked
              n.Form ⎕WS'State' 1

@@ -9,13 +9,12 @@
      parms←S.CreateParms_ShellExecute
      :If (,2)≡,ride
 
-⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝
-
 ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
 ⍝ This part is not ready yet because there is yet no option available to    ⍝
 ⍝ specify parameters (like MAXWS=) and flags (like -Dcw) for a spawned APL. ⍝
 ⍝ That's a pity because spawned APLs would be very nice since one does not  ⍝
 ⍝ need to bother about ports: Ride and Dyalog would negotiate a free port.  ⍝
+⍝ Also, the session window won't make an appearance then.                   ⍝
 ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
 
      ⍝ We launch Ride and tell it to spawn an APL instance, and which one

@@ -1,6 +1,9 @@
  Ini←Init1 dummy;errParms
 ⍝ Establish a couple of essentials
- (U F R S)←##.(APLTreeUtils FilesAndDirs WinReg WinSys)
+ U←##.##.APLTreeUtils
+ F←##.##.FilesAndDirs
+ R←##.##.WinReg
+ S←##.##.WinSys
  ∆HomeDir←F.PWD
  EnableEralyRide 0    ⍝ For debugging Launchy's EXE
 ⍝Done

@@ -20,7 +20,9 @@
      (¯1↑n.runRide).onSelect←⊂'OnRunRide'(version path)
  :EndFor
 
- n.Sep2←n.MenuFile.⎕NEW(⊂'Separator')
+ :If n.runRide≢⍬
+     n.Sep2←n.MenuFile.⎕NEW(⊂'Separator')
+ :EndIf
 
  ∆←''
  ∆,←⊂'Caption' 'Quit'

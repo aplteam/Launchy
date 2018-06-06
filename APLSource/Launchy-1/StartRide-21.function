@@ -1,12 +1,23 @@
- {r}←StartRide(version pathToExe);parms;rc
+ {r}←StartRide(version pathToExe);parms;rc;bat
  r←0
  parms←S.CreateParms_ShellExecute
- parms.file←GetRideExeName pathToExe
  :If '2.0'≡version
+     parms.file←GetRideExeName pathToExe
      parms.lpParms,←' -listen=localhost:',⍕Ini.RIDE.port
      rc←S.ShellExecute parms
+     'Could not start Ride'CheckRc rc
  :Else
-     parms.lpParms,←' -listen=',Ini.RIDE.connect,':',⍕Ini.RIDE.port
+     bat←''
+     :If 2=Ini.RIDE.⎕NC'profile'
+     :AndIf ~0∊⍴Ini.RIDE.profile
+         bat,←⊂'SET RIDE_PREFS=',Ini.RIDE.profile
+     :EndIf
+     bat,←⊂(GetRideExeName pathToExe),' -listen=',Ini.RIDE.connect,':',⍕Ini.RIDE.port
+     parms.file←'bat'#.FilesAndDirs.GetTempFilename2''
+     parms.show←0
+     #.APLTreeUtils.WriteUtf8File parms.file bat
      rc←S.ShellExecute parms
+     'Could not start Ride'CheckRc rc
+     {⎕DL 2 ⋄ #.FilesAndDirs.DeleteFile ⍵}&parms.file
  :EndIf
 ⍝Done

@@ -8,7 +8,12 @@
  ∆,←⊂'Caption' 'Ask for a &RIDE'
  ∆,←⊂'Active'(f1∧f2)
  ∆,←⊂'Visible'f1
- ∆,←⊂'State'Ini.RIDE.tick
+ :If 0<Ini.⎕NC'RIDE'
+ :AndIf 0<Ini.RIDE.⎕NC'tick'
+     ∆,←⊂'State'Ini.RIDE.tick
+ :Else
+     ∆,←⊂'Active' 0
+ :EndIf
  ∆,←⊂'TipObj'n.tip
  ∆,←⊂'Tip'('Let Launchy ask whether Dyalog should try to' 'connect to RIDE')
  n.RIDEflag←n.Form.⎕NEW'Button'∆

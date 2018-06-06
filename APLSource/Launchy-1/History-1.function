@@ -1,6 +1,7 @@
  History
 ⍝ * 4.1.0
 ⍝   * Improved GUI for giving Dyalog a Ride.
+⍝   * The Ini file may now specify a particular preference file for Ride 4.1 and later.
 ⍝   * Bug fixes:
 ⍝     * Any attempt to start "Ride" from Launchy crashed it.
 ⍝     * All dialog boxes are now children of the Launchy main form, making it impossible for them
@@ -9,6 +10,10 @@
 ⍝       the mutilated Registry entries sometimes left behind could make Launchy crash.
 ⍝     * The Ride dialog offered no shortcut for "No thanks".
 ⍝     * The message regarding Ride started from Launchy was ill-formatted.
+⍝     * When no Ride was installed Launchy crashed.
+⍝     * In case the Ride-related INI entries were missing Launchy crashed.
+⍝     * In case the INI entry `RIDE.path2ride` pointed to a folder that did not contain any version
+⍝       of Ride Launchy crashed. (Install Ride, then un-install it)
 ⍝ * 4.0.0
 ⍝   * The way an APL version can be selected was re-designed. It now fulfills the needs of those
 ⍝     who start many different versions of APL per day but still allows you to switch only

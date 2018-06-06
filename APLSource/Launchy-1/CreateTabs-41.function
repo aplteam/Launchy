@@ -31,3 +31,4 @@
  n.EditTraceSubForm.Coord←'Pixel'
 
  ⎕NQ n.GeneralTab'Select'
+⍝Done

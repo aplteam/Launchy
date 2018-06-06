@@ -6,19 +6,19 @@
 
 ![Launchy's icon](http://misc.aplteam.com/launchy.ico){width="32" height="32"} Launchy is designed to address the needs of developers who have more than just one version of Dyalog APL installed on their machine. It investigates the Windows Registry in order to work out which versions of Dyalog APL are installed and offers them in a drop-down control for selection.
 
-In a general INI file called Launchy.ini one can specify a couple of things. For a programmer it should be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that one.
+In the INI file called `Launchy.ini` one can specify a couple of things. For a programmer it should be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that one.
 
-In addition to the general INI file one can also specify an INI file named "Launchy\_{machineName}.ini" which will only be instantiated on machines with matching names. This allows one to specify machine dependent INI entries, "workdir" and "wssize" being the most obvious candidates.
+In addition to the general INI file one can also specify an INI file named `Launchy\_{machineName}.ini` which will only be instantiated on machines with matching names. This allows one to specify machine dependent INI entries, "workdir" and "wssize" being the most obvious candidates.
           
 
 ## Notes
         
-* "workdir" is the directory which will become the current dir for any instance of Dyalog APL launched by Launchy.
+* "workdir" is the directory which will become the current (or working) directory for any instance of Dyalog APL launched by Launchy.
 
   If the INI entry does not exist or is empty or the specified directory then there will be no menu entry "Explore > WorkDir
 
   
-* In case Launchy itself was launched with admin rights (by selecting "Run as administrator" from the context menu associated with Launchy exe for example) the string "Rights: extended" will be shown in the caption of the GUI. 
+* In case Launchy itself was launched with admin rights (by selecting "Run as administrator" from the context menu associated with Launchy exe for example) "Rights: extended" will be shown in the caption of Launchy's GUI. 
 
 ## Installation
     
@@ -36,23 +36,23 @@ Notes:
 
 * `Program Files` or `Program Files (x86)` are not exactly ideal because Microsoft keeps making it harder to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.)
 
-Now remove ".RemoveMe" from the name of the INI file which is by then "Launchy.ini.RemoveMe"; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.
+Now remove ".RemoveMe" from the name of the INI file which is by then `Launchy.ini.RemoveMe`; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.
 
 With a default RIDE installation it should work out of the box. With a non-standard installation of RIDE you need to make adjustments to the INI file.
 
     
 ## How to update
 
-* Download Launchy
+* Download Launchy.
 * Replace all files in your current installation with the newly downloaded files. 
-* Compare "Launchy.ini" (your own INI file) with "Launchy.ini.RemoveMe" (the file you've just
+* Compare `Launchy.ini` (your own INI file) with `Launchy.ini.RemoveMe` (the file you've just
   downloaded) in order to identify changes you have to adapt. 
   
   Using a tool like [CompareIt!](http://www.grigsoft.com/wincmp3.htm) or [Beyond Compare](https://www.scootersoftware.com/) is recommended for doing this.
 
   Then act sensibly and you will be fine.
   
-* When everything works fine delete "Launchy.ini.RemoveMe"    
+* When everything works fine delete `Launchy.ini.RemoveMe`.
 
 ## Errors
 
@@ -71,6 +71,15 @@ With version 2.9 Launchy requires all versions of Ride to be installed into the 
 Note that you do not have the choice to select "server", "connect" or "poll": Launchy will always go for "poll".
 
 With version 2.6 Launchy will work (again) out of the box as long as you have a default RIDE installation, or no RIDE at all. Only if you have installed RIDE into a non-standard location needs the INI file attention in this respect.
+
+Ride version 4.1 supports the environment variable RIDE_PREFS which if present must specify a fully qualified filename pointing to a Ride preference file. By default the preference file is `%AppData%\Ride-4.1`; this can be used to place the preference file used by Ride somewhere else like a DropBox managed folder etc.
+
+You can tell Launchy to start Ride with `RIDE_PREFS` set by specifying an entry in Launchy's INI file:
+
+~~~
+[Ride]
+profile     =   'C:\some\folder\prefs.json'
+~~~
 
 
 ## Admin rights

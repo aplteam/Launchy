@@ -40,6 +40,7 @@ active      =   1               ; Use this only to disable RIDE permanently
 tick        =   0               ; Specify the default for whether the user shall be asked for a RIDE
 port        =   4502            ; The port Ride is offering APL interpreters for connection
 connect     =   '127.0.0.1'     ; Note: on some machines "localhost" does not work but 127.0.0.1 does.
+;profile    =   '%AppData%\Ride-4.1\prefs.json'  ; If you want to have the preference file somewhere else then use this entry
 
 ; This path:
 path2ride   =   'C:\Users\[you]\AppData\Local\Programs\Dyalog\RIDE'

@@ -11,7 +11,7 @@
                  r←1        ⍝ 1 means: Ride is already running
                  :If 15≤version
                      r←' RIDE_INIT=SERVE:',Ini.RIDE.connect,':',⍕port
-                     {}StartRide G.RideVersion version
+                     {}StartRide version G.RideVersion
                  :Else
                      startRide←'Launchy RIDE'YesOrNo2'Do you want to start RIDE now?'
                      r←' RIDE_INIT=POLL:',Ini.RIDE.connect,':',⍕port
