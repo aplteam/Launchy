@@ -17,5 +17,4 @@
  l←⊃,/'Edit' 'Spinner'∘GetAllControls¨n.GeneralSubForm n.EditTraceSubForm  ⍝ List of all edits and spinners
  l.onGotFocus←⊂'OnGotFocusSelectContents'
  l.onLostFocus←⊂'OnLostFocusDeselectContents'
- #.onActivateApp←'OnActivateApp'
 ⍝Done

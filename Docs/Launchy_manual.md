@@ -1,4 +1,5 @@
-`[parm]:title =   'Launchy Manual'
+[parm]:title             = 'Launchy Manual'
+[parm]:collapsibleTOC    = 1
 
 # Launchy User Manual
 

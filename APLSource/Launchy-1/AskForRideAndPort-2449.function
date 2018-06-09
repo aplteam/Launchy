@@ -1,5 +1,5 @@
  (flag port rideExe)←AskForRideAndPort(n version);∆;n2;res
- flag←0 ⋄ port←Ini.RIDE.port ⋄ rideExe←''
+ flag←0 ⋄ rideExe←'' ⋄ port←n.∆Port
 
  :If 15≤version
      :If 0=+/G.RideVersions[;1]≢¨⊂'2.0'
@@ -12,8 +12,11 @@
  :EndIf
  n2←⎕NS''
 
+
+
  ∆←''
  ∆,←⊂'Posn'(50 50+n.Form.Posn)
+
  ∆,←⊂'Size'(160 310)
  ∆,←⊂'Caption' 'Ride'
  ∆,←⊂'Coord' 'Pixel'
@@ -41,7 +44,7 @@
  ∆,←⊂'Posn'((n2.RideListen.Posn[1]+5),(10+2⊃AddPosnAndSize n2.RideListen))
  ∆,←⊂'Size'(⍬ 50)
  ∆,←⊂'FieldType' 'Numeric'
- ∆,←⊂'Value'port
+ ∆,←⊂'Value'n.∆Port
  ∆,←⊂'MaxLength' 7
  ∆,←⊂'Active' 1
  n2.Port←n2.Form.⎕NEW'Edit'∆
@@ -119,6 +122,7 @@
                  :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
                      flag←1
                      port←n2.Port.Value
+                     n.∆Port←port
                  :EndIf
              :EndIf
          :Else

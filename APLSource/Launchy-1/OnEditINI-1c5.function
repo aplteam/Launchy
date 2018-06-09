@@ -1,13 +1,5 @@
  OnEditINI←{
-⍝ This should actually edit both INI files and wait for the user to finish
-⍝ and THEN check wether one of the files was changed and inform the user only
-⍝ then. Some day ...  ⍝TODO⍝
-     _←⎕CMD('Notepad ',∆HomeDir,'\launchy.ini')''
-     msg←'You have to restart Launchy in case you want any' 'changes made to the INI file to become active.'
-     ifn←F.PWD,'\Launchy_',S.GetComputerName,'.ini'
-     (0=⎕NEXISTS ifn):1⊣ShowMsg msg
-     _←⎕CMD('Notepad ',ifn)''
-
-     msg←'You have to restart Launchy in case you want any' 'changes made to one of the INI files to become active.'
-     1⊣ShowMsg msg
+     n←GetRef2n⊃,⍵
+     _←EditINI n
+     0
  }

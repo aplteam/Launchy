@@ -1,9 +1,9 @@
- Ini←Init1 dummy;errParms
+ Ini←Init1 allowRide;errParms
 ⍝ Establish a couple of essentials
  U←##.##.APLTreeUtils
  F←##.##.FilesAndDirs
  R←##.##.WinReg
  S←##.##.WinSys
  ∆HomeDir←F.PWD
- EnableEralyRide 0    ⍝ For debugging Launchy's EXE
+ EnableEarlyRide allowRide
 ⍝Done

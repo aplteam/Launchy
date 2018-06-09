@@ -1,5 +1,11 @@
  {r}←{workspace}LaunchDyalog(ty ws dseType h w x y tf clp ride);p;parms;rc;tempfile;dir;kai
 ⍝ Compiles the "batch script" and finally launches any version of Dyalog better than V11
+
+⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
+⍝ THIS IS A MESS!!                             ⍝
+⍝ Rewrite when "Spawn" is supported by Dyalog! ⍝
+⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
+
  r←1
  workspace←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'workspace'
  p←GetInstallPath ty

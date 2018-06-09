@@ -1,6 +1,0 @@
- EnableEralyRide←{
-     ⍵=0:r←⍬
-     _←3502⌶'SERVE::4502'
-     _←3502⌶1
-     {_←⎕DL 1 ⋄ ∇ ⍬}⍬  ⍝ Endless loop allows user to get a ride.
- }

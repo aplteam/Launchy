@@ -1,4 +1,11 @@
  History
+⍝ * 4.2.0
+⍝   * Now the latest Ride port is used in the dialog box. The INI file only defines that first value.
+⍝   * The MsgBox showing the parameters is smaller now.
+⍝   * Editing the INI file(s) improved.
+⍝   * Bug fix:
+⍝     * The problem that strange things could happen when the focus returned from another application
+⍝       to Launchy (check boxes and combos) has been fixed.
 ⍝ * 4.1.0
 ⍝   * Improved GUI for giving Dyalog a Ride.
 ⍝   * The Ini file may now specify a particular preference file for Ride 4.1 and later.
@@ -27,22 +34,3 @@
 ⍝       list of installed APLs.
 ⍝     * "Run as Admin once" now activates the "Restore defaults" button, and clicking the button
 ⍝       unticks the check box.
-⍝ * 3.3.0
-⍝   * Converted from the APL wiki to GitHub.
-⍝ * 3.2.0
-⍝   * Cheat sheets are available from the Help menu now.
-⍝   * If no working directory is defined in the INI file Launchy falls back to the default,
-⍝     the installation directory of the APL in question.
-⍝ * 3.1.1
-⍝   * Bug fix: Launchy insisted on "MB" for MAXWS when "M" is actually the official shortcut while "MB" is just tolerated.
-⍝ * 3.1.0
-⍝   * When Launchy deteced an early problem then the attempt to inform the user was buggy.
-⍝   * Launchy crashed in case it could not find any version of Dyalog. This can happen in
-⍝     case the user thas not rebooted the machine after the installation!
-⍝   * Open an explorer window on the Help directory required admin rights.
-⍝   * F32 flag removed.
-⍝   * Size of the statusbar improved.
-⍝ * 3.0.0
-⍝   * When the `Run as admin` box is ticked it resets itself to unticked after one call.
-⍝   * Re-structuctured: just a namespace #.Launchy now.
-⍝   * `Launchy` is now managed by acre 3.
