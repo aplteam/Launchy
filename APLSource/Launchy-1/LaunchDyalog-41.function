@@ -71,7 +71,11 @@
              :If 0≠rc
                  ShowMsg'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
              :Else
-                 n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,' launched at ',U.FormatDateTime 6↑⎕TS
+                 :If 0≡ride
+                     n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty
+                 :Else
+                     n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,(0≢ride)/' (Ride:',({1↓⌽{⍵↑⍨⍵⍳':'}⌽⍵}ride),')'
+                 :EndIf
              :EndIf
          :EndIf
      :EndIf

@@ -1,4 +1,6 @@
  History
+⍝ * 4.?.?
+⍝   * Information displayed in the status bar improved.
 ⍝ * 4.2.0
 ⍝   * Now the latest Ride port is used in the dialog box. The INI file only defines that first value.
 ⍝   * The MsgBox showing the parameters is smaller now.
