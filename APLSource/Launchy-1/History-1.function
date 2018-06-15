@@ -1,6 +1,8 @@
  History
 ⍝ * 4.?.?
-⍝   * Information displayed in the status bar improved.
+⍝   * Sessions associated with Ride are now hidden from the user.
+⍝   * Information displayed in the status bar improved: in case of a Ride the port number is reported.
+⍝   * In case of a Ride the Dyalog session is iconified.   (*** Is this possible at all?!)
 ⍝ * 4.2.0
 ⍝   * Now the latest Ride port is used in the dialog box. The INI file only defines that first value.
 ⍝   * The MsgBox showing the parameters is smaller now.

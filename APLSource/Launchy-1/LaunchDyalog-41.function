@@ -32,6 +32,7 @@
          parms.lpParms,←' ',clp                       ⍝ Add command line parameters
          parms.lpParms,←(' '=1↑0⍴ride)/ride           ⍝ Make it listen to ride
          parms.lpParms,←' ',workspace
+         parms.show←0
          parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS{⍵↓⍨1+⍸'&&'⍷⍵}parms.file
          parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist
          kai←parms.lpParms
@@ -44,7 +45,6 @@
              parms←S.CreateParms_ShellExecute
              parms.file←tempfile
              parms.lpParms←dir
-             parms.show←0
              parms.lpParms←kai
              rc←n.runAsAdmin.State S.ShellExecute parms
              :If 0≠rc
@@ -65,6 +65,7 @@
          parms.lpParms,←' ',workspace                         ⍝ ⍺ might be a workspace name
          parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
          parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist
+         parms.show←(,0)≡,RIDE
          n.showCmd.Checked←AskForShowCommandLineParms⍣((~0∊⍴clp)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
          :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
              rc←n.runAsAdmin.State S.ShellExecute parms
