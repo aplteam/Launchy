@@ -43,7 +43,7 @@ connect     =   '127.0.0.1'     ; Note: on some machines "localhost" does not wo
 ;profile    =   '%AppData%\Ride-4.1\prefs.json'  ; If you want to have the preference file somewhere else then use this entry
 
 ; This path:
-path2ride   =   'C:\Users\[you]\AppData\Local\Programs\Dyalog\RIDE'
+path2ride   =   'C:\Users\[you]\AppData\Local\Programs\Dyalog'
 ; refers to the default installation directory for Ride when `[you]` will be replaced by `⎕AN` at runtime. 
 ; All installed main versions (like 3.0, 3.1 and 4.0) are going into the "File" menu.
 ; You need to specify a different path only if you have decided to install Ride in a non-default location.

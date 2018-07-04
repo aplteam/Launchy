@@ -1,4 +1,12 @@
  History
+⍝ * 4.4.0
+⍝   * Ride 4.1 installs into a different directory from earlier versions.
+⍝     Therefore the search needs to be performed recursively from now on.
+⍝     As an unwanted but unavoidable side effect only the latest Ride of any given version will be
+⍝     used. That means that in case several versions x.y.z are installed the one with the highest built ID
+⍝     will be started.
+⍝   * The "Ride" dialog box now allows decreasing and increasing of the port number via the PgUp and PgDn
+⍝     key. The original value can be restored via the F3 key.
 ⍝ * 4.3.0
 ⍝   * Sessions associated with Ride are now hidden from the user.
 ⍝   * Information displayed in the status bar improved: in case of a Ride the port number is reported.

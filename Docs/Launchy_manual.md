@@ -68,12 +68,14 @@ Watch out: between version 2.5 and 2.6 and again between 2.8.2 and 2.9.0 the INI
 Due to a change of protocol from version 15.0 the Dyalog interpreter needs RIDE 3.0. This version of RIDE needs (again) slightly different parameters compared with previous versions. Version 14.0 and 14.1 still need Ride 2.0. Therefore starting with version 2.4 Launchy supports both versions of Ride. This requires a change in the 2.3-INI file of Launchy.
 
 With version 2.9 Launchy requires all versions of Ride to be installed into the same directory. The INI entries `path2ride2` and `path2ride3` are no longer supported and **must not** be present in the INI file. Instead you may specify `[Ride]path2ride`. If this is not present then no Ride command is shown at all in the "File" menu.
+
+Note that by default Ride is installed into `%LocalAppData%\Dyalog\Ride` until and including version 4.0 and `%LocalAppData%\Dyalog\Ride-4.1` since version 4.1.
  
 Note that you do not have the choice to select "server", "connect" or "poll": Launchy will always go for "poll".
 
 With version 2.6 Launchy will work (again) out of the box as long as you have a default RIDE installation, or no RIDE at all. Only if you have installed RIDE into a non-standard location needs the INI file attention in this respect.
 
-Ride version 4.1 supports the environment variable RIDE_PREFS which if present must specify a fully qualified filename pointing to a Ride preference file. By default the preference file is `%AppData%\Ride-4.1`; this can be used to place the preference file used by Ride somewhere else like a DropBox managed folder etc.
+Ride version 4.1 supports the environment variable RIDE_PREFS which if present must specify a fully qualified filename pointing to a Ride preference file. By default the preference file is `%AppData%\Ride` ; this can be used to place the preference file used by Ride somewhere else like a DropBox managed folder etc.
 
 You can tell Launchy to start Ride with `RIDE_PREFS` set by specifying an entry in Launchy's INI file:
 

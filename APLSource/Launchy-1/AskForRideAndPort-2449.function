@@ -12,8 +12,6 @@
  :EndIf
  n2←⎕NS''
 
-
-
  ∆←''
  ∆,←⊂'Posn'(50 50+n.Form.Posn)
 
@@ -23,6 +21,8 @@
  ∆,←⊂'SysMenu' 0
  ∆,←⊂'Sizeable' 0
  n2.Form←n.Form.⎕NEW'Form'∆
+
+ n2.Tip←⎕NEW⊂'TipField'
 
  ∆←''
  ∆,←⊂'Caption' 'Ride Options'
@@ -37,7 +37,6 @@
  ∆,←⊂'State' 1
 ⍝ ∆,←⊂'TipObj'
 ⍝ ∆,←⊂'Tip' ''
-
  n2.RideListen←n2.RideOptions.⎕NEW'Button'∆
 
  ∆←''
@@ -47,10 +46,12 @@
  ∆,←⊂'Value'n.∆Port
  ∆,←⊂'MaxLength' 7
  ∆,←⊂'Active' 1
+ ∆,←⊂'TipObj'n2.Tip
+ ∆,←⊂'Tip'('Increase with PgUp ' 'Decrease with PgDn ' 'Restore with F3 ')
  n2.Port←n2.Form.⎕NEW'Edit'∆
  n2.Port.Size-←5
  n2.Port.(onGotFocus onLostFocus)←'OnPortGotFocus' 'OnPortLostFocus'
-
+ n2.Port.onKeyPress←'OnKeyPressInPortNo'n
 
  ∆←''
  ∆,←⊂'Caption' '&Start APL from Ride'

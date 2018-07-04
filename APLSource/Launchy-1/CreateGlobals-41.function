@@ -13,7 +13,6 @@
  G.AplVersions←GetInstalledAPLs ⍬
  G.CMDs←','U.Split''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
  G.Default←GetDefaultFromRegistry G.AplVersions
- G.RideVersions←Find_RIDE_Versions Ini
  :If ~0∊⍴G.RideVersions←Find_RIDE_Versions Ini
      G.RideVersion←2⊃⊢⌿G.RideVersions
  :EndIf
