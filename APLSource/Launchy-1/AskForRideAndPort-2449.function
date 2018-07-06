@@ -74,7 +74,7 @@
  n2.Label2←n2.Form.⎕NEW'Label'∆
 
  ∆←''
- ∆,←⊂'Items'({⊃,/¯2↑⎕NPARTS ⍵}¨G.RideVersions[;2])
+ ∆,←⊂'Items'(G.RideVersions[;1])
  ∆,←⊂'SelItems'(G.RideVersions[;2]≡¨⊂G.RideVersion)
  ∆,←⊂'Posn'(n2.Label2.Posn[1],(2⊃AddPosnAndSize n2.Label2))
  ∆,←⊂'Size'(⍬ 80)

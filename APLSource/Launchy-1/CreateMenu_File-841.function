@@ -12,7 +12,7 @@
  n.runRide←⍬
  :For version path :InEach ↓⍉G.RideVersions
      ∆←''
-     ∆,←⊂'Caption'('Start Ride ',version,'.',⊃¯1↑'.'U.Split path)
+     ∆,←⊂'Caption'('Start Ride ',version)
 ⍝     ∆,←⊂'HintObj'n.statusbar
      txt←'Starts Ride ',version,' and listens on port ',(⍕Ini.RIDE.port),' by default.'
      ∆,←⊂'Hint'txt

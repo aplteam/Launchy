@@ -1,4 +1,4 @@
- {r}←GetRideParms n;flag;port;version;rideExe;startRide
+ {r}←SelectAndRunRide n;flag;port;version;rideExe;startRide
  r←0
  :If n.RIDEflag.Active
  :AndIf 0≠n.RIDEflag.State

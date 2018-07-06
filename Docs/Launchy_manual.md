@@ -35,7 +35,7 @@ Notes:
 
 * `AppData` is by default invisible to ordinary users.
 
-* `Program Files` or `Program Files (x86)` are not exactly ideal because Microsoft keeps making it harder to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.)
+* `Program Files` or `Program Files (x86)` are not exactly ideal because Microsoft now prevents applications to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.
 
 Now remove ".RemoveMe" from the name of the INI file which is by then `Launchy.ini.RemoveMe`; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.
 
@@ -46,8 +46,7 @@ With a default RIDE installation it should work out of the box. With a non-stand
 
 * Download Launchy.
 * Replace all files in your current installation with the newly downloaded files. 
-* Compare `Launchy.ini` (your own INI file) with `Launchy.ini.RemoveMe` (the file you've just
-  downloaded) in order to identify changes you have to adapt. 
+* Compare `Launchy.ini` (your own INI file) with `Launchy.ini.RemoveMe` (the file you've just downloaded) in order to identify changes you have to adapt. 
   
   Using a tool like [CompareIt!](http://www.grigsoft.com/wincmp3.htm) or [Beyond Compare](https://www.scootersoftware.com/) is recommended for doing this.
 

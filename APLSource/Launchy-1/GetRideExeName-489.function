@@ -1,4 +1,4 @@
  GetRideExeName←{
      pathToExe←⍵
-     pathToExe,'\Ride-',(⊃¯2↑⎕NPARTS pathToExe),'.exe'
+     'expand'F.NormalizePath⊃⊃F.Dir pathToExe,'\Ride-*.exe'
  }

@@ -1,9 +1,8 @@
- Run;n;F;S;U;W;Ini;⎕TRAP;allowRide
+ Run;n;F;S;U;W;Ini;⎕TRAP
  ⎕IO←1 ⋄ ⎕ML←1 ⋄ ⎕WX←3
  #.FilesAndDirs.PolishCurrentDir
  ⎕TRAP←#.HandleError.SetTrap ⍬
- allowRide←0
- Init1 allowRide
+ Init1{⊣allowRide←⍵}1
  #.⎕SHADOW'ErrorParms'
  #.ErrorParms←#.HandleError.CreateParms
  #.ErrorParms.customFnsParent←⎕THIS

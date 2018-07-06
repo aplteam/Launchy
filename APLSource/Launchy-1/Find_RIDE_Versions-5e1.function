@@ -1,4 +1,4 @@
- r←Find_RIDE_Versions Ini;allRides;bool;flag;ind;path;versionNos
+ r←Find_RIDE_Versions Ini;allRides;flag;ind;path;versionFiles;versionNos
 ⍝ Returns a list with all major (like 3.0) and minor (like (3.1) versions of Ride found in the
 ⍝ path `[Ride]path2ride` is pointing to - if that exists at all.
 ⍝ This version does not support anymore to install several builts of the same version number.
@@ -10,9 +10,8 @@
      path←Ini.RIDE.path2ride,flag/'\..'
  :AndIf ~0∊⍴allRides←⌽⊃('recursive' 1)F.Dir path,'\*.*.exe'
      allRides←(-1+⍴¨'\'U.Last¨allRides)↓¨allRides
-     versionNos←'\'U.Last¨allRides
-     bool←'Ride-'∘{⍺≢(⍴⍺)↑⍵}¨versionNos
-     (bool/versionNos)←{⍵/⍨2>+\'.'=⍵}¨bool/versionNos
+     versionFiles←allRides,¨⊂'\resources\app\_\version'
+     versionNos←U.ReadUtf8File¨versionFiles
      ind←∪#{⍵⍳⍵}versionNos
      r←⊖(versionNos,[1.5]allRides)[ind;]
  :EndIf

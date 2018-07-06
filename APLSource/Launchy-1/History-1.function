@@ -7,6 +7,8 @@
 ⍝     will be started.
 ⍝   * The "Ride" dialog box now allows decreasing and increasing of the port number via the PgUp and PgDn
 ⍝     key. The original value can be restored via the F3 key.
+⍝   * When editing the INI file(s) the names have not been very clear. Instead of "ini1" and "ini2" it is
+⍝     now "GeneralIni" and "ComputerSpecificIni".
 ⍝ * 4.3.0
 ⍝   * Sessions associated with Ride are now hidden from the user.
 ⍝   * Information displayed in the status bar improved: in case of a Ride the port number is reported.
@@ -32,16 +34,3 @@
 ⍝     * In case the Ride-related INI entries were missing Launchy crashed.
 ⍝     * In case the INI entry `RIDE.path2ride` pointed to a folder that did not contain any version
 ⍝       of Ride Launchy crashed. (Install Ride, then un-install it)
-⍝ * 4.0.0
-⍝   * The way an APL version can be selected was re-designed. It now fulfills the needs of those
-⍝     who start many different versions of APL per day but still allows you to switch only
-⍝     occasionally by defining a default version.
-⍝   * "F5" introduced for moving the focus to the list of installed APLs **and** open the combo box.
-⍝   * "F4" introduced for selecting the default version.
-⍝   * Bug fixes:
-⍝     * In case no `workdir` was defined the menu command "Explore > WorkDir" did not fall back to
-⍝       the installation directory as stated in the documentation.
-⍝     * On "ActivateApp" Launchy always gave the focus to the default button. It should go to the
-⍝       list of installed APLs.
-⍝     * "Run as Admin once" now activates the "Restore defaults" button, and clicking the button
-⍝       unticks the check box.

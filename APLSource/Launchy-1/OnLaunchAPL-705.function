@@ -2,7 +2,7 @@
  rf←1⊃arg                                                    ⍝ Ref to the button
  rf.Active←0
  ws←n.wssize.((SelItems⍳1)⊃Items)                            ⍝ Workspace size
- RIDE←GetRideParms n
+ RIDE←SelectAndRunRide n
  G.CurrentAPL←GetCurrentlySelectedAPL
  :If ¯1≢RIDE
      :If LaunchDyalog G.CurrentAPL ws'',n.(editHeight editWidth x y).Value,n.tracerFlag.State,GetCommandLineParms RIDE
