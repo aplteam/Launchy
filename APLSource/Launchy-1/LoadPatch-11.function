@@ -6,6 +6,7 @@
      parms.file←aplPath,'Base\Dyalog.exe"'
      parms.lpParms←'"',aplPath,'WS\Patch.dws"'
      parms.lpParms,←' session_file=null MAXWS=32000 '
+     parms.lpDirectory←{⍵↓⍨-'\/'∊⍨¯1↑⍵}aplPath
      rc←1 S.ShellExecute parms
      _←⎕DL 1
      ⍬

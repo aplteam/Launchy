@@ -1,4 +1,7 @@
  History
+⍝ * 4.4.1
+⍝   * Bug fix: Patching showed always an error message regarding the Dyares*.DLL. This wa caused by Launchy
+⍝     setting the working dir. It should not for pathcing!
 ⍝ * 4.4.0
 ⍝   * Ride 4.1 installs into a different directory from earlier versions.
 ⍝     Therefore the search needs to be performed recursively from now on.
