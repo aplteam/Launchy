@@ -22,3 +22,4 @@
  n.reset.Posn[2]←n.Form.Size[2]-120
  n.reset.onSelect←'OnResetDefaults'
  n.reset.onKeyPress←'OnKeyPressInPushButton'
+⍝Done

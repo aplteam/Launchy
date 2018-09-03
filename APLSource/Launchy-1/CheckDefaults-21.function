@@ -20,6 +20,8 @@
      n.runAsAdmin.FCol←ColorCode×n.runAsAdmin.State
  :Case 'CMDLINE'
      n.LabelCmdLine.FCol←ColorCode×~0∊⍴⍴n.cmdLineArgs.(⊃SelItems/Items)
+ :Case 'EXECMYUCMD'
+     n.ExecMyUCMD.FCol←ColorCode×n.ExecMyUCMD.State≢Ini.MYUCMD.default
  :Else
      .    ⍝ Not yet
  :EndSelect

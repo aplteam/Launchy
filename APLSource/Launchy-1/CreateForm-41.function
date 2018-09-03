@@ -30,3 +30,4 @@
  ∆,←⊂'CMap'(2⊃Dyalog_BM)
  ∆,←⊂'Mask'(3⊃Dyalog_BM)
  n.Icon←⎕NEW'Icon'∆
+⍝Done

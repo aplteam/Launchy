@@ -1,4 +1,7 @@
  History
+⍝ * 4.5
+⍝   * Option added to the GUI: check box on "Execute setup.dyalog" which allows one to instantiate
+⍝     Dyalog with a default environment.
 ⍝ * 4.4.1
 ⍝   * Bug fix: Patching showed always an error message regarding the Dyares*.DLL. This wa caused by Launchy
 ⍝     setting the working dir. It should not for pathcing!

@@ -5,7 +5,7 @@
  ∆,←⊂'Items'list
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
 ⍝ ∆,←⊂'Posn'(20 3)
- ∆,←⊂'Posn'((4+⊃AddPosnAndSize n.runAsAdmin),190)
+ ∆,←⊂'Posn'((4+⊃AddPosnAndSize n.ExecMyUCMD),190)
  ∆,←⊂'Size'(⍬ 60)
  ∆,←⊂'TipObj'n.tip
  n.wssize←n.GeneralSubForm.⎕NEW'Combo'∆

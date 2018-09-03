@@ -18,3 +18,8 @@
  Ini←Ini.Convert ⎕NS''
  CheckIni Ini
  errParms.⎕EX'addToErrMsg'
+ :If 0=Ini.⎕NC'MYUCMD'
+     'MYUCMD'Ini.⎕NS''
+     Ini.MYUCMD.default←1  ⍝ Establish default
+ :EndIf
+⍝Done

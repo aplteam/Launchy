@@ -89,3 +89,4 @@
  n.tracerFlag←n.WinParmGroup.⎕NEW'Button'∆
  n.tracerFlag.tip←'Use the editor settings' 'also for the Tracer'
  n.tracerFlag.onKeyPress←'OnStandardKeyPress'
+⍝Done

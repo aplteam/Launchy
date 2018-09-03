@@ -8,6 +8,9 @@ iconify		=	0
 options     =   '32MB,64MB,128MB,256MB,512MB,1G,2G,4G'
 default     =   '64MB'
 
+[MYUCMD]
+default		=	1
+
 [F32]
 active      =   1
 tick        =   0

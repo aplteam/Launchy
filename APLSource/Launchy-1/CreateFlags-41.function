@@ -1,6 +1,6 @@
  n←CreateFlags n;∆;f;flag
  ∆←''
- ∆,←⊂'Posn'(70 190)
+ ∆,←⊂'Posn'(60 190)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'PropertyExposeRoot'
  ∆,←⊂'State'(Ini.PROPERTYEXPOSEROOT.tick)
@@ -13,7 +13,7 @@
  n.propertyExposeRoot.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(90 190)
+ ∆,←⊂'Posn'(80 190)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Run as admin o&nce'
  ∆,←⊂'TipObj'n.tip
@@ -22,4 +22,21 @@
  n.runAsAdmin.tip,←⊂'Note: NO drag''n-drop when running as an admin!'
  n.runAsAdmin.onSelect←'OnChanged' 'RUNASADMIN'
  n.runAsAdmin.onKeyPress←'OnStandardKeyPress'
+
+ ∆←''
+ ∆,←⊂'Posn'(100 190)
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Execute setup.dyalog'
+ ∆,←⊂'TipObj'n.tip
+ flag←##.FilesAndDirs.IsFile ##.FilesAndDirs.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
+ ∆,←⊂'Active'flag
+ ∆,←⊂'State'flag
+ n.ExecMyUCMD←n.GeneralSubForm.⎕NEW'Button'∆
+ n.ExecMyUCMD.tip←''
+ n.ExecMyUCMD.tip,←⊂'Toggle whether'
+ n.ExecMyUCMD.tip,←⊂'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
+ n.ExecMyUCMD.tip,←⊂'should be executed or not.'
+ n.ExecMyUCMD.tip,←⊂'Leave unticked for Dyalog''s default setup.'
+ n.ExecMyUCMD.onSelect←'OnChanged' 'EXECMYUCMD'
+ n.ExecMyUCMD.onKeyPress←'OnStandardKeyPress'
 ⍝Done
