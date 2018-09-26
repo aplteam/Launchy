@@ -1,6 +1,6 @@
 ﻿[Config]
 GUI_posn    =   '80 60'
-workdir     =   ''  ⍝ Think thrice before settings this
+workdir     =   ''  ; Think thrice before settings this
 iconify		=	0
 ; letscrash	=	0	; If this exists and is 1 then there is Help/Let's crash available (for testing error trapping)
 
@@ -50,4 +50,5 @@ path2ride   =   'C:\Users\[you]\AppData\Local\Programs\Dyalog'
 ; refers to the default installation directory for Ride when `[you]` will be replaced by `⎕AN` at runtime. 
 ; All installed main versions (like 3.0, 3.1 and 4.0) are going into the "File" menu.
 ; You need to specify a different path only if you have decided to install Ride in a non-default location.
-; If several sub versions (say 3.0.1234 and 3.0.9876) are installed then Launchy determines the "best" version (3.0.9876 in our example) automatically.
+; If several sub versions (say 3.0.1234 and 3.0.9876) are installed then Launchy determines the "best" version automatically.
+; In our example that would be 3.0.9876

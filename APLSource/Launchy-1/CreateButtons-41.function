@@ -5,6 +5,7 @@
  ∆,←⊂'Accelerator'(13 2)
  ∆,←⊂'TipObj'n.tip
  ∆,←⊂'Tip' '"Click" with Ctrl+Enter'
+ ∆,←⊂'Active'(~0∊≢G.AplVersions)
  n.ok←n.Form.⎕NEW'Button'∆
  n.ok.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+10
  n.ok.Posn[2]←10

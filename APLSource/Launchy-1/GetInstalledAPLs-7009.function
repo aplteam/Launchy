@@ -1,13 +1,12 @@
  list←GetInstalledAPLs dummy;msg
 ⍝ Examines the Registry in order to find out which versions of
 ⍝ Dyalog are installed on the current machine
- list←R.GetAllSubKeyNames'Software\Dyalog'
- list←(50<⊃∘⍴¨R.GetAllValueNames¨(⊂'Software\Dyalog\'),¨list)/list
- :If 0∊⍴list
+ :If 0∊≢list←R.GetAllSubKeyNames'Software\Dyalog'
+ :OrIf 0∊≢list←(50<⊃∘⍴¨R.GetAllValueNames¨(⊂'Software\Dyalog\'),¨list)/list
      msg←⊂'No version of Dyalog was found'
      msg,←⊂''
      msg,←⊂'In case you have just installed Dyalog'
-     msg,←⊂' you might need to rebbot your machine!'
+     msg,←⊂'you might need to reboot your machine now.'
      'Launchy'ShowMsg msg
  :Else
      list←{⍵⌿⍨∨/'Dyalog APL/W'⍷↑⍵}list

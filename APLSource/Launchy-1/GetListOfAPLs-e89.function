@@ -7,18 +7,19 @@
  list←orig←G.AplVersions
  list←'APL/W '⎕R'APL/W-32 '⊣list
  default←G.AplVersions≡¨⊂G.Default
- list←'[0-9]$'⎕R'& Classic'⊣list
- list←list[ind←⍒(↑list)[;14 15]]
- default←default[ind]
- orig←orig[ind]
- list←list[ind←⍒↑(-⍴'Unicode')↑¨list]
- default←default[ind]
- orig←orig[ind]
- list←↑(⍴'Dyalog APL/W-')↓¨list
- list,←'-'
- list←list[;4 5 6 7 8 16 8 1 2 3 9 10 11 12 13 14 15]
- list←↓((⊃⍴list)↑1↓⎕D,⎕A),'.',' ',' ',list
- :If 0<+/default
-     (default/list)←⊂(⊃default/list),' ★'
+ :If ~0∊≢list←'[0-9]$'⎕R'& Classic'⊣list
+     list←list[ind←⍒(↑list)[;14 15]]
+     default←default[ind]
+     orig←orig[ind]
+     list←list[ind←⍒↑(-⍴'Unicode')↑¨list]
+     default←default[ind]
+     orig←orig[ind]
+     list←↑(⍴'Dyalog APL/W-')↓¨list
+     list,←'-'
+     list←list[;4 5 6 7 8 16 8 1 2 3 9 10 11 12 13 14 15]
+     list←↓((⊃⍴list)↑1↓⎕D,⎕A),'.',' ',' ',list
+     :If 0<+/default
+         (default/list)←⊂(⊃default/list),' ★'
+     :EndIf
  :EndIf
 ⍝Done

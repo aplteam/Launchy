@@ -39,6 +39,7 @@
  n.List.∆Orig←orig
 
  :If 0=okFlag
+ :AndIf ~0∊≢G.AplVersions
      msg←''
      msg,←⊂'There was no default version of Dyalog defined yet.'
      msg,←⊂'This version was selected as default for you:'
