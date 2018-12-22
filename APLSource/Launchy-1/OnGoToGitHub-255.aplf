@@ -1,0 +1,3 @@
+ OnGoToGitHub←{
+     U.GoToWebPage'https://github.com/aplteam/Launchy'
+ }

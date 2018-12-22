@@ -12,10 +12,17 @@
  n.ReleaseNotes←n.MenuHelp.⎕NEW'MenuItem'∆
  n.ReleaseNotes.onSelect←'OnReleaseNotes'
 
+ n.Sep11←n.MenuHelp.⎕NEW(⊂'Separator')
+
  ∆←''
  ∆,←⊂'Caption' 'Check for new version'
  n.CheckForNewVersion←n.MenuHelp.⎕NEW'MenuItem'∆
  n.CheckForNewVersion.onSelect←'OnCheckForNewVersion'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Show Launchy on GitHub'
+ n.GoToGitHub←n.MenuHelp.⎕NEW'MenuItem'∆
+ n.GoToGitHub.onSelect←'OnGoToGitHub'
 
  n.Sep21←n.MenuHelp.⎕NEW(⊂'Separator')
 

@@ -1,5 +1,6 @@
  TellLaunchyIsUp2Date←{
      msg←⊂'Launchy is up to date.'
+     #.CursorObj←0
      _←'Update check'ShowMsg msg
      0
  }
