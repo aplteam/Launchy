@@ -7,6 +7,18 @@
  n.Help←n.MenuHelp.⎕NEW'MenuItem'∆
  n.Help.onSelect←'OnHelp'
 
+ ∆←''
+ ∆,←⊂'Caption' 'Launchy release notes'
+ n.ReleaseNotes←n.MenuHelp.⎕NEW'MenuItem'∆
+ n.ReleaseNotes.onSelect←'OnReleaseNotes'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Check for new version'
+ n.CheckForNewVersion←n.MenuHelp.⎕NEW'MenuItem'∆
+ n.CheckForNewVersion.onSelect←'OnCheckForNewVersion'
+
+ n.Sep21←n.MenuHelp.⎕NEW(⊂'Separator')
+
  ∆,←⊂'Caption'('Dyalog online help',(⎕UCS 9),'Shift+F1')
  ∆,←⊂'Accelerator'(112 1)
  n.OnlineHelp←n.MenuHelp.⎕NEW'MenuItem'∆

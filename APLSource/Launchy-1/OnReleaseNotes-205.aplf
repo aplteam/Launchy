@@ -1,0 +1,5 @@
+ OnReleaseNotes←{
+     url←'github.com/aplteam/Launchy/releases'
+     _←##.APLTreeUtils.GoToWebPage'https://',url
+     0
+ }

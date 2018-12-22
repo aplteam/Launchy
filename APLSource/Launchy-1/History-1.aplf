@@ -1,4 +1,11 @@
  History
+⍝ * 4.5.2
+⍝   * New command on the "Help" menu: "Launchy release notes". Shows the release notes on Git in your browser.
+⍝   * New command on the "Help" menu: "Check for update". Checks whether there is a better version available
+⍝     on GitHub.
+⍝   * Bug fixes:
+⍝     * Pressing any other function key than F4 or F5 and those associated with menu items made Launchy crash.
+⍝     * When old versions of Ride are installed then depending on the folder structure Launchy crashed.
 ⍝ * 4.5.1
 ⍝   * The INI file template came with a syntax problem (⍝ rather than ; for a comment)
 ⍝   * Launchy crashed in case no APL was installed. Now Launchy does not make much sense without

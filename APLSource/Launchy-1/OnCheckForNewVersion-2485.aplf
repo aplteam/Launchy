@@ -1,0 +1,7 @@
+ OnCheckForNewVersion←{
+     (gitVersion msg url)←CheckForNewVersion 2⊃Version
+     0=≢gitVersion:0⊣TellLaunchyIsUp2Date ⍬
+     msg←'There is a better version available on GitHub: ',gitVersion
+     _←ShowMsg msg
+     0
+ }
