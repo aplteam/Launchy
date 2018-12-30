@@ -1,0 +1,49 @@
+ (rc msg ns)←{userAgent}GetJson gitPath
+⍝ Takes a path which must specify a valid GitHub API URL and returns the data from GitHub.\\
+⍝ ⍵
+⍝ : Project URL, for example 'api.github.com/repos/aplteam/fire/releases/latest'
+⍝ ⍺ (optional)
+⍝ : Specifies the user agent. Defaults to "aplteam". **Must not** be empty!
+⍝
+⍝ Result:
+⍝ `rc`
+⍝  : Either 0 for okay or an error code.\\
+⍝ `msg`
+⍝ : Is empty in case rc←→0 but might offer addtional information otherwise.
+⍝ `ns`
+⍝ : Namespace with data from GitHub
+ userAgent←{0<⎕NC ⍵:⍎⍵ ⋄ 'aplteam'}'userAgent'
+ gitPath{⍺,⍨⍵/⍨⍵≢(⍴⍵)↑⍺}←'https://'
+ ns←⎕NS''
+ ns.⎕FX'r←∆List;⎕IO' '⍝ List all variables and possible references in this namespace' '⎕IO←0' 'r←{⍵,[0.5]⍎¨⍵}'' ''~¨⍨↓⎕NL 2 9'
+ ns.(version status url title details zipURL publishedAt)←⊂''
+ :Trap 90
+     fixVersion←{100 100 1000 10000⊥⍵}
+     currentVersion←fixVersion 4↑(⎕IO+1)⊃'.'⎕VFI version
+     ⎕USING←'System.Net,system.dll' 'System.IO' 'System.Text'
+     cp←ServicePointManager.SecurityProtocol   ⍝ current protocol
+     ServicePointManager.SecurityProtocol←SecurityProtocolType.Tls12
+     req←WebRequest.CreateHttp⊂gitPath
+     req.UserAgent←userAgent        ⍝ MUST NOT be empty: required by the github api!
+     res←req.GetResponse
+     ServicePointManager.SecurityProtocol←cp
+     :If res.StatusCode≠res.StatusCode.OK
+         ns.status←'Error Checking'
+         :Return
+     :EndIf
+     ts←⎕NEW StreamReader res.GetResponseStream   ⍝ text stream
+     jd←ts.ReadToEnd
+     data←⎕JSON jd
+     ns.version←fixVersion 4↑(1+⎕IO)⊃'.'⎕VFI(data.tag_name∊⎕D,'.')/data.tag_name
+ :Else
+     ns.status←{⍵↓⍨2+⍵⍳':'}{⍵↑⍨1⍳⍨(⎕UCS 8 10)⍷⍵}⍕⎕EXCEPTION
+ :EndTrap
+ :If ns.version>currentVersion
+     ns.status←'Better one available'
+     ns.version←data.tag_name
+     ns.(url title details zipURL)←data.(html_url name body zipball_url)
+     ns.publishedAt←{(10↑⍵),' ',8↑11↓⍵}data.published_at
+ :Else
+     ns.status←'Current'
+ :EndIf
+⍝Done

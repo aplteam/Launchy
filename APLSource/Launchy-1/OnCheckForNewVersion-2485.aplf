@@ -1,9 +1,11 @@
  OnCheckForNewVersion←{
      #.CursorObj←¯1
-     (gitVersion msg url)←CheckForNewVersion'api.github.com/repos/aplteam/launchy/releases/latest'(2⊃Version)
-     ∨/'Error'⍷∊msg:0⊣TellErrorWhileCheckingForBetterVersion msg
-     0=≢gitVersion:0⊣TellLaunchyIsUp2Date ⍬
-     msg←'There is a better version available on GitHub: ',gitVersion
+     MyGitAPI←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
+     (rc more ns)←MyGitAPI.GetLatestRelease'Launchy'
+     ∨/'Error'⍷∊more:0⊣TellErrorWhileCheckingForBetterVersion more
+     gitVersion←##.GitHubAPIv3.CastTagname2Number ns.tag_name
+     gitVersion≤⌊##.GitHubAPIv3.CastTagname2Number 2⊃Version:0⊣TellLaunchyIsUp2Date ⍬
+     msg←'There is a better version available on GitHub: ',1↓ns.tag_name
      #.CursorObj←0
      _←ShowMsg msg
      0

@@ -8,14 +8,14 @@
  n.Help.onSelect←'OnHelp'
 
  ∆←''
- ∆,←⊂'Caption' 'Launchy release notes'
+ ∆,←⊂'Caption' 'View "Release Notes"'
  n.ReleaseNotes←n.MenuHelp.⎕NEW'MenuItem'∆
  n.ReleaseNotes.onSelect←'OnReleaseNotes'
 
  n.Sep11←n.MenuHelp.⎕NEW(⊂'Separator')
 
  ∆←''
- ∆,←⊂'Caption' 'Check for new version'
+ ∆,←⊂'Caption' 'Check for updates...'
  n.CheckForNewVersion←n.MenuHelp.⎕NEW'MenuItem'∆
  n.CheckForNewVersion.onSelect←'OnCheckForNewVersion'
 
