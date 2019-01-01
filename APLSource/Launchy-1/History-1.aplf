@@ -7,26 +7,5 @@
 ⍝   * Bug fixes:
 ⍝     * Pressing any other function key than F4 or F5 and those associated with menu items made Launchy crash.
 ⍝     * When old versions of Ride are installed then, depending on the folder structure, Launchy crashed.
-⍝ * 4.5.1
-⍝   * The INI file template came with a syntax problem (⍝ rather than ; for a comment)
-⍝   * Launchy crashed in case no APL was installed. Now Launchy does not make much sense without
-⍝     any version of Dyalog installed but it should still not crash.
-⍝ * 4.5.0
-⍝   * Option added to the GUI: check box on "Execute setup.dyalog" which allows one to instantiate
-⍝     Dyalog with a default environment.
-⍝ * 4.4.1
-⍝   * Bug fix: Patching showed always an error message regarding the Dyares*.DLL. This wa caused by Launchy
-⍝     setting the working dir. It should not for pathcing!
-⍝ * 4.4.0
-⍝   * Ride 4.1 installs into a different directory from earlier versions.
-⍝     Therefore the search needs to be performed recursively from now on.
-⍝     As an unwanted but unavoidable side effect only the latest Ride of any given version will be
-⍝     used. That means that in case several versions x.y.z are installed the one with the highest built ID
-⍝     will be started.
-⍝   * The "Ride" dialog box now allows decreasing and increasing of the port number via the PgUp and PgDn
-⍝     key. The original value can be restored via the F3 key.
-⍝   * When editing the INI file(s) the names have not been very clear. Instead of "ini1" and "ini2" it is
-⍝     now "GeneralIni" and "ComputerSpecificIni".
-⍝ * 4.3.0
-⍝   * Sessions associated with Ride are now hidden from the user.
-⍝   * Information displayed in the status bar improved: in case of a Ride the port number is reported.
+⍝\\
+⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>
