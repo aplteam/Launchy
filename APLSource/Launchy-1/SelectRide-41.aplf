@@ -1,0 +1,20 @@
+ (status cmd port rideExe)←SelectRide n;status;port;version;rideExe;startRide
+⍝ status:
+⍝ ¯1 means user has cancelled
+⍝  0 means just APL
+⍝  1 means APL and Ride
+ status←0 ⋄ cmd←'' ⋄ port←0 ⋄ rideExe←''
+ :If n.RIDEflag.Active
+ :AndIf 0≠n.RIDEflag.State
+     version←⍎3⊃' 'U.Split GetCurrentlySelectedAPL
+     (status port rideExe)←AskForRideAndPort n version
+     :If ¯1=status  ⍝ Cancelled?
+         port←0
+     :Else
+         status←1
+         :If 0≠port
+             cmd←'SET RIDE_CONNECT=',Ini.RIDE.connect,':',(⍕port)
+         :EndIf
+     :EndIf
+ :EndIf
+⍝Done

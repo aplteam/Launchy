@@ -1,23 +1,20 @@
- {r}←StartRide(version pathToExe);parms;rc;bat
+ {r}←{cmd}StartRide pathToExe;parms;rc;bat
  r←0
+ cmd←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'cmd'
  parms←S.CreateParms_ShellExecute
- :If '2.0'≡version
-     parms.file←GetRideExeName pathToExe
-     parms.lpParms,←' -listen=localhost:',⍕Ini.RIDE.port
-     rc←S.ShellExecute parms
-     'Could not start Ride'CheckRc rc
- :Else
-     bat←''
-     :If 2=Ini.RIDE.⎕NC'profile'
-     :AndIf ~0∊⍴Ini.RIDE.profile
-         bat,←⊂'SET RIDE_PREFS=',Ini.RIDE.profile
-     :EndIf
-     bat,←⊂(GetRideExeName pathToExe),' -listen=',Ini.RIDE.connect,':',⍕Ini.RIDE.port
-     parms.file←'bat'#.FilesAndDirs.GetTempFilename2''
-     parms.show←0
-     #.APLTreeUtils.WriteUtf8File parms.file bat
-     rc←S.ShellExecute parms
-     'Could not start Ride'CheckRc rc
-     {⎕DL 2 ⋄ #.FilesAndDirs.DeleteFile ⍵}&parms.file
+ bat←''
+ :If 2=Ini.RIDE.⎕NC'profile'
+ :AndIf 0≠≢Ini.RIDE.profile
+     bat,←'SET RIDE_PREFS=',Ini.RIDE.profile,'&'
  :EndIf
+ :If 0≠≢cmd
+     bat,←' ',cmd,'&'
+ :EndIf
+ parms.file←'bat'#.FilesAndDirs.GetTempFilename2''
+ parms.show←0
+ bat,←' "',('"'~⍨GetRideExeName pathToExe),'"'
+ #.APLTreeUtils.WriteUtf8File parms.file bat
+ rc←S.ShellExecute parms
+ 'Could not start Ride'CheckRc rc
+ {⎕DL 1 ⋄ #.FilesAndDirs.DeleteFile ⍵}&parms.file
 ⍝Done

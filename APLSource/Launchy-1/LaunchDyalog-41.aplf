@@ -1,11 +1,5 @@
- {r}←{workspace}LaunchDyalog(ty ws dseType h w x y tf clp ride);p;parms;rc;tempfile;dir;kai
-⍝ Compiles the "batch script" and finally launches any version of Dyalog better than V11
-
-⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
-⍝ THIS IS A MESS!!                             ⍝
-⍝ Rewrite when "Spawn" is supported by Dyalog! ⍝
-⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
-
+ {r}←{workspace}LaunchDyalog(ty ws dseType h w x y tf clp port);p;parms;rc;tempfile;dir;kai
+⍝ Compiles the "batch script" and finally launches any version of Dyalog.
  r←1
  workspace←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'workspace'
  p←GetInstallPath ty
@@ -13,73 +7,35 @@
      r←TellRegistryProblem ty
  :Else
      parms←S.CreateParms_ShellExecute
-     :If (,2)≡,ride
-
-⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
-⍝ This part is not ready yet because there is yet no option available to    ⍝
-⍝ specify parameters (like MAXWS=) and flags (like -Dcw) for a spawned APL. ⍝
-⍝ That's a pity because spawned APLs would be very nice since one does not  ⍝
-⍝ need to bother about ports: Ride and Dyalog would negotiate a free port.  ⍝
-⍝ Also, the session window won't make an appearance then.                   ⍝
-⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
-
-     ⍝ We launch Ride and tell it to spawn an APL instance, and which one
-         parms.file←'Set RIDE_SPAWN=',(p,'Dyalog.exe'),'&&',GetRideExeName G.RideVersion
-⍝TODO⍝          parms.lpParms,←'Set RIDE_SPAWN="',((p~'"'),'Dyalog.exe'),'"; '
-         parms.lpParms,←' MAXWS=',ws
-         parms.lpParms,←' ',(GetDebugCode ⍬)
-         parms.lpParms,←' PropertyExposeRoot=',(⍕n.propertyExposeRoot.State)
-         parms.lpParms,←' ',clp                       ⍝ Add command line parameters
-         parms.lpParms,←(' '=1↑0⍴ride)/ride           ⍝ Make it listen to ride
-         parms.lpParms,←' ',workspace
-         parms.show←0
-         parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS{⍵↓⍨1+⍸'&&'⍷⍵}parms.file
-         parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist
-         kai←parms.lpParms
-         dir←parms.lpDirectory
-         n.showCmd.Checked←AskForShowCommandLineParms⍣((~0∊⍴clp)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
-         :If 0=n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
-             r←0
+     parms←S.CreateParms_ShellExecute
+     parms.file←p,'Dyalog.exe'
+     parms.lpParms←''
+     :If 0≠port
+         parms.lpParms,←' RIDE_INIT=SERVE::',(⍕port)      ⍝ Make it listen to ride
+     :EndIf
+     parms.lpParms,←' MAXWS=',ws,' '
+     parms.lpParms,←' ',(GetDebugCode ⍬)
+     parms.lpParms,←' PropertyExposeRoot=',(⍕n.propertyExposeRoot.State)
+     parms.lpParms,←' ',clp                       ⍝ Add command line parameters
+     parms.lpParms,←' exec_setup=',⍕n.ExecMyUCMD.State
+     parms.lpParms,←' ',workspace                         ⍝ ⍺ might be a workspace name
+     parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
+     parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist
+     parms.show←0≡port
+     n.showCmd.Checked←AskForShowCommandLineParms⍣((~0∊⍴clp)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
+     :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
+         rc←n.runAsAdmin.State S.ShellExecute parms
+         :If 0≠rc
+             ShowMsg'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
          :Else
-             tempfile←CreateBatFile parms
-             parms←S.CreateParms_ShellExecute
-             parms.file←tempfile
-             parms.lpParms←dir
-             parms.lpParms←kai
-             rc←n.runAsAdmin.State S.ShellExecute parms
-             :If 0≠rc
-                 {}ShowMsg'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
-                 r←0
+             :If 0=≢port
+                 n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty
              :Else
-                 n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,' launched at ',U.FormatDateTime 6↑⎕TS
+                 n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,' (Ride:',({1↓⌽{⍵↑⍨⍵⍳':'}⌽⍵}'TO-BE-FILLED'),')'   ⍝TODO⍝
              :EndIf
          :EndIf
      :Else
-         parms←S.CreateParms_ShellExecute
-         parms.file←p,'Dyalog.exe'
-         parms.lpParms←'MAXWS=',ws
-         parms.lpParms,←' ',(GetDebugCode ⍬)
-         parms.lpParms,←' PropertyExposeRoot=',(⍕n.propertyExposeRoot.State)
-         parms.lpParms,←' ',clp                       ⍝ Add command line parameters
-         parms.lpParms,←(' '=1↑0⍴ride)/ride           ⍝ Make it listen to ride
-         parms.lpParms,←' exec_setup=',⍕n.ExecMyUCMD.State
-         parms.lpParms,←' ',workspace                         ⍝ ⍺ might be a workspace name
-         parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
-         parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist
-         parms.show←(,0)≡,RIDE
-         n.showCmd.Checked←AskForShowCommandLineParms⍣((~0∊⍴clp)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
-         :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
-             rc←n.runAsAdmin.State S.ShellExecute parms
-             :If 0≠rc
-                 ShowMsg'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
-             :Else
-                 :If 0≡ride
-                     n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty
-                 :Else
-                     n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,(0≢ride)/' (Ride:',({1↓⌽{⍵↑⍨⍵⍳':'}⌽⍵}ride),')'
-                 :EndIf
-             :EndIf
-         :EndIf
+         r←0
      :EndIf
  :EndIf
 ⍝Done

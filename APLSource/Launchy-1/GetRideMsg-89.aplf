@@ -1,6 +1,5 @@
  GetRideMsg←{
-     tip←⊂'RIDE is an option from version 14.0 onwards.'
-     tip,←⊂'When an older version is selected the RIDE'
-     tip,←⊂'option becomes inactive.'
+     tip←⊂'RIDE is an alternative to the built-in IDE.'
+     tip,←⊂'You will still be asked whether you want a Ride or not.'
      tip
  }

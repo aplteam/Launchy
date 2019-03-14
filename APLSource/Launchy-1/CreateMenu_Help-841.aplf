@@ -20,7 +20,7 @@
  n.CheckForNewVersion.onSelect←'OnCheckForNewVersion'
 
  ∆←''
- ∆,←⊂'Caption' 'Show Launchy on GitHub'
+ ∆,←⊂'Caption' 'Visit Launchy on GitHub'
  n.GoToGitHub←n.MenuHelp.⎕NEW'MenuItem'∆
  n.GoToGitHub.onSelect←'OnGoToGitHub'
 

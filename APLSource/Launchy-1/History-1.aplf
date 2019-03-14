@@ -1,4 +1,9 @@
  History
+⍝ * 5.0.0
+⍝   * Now when APL is given a Ride it means that an APL instance is started but without the session
+⍝     showing. Also, Ride connects automatically to that instance of APL.
+⍝   * Bug fixes:
+⍝     * Problem with multiple installations of Ride fixed. This problem made a appearance with Ride 4.2.3415.
 ⍝ * 4.6.0
 ⍝   * New command on the "Help" menu: "View Release Notes". Shows the release notes on Git in your browser.
 ⍝   * New command on the "Help" menu: "Check for updates...". Checks whether there is a better version

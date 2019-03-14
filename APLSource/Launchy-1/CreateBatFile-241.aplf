@@ -1,7 +1,5 @@
  CreateBatFile←{
      parms←⍵
-     ⍝TODO⍝  (p1 p2)←{⍵⊂⍨1,1↓'&&'⍷⍵}parms.file
-     ⍝TODO⍝ bat←p1,' ',parms.lpParms,p2
      bat←parms.file
      bat,←' ',parms.lpParms
      filename←'bat'F.GetTempFilename2''

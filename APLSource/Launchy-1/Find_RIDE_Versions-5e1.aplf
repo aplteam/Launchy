@@ -9,12 +9,14 @@
      flag←'programs\dyalog'≡U.Lowercase{⍵↑⍨-+/2>+\(⌽⍵)∊'/\'}Ini.RIDE.path2ride
      path←Ini.RIDE.path2ride,flag/'\..'
  :AndIf 0≠≢list←F.ListDirs path,'\Dyalog\'
-     list2←,/↑F.ListDirs¨list,¨'\'
- :AndIf 0≠≢allRides←('resources'∘{⍺≡(-⍴⍺)↑⍵}¨list2)/list
-     versionFiles←allRides,¨⊂'\resources\app\_\version'
+     list2←↑,/F.ListDirs¨list,¨'\'
+ :AndIf 0≠≢allRides←('resources'∘{⍺≡(-⍴⍺)↑⍵}¨list2)/list2
+     versionFiles←allRides,¨⊂'\app\_\version'
  :AndIf ∨/bool←F.IsFile versionFiles
      (allRides versionFiles)←bool∘/¨allRides versionFiles
      versionNos←U.ReadUtf8File¨versionFiles
      ind←∪#{⍵⍳⍵}versionNos
-     r←⊖(versionNos,[1.5]allRides)[ind;]
+     allRides←'expand'F.NormalizePath allRides,¨⊂'\..'
+     r←(versionNos,[1.5]allRides)[ind;]
+     r←(4≤{⊃⊃(//)⎕VFI 1⊃2↑1↓¨⍵⊂⍨'.'=⍵}¨'.',¨versionNos)⌿r
  :EndIf

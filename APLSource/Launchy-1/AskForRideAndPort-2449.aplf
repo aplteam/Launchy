@@ -1,15 +1,6 @@
  (flag port rideExe)←AskForRideAndPort(n version);∆;n2;res
  flag←0 ⋄ rideExe←'' ⋄ port←n.∆Port
 
- :If 15≤version
-     :If 0=+/G.RideVersions[;1]≢¨⊂'2.0'
-         :Return
-     :EndIf
- :Else
-     :If 0=+/G.RideVersions[;1]≡¨⊂'2.0'
-         :Return
-     :EndIf
- :EndIf
  n2←⎕NS''
 
  ∆←''
@@ -25,22 +16,12 @@
  n2.Tip←⎕NEW⊂'TipField'
 
  ∆←''
- ∆,←⊂'Caption' 'Ride Options'
- ∆,←⊂'Posn'(5 10)
- ∆,←⊂'Size'(70 220)
- n2.RideOptions←n2.Form.⎕NEW'Group'∆
-
- ∆←''
  ∆,←⊂'Caption' '&Listen for Ride on port:'
- ∆,←⊂'Posn'(20 10)
- ∆,←⊂'Style' 'Radio'
- ∆,←⊂'State' 1
-⍝ ∆,←⊂'TipObj'
-⍝ ∆,←⊂'Tip' ''
- n2.RideListen←n2.RideOptions.⎕NEW'Button'∆
+ ∆,←⊂'Posn'(15 15)
+ n2.RideListen←n2.Form.⎕NEW'Label'∆
 
  ∆←''
- ∆,←⊂'Posn'((n2.RideListen.Posn[1]+5),(10+2⊃AddPosnAndSize n2.RideListen))
+ ∆,←⊂'Posn'((n2.RideListen.Posn[1]+2),(2⊃AddPosnAndSize n2.RideListen))
  ∆,←⊂'Size'(⍬ 50)
  ∆,←⊂'FieldType' 'Numeric'
  ∆,←⊂'Value'n.∆Port
@@ -54,22 +35,7 @@
  n2.Port.onKeyPress←'OnKeyPressInPortNo'n
 
  ∆←''
- ∆,←⊂'Caption' '&Start APL from Ride'
- ∆,←⊂'Posn'((⊃AddPosnAndSize n2.RideListen),10)
- ∆,←⊂'Style' 'Radio'
- ∆,←⊂'State' 0
-
- ∆,←⊂'Active' 0   ⍝ One day, when spawning an APL session allows passing command line parameters...
- ∆,←⊂'Visible' 0  ⍝ One day, when spawning an APL session allows passing command line parameters...
-
-⍝ ∆,←⊂'TipObj'
-⍝ ∆,←⊂'Tip' ''
- n2.RideSpawn←n2.RideOptions.⎕NEW'Button'∆
-
- n2.(RideListen RideSpawn).onSelect←⊂'OnChangeRideType'
-
- ∆←''
- ∆,←⊂'Posn'((10+⊃AddPosnAndSize n2.RideOptions),10)
+ ∆,←⊂'Posn'((20+⊃AddPosnAndSize n2.Port),15)
  ∆,←⊂'Caption' 'Ride &version:'
  n2.Label2←n2.Form.⎕NEW'Label'∆
 
@@ -105,7 +71,6 @@
 
  n2.Buttons←n2.(Yes No Cancel)
  n2.Buttons.onSelect←1
- ⍝TODO⍝  n2.Port.SelText←1,1+⍴⍕port
  n2.Form.n←n2
 
  :Repeat
@@ -114,20 +79,16 @@
          flag←¯1
      :Else
          :If n2.Yes≡⊃res
-             :If n2.RideSpawn.State
-                 rideExe←2⊃G.RideVersions[⊃⍸n2.RideVersion.SelItems;]
+             :If ~0∊⍴n2.Port.Text
+             :AndIf ⊃⎕VFI n2.Port.Text
+             :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
                  flag←1
-             :Else
-                 :If ~0∊⍴n2.Port.Text
-                 :AndIf ⊃⎕VFI n2.Port.Text
-                 :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
-                     flag←1
-                     port←n2.Port.Value
-                     n.∆Port←port
-                 :EndIf
+                 port←n2.Port.Value
+                 n.∆Port←port
              :EndIf
+             rideExe←⊃G.RideVersions[G.RideVersions[;1]⍳n2.RideVersion.(SelItems/Items);2]
          :Else
-             flag←0
+             port←flag←0
          :EndIf
      :EndIf
  :Until flag≢⍬

@@ -1,4 +1,4 @@
  OnRunRide←{
-     _←StartRide ⍺
+     _←StartRide 2⊃⍺
      ⍬
  }

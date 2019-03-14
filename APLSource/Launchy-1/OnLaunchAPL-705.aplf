@@ -1,12 +1,15 @@
- r←OnLaunchAPL arg;rf;ct;ws;oldVals;newVals;ty;_;RIDE
- rf←1⊃arg                                                    ⍝ Ref to the button
+ r←OnLaunchAPL arg;rf;ct;ws;oldVals;newVals;ty;_;port;cmd;status;rideExe
+ rf←1⊃arg                                                   ⍝ Ref to the button
  rf.Active←0
- ws←n.wssize.((SelItems⍳1)⊃Items)                            ⍝ Workspace size
- RIDE←SelectAndRunRide n
+ ws←n.wssize.((SelItems⍳1)⊃Items)                           ⍝ Workspace size
  G.CurrentAPL←GetCurrentlySelectedAPL
- :If ¯1≢RIDE
-     :If LaunchDyalog G.CurrentAPL ws'',n.(editHeight editWidth x y).Value,n.tracerFlag.State,GetCommandLineParms RIDE
-         ⎕DL 0.1
+ (status cmd port rideExe)←SelectRide n
+ :If ¯1≢status                                              ⍝ ¯1 = User has cancelled
+     :If LaunchDyalog G.CurrentAPL ws'',n.(editHeight editWidth x y).Value,n.tracerFlag.State,GetCommandLineParms port
+         :If 0<≢rideExe
+             ⎕DL 0.5
+             cmd StartRide rideExe
+         :EndIf
          rf.Active←1
          :If n.iconify.Checked
              n.Form ⎕WS'State' 1
