@@ -64,7 +64,7 @@ However, if that does not work for you then please zip those files and send them
 
 ## RIDE
 
-**Note:** With version 5.0.0 Launchy only support Ride 4.0 and higher.
+**Note:** With version 5.0.0 Launchy only supports Ride 4.0 and higher.
 
 Since version 2.9 Launchy requires all versions of Ride to be installed into the same directory. The INI entries `path2ride2` and `path2ride3` are no longer supported and **must not** be present in the INI file. Instead you may specify `[Ride]path2ride`. If this is not present then no Ride command is shown at all in the "File" menu.
 
