@@ -1,3 +1,3 @@
  r←GetCaption
- r←'Launchy ',(2⊃Version),' - '
- r,←((1+S.IsRunningAsAdmin)⊃'Normal' 'Extended'),' rights'
+ r←'Launchy ',⊃{⍺,'.',⍵}/3↑'.'U.Split 2⊃Version
+ r,←S.IsRunningAsAdmin/' (elevated)'

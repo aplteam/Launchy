@@ -1,5 +1,5 @@
  {r}←{caption}ShowMsg question;∆;ms
- r←⍬
+ r←0
  caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
  ∆←⊂'MsgBox'
  ∆,←⊂caption

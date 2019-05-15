@@ -8,6 +8,7 @@
      m←b⌿m
      no←+⌿m[;3]∘.≡'Console' 'Services'
      msg←'Be aware!' ''
-     msg,←(0≠no)/('No. of '∘,¨'Console applications' 'Services',¨⊂' currently running: '),¨⍕¨no
-     1⊣ShowMsg msg
+     msg,←(0≠no)/('No. of Dyalog '∘,¨'EXEs' 'Services',¨⊂' currently running: '),¨⍕¨no
+     ShowMsg msg:
+     1:r←0
  }

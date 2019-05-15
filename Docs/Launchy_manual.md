@@ -16,10 +16,10 @@ In addition to the general INI file one can also specify an INI file named `Laun
         
 * "workdir" is the directory which will become the current (or working) directory for any instance of Dyalog APL launched by Launchy.
 
-  If the INI entry does not exist or is empty or the specified directory then there will be no menu entry "Explore > WorkDir
+  If the INI entry does not exist or is empty or the specified directory then there will be no menu entry "Explore > WorkDir"
 
   
-* In case Launchy itself was launched with admin rights (by selecting "Run as administrator" from the context menu associated with Launchy exe for example) "Rights: extended" will be shown in the caption of Launchy's GUI. 
+* In case Launchy itself was launched with admin rights (by selecting "Run as administrator" from the context menu associated with Launchy exe for example) "(elevated)" will be shown in the caption of Launchy's GUI. 
 
 ## Installation
     
@@ -37,7 +37,7 @@ Notes:
 
 * `Program Files` or `Program Files (x86)` are not exactly ideal because Microsoft now prevents applications to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.
 
-Now remove ".RemoveMe" from the name of the INI file which is by then `Launchy.ini.RemoveMe`; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.
+Rename `Launchy.ini.RemoveMe` to `Launchy.ini`; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.
 
 With a default RIDE installation it should work out of the box. With a non-standard installation of RIDE you need to make adjustments to the INI file.
 

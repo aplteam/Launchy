@@ -1,15 +1,12 @@
  OnHelp←{
-⍝
+⍝ Attempts to view Launchy's help file in the user's browser
      fn←G.Home,'\launchy_manual.html'
      flag←⎕NEXISTS fn
      ((fn=' ')/fn)←⊂'%20'
      fn←⊃,/fn
      flag:0⊣U.GoToWebPage'file:///',fn
-     tx←''
-     tx,←⊂'Could not find the file:'
-     tx,←⊂fn
-     tx,←⊂''
-     tx,←⊂'You can download it from the APL wiki'
-     _←ShowMsg tx
+     tx←'Could not find the file:' '' 'launchy_manual.html'
+     tx,←'' 'in the folder:' ''G.Home
+     _←'Launchy Help'ShowMsg tx
      0
  }
