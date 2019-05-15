@@ -1,5 +1,11 @@
  OnStandardKeyPress←{
 ⍝ Handles Alt+F4
-     (115 4≢2↑4↓⍵):1            ⍝ It is NOT Alt+F4?! Let it pass!
-     ⎕NQ n.Form'Close'
+     flag←{6≠≢⍵:0
+         115 4≡2↑4↓⍵
+     }⍵
+     flag:⎕NQ n.Form'Close'           ⍝ Is it Alt+F4? Quit!
+     ref←⊃⍵
+     n.wssize≢ref:1
+     'ER'≢3⊃⍵:1
+     0⊣⎕NQ n.wssize'KeyPress' 'TB'
  }

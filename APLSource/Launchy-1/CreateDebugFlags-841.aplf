@@ -2,7 +2,7 @@
  ∆←''
  ∆,←⊂'Caption' ' Debug flags '
  ∆,←⊂'Posn'(65 2)
- ∆,←⊂'Size'(70 180)
+ ∆,←⊂'Size'(70 220)
  n.DebugGroup←n.GeneralSubForm.⎕NEW'Group'∆
 
  ∆←''
@@ -15,7 +15,7 @@
  ∆,←⊂'Items'Ini.WS_CHECK.list
  ∆,←⊂'SelItems'(Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list)
  ∆,←⊂'Posn'(40 5)
- ∆,←⊂'Size'(⍬ 170)
+ ∆,←⊂'Size'(⍬ 210)
  ∆,←⊂'TipObj'n.tip
  n.debug←n.DebugGroup.⎕NEW'Combo'∆
  n.debug.tip←'Specify one of these to get' 'an aplcore closer to the problem'

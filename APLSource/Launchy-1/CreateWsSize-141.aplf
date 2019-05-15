@@ -1,20 +1,21 @@
- n←CreateWsSize n;∆;l;list
+ n←CreateWsSize n;∆;l;list;startAt
  list←','U.Split Ini.WSSIZE.options
  ∆←''
  ∆,←⊂'Style' 'Drop'
  ∆,←⊂'Items'list
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
-⍝ ∆,←⊂'Posn'(20 3)
- ∆,←⊂'Posn'((4+⊃AddPosnAndSize n.ExecMyUCMD),190)
+ startAt←10+2⊃+⌿↑n.DebugGroup.(Posn Size)
+ ∆,←⊂'Posn'((4+⊃AddPosnAndSize n.ExecMyUCMD),startAt)
  ∆,←⊂'Size'(⍬ 60)
+ ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip
  n.wssize←n.GeneralSubForm.⎕NEW'Combo'∆
+ n.wssize.SelText←2⍴1+≢n.wssize.Text
  n.wssize.tip←'Workpace size' 'in Megabytes'
- n.wssize.onSelect←'OnChanged' 'WSSIZE'
+ n.wssize.onChange←'OnChanged' 'WSSIZE'
  n.wssize.onKeyPress←'OnStandardKeyPress'
-
  ∆←''
  ∆,←⊂'Caption' 'MAXWS'
- ∆,←⊂'Posn'(¯2+n.wssize.Posn[1],4+2⊃AddPosnAndSize n.wssize)
+ ∆,←⊂'Posn'(¯2+n.wssize.Posn[1],6+2⊃AddPosnAndSize n.wssize)
  n.wssize_Label←n.GeneralSubForm.⎕NEW'Label'∆
 ⍝Done

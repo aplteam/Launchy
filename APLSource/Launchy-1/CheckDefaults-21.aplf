@@ -1,11 +1,12 @@
- {r}←CheckDefaults type;f;l
+ {r}←CheckDefaults type;f;l;wssize
 ⍝ Checks which data is different from defaults and hightlight it.
- r←⍬
+ r←1
  :Select type
  :Case 'APL_Version'
      ⍝ Not any more
  :Case 'WSSIZE'
-     f←n.wssize.((SelItems⍳1)⊃Items)≢Ini.WSSIZE.default
+     wssize←GetWsSize n
+     f←wssize≢Ini.WSSIZE.default
      n.wssize_Label.FCol←ColorCode×f
  :Case 'DEBUGFLAG'
      f←1≠1⍴n.debug.SelItems

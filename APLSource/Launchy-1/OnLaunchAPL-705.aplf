@@ -1,7 +1,13 @@
  r←OnLaunchAPL arg;rf;ct;ws;oldVals;newVals;ty;_;port;cmd;status;rideExe
  rf←1⊃arg                                                   ⍝ Ref to the button
  rf.Active←0
- ws←n.wssize.((SelItems⍳1)⊃Items)                           ⍝ Workspace size
+ :If 0=≢ws←GetWsSize n
+     rf.Active←1
+     ⎕NQ n.wssize'GotFocus'
+     :Return
+ :Else
+     n.wssize.Text←ws
+ :EndIf
  G.CurrentAPL←GetCurrentlySelectedAPL
  (status cmd port rideExe)←SelectRide n
  :If ¯1≢status                                              ⍝ ¯1 = User has cancelled

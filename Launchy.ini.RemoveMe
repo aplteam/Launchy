@@ -29,14 +29,13 @@ size        =   19
 
 [WS_CHECK]          ; See combo box "check workspace integrity"
 list        =   ''
-list        ,=  'a) occasionally (default)' 
-list        ,=  'b) after each callback; -Dhc'
-list        ,=  'c) on return to session input; -Dhw'
-list        ,=  'd) combine b) and c); -Dhcw' 
-list        ,=  'e) getspace() (very slow); -DhW'
-val         =   ''
-val         ,=  ''
-default     =   'a' ; Can be one of: a,b,c,d 
+list        ,=  'a) Occasionally (default)' 
+list        ,=  'b) After each callback; -Dc'
+list        ,=  'c) On return to session input; -Dw'
+list        ,=  'd) Combine b) and c); -Dcw' 
+list        ,=  'e) Log session keystrokes into ./apllog; -DK' 
+list        ,=  'f) After every line of APL (very slow); -DW'
+default     =   'a' ; Can be one of: a,b,c,d,e,f
 
 [RIDE]
 active      =   1               ; Use this only to disable RIDE permanently

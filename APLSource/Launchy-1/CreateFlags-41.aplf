@@ -1,6 +1,7 @@
- n←CreateFlags n;∆;f;flag
+ n←CreateFlags n;∆;f;flag;startAt
+ startAt←10+2⊃+⌿↑n.DebugGroup.(Posn Size)
  ∆←''
- ∆,←⊂'Posn'(60 190)
+ ∆,←⊂'Posn'(60 startAt)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'PropertyExposeRoot'
  ∆,←⊂'State'(Ini.PROPERTYEXPOSEROOT.tick)
@@ -13,7 +14,7 @@
  n.propertyExposeRoot.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(80 190)
+ ∆,←⊂'Posn'(80 startAt)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Run as admin o&nce'
  ∆,←⊂'TipObj'n.tip
@@ -24,7 +25,7 @@
  n.runAsAdmin.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(100 190)
+ ∆,←⊂'Posn'(100 startAt)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Execute setup.dyalog'
  ∆,←⊂'TipObj'n.tip

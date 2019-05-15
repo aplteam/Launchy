@@ -1,0 +1,5 @@
+ GetWsSize_←{
+     (val type)←⍵
+     type({0<≢⍺:⍺ ⋄ 16>⍵:'GB' ⋄ 'MB'})←val  ⍝ If no type then everything lower than 16 gets GB and MB otherwise
+     (⍕val),type
+ }
