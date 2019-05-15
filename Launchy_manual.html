@@ -33,10 +33,10 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 </div>
 <ul>
 <li>“workdir” is the directory which will become the current (or working) directory for any instance of Dyalog APL launched by Launchy.
-<p>If the INI entry does not exist or is empty or the specified directory then there will be no menu entry "Explore &gt; WorkDir</p></li>
+<p>If the INI entry does not exist or is empty or the specified directory then there will be no menu entry “Explore &gt; WorkDir”</p></li>
 </ul>
 <ul>
-<li>In case Launchy itself was launched with admin rights (by selecting “Run as administrator” from the context menu associated with Launchy exe for example) “Rights: extended” will be shown in the caption of Launchy's GUI.</li>
+<li>In case Launchy itself was launched with admin rights (by selecting “Run as administrator” from the context menu associated with Launchy exe for example) “(elevated)” will be shown in the caption of Launchy's GUI.</li>
 </ul>
 <div class="h_tag">
 <a href="#Installation" id="Installation" class="autoheader_anchor">
@@ -52,7 +52,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <li><code>AppData</code> is by default invisible to ordinary users.</li>
 <li><code>Program Files</code> or <code>Program Files (x86)</code> are not exactly ideal because Microsoft now prevents applications to write to those folders. As a result Launchy would not be able to save any error information to the disk in case of a crash.</li>
 </ul>
-<p>Now remove “.RemoveMe” from the name of the INI file which is by then <code>Launchy.ini.RemoveMe</code>; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.</p>
+<p>Rename <code>Launchy.ini.RemoveMe</code> to <code>Launchy.ini</code>; this is a measure against overwriting you own INI file accidentally when you update Launchy one day.</p>
 <p>With a default RIDE installation it should work out of the box. With a non-standard installation of RIDE you need to make adjustments to the INI file.</p>
 <div class="h_tag">
 <a href="#How-to-update" id="How-to-update" class="autoheader_anchor">
@@ -80,7 +80,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <h2>RIDE</h2>
 </a>
 </div>
-<p><strong>Note:</strong> With version 5.0.0 Launchy only support Ride 4.0 and higher.</p>
+<p><strong>Note:</strong> With version 5.0.0 Launchy only supports Ride 4.0 and higher.</p>
 <p>Since version 2.9 Launchy requires all versions of Ride to be installed into the same directory. The INI entries <code>path2ride2</code> and <code>path2ride3</code> are no longer supported and <strong>must not</strong> be present in the INI file. Instead you may specify <code>[Ride]path2ride</code>. If this is not present then no Ride command is shown at all in the “File” menu.</p>
 <p>Note that by default Ride is installed into <code>%LocalAppData%\Dyalog\Ride</code> until and including version 4.0 and <code>%LocalAppData%\Dyalog\Ride-4.1</code> since version 4.1.</p>
 <p>With version 2.6 Launchy will work (again) out of the box as long as you have a default RIDE installation, or no RIDE at all. Only if you have installed RIDE into a non-standard location needs the INI file attention in this respect.</p>
