@@ -7,6 +7,6 @@
      flag:0⊣U.GoToWebPage'file:///',fn
      tx←'Could not find the file:' '' 'launchy_manual.html'
      tx,←'' 'in the folder:' ''G.Home
-     _←'Launchy Help'ShowMsg tx
+     _←'Launchy Help'ShowMsg2 tx
      0
  }

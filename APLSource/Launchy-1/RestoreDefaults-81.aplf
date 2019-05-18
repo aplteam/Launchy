@@ -3,6 +3,6 @@
      n.wssize.SelItems←n.wssize.Items≡¨⊂Ini.WSSIZE.default
      n.debug.SelItems←(⍴n.debug.Items)↑1
      n.propertyExposeRoot.State←Ini.PROPERTYEXPOSEROOT.tick
-     n.statusbar.Text←'APL, WSSIZE and debug flags back on defaults'
+     n.statusbarMsg.Text←'APL, WSSIZE and debug flags back on defaults'
      ⍬
  }

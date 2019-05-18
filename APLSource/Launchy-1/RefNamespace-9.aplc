@@ -22,14 +22,10 @@
     ⍝ by/for a particular GUI like a standard form (StdForm).
     ⍝ The right argument is used for ⎕DF if not empty.
       :Access Public Shared
-      n←⎕NS⊃'∆Version' '∆List' '∆GetRefs' '∆GetMethods'
+      n←⎕NS⊃'∆List' '∆GetRefs' '∆GetMethods'
       :If ~0∊⍴displayName
           n.⎕DF displayName
       :EndIf
-    ∇
-
-    ∇ r←∆Version
-      r←(⍕⎕THIS)'1.0.0' '2013-03-30'
     ∇
 
     ∇ r←∆List type;refs;bool

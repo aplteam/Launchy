@@ -10,6 +10,6 @@
      _←'RIDE'Ini.⎕NS''
      Ini.RIDE.active←1
      Ini.RIDE.port←4502
-     _←ShowMsg msg
+     _←ShowMsg2 msg
      ⍬
  }

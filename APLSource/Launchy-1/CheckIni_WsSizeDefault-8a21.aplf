@@ -11,6 +11,6 @@
      msg,←⊂'[WSSIZE]'
      msg,←⊂'default'
      msg,←'' 'Therefore Launchy cannot continue.'
-     ShowMsg msg
+     ShowMsg2 msg
      Off 1
  :EndIf

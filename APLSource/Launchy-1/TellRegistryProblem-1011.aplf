@@ -3,6 +3,6 @@
      msg,←⊂'    ',⍵
      msg,←⊂'in the registry. The is a serious problem with your Windows Registry!'
      msg,←'' 'Launchy cannot continue.'
-     _←ShowMsg msg
+     _←ShowMsg2 msg
      Off
  }

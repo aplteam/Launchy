@@ -1,5 +1,6 @@
  {r}←SayGoodByeAfterError parms;⎕TRAP;dmx;msg;crashedIn;flag
  r←''
+ #.CursorObj←0
  flag←0<parms.⎕NC'addToErrMsg'
  ⎕TRAP←0 'S'
  dmx←⎕DMX
@@ -9,14 +10,10 @@
  :Else
      msg←⊂'Launchy has crashed.'
  :EndIf
- msg,←⊂'Please check the folder:'
+ msg,←⊂'For additional information check this folder:'
  msg,←⊂parms.errorFolder
- msg,←⊂'for additional information.'
+ msg,←⊂'Consider sending the error WS to info@aplteam.com.'
  msg,←⊂''
- msg,←⊂'If you find yourself unable to fix the problem'
- msg,←⊂'then please send the error WS to kai@aplteam.com.'
- msg,←⊂''
- msg,←⊂'The most likely reason for a crash is a missing'
- msg,←⊂'or invalid INI file entry, especially after an update.'
- ShowMsg msg
+ msg,←⊂'You might want to check your INI file in case you''ve changed it'
+ ShowMsg2 msg
 ⍝Done

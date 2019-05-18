@@ -6,7 +6,7 @@
      n.cmdLineArgs.SelItems←(⍴n.cmdLineArgs.SelItems)↑1
      n.(AplVersionGroup wssize_Label DebugGroup propertyExposeRoot RIDEflag LabelCmdLine runAsAdmin).FCol←0
      n.RIDEflag.State←Ini.RIDE.tick
-     n.statusbar.Text←'APL, WSSIZE and debug flags back on defaults'
+     n.statusbarMsg.Text←'APL, WSSIZE and debug flags back on defaults'
      n.reset.Active←0
      n.runAsAdmin.State←0
      _←CheckRide n

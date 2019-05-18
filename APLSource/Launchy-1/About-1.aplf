@@ -2,8 +2,7 @@
 ⍝ Called by OnAbout
  r←⍬
  tx←''
- tx,←⊂'Written by Kai Jaeger'
- tx,←⊂'https://aplteam.com'
+ tx,←⊂'Version ',⊃{⍺,' from ',⍵}/1↓Version
  tx,←⊂'Homepage:'
  tx,←⊂'https://github.com/aplteam/Launchy'
 

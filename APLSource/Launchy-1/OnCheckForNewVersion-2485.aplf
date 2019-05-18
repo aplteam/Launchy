@@ -1,5 +1,5 @@
  OnCheckForNewVersion←{
-     #.CursorObj←¯1
+     #.CursorObj←1
      MyGitAPI←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
      (rc more ns)←MyGitAPI.GetLatestRelease'Launchy'
      ∨/'Error'⍷∊more:0⊣TellErrorWhileCheckingForBetterVersion more

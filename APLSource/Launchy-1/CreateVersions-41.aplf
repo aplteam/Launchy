@@ -47,6 +47,6 @@
      msg,←⊂'   ',G.Default
      msg,←⊂''
      msg,←⊂'You can change this via the "Options" menu (F4).'
-     ShowMsg msg
+     ShowMsg2 msg
  :EndIf
 ⍝Done

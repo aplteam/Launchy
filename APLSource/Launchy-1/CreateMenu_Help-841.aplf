@@ -7,10 +7,17 @@
  n.Help←n.MenuHelp.⎕NEW'MenuItem'∆
  n.Help.onSelect←'OnHelp'
 
+ n.Sep05←n.MenuHelp.⎕NEW(⊂'Separator')
+
  ∆←''
- ∆,←⊂'Caption' 'View "Release Notes"'
+ ∆,←⊂'Caption' 'View latest release notes'
  n.ReleaseNotes←n.MenuHelp.⎕NEW'MenuItem'∆
  n.ReleaseNotes.onSelect←'OnReleaseNotes'
+
+ ∆←''
+ ∆,←⊂'Caption' 'View all release notes" on GitHub'
+ n.ReleaseNotesGitHub←n.MenuHelp.⎕NEW'MenuItem'∆
+ n.ReleaseNotesGitHub.onSelect←'OnGitHubReleaseNotes'
 
  n.Sep11←n.MenuHelp.⎕NEW(⊂'Separator')
 

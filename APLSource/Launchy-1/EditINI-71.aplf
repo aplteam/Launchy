@@ -29,8 +29,8 @@
      :EndIf
  :EndIf
  :If ~0∊⍴msg
-     msg,←'' 'In order to make Launchy honour those' 'changes you need to restart Launchy.'
-     ShowMsg msg
+     msg,←'' 'In order to make Launchy honour changes restart Launchy.'
+     ShowMsg2 msg
  :EndIf
  n.Form.Active←1
  n.ok.Active←1

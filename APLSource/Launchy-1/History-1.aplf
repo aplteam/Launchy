@@ -1,7 +1,9 @@
  History
-⍝ * 5.0.2
-⍝   * Bug fixes:
-⍝     *
+⍝ * 6.0.0
+⍝   * Launchy now has an installer.
+⍝   * "Patch" now checks the settings of DSS UserID/Password for all installed versions of Dyalog and report findings.
+⍝   * Plenty of minor improvements
+⍝   * Bug fixes: #18, #19, #15, #14, #13 and #16
 ⍝ * 5.0.1
 ⍝   * Now if no INI file is found but a file "Launchy.ini.RemoveMe" then the file is renamed accordingly
 ⍝     and then processed.

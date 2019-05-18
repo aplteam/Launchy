@@ -1,9 +1,9 @@
  n←CreateGui;l;ie;∆;flag;f
  n←CreateForm
  n←CreateTabs n
- n←CreateMenubar n
  n←CreateStatusbar n
- (↑,/{'MenuItem'⎕WN ⍵}¨'Menu'⎕WN n.MB).HintObj←⊂n.statusbar
+ n←CreateMenubar n
+ (↑,/{'MenuItem'⎕WN ⍵}¨'Menu'⎕WN n.MB).HintObj←⊂n.statusbarMsg
  n←PolishStatusbarSize n
  n←CreateVersions n
  n←CreateDebugFlags n

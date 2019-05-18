@@ -22,15 +22,15 @@
              :Else
                  msg←⊂'Something went wrong renaming the INI file!'
                  msg,←''('(RC=',(⍕rc),{0=≢⍵:')' ⋄ '; ',⍵,')'}more)
-                 ShowMsg msg
+                 ShowMsg2 msg
                  Off
              :EndIf
          :Else
-             ShowMsg'Cannot find the requiered INI file'
+             ShowMsg2'Cannot find the requiered INI file'
              Off
          :EndIf
      :Else
-         ShowMsg'Cannot find the requiered INI file'
+         ShowMsg2'Cannot find the requiered INI file'
          Off
      :EndIf
  :EndIf

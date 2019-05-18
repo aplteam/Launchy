@@ -7,7 +7,7 @@
      msg,←⊂''
      msg,←⊂'In case you have just installed Dyalog'
      msg,←⊂'you might need to reboot your machine now.'
-     'Launchy'ShowMsg msg
+     'Launchy'ShowMsg2 msg
  :Else
      list←{⍵⌿⍨∨/'Dyalog APL/W'⍷↑⍵}list
      list←2⊃¨'\'U.SplitPath¨list

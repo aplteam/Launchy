@@ -11,5 +11,5 @@
  ∆←''
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Size'(⍬((2⊃n.SB.Size)-2⊃n.sizeInfo.Size+10))
- n.statusbar←n.SB.⎕NEW'StatusField'∆
+ n.statusbarMsg←n.SB.⎕NEW'StatusField'∆
 ⍝Done

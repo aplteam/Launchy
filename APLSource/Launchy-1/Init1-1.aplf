@@ -4,6 +4,10 @@
  F←##.##.FilesAndDirs
  R←##.##.WinReg
  S←##.##.WinSys
- ∆HomeDir←F.PWD
+ :If U.IsDevelopment
+     ∆HomeDir←F.PWD
+ :Else
+     ∆HomeDir←(#.WinSys.ExpandEnv'%localappdata%'),'\Launchy'
+ :EndIf
  EnableEarlyRide allowRide
 ⍝Done

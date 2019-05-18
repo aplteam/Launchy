@@ -26,12 +26,12 @@
      :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
          rc←n.runAsAdmin.State S.ShellExecute parms
          :If 0≠rc
-             ShowMsg'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
+             ShowMsg2'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
          :Else
              :If 0=≢port
-                 n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty
+                 n.statusbarMsg.Text←(⍴'Dyalog APL/W-')↓ty
              :Else
-                 n.statusbar.Text←(⍴'Dyalog APL/W-')↓ty,' (Ride:',({1↓⌽{⍵↑⍨⍵⍳':'}⌽⍵}'TO-BE-FILLED'),')'   ⍝TODO⍝
+                 n.statusbarMsg.Text←(⍴'Dyalog APL/W-')↓ty,' (Ride:',({1↓⌽{⍵↑⍨⍵⍳':'}⌽⍵}'TO-BE-FILLED'),')'   ⍝TODO⍝
              :EndIf
          :EndIf
      :Else

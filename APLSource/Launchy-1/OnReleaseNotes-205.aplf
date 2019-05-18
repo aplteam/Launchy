@@ -1,5 +1,11 @@
  OnReleaseNotes←{
-     url←'github.com/aplteam/Launchy/releases'
-     _←##.APLTreeUtils.GoToWebPage'https://',url
+     fn←G.Home,'\ReleaseNotes.html'
+     flag←⎕NEXISTS fn
+     ((fn=' ')/fn)←⊂'%20'
+     fn←⊃,/fn
+     flag:0⊣U.GoToWebPage'file:///',fn
+     tx←'Could not find the file:' 'ReleaseNotes.html'
+     tx,←'in the folder:'G.Home
+     _←'Launchy Release Notes'ShowMsg2 tx
      0
  }

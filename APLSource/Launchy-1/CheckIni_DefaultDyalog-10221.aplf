@@ -11,7 +11,7 @@
      msg,←⊂'this from your INI file in order to avoid confusion.'
      msg,←⊂''
      msg,←⊂'Please note: you won''t see this message again.'
-     _←ShowMsg msg
+     _←ShowMsg2 msg
      _←R.PutValue(GetAplLauncherRegistryKey,'DyalogDefaultIniWarning')1
      ⍬
  }

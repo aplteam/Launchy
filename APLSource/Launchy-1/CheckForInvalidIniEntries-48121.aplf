@@ -7,6 +7,6 @@
      msg,←⊂'[Ride]path2ride*'
      msg,←⊂''
      msg,←'' 'Therefore Launchy cannot continue.'
-     _←ShowMsg msg
+     _←ShowMsg2 msg
      Off 1
  }

@@ -10,7 +10,7 @@
  :If U.IsDevelopment
      #.ErrorParms.errorFolder←(F.PWD),'\Errors\'
  :Else
-     #.ErrorParms.errorFolder←(⊃⎕NPARTS⊃#.GetCommandLineArgs),'Errors\'
+     #.ErrorParms.errorFolder←(#.WinSys.ExpandEnv'%localappdata%'),'\Launchy\Errors\'
  :EndIf
  'Create!'F.CheckPath #.ErrorParms.errorFolder
  ⎕TRAP←#.HandleError.SetTrap'#.ErrorParms'

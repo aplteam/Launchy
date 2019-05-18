@@ -2,7 +2,7 @@
  n.MenuExplore←n.MB.⎕NEW'Menu'(⊂'Caption' 'E&xplore')
 
  ∆←''
- ∆,←⊂'Caption' 'DYALOG\'
+ ∆,←⊂'Caption' 'Installation directory'
  ∆,←⊂'Hint' 'Starts Windows Explorer in installation directory of selected APL'
  n.runExplorer←n.MenuExplore.⎕NEW'MenuItem'∆
  n.runExplorer.onSelect←'OnStartExplorer'

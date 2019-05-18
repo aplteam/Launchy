@@ -13,7 +13,7 @@
  :For version path :InEach ↓⍉G.RideVersions
      ∆←''
      ∆,←⊂'Caption'('Start Ride ',version)
-⍝     ∆,←⊂'HintObj'n.statusbar
+⍝     ∆,←⊂'HintObj'n.statusbarMsg
      txt←'Starts Ride ',version,' and listens on port ',(⍕Ini.RIDE.port),' by default.'
      ∆,←⊂'Hint'txt
      n.runRide,←n.MenuFile.⎕NEW'MenuItem'∆
@@ -26,7 +26,7 @@
 
  ∆←''
  ∆,←⊂'Caption' 'Quit'
-⍝ ∆,←⊂'HintObj'n.statusbar
+⍝ ∆,←⊂'HintObj'n.statusbarMsg
  ∆,←⊂'Hint' 'Quit Launchy'
  n.quit←n.MenuFile.⎕NEW'MenuItem'∆
  n.quit.onSelect←'OnQuit'

@@ -1,11 +1,10 @@
  ShowCmd←{
 ⍝
      (parms adminFlag)←⍵
-     m←⊂'Want to execute:'
+     m←⊂'Are you sure that you want this to be executed',(adminFlag/' with admin rights'),'?'
+     m,←⊂''
      m,←⊂parms.file
      m,←' 'U.Split U.dmb parms.lpParms
-     m,←(~adminFlag){(0∊⍴⍵):'' ⋄ ⊂('in ',⍵,' ',⍺/'?')}parms.lpDirectory
-     m,←adminFlag/⊂'with admin rights?'
      ⍺:WantToExecute m
      1
  }
