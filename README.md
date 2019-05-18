@@ -1,6 +1,6 @@
 # Launchy
 
-![Launchy](aplteam.github.com/Launchy/img/Launchy.png)
+![Launchy](https://github.com/aplteam/Launchy/blob/master/Launchy.png)
 
 ## Overview
 
