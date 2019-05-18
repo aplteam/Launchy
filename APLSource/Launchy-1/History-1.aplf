@@ -1,16 +1,10 @@
  History
+⍝ * 6.0.?
+⍝   * Status bar problem fixed.
 ⍝ * 6.0.0
 ⍝   * Launchy now has an installer.
 ⍝   * "Patch" now checks the settings of DSS UserID/Password for all installed versions of Dyalog and report findings.
 ⍝   * Plenty of minor improvements
 ⍝   * Bug fixes: #18, #19, #15, #14, #13 and #16
-⍝ * 5.0.1
-⍝   * Now if no INI file is found but a file "Launchy.ini.RemoveMe" then the file is renamed accordingly
-⍝     and then processed.
-⍝ * 5.0.0
-⍝   * Now when APL is given a Ride it means that an APL instance is started but without the session
-⍝     showing. Also, Ride connects automatically to that instance of APL.
-⍝   * Bug fixes:
-⍝     * Problem with multiple installations of Ride fixed. This problem made a appearance with Ride 4.2.3415.
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>
