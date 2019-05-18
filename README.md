@@ -1,6 +1,6 @@
 # Launchy
 
-![Launchy](//aplteam.github.com/Launchy/Launchy.png)
+![Launchy](aplteam.github.com/Launchy/img/Launchy.png)
 
 ## Overview
 
