@@ -1,5 +1,7 @@
 # Launchy
 
+![Launchy](aplteam.github.com/Launchy/Launchy.png)
+
 ## Overview
 
 **_Launchy_** is useful for people with several versions of Dyalog installed on their machine(s). 
