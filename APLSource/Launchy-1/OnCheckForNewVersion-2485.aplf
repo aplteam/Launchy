@@ -9,6 +9,6 @@
      msg,←'' 'Would you like to download this version?'
      #.CursorObj←0
      0='Launchy: Check for updates'YesOrNo2 msg:0
-     _←##.APLTreeUtils.GoToWebPage ns.zipball_url
+     _←##.APLTreeUtils.GoToWebPage'https://github.com/aplteam/Launchy/releases'
      0
  }

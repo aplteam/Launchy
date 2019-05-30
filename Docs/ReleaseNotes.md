@@ -2,18 +2,12 @@
 
 # Launchy Release Notes
 
-## 6.0.0 from 2019-05-16
+## 6.0.2 from 2019-05-30
 
-* Launchy now has an installer.
-* Plenty of minor improvements.
-* Bug fixes: #18, #19, #15, #14, #13 and #16.
+The download URL provided by the REST API turned out to be unreliable. The only things we can do is a) find out whether their is a better version available and b), after prompting the user, put the "Releases" page on display with the default browser.
 
-If you upgrade from an earlier version to 6.0.0 then carry out the following steps:
 
-1. Install Launchy with its installer.
+## 6.0.1 from 2019-05-30
 
-1. Compare the INI file from the old version with the new one in order to save your amendments.
-
-   (Skip this step in case you are sure that you did not change/add anything to the INI file)
-
-1. Remove the earlier version from your machine.
+* Status bar problem fixed.
+* When trying to patch a single instance of Dyalog Launchy crashed.

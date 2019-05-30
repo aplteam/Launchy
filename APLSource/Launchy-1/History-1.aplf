@@ -1,11 +1,9 @@
  History
+⍝ * 6.0.2
+⍝   * The download URL provided by the REST API is unreliable. The only things we can do is a) find out whether
+⍝     their is a better version available and b), after prompting the user, put the "Releases" page on display.
 ⍝ * 6.0.1
 ⍝   * Status bar problem fixed.
 ⍝   * When trying to patch a single instance of Dyalog Launchy crashed.
-⍝ * 6.0.0
-⍝   * Launchy now has an installer.
-⍝   * "Patch" now checks the settings of DSS UserID/Password for all installed versions of Dyalog and report findings.
-⍝   * Plenty of minor improvements
-⍝   * Bug fixes: #18, #19, #15, #14, #13 and #16
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>
