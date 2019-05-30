@@ -1,5 +1,5 @@
  {r}←{caption}ShowMsg2 msg;∆;ms;n2;this;startAt;rf;i;res
- r←⍬
+ r←0
  caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
  n2←⎕NS''
  msg←U.Nest msg

@@ -1,6 +1,7 @@
  History
-⍝ * 6.0.?
+⍝ * 6.0.1
 ⍝   * Status bar problem fixed.
+⍝   * When trying to patch a single instance of Dyalog Launchy crashed.
 ⍝ * 6.0.0
 ⍝   * Launchy now has an installer.
 ⍝   * "Patch" now checks the settings of DSS UserID/Password for all installed versions of Dyalog and report findings.

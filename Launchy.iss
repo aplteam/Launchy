@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "6.0.0.128"
+#define MyAppVersion "6.0.1.130"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "APL Team Ltd"
@@ -28,7 +28,7 @@ OutputBaseFilename="SetUp_{#MyAppName}_{#MyAppVersion}"
 Compression=lzma
 SolidCompression=yes
 SetupIconFile={#MyAppIcoName}
-;UninstallDisplayIcon={app}\{#MyAppIcoName}
+PrivilegesRequired=admin
 
 
 [Languages]
