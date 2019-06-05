@@ -2,5 +2,5 @@
      msg←⊂'Launchy is up to date.'
      #.CursorObj←0
      _←'Update check'ShowMsg2 msg
-     0
+     1:shy←0
  }

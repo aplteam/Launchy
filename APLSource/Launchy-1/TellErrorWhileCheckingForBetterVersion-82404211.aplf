@@ -2,5 +2,5 @@
      msg←'Checking for updates failed due to an unexpected error:'(↑1↓⍵)
      #.CursorObj←0
      _←'Check for updates'ShowMsg2 msg
-     ⍬
+     1:shy←⍬
  }

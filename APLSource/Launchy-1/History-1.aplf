@@ -1,4 +1,6 @@
  History
+⍝ * 6.1.0
+⍝   * Extracts the download URL for a new version of Launchy from GitHub's "Releases" HTML page; that works well.
 ⍝ * 6.0.2
 ⍝   * The download URL provided by the REST API is unreliable. The only things we can do is a) find out whether
 ⍝     their is a better version available and b), after prompting the user, put the "Releases" page on display.

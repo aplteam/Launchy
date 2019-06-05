@@ -1,0 +1,7 @@
+ TellCommunicationWithGitHubFailed←{
+     msg←⊂'The attempt to communicate with GitHub in order to check for a new version of ',⍵,' failed.'
+     msg,←'' 'Please try again later.'
+     #.CursorObj←0
+     _←'Update check'ShowMsg2 msg
+     1:shy←0
+ }

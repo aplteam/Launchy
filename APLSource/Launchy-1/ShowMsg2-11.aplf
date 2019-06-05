@@ -10,7 +10,7 @@
  ∆,←⊂'SysMenu' 0
  ∆,←⊂'Sizeable' 0
  ∆,←⊂'Posn'((n.Form.Posn+50))
- ∆,←⊂'Size'(300 400)
+ ∆,←⊂'Size'(300 2000)
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Caption'caption
  n2.Form←n.Form.⎕NEW'Form'∆

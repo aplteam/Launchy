@@ -1,14 +1,5 @@
- OnCheckForNewVersion←{
-     #.CursorObj←1
-     MyGitAPI←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
-     (rc more ns)←MyGitAPI.GetLatestRelease'Launchy'
-     ∨/'Error'⍷∊more:0⊣TellErrorWhileCheckingForBetterVersion more
-     gitVersion←##.GitHubAPIv3.CastTagname2Number ns.tag_name
-     gitVersion≤⌊##.GitHubAPIv3.CastTagname2Number 2⊃Version:0⊣TellLaunchyIsUp2Date ⍬
-     msg←⊂'There is a better version available on GitHub: ',1↓ns.tag_name
-     msg,←'' 'Would you like to download this version?'
-     #.CursorObj←0
-     0='Launchy: Check for updates'YesOrNo2 msg:0
-     _←##.APLTreeUtils.GoToWebPage'https://github.com/aplteam/Launchy/releases'
-     0
- }
+ OnCheckForNewVersion msg
+ #.CursorObj←1
+ CheckForNewVersion ⍬
+ #.CursorObj←0
+⍝⍎Done

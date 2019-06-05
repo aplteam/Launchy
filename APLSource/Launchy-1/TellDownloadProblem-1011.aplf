@@ -1,0 +1,7 @@
+ TellDownloadProblem←{
+     msg←⊂'The attempt to download the new version from GitHub failed.'
+     msg,←'' 'Please try again later.'
+     #.CursorObj←0
+     _←'Update check'ShowMsg2 msg
+     1:shy←0
+ }

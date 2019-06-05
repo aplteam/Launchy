@@ -26,13 +26,11 @@ Download the installer EXE: since version 6.0.0 Launchy has its own installer.
 
 With a default RIDE installation it should work out of the box. With a non-standard installation of RIDE you need to make adjustments to the INI file; see next topic.
 
-## Upgrading
-
-Refer to the Launchy_RelaseNotes.html file.
-
 ## Amendments (INI file)
 
-Launchy comes with reasonable defaults specified in the INI file. The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can be changed even without admin rights. On a standard Windows installation this would be `C:\Users\{username}\AppData\Local\Launchy`
+Launchy comes with reasonable defaults specified in the INI file. Normally their will be no need to make amendments to this INI file.
+
+The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can be changed even without admin rights. On a standard Windows installation this would be `C:\Users\{username}\AppData\Local\Launchy`
 
 For a programmer it will be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that section.
 
@@ -49,10 +47,9 @@ In addition to the general INI file one can also specify an INI file named `Laun
 * In case Launchy itself was launched with admin rights (by selecting "Run as administrator" from the context menu associated with Launchy exe for example) "(elevated)" will be shown in the caption of Launchy's GUI. 
 
 
-    
 ## How to update
 
-You can use the menu command "Check for updates..." from the Help menu to find out whether there is a newer version of Launchy available.
+You can use the menu command "Check for updates..." from the Help menu to find out whether there is a better version of Launchy available.
 
 * Download Launchy
 * Double-click the installer EXE
