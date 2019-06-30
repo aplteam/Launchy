@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "6.1.0.134"
+#define MyAppVersion "6.2.0.137"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "APL Team Ltd"
@@ -51,8 +51,8 @@ Source: "bridge170_unicode.dll"; DestDir: "{app}";
 Source: "dyalognet.dll"; DestDir: "{app}"     
 
 ; The Conga DLLs are needed for "Check for updates"
-Source: "conga30ssl32.dll"; DestDir: "{app}";
-Source: "conga30_32.dll"; DestDir: "{app}";
+;Source: "conga30ssl32.dll"; DestDir: "{app}";
+;Source: "conga30_32.dll"; DestDir: "{app}";
 
 ; ----- During beta phase only: --------
 ;Source: "Conga*.dll"; DestDir: "{app}";

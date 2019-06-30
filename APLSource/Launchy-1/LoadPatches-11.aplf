@@ -1,12 +1,13 @@
- {r}←LoadPatches dummy;this;rc;cs;∆;res;q;parms;aplPath
+ {r}←LoadPatches dummy;this;rc;cs;∆;res;q;parms;aplPath;bool;flag
  r←⍬
  q←('Patch just ',GetCurrentlySelectedAPL,'?')'' '(No = all versions of Dyalog!)'
  →(¯1≡res←YesNoCancel q)/0
  :If 1≡res
      r←LoadPatch ⍬
  :Else
-     :If CheckCredentials G.AplVersions
-         :For this :In G.AplVersions
+     (flag bool)←CheckCredentials G.AplVersions
+     :If flag
+         :For this :In bool/G.AplVersions
              parms←S.CreateParms_ShellExecute
              aplPath←GetInstallPath this
              parms.file←aplPath,'Base\Dyalog.exe"'

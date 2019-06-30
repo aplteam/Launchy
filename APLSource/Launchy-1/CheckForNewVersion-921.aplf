@@ -1,29 +1,30 @@
- {r}←CheckForNewVersion dummy;mco;tag;gitVersion;thisVersion;msg;rc;dmx
+ {r}←CheckForNewVersion dummy;tag;msg;rc;dmx;api;flag;url
  r←⍬
- mco←⎕NEW ##.Check4Updates(,⊂'Launchy')
+ api←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
  :Trap 0
-     tag←mco.GetLatestTag
+     tag←api.GetLatestTag'Launchy'
  :Else
      TellCommunicationWithGitHubFailed'Launchy'
      :Return
  :EndTrap
- gitVersion←⌊##.GitHubAPIv3.CastTagname2Number tag
- thisVersion←⌊##.GitHubAPIv3.CastTagname2Number 2⊃Version
- :If thisVersion≥gitVersion
+ flag←api.CheckForUpdate'Launchy'(2⊃Version)
+ :If ~flag
      TellLaunchyIsUp2Date ⍬
  :Else
-     msg←⊂'There is a better version available on GitHub: ',tag~'v'
+     msg←⊂'There is a better version available on GitHub.'
      msg,←'' 'Would you like to download this version?'
      :If YesOrNo msg
          :Trap 0
-             rc←mco.GetExe tag
+             url←api.GetRelease'Launchy' 'EXE'
          :Else
              dmx←⎕DMX
              TellCommunicationWithGitHubFailed'Launchy'
              :Return
          :EndTrap
-         :If rc
+         :If 0=≢url
              n TellErrorWhileCheckingForBetterVersion''
+         :Else
+             ##.APLTreeUtils.GoToWebPage url
          :EndIf
      :EndIf
  :EndIf

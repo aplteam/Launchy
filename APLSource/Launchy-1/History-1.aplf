@@ -1,11 +1,9 @@
  History
-⍝ * 6.1.0
-⍝   * Extracts the download URL for a new version of Launchy from GitHub's "Releases" HTML page; that works well.
-⍝ * 6.0.2
-⍝   * The download URL provided by the REST API is unreliable. The only things we can do is a) find out whether
-⍝     their is a better version available and b), after prompting the user, put the "Releases" page on display.
-⍝ * 6.0.1
-⍝   * Status bar problem fixed.
-⍝   * When trying to patch a single instance of Dyalog Launchy crashed.
+⍝ * 6.2.0
+⍝   * The user may now decide to ignore Dyalog versions without DSS credentials when pathing;
+⍝     handy for beta versions.
+⍝   * Check for new version updated to latest `GitHubAPIv3`.
+⍝   * The `exec_setup` option was lacking a hyphen. That potentially poses a problem when
+⍝     other flags were specified on the command line.\\
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>
