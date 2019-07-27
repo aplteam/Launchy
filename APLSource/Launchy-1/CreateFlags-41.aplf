@@ -9,35 +9,51 @@
  ∆,←⊂'Active'f
  ∆,←⊂'TipObj'n.tip
  n.propertyExposeRoot←n.GeneralSubForm.⎕NEW'Button'∆
- n.propertyExposeRoot.tip←'Shall root properties be exposed like APL variables?'
+ n.propertyExposeRoot.Tip←'Shall root properties be exposed like APL variables?'
  n.propertyExposeRoot.onSelect←'OnChanged' 'EXPOSEROOTPROP'
  n.propertyExposeRoot.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(80 startAt)
+ ∆,←⊂'Posn'(79 startAt)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Run as admin o&nce'
  ∆,←⊂'TipObj'n.tip
  n.runAsAdmin←n.GeneralSubForm.⎕NEW'Button'∆
- n.runAsAdmin.tip←⊂'Run Dyalog with admin rights but just once.'
- n.runAsAdmin.tip,←⊂'Note: NO drag''n-drop when running as an admin!'
+ n.runAsAdmin.Tip←⊂'Run Dyalog with admin rights (elevated mode) but just once.'
+ n.runAsAdmin.Tip,←⊂'Note: NO drag''n-drop when running as an admin!'
  n.runAsAdmin.onSelect←'OnChanged' 'RUNASADMIN'
  n.runAsAdmin.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(100 startAt)
+ ∆,←⊂'Posn'(98 startAt)
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Execute setup.dyalog'
  ∆,←⊂'TipObj'n.tip
  flag←##.FilesAndDirs.IsFile ##.FilesAndDirs.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  ∆,←⊂'Active'flag
  ∆,←⊂'State'flag
- n.ExecMyUCMD←n.GeneralSubForm.⎕NEW'Button'∆
- n.ExecMyUCMD.tip←''
- n.ExecMyUCMD.tip,←⊂'Toggle whether'
- n.ExecMyUCMD.tip,←⊂'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
- n.ExecMyUCMD.tip,←⊂'should be executed or not.'
- n.ExecMyUCMD.tip,←⊂'Leave unticked for Dyalog''s default setup.'
- n.ExecMyUCMD.onSelect←'OnChanged' 'EXECMYUCMD'
- n.ExecMyUCMD.onKeyPress←'OnStandardKeyPress'
+ n.ExecMySetup←n.GeneralSubForm.⎕NEW'Button'∆
+ n.ExecMySetup.Tip←''
+ n.ExecMySetup.Tip,←⊂'Toggles whether'
+ n.ExecMySetup.Tip,←⊂'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
+ n.ExecMySetup.Tip,←⊂'should be executed or not.'
+ n.ExecMySetup.Tip,←⊂'This passes -exec_setup=0|1 on the command line.'
+ n.ExecMySetup.Tip,←⊂'Setup.dyalog needs to take care of that itself.'
+ n.ExecMySetup.Tip,←⊂'Leave unticked for Dyalog''s default setup.'
+ n.ExecMySetup.onSelect←'OnChanged' 'EXEC_MY_SETUP'
+ n.ExecMySetup.onKeyPress←'OnStandardKeyPress'
+
+ ∆←''
+ ∆,←⊂'Posn'(117 startAt)
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Stop in setup.dyalog'
+ ∆,←⊂'TipObj'n.tip
+ flag←##.FilesAndDirs.IsFile ##.FilesAndDirs.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
+ ∆,←⊂'Active'flag
+ n.StopSetup←n.GeneralSubForm.⎕NEW'Button'∆
+ n.StopSetup.Tip←''
+ n.StopSetup.Tip,←⊂'If ticked -stop_in_setup is passed as command line parameter.'
+ n.StopSetup.Tip,←⊂'Setup.dyalog needs to take care of that itself.'
+ n.StopSetup.onSelect←'OnChanged' 'STOP_IN_SETUP'
+ n.StopSetup.onKeyPress←'OnStandardKeyPress'
 ⍝Done

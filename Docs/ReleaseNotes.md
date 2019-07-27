@@ -2,14 +2,11 @@
 
 # Launchy Release Notes
 
-## 6.2.0 from 2019-06-30
+## 6.3.0 from 2019-07-27
 
-* The user may now decide to ignore Dyalog versions without DSS credentials when patching;
-  handy for beta versions.
-* "Check for new version" updated to latest `GitHubAPIv3`.
-* Bug fix: the `exec_setup` option was lacking a hyphen. That potentially posed a problem when
-  other flags were specified on the command line.
+* Check box "Stop in setup.dyalog" introduced. When ticked the flag `-stop_in_setup` is added to the command line.
+* Documenation improved regarding "Execute setup.dyalog"
+* Bug fixes:
+  * The tips for all flags were not displayed.
 
-## 6.1.0 from 2019-06-02
-
-* Extracts the download URL for a new version of Launchy from GitHub's "Releases" HTML page and then uses this URL to download the installer via your default browser.
+A complete history of release notes is [available on GitHub](https://github.com/aplteam/Launchy/releases)

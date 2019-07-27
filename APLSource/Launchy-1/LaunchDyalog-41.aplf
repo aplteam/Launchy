@@ -16,7 +16,10 @@
      parms.lpParms,←' ',(GetDebugCode ⍬)
      parms.lpParms,←' PropertyExposeRoot=',(⍕n.propertyExposeRoot.State)
      parms.lpParms,←' ',clp                       ⍝ Add command line parameters
-     parms.lpParms,←' -exec_setup=',⍕n.ExecMyUCMD.State
+     parms.lpParms,←' -exec_setup=',⍕n.ExecMySetup.State
+     :If n.StopSetup.State
+         parms.lpParms,←' -stop_in_setup'
+     :EndIf
      parms.lpParms,←' ',workspace                         ⍝ ⍺ might be a workspace name
      parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
      parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist

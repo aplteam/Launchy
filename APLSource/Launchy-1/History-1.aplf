@@ -1,9 +1,8 @@
  History
-⍝ * 6.2.0
-⍝   * The user may now decide to ignore Dyalog versions without DSS credentials when pathing;
-⍝     handy for beta versions.
-⍝   * Check for new version updated to latest `GitHubAPIv3`.
-⍝   * The `exec_setup` option was lacking a hyphen. That potentially poses a problem when
-⍝     other flags were specified on the command line.\\
+⍝ * 6.3.0
+⍝   * New flag "stop in setup.dyalog" introduced.
+⍝   * Documentation improved regarding "setup.dyalog" and its associated check boxes.
+⍝   * Bug fixes
+⍝     * The tips for the flags were not displayed (check boxes).
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>

@@ -61,6 +61,24 @@ In case Launchy crashes, for example because of an invalid or missing INI file e
 
 However, if that does not work for you then please zip those files and send them to info@aplteam.com. 
 
+## Setup.dyalog
+
+If Dyalog finds a file `Setup.dyalog` either in any of the User Command folders or in `%USERPROFILE%\Documents\MyUCMDs` then a function `Setup` within that file is executed. This is perfect for making amendments to your session etc.
+
+### The check box "Execute setup.dyalog"
+
+There might be situations when you **_do not_** want `setup.dyalog` to be executed. For that you can un-tick the box "Execute setup.dyalog". Launchy then passes `-exec_setup=0` (default is `-exec_setup=1`) as a command line parameter.
+
+Note that it is up to the script itself to honour this settings.
+
+
+### The check box "Stop in setup.dyalog"
+
+By default this check box is not ticked. If you tick it then the flag `-stop_in_setup` is passed as command line parameter.
+
+Note that it is up to the script itself to honour this settings.
+
+
 ## RIDE
 
 Notes:
@@ -109,4 +127,4 @@ Launchy was created by Kai Jaeger. It is sponsored by APL Team Ltd.
 
 Launchy comes with an MIT license.
     
-For details go to <https://github.com/aplteam/launchy>
+For details go to <https://github.com/aplteam/Launchy>

@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "6.2.0.138"
+#define MyAppVersion "6.3.0.144"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "APL Team Ltd"
@@ -42,6 +42,7 @@ Name: "{commonappdata}\{#MyAppName}"; Permissions: users-modify
 [Files]
 Source: "Launchy_manual.html"; DestDir: "{app}";
 Source: "ReleaseNotes.html"; DestDir: "{app}";
+Source: "setup.dyalog.template"; DestDir: "{app}";
 Source: "Launchy.ico"; DestDir: "{app}";
 Source: "Launchy.ini.RemoveMe"; DestDir: "{localappdata}\Launchy"; DestName:"Launchy.ini"; Flags: onlyifdoesntexist;
 Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"

@@ -21,8 +21,10 @@
      n.runAsAdmin.FCol←ColorCode×n.runAsAdmin.State
  :Case 'CMDLINE'
      n.LabelCmdLine.FCol←ColorCode×~0∊⍴⍴n.cmdLineArgs.(⊃SelItems/Items)
- :Case 'EXECMYUCMD'
-     n.ExecMyUCMD.FCol←ColorCode×n.ExecMyUCMD.State≢Ini.MYUCMD.default
+ :Case 'EXEC_MY_SETUP'
+     n.ExecMySetup.FCol←ColorCode×n.ExecMySetup.State≢1
+ :Case 'STOP_IN_SETUP'
+     n.StopSetup.FCol←ColorCode×n.StopSetup.State≢0
  :Else
      .    ⍝ Not yet
  :EndSelect

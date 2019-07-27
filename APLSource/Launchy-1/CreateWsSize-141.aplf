@@ -4,8 +4,8 @@
  ∆,←⊂'Style' 'Drop'
  ∆,←⊂'Items'list
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
- startAt←10+2⊃+⌿↑n.DebugGroup.(Posn Size)
- ∆,←⊂'Posn'((4+⊃AddPosnAndSize n.ExecMyUCMD),startAt)
+ startAt←2⊃n.StopSetup.Posn
+ ∆,←⊂'Posn'((5+1⊃AddPosnAndSize n.StopSetup),startAt)
  ∆,←⊂'Size'(⍬ 60)
  ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip
