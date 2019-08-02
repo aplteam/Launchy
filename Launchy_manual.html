@@ -87,20 +87,20 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <h2>Setup.dyalog</h2>
 </a>
 </div>
-<p>If Dyalog finds a file <code>Setup.dyalog</code> either in any of the User Command folders or in <code>%USERPROFILE%\Documents\MyUCMDs</code> then a function <code>Setup</code> within that file is executed. This is perfect for making amendments to your session etc.</p>
+<p>If Dyalog finds a file <code>Setup.dyalog</code> either in any of the User Command folders then a function <code>Setup</code> within that file is executed. This is perfect for making amendments to your session etc.</p>
 <div class="h_tag">
 <a href="#The-check-box-Execute-setupdyalog" id="The-check-box-Execute-setupdyalog" class="autoheader_anchor">
 <h3>The check box “Execute setup.dyalog”</h3>
 </a>
 </div>
-<p>There might be situations when you <strong><em>do not</em></strong> want <code>setup.dyalog</code> to be executed. For that you can un-tick the box “Execute setup.dyalog”. Launchy then passes <code>-exec_setup=0</code> (default is <code>-exec_setup=1</code>) as a command line parameter.</p>
+<p>There might be situations when you <strong><em>do not</em></strong> want <code>setup.dyalog</code> to be executed. For that you can un-tick the box “Execute setup.dyalog”. Launchy then passes <code>exec_setup=0</code> (default is <code>exec_setup=1</code>) as a command line parameter.</p>
 <p>Note that it is up to the script itself to honour this settings.</p>
 <div class="h_tag">
 <a href="#The-check-box-Stop-in-setupdyalog" id="The-check-box-Stop-in-setupdyalog" class="autoheader_anchor">
 <h3>The check box “Stop in setup.dyalog”</h3>
 </a>
 </div>
-<p>By default this check box is not ticked. If you tick it then the flag <code>-stop_in_setup</code> is passed as command line parameter.</p>
+<p>By default this check box is not ticked. If you tick it then the flag <code>stop_in_setup</code> is passed as command line parameter.</p>
 <p>Note that it is up to the script itself to honour this settings.</p>
 <div class="h_tag">
 <a href="#RIDE" id="RIDE" class="autoheader_anchor">

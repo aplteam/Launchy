@@ -1,8 +1,6 @@
  History
-⍝ * 6.3.0
-⍝   * New flag "stop in setup.dyalog" introduced.
-⍝   * Documentation improved regarding "setup.dyalog" and its associated check boxes.
-⍝   * Bug fixes
-⍝     * The tips for the flags were not displayed (check boxes).
+⍝ * 6.3.1
+⍝   * Versions 15.0 and 16.0 have potentially trouble with parameters with a hyphen. Thereofre
+⍝     Launchy now uses the keyword without a hyphen.
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>

@@ -19,17 +19,14 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 </a>
 </div>
 <div class="h_tag">
-<a href="#630-from-2019-07-27" id="630-from-2019-07-27" class="autoheader_anchor">
-<h2>6.3.0 from 2019-07-27</h2>
+<a href="#631-from-2019-08-02" id="631-from-2019-08-02" class="autoheader_anchor">
+<h2>6.3.1 from 2019-08-02</h2>
 </a>
 </div>
 <ul>
-<li>Check box “Stop in setup.dyalog” introduced. When ticked the flag <code>-stop_in_setup</code> is added to the command line.</li>
-<li>Documenation improved regarding “Execute setup.dyalog”</li>
-<li>Bug fixes:
-<ul>
-<li>The tips for all flags were not displayed.</li>
-</ul></li>
+<li>Versions 15.0 and 16.0 are potentially buggy regarding command line parameters. That was the reason why ticking the check box <code>Stop in setup.dyalog" worked fine with 17.0 but not with 15.0 and 16.0.</code>
+<p>The bug can be avoided by not using a leading hyphen for a parameter. Therefore version 6.3.1 provides <code>stop_in_setup</code> on the command line rather than <code>-stop_in_setup</code>.</p>
+<p><em>If you are taking advantage of the two command line parameters</em> <code>exec_setup</code> <em>and</em> <code>stop_in_setup</code> <em>then you need to take action and remove the hyphen within your script before installing Launchy 6.3.1</em></p></li>
 </ul>
 <p>A complete history of release notes is <a href="https://github.com/aplteam/Launchy/releases" class="external_link">available on GitHub</a></p>
 </body>

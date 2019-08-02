@@ -3,7 +3,7 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
 
- :If 0=batchFlag
+ :If batchFlag
      R←∆NoBatchTest
  :Else
      ⎕←'This test cases just fires up Launchy in ordert to make sure the basics do work.'
