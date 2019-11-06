@@ -1,9 +1,9 @@
  Ini←Init1 allowRide;errParms
 ⍝ Establish a couple of essentials
- U←##.##.APLTreeUtils
- F←##.##.FilesAndDirs
- R←##.##.WinReg
- S←##.##.WinSys
+ U←##.APLTreeUtils
+ F←##.FilesAndDirs
+ R←##.WinReg
+ S←##.WinSys
  :If U.IsDevelopment
      ∆HomeDir←F.PWD
  :Else

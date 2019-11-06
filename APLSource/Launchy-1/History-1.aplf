@@ -1,7 +1,0 @@
- History
-⍝ * 6.3.2
-⍝   * The options `stop_in_setup` and `exec_setup` were not handled correctly.\\
-⍝     Note that Launchy cannot specify them as flags because in versions prior to 17.1 the interpretation of the
-⍝     command line was buggy. In order to overcome those issues the hyphen cannot be used to indicate a flag.
-⍝\\
-⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>

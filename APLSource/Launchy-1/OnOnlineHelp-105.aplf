@@ -1,6 +1,0 @@
- OnOnlineHelp←{
-     version←3⊃' 'U.Split G.Default
-     url←'http://help.dyalog.com/',version,'/'
-     _←U.GoToWebPage url
-     0
- }

@@ -1,0 +1,6 @@
+ History
+⍝ * 6.3.3
+⍝   * Bug fixes
+⍝     * "Show online help" always showed the help for the default APL, not the currently selected one.
+⍝\\
+⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>

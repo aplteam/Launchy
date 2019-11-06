@@ -1,5 +1,5 @@
  R←Test_001(stopFlag batchFlag);⎕TRAP
-⍝ Call Launchy once. Needs user
+⍝ Call Launchy once, just to make sure that the basics work. Needs the user.
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
 

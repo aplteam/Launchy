@@ -1,10 +1,10 @@
  Run;n;F;S;U;W;Ini;⎕TRAP
  ⎕IO←1 ⋄ ⎕ML←1 ⋄ ⎕WX←3
- #.FilesAndDirs.PolishCurrentDir
- ⎕TRAP←#.HandleError.SetTrap ⍬
+ ##.FilesAndDirs.PolishCurrentDir
+ ⎕TRAP←##.HandleError.SetTrap ⍬
  Init1{⊣allowRide←⍵}1
  #.⎕SHADOW'ErrorParms'
- #.ErrorParms←#.HandleError.CreateParms
+ #.ErrorParms←##.HandleError.CreateParms
  #.ErrorParms.customFnsParent←⎕THIS
  #.ErrorParms.customFns←'SayGoodByeAfterError'
  :If U.IsDevelopment
@@ -13,7 +13,7 @@
      #.ErrorParms.errorFolder←(#.WinSys.ExpandEnv'%localappdata%'),'\Launchy\Errors\'
  :EndIf
  'Create!'F.CheckPath #.ErrorParms.errorFolder
- ⎕TRAP←#.HandleError.SetTrap'#.ErrorParms'
+ ⎕TRAP←##.HandleError.SetTrap'#.ErrorParms'
  Ini←Init2 #.ErrorParms
  n←CreateGui
  n.∆Port←Ini.RIDE.port

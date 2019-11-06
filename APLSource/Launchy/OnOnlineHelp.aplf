@@ -1,0 +1,7 @@
+ OnOnlineHelp←{
+     n←GetRef2n⊃,⍵
+     version←{⍵↑⍨¯1+⍵⍳' '}U.dlb{⍵↓⍨⍵⍳' '}⊃n.List.(SelItems/Items)
+     url←'http://help.dyalog.com/',version,'/'
+     _←U.GoToWebPage url
+     0
+ }
