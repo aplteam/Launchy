@@ -1,6 +1,9 @@
  History
-⍝ * 6.3.3
-⍝   * Bug fixes
-⍝     * "Show online help" always showed the help for the default APL, not the currently selected one.
+⍝ * 6.4.1
+⍝   * Bug fix: providing a Ride crashed on addressing FilesAndDirs and APLTreeUtils.
+⍝ * 6.4.0
+⍝   * The `Run` function now requires a right argument: a Boolean. If it is o1 it tell Launchy
+⍝     that it is running in test mode.
+⍝   * ...
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Launchy/releases>

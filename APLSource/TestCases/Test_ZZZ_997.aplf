@@ -2,11 +2,11 @@
 ⍝ Checks whether the release notes mention the version number at all.
  ⎕IO←0 ⋄ ⎕ML←3
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
- R←∆Failed
+ R←T._Failed
 
  md←##.APLTreeUtils.ReadUtf8File'Docs\Releasenotes.md'
  version←{⍵/⍨2≥+\'.'=⍵}1⊃##.Launchy.Version
- →PassesIf∨/version⍷∊md
+ →T.PassesIf∨/version⍷∊md
 
- R←∆OK
+ R←T._OK
 ⍝Done

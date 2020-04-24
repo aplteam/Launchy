@@ -2,6 +2,16 @@
 
 # Launchy Release Notes
 
+## 6.4.1 from 2020-04-24
+
+* Bug fix: providing a Ride crashed.
+
+## 6.4.0 from 2019-12-01
+
+* Internal stuff
+  * `Tester2` in now used.
+  * `Run` requires a right argument now: a test flag.
+
 ## 6.3.3 from 2019-11-06
 
 * Bug fix: Asking for the online help always showed the help for the default APL rather than the currently selected APL.

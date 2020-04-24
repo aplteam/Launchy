@@ -1,4 +1,4 @@
- Run;n;F;S;U;W;Ini;⎕TRAP
+ Run testFlag;n;F;S;U;W;Ini;⎕TRAP
  ⎕IO←1 ⋄ ⎕ML←1 ⋄ ⎕WX←3
  ##.FilesAndDirs.PolishCurrentDir
  ⎕TRAP←##.HandleError.SetTrap ⍬
@@ -18,4 +18,4 @@
  n←CreateGui
  n.∆Port←Ini.RIDE.port
  DQ'.'
- Shutdown ⍬
+ Shutdown testFlag

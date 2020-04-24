@@ -10,10 +10,10 @@
  :If 0≠≢cmd
      bat,←' ',cmd,'&'
  :EndIf
- parms.file←'bat'#.FilesAndDirs.GetTempFilename2''
+ parms.file←'bat'##.FilesAndDirs.GetTempFilename2''
  parms.show←0
  bat,←' "',('"'~⍨GetRideExeName pathToExe),'"'
- #.APLTreeUtils.WriteUtf8File parms.file bat
+ ##.APLTreeUtils.WriteUtf8File parms.file bat
  rc←S.ShellExecute parms
  'Could not start Ride'CheckRc rc
  {⎕DL 1 ⋄ #.FilesAndDirs.DeleteFile ⍵}&parms.file

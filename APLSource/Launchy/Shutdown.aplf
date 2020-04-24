@@ -1,8 +1,11 @@
- Shutdown dummy
+ Shutdown testFlag
  #.IconObj←''
  #.onActivateApp←0
  SavePropsInRegistry
  {}ReadWinCoords ⍬
  {}SaveWinCoord ⍬
  CloseForm ⍬
- Off
+ :If 0=testFlag
+     Off
+ :EndIf
+⍝Done

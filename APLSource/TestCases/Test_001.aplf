@@ -1,13 +1,13 @@
  R←Test_001(stopFlag batchFlag);⎕TRAP
 ⍝ Call Launchy once, just to make sure that the basics work. Needs the user.
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
- R←∆Failed
+ R←T._Failed
 
  :If batchFlag
-     R←∆NoBatchTest
+     R←T._NoBatchTest
  :Else
-     ⎕←'This test cases just fires up Launchy in ordert to make sure the basics do work.'
+     ⎕←'This test cases just fires up Launchy in order to make sure the basics do work.'
      ⎕←'To continue press <enter>'
      0/⍞
-     ##.Launchy.Run
+     ##.Launchy.Run 1
  :EndIf
