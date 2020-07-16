@@ -1,7 +1,7 @@
  StartExplorer←{
      path←⍵
-     parms←S.CreateParms_ShellExecute
+     parms←##.OS.CreateParms_WinExecute
      parms.file←'Explorer'
      parms.lpParms←'/e',(~0∊⍴path)/' /select,',F.NormalizePath path
-     S.ShellExecute parms
+     ##.OS.WinExecute parms
  }

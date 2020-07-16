@@ -1,0 +1,29 @@
+ {r}←{workspace}LaunchDyalog_(apl wssize cmdParms port rideExe);defaultDir;success;rc;msg;buff;parms;cmd
+⍝ Compiles the "batch script" and finally launches any version of Dyalog.
+ r←1
+ workspace←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'workspace'
+ parms←##.##.OS.CreateParms_WinExecute
+ parms.file←'wsl.exe'
+ parms.show←0
+ :If 0<##.Ini.WSL_CMD.⎕NC'DefaultDir'
+ :AndIf 0<##.Ini.WSL_CMD.⎕NC'DefaultDir'
+     defaultDir←parms.lpDirectory←##.F.EnforceSlash ##.Ini.WSL_CMD.DefaultDir
+ :Else
+     defaultDir←''
+ :EndIf
+ cmd←⊂(##.F.EnforceSlash'\rootfs'{⍵↓⍨¯1+(≢⍺)+1⍳⍨⍺⍷⍵}apl),'/mapl '
+ cmd,←⊂'RIDE_INIT=Serve:*:',⍕port
+ cmd,←⊂GetDebugCode ⍬
+ :If 0≠##.n.showCmd.Checked ShowCmd(⊂parms.file),##.U.dlb cmd
+     parms.lpParms←1↓⊃,/' ',¨cmd
+     (success rc msg)←1 ##.##.OS.WinExecute parms
+     :If success
+         ⎕DL 1
+         ('@SET RIDE_CONNECT=localhost:',⍕port)##.StartRide rideExe
+     :Else
+         ##.ShowMsg2'Error! Could not start APL, rc=',(⍕rc),{0=≢⍵:⍵ ⋄ '; ',⍵}msg
+     :EndIf
+ :Else
+     r←0
+ :EndIf
+⍝Done

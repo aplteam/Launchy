@@ -1,0 +1,18 @@
+ (list2 indents orig)←MassageAplList(list orig);b;indents;indents2;bool;l3
+ b←∨/¨' unicode'∘⍷¨list
+ :If (∧/b)∨∧/~b                     ⍝ All Unicode or all Classic?
+     list2←list
+     indents←(≢list2)⍴1
+ :Else                              ⍝ A mix
+     (list2 indents)←0 MassageAplList_(+/b)↑list
+     list2←(⊂'Unicode'),list2
+     (l3 indents2)←0 MassageAplList_(+/b)↓list
+     list2,←(⊂'Classic'),l3
+     indents,←indents2
+ :EndIf
+ bool←∨/¨'unicode'∘⍷¨list2
+ bool∨←∨/¨'classic'∘⍷¨list2
+ orig←bool\orig
+ list2←' ',¨list2
+ indents×←2
+⍝D

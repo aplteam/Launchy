@@ -1,0 +1,20 @@
+ n←G CreateCommandLine n;∆
+
+ ∆←''
+ ∆,←⊂'Posn'(160 3)
+ ∆,←⊂'Caption' 'Command line parameters:'
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.LabelCmdLine2←n.WSL_SubForm.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Style' 'DropEdit'
+ ∆,←⊂'Posn'(180 2)
+ ∆,←⊂'Size'(⍬(n.Form.Size[2]-31))
+ ∆,←⊂'Items'G.CMDs
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.cmdLineArgs2←n.WSL_SubForm.⎕NEW'Combo'∆
+ n.cmdLineArgs2.tip←'Add here additional "free" parameters'
+ n.cmdLineArgs2.onSelect←'OnChanged' 'CMDLINE'
+ n.cmdLineArgs2.onKeyPress←'##.OnStandardKeyPress'
+ ⍝Done

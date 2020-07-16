@@ -5,12 +5,12 @@
  n.TabCtrl←n.Form.⎕NEW'TabControl'∆
 
  ∆←''
- ∆,←⊂'Caption' 'General'
+ ∆,←⊂'Caption' '&General'
  n.GeneralTab←n.TabCtrl.⎕NEW'TabButton'∆
 
  ∆←''
- ∆,←⊂'Caption' 'Edit + Trace'
- n.EditTraceTab←n.TabCtrl.⎕NEW'TabButton'∆
+ ∆,←⊂'Caption' '&WSL'
+ n.WSL←n.TabCtrl.⎕NEW'TabButton'∆
 
  ∆←''
  ∆,←⊂'TabObj'n.GeneralTab
@@ -22,13 +22,14 @@
  n.GeneralSubForm.Coord←'Pixel'
 
  ∆←''
- ∆,←⊂'TabObj'n.EditTraceTab
+ ∆,←⊂'TabObj'n.WSL
  ∆,←⊂'Coord' 'Prop'
  ∆,←⊂'Posn'(0 0)
  ∆,←⊂'Size'(100 100)
  ∆,←⊂'EdgeStyle' 'Dialog'
- n.EditTraceSubForm←n.TabCtrl.⎕NEW'SubForm'∆
- n.EditTraceSubForm.Coord←'Pixel'
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.WSL_SubForm←n.TabCtrl.⎕NEW'SubForm'∆
+ n.WSL_SubForm.Coord←'Pixel'
 
  ⎕NQ n.GeneralTab'Select'
 ⍝Done

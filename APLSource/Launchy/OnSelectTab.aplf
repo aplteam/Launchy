@@ -1,0 +1,11 @@
+ OnSelectTab y;ref;n
+ ref←1⊃,y
+ n←GetRef2n ref
+ :If n.GeneralTab≡ref
+     n.ok.Active←0<≢G.AplVersions
+     n.ok.Tip←n.ok.∆Tip1
+ :Else
+     n.ok.Active←0<≢G.LinuxAplVersions
+     n.ok.Tip←n.ok.∆Tip2
+ :EndIf
+⍝Done

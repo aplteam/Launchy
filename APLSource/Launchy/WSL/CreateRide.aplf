@@ -1,0 +1,9 @@
+ n←G CreateRide n;∆;flag;tip;f2;f;f1;version
+ ∆←''
+ ∆,←⊂'Posn'((1⊃+⌿↑n.DebugGroup2.(Posn Size)),10)
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Ask for a &RIDE'
+ ∆,←⊂'State' 1
+ ∆,←⊂'Active' 0
+ n.RIDEflag2←n.WSL_SubForm.⎕NEW'Button'∆
+⍝Done

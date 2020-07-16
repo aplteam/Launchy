@@ -1,13 +1,18 @@
- Ini←Init1 allowRide;errParms
+ Ini←Init1 homedir;errParms
 ⍝ Establish a couple of essentials
  U←##.APLTreeUtils
  F←##.FilesAndDirs
  R←##.WinReg
  S←##.WinSys
- :If U.IsDevelopment
-     ∆HomeDir←F.PWD
+ :If 0=≢homedir
+     :If U.IsDevelopment
+     :AndIf 'Launchy.exe'≢⊃,/1↓⎕NPARTS 1⊃2 ⎕NQ #'GetCommandLineArgs'
+         ∆HomeDir←F.PWD
+     :Else
+         ∆HomeDir←(#.WinSys.ExpandEnv'%localappdata%'),'\Launchy'
+     :EndIf
  :Else
-     ∆HomeDir←(#.WinSys.ExpandEnv'%localappdata%'),'\Launchy'
+     ∆HomeDir←homedir
  :EndIf
- EnableEarlyRide allowRide
+ EnableEarlyRide 1
 ⍝Done

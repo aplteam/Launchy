@@ -1,17 +1,5 @@
  n←CreateFlags n;∆;f;flag;startAt
  startAt←10+2⊃+⌿↑n.DebugGroup.(Posn Size)
- ∆←''
- ∆,←⊂'Posn'(60 startAt)
- ∆,←⊂'Style' 'Check'
- ∆,←⊂'Caption' 'PropertyExposeRoot'
- ∆,←⊂'State'(Ini.PROPERTYEXPOSEROOT.tick)
- f←Ini.PROPERTYEXPOSEROOT.active
- ∆,←⊂'Active'f
- ∆,←⊂'TipObj'n.tip
- n.propertyExposeRoot←n.GeneralSubForm.⎕NEW'Button'∆
- n.propertyExposeRoot.Tip←'Shall root properties be exposed like APL variables?'
- n.propertyExposeRoot.onSelect←'OnChanged' 'EXPOSEROOTPROP'
- n.propertyExposeRoot.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
  ∆,←⊂'Posn'(79 startAt)
@@ -29,7 +17,7 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Execute setup.dyalog'
  ∆,←⊂'TipObj'n.tip
- flag←##.FilesAndDirs.IsFile ##.FilesAndDirs.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
+ flag←F.IsFile F.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  ∆,←⊂'Active'flag
  ∆,←⊂'State'flag
  n.ExecMySetup←n.GeneralSubForm.⎕NEW'Button'∆

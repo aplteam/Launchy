@@ -1,0 +1,6 @@
+ r←GetFontSize
+ r←16
+⍝ :If 0<Ini.⎕NC'FONT'
+⍝ :AndIf 0<Ini.FONT.⎕NC'size'
+⍝     r←Ini.FONT.size
+⍝ :EndIf

@@ -1,4 +1,4 @@
- n←CreateGui;l;ie;∆;flag;f
+ n←CreateGui;ie;∆;flag;f
  n←CreateForm
  n←CreateTabs n
  n←CreateStatusbar n
@@ -8,13 +8,12 @@
  n←CreateVersions n
  n←CreateDebugFlags n
  n←CreateFlags n
+ n←CreateRide n
  n←CreateWsSize n
  n←CreateCommandLine n
- n←CreateEditorParms n
+ n←G WSL.CreateVersions n
  n←CreateButtons n
- n←CreateRide n
  ToggleTipVisibility
- l←⊃,/'Edit' 'Spinner'∘GetAllControls¨n.GeneralSubForm n.EditTraceSubForm  ⍝ List of all edits and spinners
- l.onGotFocus←⊂'OnGotFocusSelectContents'
- l.onLostFocus←⊂'OnLostFocusDeselectContents'
+ n.(GeneralTab WSL).onSelect←⊂'OnSelectTab'
+ n.Form.∆Reset←0
 ⍝Done

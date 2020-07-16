@@ -1,0 +1,17 @@
+ r←GetAllInstalledVersions dummy;list;OS;OSes;versions;version;bits;bit
+⍝ Returns the full path to all Dyalog installations found in WSL (Windows Subsystem for Linux)
+ r←⍬
+ :If 0<≢OSes←⊃##.F.Dir'C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited*'
+     :For OS :In OSes   ⍝ There might be more than one WSL installed
+         :If 0<≢versions←⊃##.F.Dir OS,'\LocalState\rootfs\opt\mdyalog\'
+             :For version :In versions
+                 bits←⊃##.F.Dir version,'\'
+                 :For bit :In bits
+                     r,←1⊃##.F.Dir bit,'\'
+                 :EndFor
+             :EndFor
+         :EndIf
+     :EndFor
+ :EndIf
+ r←⌽r
+⍝Done

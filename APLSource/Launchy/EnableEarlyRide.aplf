@@ -1,12 +1,12 @@
  EnableEarlyRide←{
 ⍝ For debugging Launchy's EXE.
 ⍝ Requires also a command line parameter like
-⍝ RIDEPORT=4520
+⍝ RIDEPORT=6000
      ⍵=0:r←⍬
      clp←2 ⎕NQ #'GetCommandLineArgs'
      b←'RidePort'∘{(U.Uppercase ⍺)≡(⍴⍺)↑U.Uppercase ⍵}¨clp
      0=+/b:r←⍬
-     0∊⍴portno←(⍴'RidePort=')↓(b⍳1)⊃clp:r←⍬
+     0=≢portno←(⍴'RidePort=')↓(b⍳1)⊃clp:r←⍬
      _←3502⌶'SERVE::',portno
      _←3502⌶1
      {_←⎕DL 1 ⋄ ∇ ⍬}⍬  ⍝ Endless loop allows user to get a ride.

@@ -1,13 +1,16 @@
- (flag port rideExe)←AskForRideAndPort(n version);∆;n2;res
- flag←0 ⋄ rideExe←'' ⋄ port←n.∆Port
+ (flag port rideExe)←{rideIsOptional}AskForRideAndPort y;n;caption;∆;n2;res
+⍝ If `rideIsOptional` is 0 then we are talking a WSL APL: then Ride is a must, not an option
+ rideIsOptional←{0<⎕NC ⍵:⍎⍵ ⋄ 1}'rideIsOptional'
+ (n caption)←2↑y,⊂''
+ flag←0 ⋄ rideExe←''
+ port←(1+rideIsOptional)⊃G.WSL_Port n.∆Port
 
  n2←⎕NS''
 
  ∆←''
  ∆,←⊂'Posn'(50 50+n.Form.Posn)
-
  ∆,←⊂'Size'(160 310)
- ∆,←⊂'Caption' 'Ride'
+ ∆,←⊂'Caption'('Ride for ',caption)
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'SysMenu' 0
  ∆,←⊂'Sizeable' 0
@@ -16,7 +19,7 @@
  n2.Tip←⎕NEW⊂'TipField'
 
  ∆←''
- ∆,←⊂'Caption' '&Listen for Ride on port:'
+ ∆,←⊂'Caption' 'Port to be used:'
  ∆,←⊂'Posn'(15 15)
  n2.RideListen←n2.Form.⎕NEW'Label'∆
 
@@ -24,7 +27,7 @@
  ∆,←⊂'Posn'((n2.RideListen.Posn[1]+2),(2⊃AddPosnAndSize n2.RideListen))
  ∆,←⊂'Size'(⍬ 50)
  ∆,←⊂'FieldType' 'Numeric'
- ∆,←⊂'Value'n.∆Port
+ ∆,←⊂'Value'((1+rideIsOptional)⊃G.WSL_Port n.∆Port)
  ∆,←⊂'MaxLength' 7
  ∆,←⊂'Active' 1
  ∆,←⊂'TipObj'n2.Tip
@@ -54,12 +57,14 @@
  n2.Yes.Size[1]+←2
  n2.Yes.Posn←(n2.Form.Size[1]-n2.Yes.Size[1]+10),10
 
- ∆←''
- ∆,←⊂'Caption' '&Just APL'
- ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
- n2.No←n2.Form.⎕NEW'Button'∆
- n2.No.Size[1]←n2.Yes.Size[1]
- n2.No.Posn←(n2.Yes.Posn[1],10+2⊃AddPosnAndSize n2.Yes)
+ :If rideIsOptional
+     ∆←''
+     ∆,←⊂'Caption' '&Just APL'
+     ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
+     n2.No←n2.Form.⎕NEW'Button'∆
+     n2.No.Size[1]←n2.Yes.Size[1]
+     n2.No.Posn←(n2.Yes.Posn[1],10+2⊃AddPosnAndSize n2.Yes)
+ :EndIf
 
  ∆←''
  ∆,←⊂'Caption' 'Cancel'
@@ -67,9 +72,13 @@
  ∆,←⊂'Size'((n.reset.Size[1]),n2.Yes.Size[2])
  n2.Cancel←n2.Form.⎕NEW'Button'∆
  n2.Cancel.Size[1]←n2.Yes.Size[1]
- n2.Cancel.Posn←(n2.Yes.Posn[1],10+2⊃AddPosnAndSize n2.No)
+ n2.Cancel.Posn←(n2.Yes.Posn[1],n2.Form.Size[2]-n2.Yes.Size[2]+10)
 
- n2.Buttons←n2.(Yes No Cancel)
+ :If rideIsOptional
+     n2.Buttons←n2.(Yes No Cancel)
+ :Else
+     n2.Buttons←n2.(Yes Cancel)
+ :EndIf
  n2.Buttons.onSelect←1
  n2.Form.n←n2
 
@@ -84,7 +93,11 @@
              :AndIf {(0<⍵)∧(65536>⍵)}n2.Port.Value
                  flag←1
                  port←n2.Port.Value
-                 n.∆Port←port
+                 :If rideIsOptional
+                     n.∆Port←port
+                 :Else
+                     G.WSL_Port←port
+                 :EndIf
              :EndIf
              rideExe←⊃G.RideVersions[G.RideVersions[;1]⍳n2.RideVersion.(SelItems/Items);2]
          :Else
@@ -92,7 +105,6 @@
          :EndIf
      :EndIf
  :Until flag≢⍬
- ⎕NQ n2.Form'Close'
+ 1 ⎕NQ n2.Form'Close'
  n2.n←⍬
- {}⎕WA
 ⍝Done

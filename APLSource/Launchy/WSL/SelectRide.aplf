@@ -1,0 +1,14 @@
+ (ok port rideExe)←SelectRide n;status;port;version;rideExe;startRide
+⍝ status:
+⍝ ¯1 means user has cancelled
+⍝  0 means just APL
+⍝  1 means APL and Ride
+ status←0 ⋄ cmd←'' ⋄ port←0 ⋄ rideExe←''
+ version←{(1⊃⍵),'-',(2⊃⍵),' ',(3⊃⍵)}¯3↑'\'##.U.Split ##.G.CurrentAPL2
+ (status port rideExe)←0 ##.AskForRideAndPort n version'Ride port to be used for WSL:'
+ :If ¯1=status  ⍝ Cancelled?
+     ok←port←0
+ :Else
+     ok←1
+ :EndIf
+⍝Done

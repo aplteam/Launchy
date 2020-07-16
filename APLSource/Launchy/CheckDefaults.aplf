@@ -11,9 +11,6 @@
  :Case 'DEBUGFLAG'
      f←1≠1⍴n.debug.SelItems
      n.DebugGroup.FCol←ColorCode×f
- :Case 'EXPOSEROOTPROP'
-     f←n.propertyExposeRoot.State≠Ini.PROPERTYEXPOSEROOT.tick
-     n.propertyExposeRoot.FCol←ColorCode×f
  :Case 'RIDE'
      f←n.RIDEflag.State≠Ini.RIDE.tick
      n.RIDEflag.FCol←ColorCode×f
@@ -28,6 +25,6 @@
  :Else
      .    ⍝ Not yet
  :EndSelect
- l←n.(AplVersionGroup wssize_Label DebugGroup propertyExposeRoot RIDEflag LabelCmdLine runAsAdmin)
+ l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag LabelCmdLine runAsAdmin)
  n.reset.Active←∨/0<+/¨l.FCol
 ⍝Done

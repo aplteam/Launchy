@@ -1,12 +1,18 @@
- OnKeyPressInList←{
-     key←3⊃⍵
-     'ER'≡key:(2↑⍵),'EP' 27 27 0
-     (⍴,key)∊0 2:1
-     ref←⊃⍵
+ r←OnKeyPressInList msg;key;ref;bool;n
+ ref←⊃msg
+ key←3⊃msg
+ r←0
+ n←GetRef2n ref
+ n.Form.∆Reset←0
+ :If 'ER'≡key
+     r←(2↑msg),'EP' 27 27 0
+ :ElseIf (⍴,key)∊0 2
+     r←1
+ :Else
      bool←key∘≡¨⊃¨ref.Items
-     0=+/bool:0
-     ref.SelItems←bool
-     G.CurrentAPL←⊃bool/n.List.∆Orig
-     n←GetRef2n ref
-     0
- }
+     :If 0<+/bool
+         ref.SelItems←bool
+         G.CurrentAPL←⊃bool/n.List.∆Orig
+     :EndIf
+ :EndIf
+⍝Done

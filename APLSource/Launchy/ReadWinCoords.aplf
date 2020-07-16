@@ -1,8 +1,0 @@
- ReadWinCoords←{
- ⍝ Read the fields and save them on globals
-     G.ED_Cols←n.editWidth.Value
-     G.ED_Rows←n.editHeight.Value
-     G.ED_FirstX←n.x.Value
-     G.ED_FirstY←n.y.Value
-     ⍬
- }

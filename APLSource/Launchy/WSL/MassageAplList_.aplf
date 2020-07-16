@@ -1,0 +1,3 @@
+ (l indents)←level MassageAplList_ l
+ indents←level,(≢l)⍴1+level
+⍝Done

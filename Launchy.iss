@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "6.4.1.156"
+#define MyAppVersion "7.0.0.212"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "APL Team Ltd"
@@ -8,22 +8,24 @@
 #define MyAppIcoName "Launchy.ico"
 #define MyBlank " "
 #define TargetDir "Dist\"
+#define AppID "{{57141EAE-48E6-41A4-87B6-C33C19ED91BE}"
+#define TempDir GetEnv('TMP')
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
-AppId={{57141EAE-48E6-41A4-87B6-C33C19ED91BE}
+AppId={#AppID}
 
-AppName="{#MyAppName}"
+AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName}{#MyBlank}{#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf32}\{#MyAppPublisher}\{#MyAppName}
+DefaultDirName={commonpf64}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppPublisher}\{#MyAppName}
 AllowNoIcons=yes
-OutputDir={#TargetDir}
+OutputDir=C:/Users/kai/AppData/Local/Temp/InnoTempDir\{#AppID}
 OutputBaseFilename="SetUp_{#MyAppName}_{#MyAppVersion}"
 Compression=lzma
 SolidCompression=yes
@@ -42,22 +44,21 @@ Name: "{commonappdata}\{#MyAppName}"; Permissions: users-modify
 [Files]
 Source: "Launchy_manual.html"; DestDir: "{app}";
 Source: "ReleaseNotes.html"; DestDir: "{app}";
-Source: "setup.dyalog.template"; DestDir: "{app}";
 Source: "Launchy.ico"; DestDir: "{app}";
 Source: "Launchy.ini.RemoveMe"; DestDir: "{localappdata}\Launchy"; DestName:"Launchy.ini"; Flags: onlyifdoesntexist;
 Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"
 
-; The .NET file are needed for the "Check for updates" menu command
-Source: "bridge170_unicode.dll"; DestDir: "{app}";
+; The .NET files are needed for the "Check for updates" menu command
+Source: "bridge180_unicode.dll"; DestDir: "{app}";
+Source: "Dyalog.Net.Bridge.dll"; DestDir: "{app}"     
+Source: "Dyalog.Net.Bridge.Host.dll"; DestDir: "{app}"     
 Source: "dyalognet.dll"; DestDir: "{app}"     
 
 ; The Conga DLLs are needed for "Check for updates"
-;Source: "conga30ssl32.dll"; DestDir: "{app}";
-;Source: "conga30_32.dll"; DestDir: "{app}";
+;Source: "conga32ssl64.dll"; DestDir: "{app}";
+;Source: "conga32_64.dll"; DestDir: "{app}";
 
-; ----- During beta phase only: --------
-;Source: "Conga*.dll"; DestDir: "{app}";
-; -------- (For a Ride!) ---------------
+Source: "Conga*.dll"; DestDir: "{app}";
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files!
 

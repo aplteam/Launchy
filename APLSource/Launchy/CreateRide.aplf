@@ -4,7 +4,7 @@
      f2←~0∊⍴G.RideVersions                          ⍝ At least one RIDE exe must be known
 
      ∆←''
-     ∆,←⊂'Posn'((n.ok.Posn[1]),10+2⊃+⌿↑n.ok.(Posn Size))
+     ∆,←⊂'Posn'((1⊃+⌿↑n.DebugGroup.(Posn Size)),10)
      ∆,←⊂'Style' 'Check'
      ∆,←⊂'Caption' 'Ask for a &RIDE'
      ∆,←⊂'Active'(f1∧f2)
@@ -17,7 +17,7 @@
      :EndIf
      ∆,←⊂'TipObj'n.tip
      ∆,←⊂'Tip'('Let Launchy ask whether Dyalog should try to' 'connect to RIDE')
-     n.RIDEflag←n.Form.⎕NEW'Button'∆
+     n.RIDEflag←n.GeneralSubForm.⎕NEW'Button'∆
      n.RIDEflag.tip←GetRideMsg ⍬
      n.RIDEflag.onSelect←'OnChangeRide'
  :EndIf

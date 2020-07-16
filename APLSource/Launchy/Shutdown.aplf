@@ -2,8 +2,6 @@
  #.IconObj←''
  #.onActivateApp←0
  SavePropsInRegistry
- {}ReadWinCoords ⍬
- {}SaveWinCoord ⍬
  CloseForm ⍬
  :If 0=testFlag
      Off

@@ -1,5 +1,5 @@
  r←ThereIsAWorkingDir
  :If r←2=Ini.CONFIG.⎕NC'workdir'
- :AndIf r←~0∊⍴Ini.CONFIG.workdir
+ :AndIf r←0<≢Ini.CONFIG.workdir
      r←F.IsDir Ini.CONFIG.workdir
  :EndIf

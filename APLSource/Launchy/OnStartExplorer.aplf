@@ -1,5 +1,12 @@
- OnStartExplorer←{
+ r←OnStartExplorer dummy;msg
 ⍝ Start Windows Explorer in the installation directory of the currently selected version of Dyalog
-     rc←StartExplorer GetProperPath ⍬
-     ⍬
- }
+ r←0
+ :If n.WSL.State
+     msg←⊂'You may browse and even put files like a PDF on display, but'
+     msg,←⊂'you MUST NOT change any of the files since they are LINUX files!'
+     '*** WARNING!'ShowMsg2 msg
+     {}StartExplorer WSL.GetProperPath ⍬
+ :Else
+     {}StartExplorer GetProperPath ⍬
+ :EndIf
+⍝Done

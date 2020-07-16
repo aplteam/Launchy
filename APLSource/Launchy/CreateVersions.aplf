@@ -1,8 +1,10 @@
- n←CreateVersions n;∆;msg;whichVersion;okFlag;orig;default;aplList
+ n←CreateVersions n;∆;msg;whichVersion;okFlag;orig;aplList;indents
 ⍝
- whichVersion←G.AplVersions≡¨⊂G.Default
+ (aplList orig)←GetListOfAPLs G
+ (aplList indents orig)←MassageAplList aplList orig
+ whichVersion←orig≡¨⊂G.Default
  :If okFlag←1=+/whichVersion                ⍝ Exactly one default - fine!
-     G.LastSelectedVersion←(whichVersion⍳1)⊃G.AplVersions
+     G.LastSelectedVersion←(whichVersion⍳1)⊃orig
  :Else
      :If IniHas_DyalogDefault Ini
      :AndIf (⊂Ini.DYALOG.default)∊G.AplVersions
@@ -16,27 +18,28 @@
      :EndIf
      G.LastSelectedVersion←G.Default
  :EndIf
+
  ∆←''
  ∆,←⊂'Caption'(' ',(⍕⍴G.AplVersions),' APL Version',((1<⍴G.AplVersions)/'s'),' installed ')
  ∆,←⊂'Posn'(5 2)
  ∆,←⊂'Size'(50,n.GeneralSubForm.Size[2]-5)
  n.AplVersionGroup←n.GeneralSubForm.⎕NEW'Group'∆
- n.TheList←G.AplVersions
 
- (aplList orig default)←GetListOfAPLs G
  ∆←''
  ∆,←⊂'Posn'(17 10)
  ∆,←⊂'Size'(⍬(n.AplVersionGroup.Size[2]-2×10))
  ∆,←⊂'Items'aplList
+ ∆,←⊂'indents'indents
  ∆,←⊂'Style' 'Drop'
- ∆,←⊂'Rows'(1+⊃⍴aplList)
+ ∆,←⊂'Rows'(2+≢aplList)
  ∆,←⊂'TipObj'n.tip
  ∆,←⊂'Tip' 'The default version is marked with a ★'
- ∆,←⊂'SelItems'default
- n.List←n.AplVersionGroup.⎕NEW'Combo'∆
+ ∆,←⊂'SelItems'whichVersion
+ n.List←n.AplVersionGroup.⎕NEW'ComboEx'∆
  n.List.onKeyPress←'OnKeyPressInList'
  n.List.onSelect←'OnSelectList'
  n.List.∆Orig←orig
+ n.List.∆DefaultSelection←whichVersion
 
  :If 0=okFlag
  :AndIf ~0∊≢G.AplVersions

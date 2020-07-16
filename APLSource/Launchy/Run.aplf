@@ -1,8 +1,11 @@
- Run testFlag;n;F;S;U;W;Ini;⎕TRAP
+ {r}←{homedir}Run testFlag;n;F;S;U;W;Ini;⎕TRAP
  ⎕IO←1 ⋄ ⎕ML←1 ⋄ ⎕WX←3
+ WSL.(⎕IO ⎕ML ⎕WX)←1 1 3  ⍝ To circumvent an acre bug (?!)
+ r←⍬
+ homedir←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'homedir'
  ##.FilesAndDirs.PolishCurrentDir
  ⎕TRAP←##.HandleError.SetTrap ⍬
- Init1{⊣allowRide←⍵}1
+ Init1 homedir
  #.⎕SHADOW'ErrorParms'
  #.ErrorParms←##.HandleError.CreateParms
  #.ErrorParms.customFnsParent←⎕THIS

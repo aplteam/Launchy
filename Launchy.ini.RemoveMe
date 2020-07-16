@@ -19,10 +19,6 @@ tick        =   0
 active      =   1
 tick        =   0
 
-[PropertyExposeRoot]
-active      =   1
-tick        =   1
-
 [FONT]          ; Make sure that these settings reflect your setting in []SE!
 name        =   'APL385 Unicode'
 size        =   19
@@ -37,6 +33,18 @@ list        ,=  'e) Log session keystrokes into ./apllog; -DK'
 list        ,=  'f) After every line of APL (very slow); -DW'
 default     =   'a' ; Can be one of: a,b,c,d,e,f
 
+[WSL_CMD]   ; 
+Port        = 4602
+DefaultDir  = ''        ; May be something like 'C:\Users\%USERNAME%\MyProjects'
+
+[STD_SET]       ; These are added to the command line when a "standard" APL is started
+PropertyExposeRoot  = 1
+
+[WSL_SET]       ; These are added to the command line when Dyalog is started in WSL
+ClassicMode = 1
+SingleTrace = 1
+APLCoreName = '' 		; something like '/mnt/d/DyalogSysErrors/aplcore_DyalogAPL_Linux-64_18_0_Unicode_*'
+
 [RIDE]
 active      =   1               ; Use this only to disable RIDE permanently
 tick        =   0               ; Specify the default for whether the user shall be asked for a RIDE
@@ -44,9 +52,10 @@ port        =   4502            ; The port Ride is offering APL interpreters for
 connect     =   '127.0.0.1'     ; Note: on some machines "localhost" does not work but 127.0.0.1 does.
 ;profile    =   '%AppData%\Ride-4.1\prefs.json'  ; If you want to have the preference file somewhere else then use this entry
 
+
 ; This path:
-path2ride   =   'C:\Users\[you]\AppData\Local\Programs\Dyalog'
-; refers to the default installation directory for Ride when `[you]` will be replaced by `⎕AN` at runtime. 
+path2ride   =   'C:\Users\%USERNAME%\AppData\Local\Programs\Dyalog'
+; refers to the default installation directory for Ride. 
 ; All installed main versions (like 3.0, 3.1 and 4.0) are going into the "File" menu.
 ; You need to specify a different path only if you have decided to install Ride in a non-default location.
 ; If several sub versions (say 3.0.1234 and 3.0.9876) are installed then Launchy determines the "best" version automatically.

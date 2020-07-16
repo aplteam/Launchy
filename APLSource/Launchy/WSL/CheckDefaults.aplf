@@ -1,0 +1,23 @@
+ {r}←n CheckDefaults type;f;l;wssize
+⍝ Checks which data is different from defaults and hightlight it.
+ r←1
+ :Select type
+ :Case 'APL_Version'
+     ⍝ Not any more
+ :Case 'WSSIZE'
+     wssize←GetWsSize n
+     f←wssize≢##.Ini.WSSIZE.default
+     n.wssize_Label2.FCol←##.ColorCode×f
+ :Case 'DEBUGFLAG'
+     f←1≠1⍴n.debug2.SelItems
+     n.DebugGroup2.FCol←##.ColorCode×f
+ :Case 'CMDLINE'
+     n.LabelCmdLine2.FCol←##.ColorCode×~0∊⍴⍴n.cmdLineArgs2.(⊃SelItems/Items)
+ :Case 'EXEC_MY_SETUP'
+     n.ExecMySetup2.FCol←##.ColorCode×n.ExecMySetup2.State≢1
+ :Case 'STOP_IN_SETUP'
+     n.StopSetup2.FCol←##.ColorCode×n.StopSetup2.State≢0
+ :Else
+     .    ⍝ Not yet
+ :EndSelect
+⍝Done

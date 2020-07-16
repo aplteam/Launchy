@@ -5,7 +5,7 @@
 
 ## Overview
 
-![Launchy's icon](http://misc.aplteam.com/launchy.ico{width="32" height="32"}) Launchy is designed to address the needs of developers who have more than just one version of Dyalog APL installed on their machine. It investigates the Windows Registry in order to work out which versions of Dyalog APL are installed and offers them in a drop-down control for selection.
+![Launchy's icon](http://misc.aplteam.com/launchy.ico{width="32" height="32"}) Launchy is designed to address the needs of developers who have more than just one version of Dyalog APL installed on their Windows machine. It investigates the Windows Registry in order to work out which versions of Dyalog APL are installed and offers them in a drop-down control for selection.
 
 This makes it easy to run any version of Dyalog APL. It also allows...
 
@@ -13,10 +13,12 @@ This makes it easy to run any version of Dyalog APL. It also allows...
 * specifying the workspace size
 * setting debug flags
 * specifying additional command line parameters
-* running (or ignoring) a user define setup.dyalog script
+* running (or ignoring) a user defined setup.dyalog script
 * starting the APL interpreter in elevated mode (admin right required)
-* specifying size and posn of edit and trace windows
 * giving the interpreter a Ride.
+* In case you have Ubuntu installed in WSL ([Windows subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "How to install WSL")
+then Launchy also allows you to start any of the versions of Dyalog APL installed on Ubuntu.
+
 
 Note that Launchy is a Windows-only application.
 
@@ -30,7 +32,7 @@ With a default RIDE installation it should work out of the box. With a non-stand
 
 Launchy comes with reasonable defaults specified in the INI file. Normally their will be no need to make amendments to this INI file.
 
-The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can be changed even without admin rights. On a standard Windows installation this would be `C:\Users\{username}\AppData\Local\Launchy`
+The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can be changed even without admin rights. On a standard Windows installation this would be `C:\Users\%USERNAME%\AppData\Local\Launchy`
 
 For a programmer it will be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that section.
 
@@ -120,6 +122,24 @@ The default is used in two scenarios:
 
 * When Launchy is fired up the default version is pre-selected.
 * By selecting "Select the default version" from the "Options" menu (F5) you can easily jump to the default version.
+
+
+## WSL
+
+Since version 7.0 Launchy supports the Windows Subsystem for Linux (WSL) though for the time being only for Ubuntu. However, adding other flavours is not a big deal.
+
+There are some differences:
+
+1. When you start Dyalog APL installed under WSL/Ubuntu then it's _always_ given a Ride
+2. You cannot start it with admin rights
+
+The INI file has two WSL-related sections:
+
+1. `[WSL_SET]` is used to define environment variables that are set before Dyalog/Ride is started
+2. `[WSL_CMD]` is used to define two settings: the port number to be used by Ride and the default directory (optional)
+
+Note that the "Explore" menu commands both work also for versions of Dyalog installed in WSL/Ubuntu. However, you **_must under no circumstances_** change any Linux files from Windows: that would corrupt the Linux file system.
+
 
 ## License, copyright, creator
 

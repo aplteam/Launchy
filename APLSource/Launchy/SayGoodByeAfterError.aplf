@@ -14,6 +14,8 @@
  msg,←⊂parms.errorFolder
  msg,←⊂'Consider sending the error WS to info@aplteam.com.'
  msg,←⊂''
+ msg,←⊂'Error message: ',1⊃⎕DM
+ msg,←⊂''
  msg,←⊂'You might want to check your INI file in case you''ve changed it'
  ShowMsg2 msg
 ⍝Done

@@ -1,8 +1,14 @@
- OnMenuOptionsDropDown←{
-⍝ Used to de-cativate the ..
-     n←GetRef2n⊃⍵
+ r←OnMenuOptionsDropDown msg;n;flag
+⍝ Used to de-activate the command related to the default APL...
+⍝ * always for "WSL"
+⍝ * when not appropriate for "General"
+ r←1
+ n←GetRef2n⊃,msg
+ :If n.WSL.State
+     n.(MakeDefault SelectDefault).Active←0
+ :Else
      flag←G.Default≡⊃n.List.(SelItems/∆Orig)
      n.(MakeDefault SelectDefault).Active←~flag
      n.SelectDefault.Checked←flag
-     1
- }
+ :EndIf
+⍝Done

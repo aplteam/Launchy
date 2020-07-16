@@ -1,0 +1,36 @@
+ n←G CreateVersions n;∆;msg;okFlag;default;aplList;indents;orig;selitems
+⍝
+ ∆←''
+ ∆,←⊂'Caption'(' ',(⍕≢G.LinuxAplVersions),' APL Version',(({(0=⍵)∨1<⍵}≢G.LinuxAplVersions)/'s'),' installed ')
+ ∆,←⊂'Posn'(5 2)
+ ∆,←⊂'Size'(50,n.GeneralSubForm.Size[2]-5)
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.LinuxAplVersionGroup←n.WSL_SubForm.⎕NEW'Group'∆
+ n.TheLinuxList←G.LinuxAplVersions
+
+ (aplList orig)←GetListOfAPLs G
+ (aplList indents orig)←MassageAplList aplList orig
+
+ ∆←''
+ ∆,←⊂'Posn'(17 10)
+ ∆,←⊂'Size'(⍬(n.LinuxAplVersionGroup.Size[2]-2×10))
+ :If 0<≢aplList
+     ∆,←⊂'Items'aplList
+ :EndIf
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Rows'(2+≢aplList)
+ ∆,←⊂'indents'indents
+ selitems←{1=≢⍵:(≢⍵)↑1 ⋄ 0,¯1↓0 1⍷2=⍵}indents
+ ∆,←⊂'SelItems'selitems
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.List2←n.LinuxAplVersionGroup.⎕NEW'ComboEx'∆
+ n.List2.onKeyPress←'OnKeyPressInList'
+ n.List2.∆Orig←orig
+ n.List2.onSelect←'##.OnSelectList'
+
+ n←G CreateDebugFlags n
+ n←G CreateFlags n
+ n←G CreateRide n
+ n←G CreateWsSize n
+ n←G CreateCommandLine n
+⍝Done

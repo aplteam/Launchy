@@ -1,4 +1,4 @@
- {r}←{workspace}LaunchDyalog(ty ws dseType h w x y tf clp port);p;parms;rc;tempfile;dir;kai
+ {r}←{workspace}LaunchDyalog(ty ws dseType clp port);p;parms;rc;tempfile;dir;kai;msg;en;success
 ⍝ Compiles the "batch script" and finally launches any version of Dyalog.
  r←1
  workspace←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'workspace'
@@ -6,35 +6,33 @@
  :If 0=≢p
      r←TellRegistryProblem ty
  :Else
-     parms←S.CreateParms_ShellExecute
+     parms←##.OS.CreateParms_WinExecute
      parms.file←p,'Dyalog.exe'
      parms.lpParms←''
      :If 0≠port
-         parms.lpParms,←' RIDE_INIT=SERVE::',(⍕port)      ⍝ Make it listen to ride
+         parms.lpParms,←⊂'RIDE_INIT=SERVE::',(⍕port)      ⍝ Make it listen to ride
      :EndIf
-     parms.lpParms,←' MAXWS=',ws,' '
-     parms.lpParms,←' ',(GetDebugCode ⍬)
-     parms.lpParms,←' PropertyExposeRoot=',(⍕n.propertyExposeRoot.State)
-     parms.lpParms,←' ',clp                       ⍝ Add command line parameters
-     parms.lpParms,←' exec_setup=',⍕n.ExecMySetup.State
+     parms.lpParms,←⊂'MAXWS=',ws
+     parms.lpParms,←⊂GetDebugCode ⍬
+     :If 0<Ini.⎕NC'STD_CMD'
+     :AndIf 0<≢Ini.STD_CMD.⎕NL 2
+         parms.lpParms,←Ini.STD_CMD.{{⍵,'=',{0=1↑0⍴⍵:⍕⍵ ⋄ '"',⍵,'"'}⍎⍵}¨' '~¨⍨↓⎕NL 2}⍬
+     :EndIf
+     parms.lpParms,←⊂clp                       ⍝ Add command line parameters
+     parms.lpParms,←⊂'exec_setup=',⍕n.ExecMySetup.State
      :If n.StopSetup.State
-         parms.lpParms,←' stop_in_setup=1'
+         parms.lpParms,←⊂'stop_in_setup=1'
      :EndIf
-     parms.lpParms,←' ',workspace                         ⍝ ⍺ might be a workspace name
+     parms.lpParms,←⊂workspace                         ⍝ ⍺ might be a workspace name
      parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
      parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''        ⍝ Flatten in case the directory does not exist
      parms.show←0≡port
-     n.showCmd.Checked←AskForShowCommandLineParms⍣((~0∊⍴clp)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
+     n.showCmd.Checked←AskForShowCommandLineParms⍣((0≠≢clp)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
      :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
-         rc←n.runAsAdmin.State S.ShellExecute parms
-         :If 0≠rc
+         parms.lpParms←1↓⊃,/' ',¨parms.lpParms
+         (success rc msg)←n.runAsAdmin.State ##.OS.WinExecute parms
+         :If 1≠success
              ShowMsg2'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')
-         :Else
-             :If 0=≢port
- ⍝                n.statusbarMsg.Text←(⍴'Dyalog APL/W-')↓ty
-             :Else
- ⍝                n.statusbarMsg.Text←(⍴'Dyalog APL/W-')↓ty ⍝ ,' (Ride:',({1↓⌽{⍵↑⍨⍵⍳':'}⌽⍵}'TO-BE-FILLED'),')'   ⍝TODO⍝
-             :EndIf
          :EndIf
      :Else
          r←0

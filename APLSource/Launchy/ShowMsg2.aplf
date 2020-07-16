@@ -9,11 +9,17 @@
  ∆,←⊂'MinButton' 0
  ∆,←⊂'SysMenu' 0
  ∆,←⊂'Sizeable' 0
- ∆,←⊂'Posn'((n.Form.Posn+50))
+ :If 0<⎕NC'n'
+     ∆,←⊂'Posn'((n.Form.Posn+50))
+ :EndIf
  ∆,←⊂'Size'(300 2000)
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Caption'caption
- n2.Form←n.Form.⎕NEW'Form'∆
+ :If 0<⎕NC'n'
+     n2.Form←n.Form.⎕NEW'Form'∆
+ :Else
+     n2.Form←⎕NEW'Form'∆
+ :EndIf
 
  startAt←10 10
  i←0

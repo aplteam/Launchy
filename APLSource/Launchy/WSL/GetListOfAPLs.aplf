@@ -1,0 +1,12 @@
+ (list orig)←GetListOfAPLs G;ind
+⍝ `list` is a two-item vector with all APLs installed Unicode [1] and Classic [2].
+⍝ With each item the list is sorted from 64 down to 32 bit.
+⍝ `orig` is sorted in the same way but is a vector of vectors.
+ list←{⍵{(¯2↑⍕⍵),'. ',(1⊃⍺),' - ',(2⊃⍺),' ',(3⊃⍺)}¨⍳≢⍵}'\'##.U.Split¨{⍵↑⍨{-+/3>+\'\'=⌽⍵}⍵}¨orig←G.LinuxAplVersions
+ :If 0≠≢list←'[0-9]$'⎕R'& classic'⊣list
+     list←list[ind←⍒(↑list)[;14 15]]
+     orig←orig[ind]
+     list←list[ind←⍒↑(-⍴'unicode')↑¨list]
+     orig←orig[ind]
+ :EndIf
+⍝Done

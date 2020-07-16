@@ -23,23 +23,23 @@
     ⍝ The right argument is used for ⎕DF if not empty.
       :Access Public Shared
       n←⎕NS⊃'∆List' '∆GetRefs' '∆GetMethods'
-      :If ~0∊⍴displayName
+      :If 0≠≢displayName
           n.⎕DF displayName
       :EndIf
     ∇
 
-    ∇ r←∆List type;refs;bool
+    ∇ r←∆List type;refs;bool;⎕ML
     ⍝ List all controls with their type and caption (if any)
     ⍝ If "type" is empty, all controls are listed.
     ⍝ if "type" is not empty then only controls are listed of that "type".
     ⍝ "type" can be either a simple string or a vector of strings.
-      refs←⎕NL-9
-      r←⊃{6 2::'-' '' ⋄ rf←⍎⍵ ⋄ (⊂⍵),(⊂rf.Type),(⊂{0::'' ⋄ ⍵.Caption}rf)}¨refs
-      :If ~0∊⍴type
+      ⎕ML←3
+      refs←' '~¨⍨↓⎕NL 9
+      r←↑{6 2::'-' '' ⋄ rf←⍎⍵ ⋄ (⊂⍵),(⊂rf.Type),(⊂{0::'' ⋄ ⍵.Caption}rf)}¨refs
+      :If 0≠≢type
           type←{(,∘⊂∘,⍣(1=≡,⍵))⍵}type
           bool←({0::'' ⋄ ⍵.Type}∘⍎¨refs)∊type
           r←bool⌿r
-          r[;0]←⍎¨r[;0]
       :EndIf
     ∇
 
@@ -47,8 +47,8 @@
     ⍝ Returns all references in ⎕THIS if the right argument is empty.
     ⍝ if "type" is not empty then only references of that "type" are listed.
     ⍝ "type" can be either a simple string or a vector of strings.
-      refs←⍎¨⎕NL-9
-      :If ~0∊⍴type
+      refs←⍎¨↓⎕NL 9
+      :If 0≠≢type
           type←{(,∘⊂∘,⍣(1=≡,⍵))⍵}type
           refs/⍨←refs.Type∊type
       :EndIf
@@ -57,7 +57,7 @@
     ∇ r←∆GetMethods
     ⍝ Returns a list with all methods.
     ⍝ Those are recognized by naming convention: their names start with a ∆ char.
-      r←'∆'⎕NL-3
+      r←' '~¨⍨↓'∆'⎕NL 3
     ∇
 
 :EndClass

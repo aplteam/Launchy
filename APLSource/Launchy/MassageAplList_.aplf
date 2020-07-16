@@ -1,0 +1,12 @@
+ (l2 indents)←level MassageAplList_ l;b;indents;noOf
+ b←∨/¨'-64'∘⍷¨l
+ indents←⍬
+ l2←⊂'64 bit'
+ noOf←+/b
+ l2,←noOf↑l
+ indents,←level,noOf⍴1+level
+ l2,←⊂'32 bit'
+ noOf←+/~b
+ l2,←(-noOf)↑l
+ indents,←level,noOf⍴1+level
+⍝Done

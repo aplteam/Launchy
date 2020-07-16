@@ -1,4 +1,4 @@
- flag←WantToExecute question;∆;ms;n2;this;startAt;rf;i;res
+ flag←WantToExecute question;∆;ms;n2;this;startAt;rf;i;res;fontSizes
  n2←⎕NS''
  question←U.Nest question
 
@@ -12,6 +12,12 @@
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Caption' 'Launchy'
  n2.Form←⎕NEW'Form'∆
+
+ n2.MyFont←n2.Form.⎕NEW'Font'(('PName' 'APL385 Unicode')('Size'GetFontSize))
+ n2.Form.FontObj←n2.MyFont
+ fontSizes←n2.Form.GetTextSize¨question
+ n2.Form.Size[1]←100+{(≢⍵)×4+⌈/⍵}⊃¨fontSizes
+ n2.Form.Size[2]←40+⌈/2⊃¨fontSizes
 
  startAt←10 10
  i←0
@@ -47,7 +53,7 @@
  n2.Form.Size[2]←10+(⌈/2⊃¨AddPosnAndSize¨'Label'⎕WN n2.Form)⌈2⊃AddPosnAndSize n2.Cancel
 
  ⎕NQ n2.OK'GotFocus' ⋄ res←n2.Form.Wait
- :If 0∊⍴res
+ :If 0=≢res
  :OrIf n2.Cancel≡⊃res
      flag←0
  :Else

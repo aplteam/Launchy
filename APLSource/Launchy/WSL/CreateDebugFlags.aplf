@@ -1,0 +1,27 @@
+ n←G CreateDebugFlags n;∆;l;f
+ ∆←''
+ ∆,←⊂'Caption' ' Debug flags '
+ ∆,←⊂'Posn'(65 2)
+ ∆,←⊂'Size'(70 220)
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.DebugGroup2←n.WSL_SubForm.⎕NEW'Group'∆
+
+ ∆←''
+ ∆,←⊂'Caption' 'Check workspace &integrity...'
+ ∆,←⊂'Posn'(15 5)
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.Info2←n.DebugGroup2.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Items'##.Ini.WS_CHECK.list
+ ∆,←⊂'SelItems'(##.Ini.WS_CHECK.default=⊃¨##.Ini.WS_CHECK.list)
+ ∆,←⊂'Posn'(40 5)
+ ∆,←⊂'Size'(⍬ 210)
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.debug2←n.DebugGroup2.⎕NEW'Combo'∆
+ n.debug2.tip←'Specify when a workspace integrity check shall be performed.' 'The closer to a problem a check is performed the better.'
+ n.debug2.onSelect←'OnChanged' 'DEBUGFLAG'
+ n.debug2.onKeyPress←'##.OnStandardKeyPress'
+⍝Done

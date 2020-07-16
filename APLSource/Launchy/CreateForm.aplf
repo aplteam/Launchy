@@ -1,6 +1,9 @@
  n←CreateForm;∆
  n←RefNamespace.Create'Dyalog Launcher GUI'
- #.Caption←GetCaption
+ :If ~U.IsDevelopment
+     #.Caption←GetCaption
+ :EndIf
+ n.MyFont←⎕NEW'Font'(('PName' 'Segoe UI')('Size' 16))
  ∆←''
  ∆,←⊂'Caption'GetCaption
  ∆,←⊂'Posn'G.Posn
@@ -8,6 +11,7 @@
  ∆,←⊂'MaxButton' 0
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Sizeable' 0
+ ∆,←⊂'FontObj'n.MyFont
  n.Form←⎕NEW'Form'∆
  n.Form.n←n
  n.Form.onClose←1

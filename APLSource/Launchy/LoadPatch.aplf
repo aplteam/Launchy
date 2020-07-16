@@ -1,13 +1,13 @@
  LoadPatch←{
 ⍝ Load the "Patch" workspace for the currently selected APL version.
      CheckDyalogForRunning GetCurrentlySelectedAPL:
-     parms←S.CreateParms_ShellExecute
+     parms←##.OS.CreateParms_WinExecute
      aplPath←GetInstallPath GetCurrentlySelectedAPL
      parms.file←aplPath,'Base\Dyalog.exe"'
      parms.lpParms←'"',aplPath,'WS\Patch.dws"'
      parms.lpParms,←' session_file=null MAXWS=32000 '
      parms.lpDirectory←{⍵↓⍨-'\/'∊⍨¯1↑⍵}aplPath
-     rc←1 S.ShellExecute parms
+     rc←1 ##.OS.WinExecute parms
      0,0/⎕DL 1:
      1:r←0
  }

@@ -1,0 +1,18 @@
+ {r}←n LaunchWSL_APL rf;ws;port;rideExe;ok
+ r←⍬
+ :If 0=≢ws←WSL.GetWsSize n
+     rf.Active←1
+     ⎕NQ n.wssize2'GotFocus'
+     :Return
+ :Else
+     n.wssize2.Text←ws
+ :EndIf
+ G.CurrentAPL2←WSL.GetCurrentlySelectedAPL n
+ (ok port rideExe)←WSL.SelectRide n
+ :If ok
+     {}WSL.LaunchDyalog G.CurrentAPL2 ws GetCommandLineParms port rideExe
+     rf.Active←1
+     :If n.iconify.Checked
+         n.Form ⎕WS'State' 1
+     :EndIf
+ :EndIf

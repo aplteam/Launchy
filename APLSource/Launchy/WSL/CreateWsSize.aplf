@@ -1,0 +1,25 @@
+ n←G CreateWsSize n;∆;l;list;startAt
+ list←','##.U.Split ##.Ini.WSSIZE.options
+ ∆←''
+ ∆,←⊂'Style' 'Drop'
+ ∆,←⊂'Items'list
+ ∆,←⊂'SelItems'(list≡¨⊂##.Ini.WSSIZE.default)
+ startAt←2⊃n.StopSetup.Posn
+ ∆,←⊂'Posn'((5+1⊃##.AddPosnAndSize n.StopSetup),startAt)
+ ∆,←⊂'Size'(⍬ 60)
+ ∆,←⊂'Style' 'DropEdit'
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.wssize2←n.WSL_SubForm.⎕NEW'Combo'∆
+ n.wssize2.tip←'Use this to specify the workspace size.' 'The list comes from Launchy''s INI file.'
+ n.wssize2.tip,←⊂'You can enter anything you like; use "MB" or "GB"'
+ n.wssize2.tip,←'If you enter just digits then anything lesser' 'than 16 gets "GB" and "MB" otherwise.'
+ n.wssize2.onChange←'OnChanged' 'WSSIZE'
+ n.wssize2.onKeyPress←'##.OnStandardKeyPress'
+ ∆←''
+ ∆,←⊂'Caption' 'MAXWS'
+ ∆,←⊂'Posn'(¯2+n.wssize.Posn[1],6+2⊃##.AddPosnAndSize n.wssize)
+ ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ n.wssize_Label2←n.WSL_SubForm.⎕NEW'Label'∆
+ ⎕DL 0.01 ⋄ n.wssize2.SelText←2⍴1+≢n.wssize.Text  ⍝ Without delay it has no effect?!
+⍝Done

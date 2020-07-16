@@ -1,25 +1,14 @@
- r←OnLaunchAPL arg;rf;ct;ws;oldVals;newVals;ty;_;port;cmd;status;rideExe
- rf←1⊃arg                                                   ⍝ Ref to the button
+ r←OnLaunchAPL arg;rf;ct;ws;oldVals;newVals;ty;_;port;cmd;status;rideExe;n
+ rf←1⊃,arg                                                   ⍝ Ref to the button
  rf.Active←0
- :If 0=≢ws←GetWsSize n
-     rf.Active←1
-     ⎕NQ n.wssize'GotFocus'
-     :Return
+ n←GetRef2n rf
+ :If n.WSL.State
+     n LaunchWSL_APL rf
  :Else
-     n.wssize.Text←ws
- :EndIf
- G.CurrentAPL←GetCurrentlySelectedAPL
- (status cmd port rideExe)←SelectRide n
- :If ¯1≢status                                              ⍝ ¯1 = User has cancelled
-     :If LaunchDyalog G.CurrentAPL ws'',n.(editHeight editWidth x y).Value,n.tracerFlag.State,GetCommandLineParms port
-         :If 0<≢rideExe
-             ⎕DL 0.5
-             cmd StartRide rideExe
-         :EndIf
-         rf.Active←1
-         :If n.iconify.Checked
-             n.Form ⎕WS'State' 1
-         :EndIf
+     n LaunchWindowsAPL rf
+     :If n.Form.∆Reset
+         n.List.SelItems←n.List.∆DefaultSelection
+         n.Form.∆Reset←0
      :EndIf
  :EndIf
  rf.Active←1

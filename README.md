@@ -4,24 +4,25 @@
 
 ## Overview
 
-**_Launchy_** is useful for people with several versions of Dyalog installed on their machine(s). 
+**_Launchy_** is useful for people with several versions of Dyalog installed on their Windows machine(s). 
 
-If your are like me then you have about 12 versions of Dyalog installed, and you need different versions for different projects / clients. **_Launchy_** simplifies the process of firing up an instance of Dyalog as well as making adjustments like...
+If your are like me then you have about 16 versions of Dyalog installed, and you need different versions for different projects / clients. **_Launchy_** simplifies the process of firing up an instance of Dyalog as well as making adjustments like...
 
 * setting certain flags like PropertyExposeRoot
 * specifying the workspace size
 * setting debug flags
 * specifying additional command line parameters
 * running (or ignoring) a user define setup.dyalog script
-* starting the APL interpreter in elevated mode (admin right required)
-* specifying size and posn of edit and trace windows
+* starting the APL interpreter in elevated mode (admin rights required)
 * giving the interpreter a Ride.
+* In case you have Ubuntu installed in WSL ([Windows subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "How to install WSL")
+then Launchy also allows you to start any of the versions of Dyalog APL installed on Ubuntu.
 
 In addition to its main goal **_Launchy_** offers these features:
 
 * Start any major version of Ride installed on your machine.
 * Store DSS credentials in the Registry.
-* Patch the currently selected or all installed versions of Dyalog.
+* Patch either the currently selected or all installed versions of Dyalog.
 * Edit the Registry entries for the currently selected version of Dyalog.
 * Display the online help for the currently selected version of Dyalog.
 * Open a Windows Explorer on...

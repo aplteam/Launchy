@@ -1,4 +1,7 @@
  OnSelectList←{
-     _←⎕NQ(⊃⍵)'GotFocus'
+     n←GetRef2n 1⊃,⍵
+     flag←((n.List.SelItems⍳1)⊃n.List.∆Orig)∨.≠' '
+     n.ok.Active←flag
+     _←⎕NQ n.List'GotFocus'
      1
  }

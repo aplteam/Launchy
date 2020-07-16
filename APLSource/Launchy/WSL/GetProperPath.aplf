@@ -1,0 +1,3 @@
+ GetProperPath←{
+     GetCurrentlySelectedAPL ##.n
+ }

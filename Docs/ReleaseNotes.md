@@ -2,24 +2,21 @@
 
 # Launchy Release Notes
 
-## 6.4.1 from 2020-04-24
 
-* Bug fix: providing a Ride crashed.
+## 7.0.0 from 2020-06-10
 
-## 6.4.0 from 2019-12-01
+**Note:** _With version 7.0 Launchy became a 64-bit application. You are advised to **uninstall** any older version of Launchy "manually"!_
 
-* Internal stuff
-  * `Tester2` in now used.
-  * `Run` requires a right argument now: a test flag.
+* Launchy can now start versions of Dyalog APL installed on Ubuntu under WSL.
 
-## 6.3.3 from 2019-11-06
+  Note however that for unknown reasons only 18.0 and 17.1 cooperate and connect with the instance of Ride that is also started by Launchy. With 17.0 both Dyalog and Ride are started, but they do not connect. If you need this: pester Dyalog!
 
-* Bug fix: Asking for the online help always showed the help for the default APL rather than the currently selected APL.
+* The commands in the "Options" menu work on versions of Dyalog APL installed in Ubuntu under WSL.
+* The way Unicode/Classic and 64/32 bit versions are presented has been improved.
+* The "Edit+Trace" tab has been removed from Launchy.
 
-## 6.3.2 from 2019-09-15
+* Version 7.0 requires two additional sections in the INI file in case you want to start any Dyalog version under Linux: `[WSL_CMD]` and `[WSL_SET]`.
 
-The options `stop_in_setup` and `exec_setup` were not handled correctly.
+  While `[WSL_CMD]` is used to set certain WSL-specific parameters, `[WSL_SET]` is passed onto the command line. For example, specifying `files=30` in this section lets Launchy add `files=30` to the command line.
 
-Note that Launchy cannot specify them as flags because in versions prior to 17.1 the interpretation of the command line was buggy. In order to overcome those issues the hyphen cannot be used to indicate a flag.
-
-A complete history of release notes is [available on GitHub](https://github.com/aplteam/Launchy/releases)
+* To keep WSL and standard APL in sync a new section `[STD_SET]` has been invented  which may contain parameters that are supposed to go onto the command for Windows versions of Dyalog.
