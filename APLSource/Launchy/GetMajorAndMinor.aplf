@@ -1,0 +1,4 @@
+ GetMajorAndMinor←{
+     ⍺←'.'
+     ⊃⊃(//)⎕VFI ⍵/⍨2>+\⍺=⍵
+ }

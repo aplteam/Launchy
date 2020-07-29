@@ -3,6 +3,11 @@
 # Launchy Release Notes
 
 
+## 7.0.1 from 2020-07-26
+
+* Launchy crashed in case the APL the was the default disappeared.
+* In WSL, only versions better than 17.0 can be started. The reason is that 17.0 does not connect with Ride though syntactically all is fine.
+
 ## 7.0.0 from 2020-06-10
 
 **Note:** _With version 7.0 Launchy became a 64-bit application. You are advised to **uninstall** any older version of Launchy "manually"!_

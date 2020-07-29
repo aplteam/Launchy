@@ -1,4 +1,7 @@
  History
+⍝ * 7.0.1 from 2020-07-26
+⍝   * Launchy crashed in case the APL that was selected as default disappeared.
+⍝   * With WSL, only versions better than 17.0 may be started since 17.0 does not work.
 ⍝ * 7.0.0 from 2020-07-16
 ⍝   * Launchy can now start Dyalog from any Linux version installed in WSL. Well, any translates to
 ⍝     "Ubuntu only" for the time being.

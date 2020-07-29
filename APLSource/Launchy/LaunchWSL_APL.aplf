@@ -1,4 +1,4 @@
- {r}←n LaunchWSL_APL rf;ws;port;rideExe;ok
+ {r}←n LaunchWSL_APL rf;ws;port;rideExe;ok;version;version_
  r←⍬
  :If 0=≢ws←WSL.GetWsSize n
      rf.Active←1
@@ -8,11 +8,16 @@
      n.wssize2.Text←ws
  :EndIf
  G.CurrentAPL2←WSL.GetCurrentlySelectedAPL n
- (ok port rideExe)←WSL.SelectRide n
- :If ok
-     {}WSL.LaunchDyalog G.CurrentAPL2 ws GetCommandLineParms port rideExe
-     rf.Active←1
-     :If n.iconify.Checked
-         n.Form ⎕WS'State' 1
+ version_←⊃(//)⎕VFI version←⊃'\\mdyalog\\([0-9.]+)\\'⎕S'\1'⊣G.CurrentAPL2
+ :If version_>17
+     (ok port rideExe)←WSL.SelectRide n
+     :If ok
+         {}WSL.LaunchDyalog G.CurrentAPL2 ws GetCommandLineParms port rideExe
+         rf.Active←1
+         :If n.iconify.Checked
+             n.Form ⎕WS'State' 1
+         :EndIf
      :EndIf
+ :Else
+     'Launchy: Attention please!'ShowMsg2'I am sorry, this won''t work with version ',version,' and earlier.'
  :EndIf

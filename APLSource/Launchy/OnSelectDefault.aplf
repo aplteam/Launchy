@@ -1,5 +1,8 @@
  OnSelectDefault←{
      n←GetRef2n⊃⍵
+     ~n.ok.Active:0
      n.List.SelItems←n.List.∆Orig≡¨⊂G.Default
+     flag←((n.List.SelItems⍳1)⊃n.List.∆Orig)∨.≠' '
+     n.ok.Active←flag
      0
  }

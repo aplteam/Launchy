@@ -8,7 +8,7 @@
      n.(MakeDefault SelectDefault).Active←0
  :Else
      flag←G.Default≡⊃n.List.(SelItems/∆Orig)
-     n.(MakeDefault SelectDefault).Active←~flag
+     n.(MakeDefault SelectDefault).Active←(~flag)∧n.ok.Active
      n.SelectDefault.Checked←flag
  :EndIf
 ⍝Done

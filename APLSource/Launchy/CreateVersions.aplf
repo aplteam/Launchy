@@ -14,7 +14,8 @@
          okFlag←1
      :Else
          G.Default←⊃G.AplVersions               ⍝ Make the first one the default, at least for the time being
-         whichVersion←(⍴G.AplVersions)↑1
+         whichVersion←(⍴aplList)⍴0
+         whichVersion[indents⍳2]←1
      :EndIf
      G.LastSelectedVersion←G.Default
  :EndIf

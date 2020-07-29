@@ -1,5 +1,5 @@
  GetVersionOfSelectedAPL←{
      version←GetCurrentlySelectedAPL
-     ''≡version:0
-     ⍎3⊃' 'U.Split version
+     ''≡version~' ':0
+     ⊃(//)⎕VFI 3⊃' 'U.Split version
  }

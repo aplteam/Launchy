@@ -1,7 +1,7 @@
  n←CreateRide n;∆;flag;tip;f2;f;f1;version
  :If 0≠version←GetVersionOfSelectedAPL n
      f1←⊃14.1≤version                               ⍝ RIDE is an option only from 14.0 onwards
-     f2←~0∊⍴G.RideVersions                          ⍝ At least one RIDE exe must be known
+     f2←0≠≢G.RideVersions                           ⍝ At least one RIDE exe must be known
 
      ∆←''
      ∆,←⊂'Posn'((1⊃+⌿↑n.DebugGroup.(Posn Size)),10)

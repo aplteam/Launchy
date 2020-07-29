@@ -1,9 +1,14 @@
  OnMakeDefault←{
      n←GetRef2n⊃⍵
+     ~n.ok.Active:0
      1≠+/n.List.SelItems:0
      G.Default←⊃n.List.SelItems/n.List.∆Orig
      regKey←GetAplLauncherRegistryKey,'DefaultAPL'
      _←{0::0 ⋄ R.PutString regKey G.Default}⍬
-     (n.List.(Items ∆Orig SelItems))←GetListOfAPLs G
+     (aplList orig)←GetListOfAPLs G
+     (aplList indents orig)←MassageAplList aplList orig
+     whichVersion←orig≡¨⊂G.Default
+     n.List.(Items ∆Orig)←aplList orig
+     n.List.SelItems←whichVersion
      0
  }

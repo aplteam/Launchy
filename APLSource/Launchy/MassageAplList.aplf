@@ -15,5 +15,5 @@
  (bool/list2)←{⍵,¨⍨{(≢⍵)↑9↑⍵}{(2 0⍕⍵),'. '}¨⍳≢⍵}bool/list2
  list2←' ',¨list2
  indents×←2
- (list2 indents orig)←(~2 2⍷indents)∘/¨list2 indents orig
+⍝ (list2 indents orig)←(~2 2⍷indents)∘/¨list2 indents orig
 ⍝Done
