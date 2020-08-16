@@ -3,9 +3,13 @@
 # Launchy Release Notes
 
 
+## 7.0.2 from 2020-08-16
+
+* Launchy crashed in machines that had no WSL or no Dyalog APL installed withing WSL
+
 ## 7.0.1 from 2020-07-26
 
-* Launchy crashed in case the APL the was the default disappeared.
+* Launchy crashed in case the APL disappeared that was chosen as the default.
 * In WSL, only versions better than 17.0 can be started. The reason is that 17.0 does not connect with Ride though syntactically all is fine.
 
 ## 7.0.0 from 2020-06-10

@@ -6,8 +6,10 @@
      n.ok.Active←flag∧0<≢G.AplVersions
      n.ok.Tip←n.ok.∆Tip1
  :Else
-     flag←((n.List2.SelItems⍳1)⊃n.List2.∆Orig)∨.≠' '
-     n.ok.Active←flag∧0<≢G.LinuxAplVersions
-     n.ok.Tip←n.ok.∆Tip2
+     :If 0<+/n.List2.Indents
+         flag←((n.List2.SelItems⍳1)⊃n.List2.∆Orig)∨.≠' '
+         n.ok.Active←flag∧0<≢G.LinuxAplVersions
+         n.ok.Tip←n.ok.∆Tip2
+     :EndIf
  :EndIf
 ⍝Done

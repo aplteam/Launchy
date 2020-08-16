@@ -9,6 +9,7 @@
  n.TheLinuxList←G.LinuxAplVersions
 
  (aplList orig)←GetListOfAPLs G
+
  (aplList indents orig)←MassageAplList aplList orig
 
  ∆←''
@@ -16,13 +17,17 @@
  ∆,←⊂'Size'(⍬(n.LinuxAplVersionGroup.Size[2]-2×10))
  :If 0<≢aplList
      ∆,←⊂'Items'aplList
+ :Else
+     ∆,←⊂'Items' ''
  :EndIf
  ∆,←⊂'Style' 'Drop'
- ∆,←⊂'Rows'(2+≢aplList)
- ∆,←⊂'indents'indents
- selitems←{1=≢⍵:(≢⍵)↑1 ⋄ 0,¯1↓0 1⍷2=⍵}indents
- ∆,←⊂'SelItems'selitems
- ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ :If 0<≢aplList
+     ∆,←⊂'Rows'(2+≢aplList)
+     ∆,←⊂'indents'indents
+     selitems←{1=≢⍵:(≢⍵)↑1 ⋄ 0,¯1↓0 1⍷2=⍵}indents
+     ∆,←⊂'SelItems'selitems
+     ∆,←⊂'Active'(0<≢G.LinuxAplVersions)
+ :EndIf
  n.List2←n.LinuxAplVersionGroup.⎕NEW'ComboEx'∆
  n.List2.onKeyPress←'OnKeyPressInList'
  n.List2.∆Orig←orig

@@ -1,4 +1,6 @@
  History
+⍝ * 7.0.2 from 2020-08-16
+⍝   * Launchy crashed on machines with no WSL installed.
 ⍝ * 7.0.1 from 2020-07-26
 ⍝   * Launchy crashed in case the APL that was selected as default disappeared.
 ⍝   * With WSL, only versions better than 17.0 may be started since 17.0 does not work.
