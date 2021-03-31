@@ -1,5 +1,0 @@
- test;c
- c←⎕NEW #.Ride.Client
- c.Start
-
-⍝Done

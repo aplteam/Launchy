@@ -13,7 +13,7 @@
  parms.file←'bat'F.GetTempFilename2''
  parms.show←0
  bat,←' "',('"'~⍨GetRideExeName pathToExe),'"'
- ##.APLTreeUtils.WriteUtf8File parms.file bat
+ (⊂bat)F.NPUT parms.file 1
  (success rc msg)←##.OS.WinExecute parms
  :If 0=success
      'Could not start Ride'CheckRc rc

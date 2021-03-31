@@ -1,12 +1,6 @@
  Ini←Init2 errorParms;msg
 ⍝ Establish a couple of essentials
  Ini←ProcessIniFile errorParms
- :If 0=Ini.⎕NC'WSL_CMD'
-     msg←⊂'The INI file must contain the two sections WSL_CMD and WSL_SET'
-     msg,←'' 'The program cannot continue'
-     'Launchy INI file'ShowMsg2 msg
-     Off
- :EndIf
  CreateGlobals Ini
  :If ThereIsAWorkingDir
      {}F.Cd Ini.CONFIG.workdir

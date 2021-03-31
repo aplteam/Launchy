@@ -4,7 +4,7 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←T._Failed
 
- md←##.APLTreeUtils.ReadUtf8File'Docs\Releasenotes.md'
+ md←⊃F.NGET'Docs\Releasenotes.md'
  version←{⍵/⍨2≥+\'.'=⍵}1⊃##.Launchy.Version
  →T.PassesIf∨/version⍷∊md
 

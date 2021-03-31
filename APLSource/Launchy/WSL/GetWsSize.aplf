@@ -1,9 +1,0 @@
- GetWsSize←{
-     n←⍵
-     0<+/n.wssize2.SelItems:n.wssize2.((SelItems⍳1)⊃Items)
-     val←⊃(//)⎕VFI{⍵/⍨⍵∊⎕D}n.wssize2.Text
-     0=≢val:''⊣##.ShowMsg2'Invalid WSSIZE'
-     type←##.U.Uppercase{⍵/⍨~⍵∊⎕D}n.wssize2.Text
-     ~(⊂type)∊'' 'MB' 'GB':''⊣##.ShowMsg2'Invalid WSSIZE'
-     ##.GetWsSize_ val type
- }

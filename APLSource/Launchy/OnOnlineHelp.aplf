@@ -1,6 +1,7 @@
  OnOnlineHelp←{
      n←GetRef2n⊃,⍵
-     version←{⍵↑⍨¯1+⍵⍳' '}U.dlb{⍵↓⍨⍵⍳' '}⊃n.List.(SelItems/Items)
+     buff←U.DLB⊃n.List.(SelItems/Items)
+     version←4⊃' 'U.Split buff
      url←'http://help.dyalog.com/',version,'/'
      _←U.GoToWebPage url
      0

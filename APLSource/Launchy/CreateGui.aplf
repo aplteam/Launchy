@@ -1,6 +1,5 @@
  n←CreateGui;ie;∆;flag;f
  n←CreateForm
- n←CreateTabs n
  n←CreateStatusbar n
  n←CreateMenubar n
  (↑,/{'MenuItem'⎕WN ⍵}¨'Menu'⎕WN n.MB).HintObj←⊂n.statusbarMsg
@@ -8,12 +7,11 @@
  n←CreateVersions n
  n←CreateDebugFlags n
  n←CreateFlags n
- n←CreateRide n
  n←CreateWsSize n
  n←CreateCommandLine n
- n←G WSL.CreateVersions n
  n←CreateButtons n
+ n←CreateRide n
  ToggleTipVisibility
- n.(GeneralTab WSL).onSelect←⊂'OnSelectTab'
  n.Form.∆Reset←0
+⍝ # ⎕WS'Event' 'ActivateApp' 'OnActivateApp'n
 ⍝Done

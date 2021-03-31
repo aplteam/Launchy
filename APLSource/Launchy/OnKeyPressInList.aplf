@@ -4,15 +4,19 @@
  r←0
  n←GetRef2n ref
  n.Form.∆Reset←0
- :If 'ER'≡key
-     r←(2↑msg),'EP' 27 27 0
- :ElseIf (⍴,key)∊0 2
-     r←1
+ :If 0 117 0≡3↓msg
+     ⎕NQ n.List'GotFocus'
  :Else
-     bool←key∘≡¨⊃¨ref.Items
-     :If 0<+/bool
-         ref.SelItems←bool
-         G.CurrentAPL←⊃bool/n.List.∆Orig
+     :If 'ER'≡key
+         r←(2↑msg),'EP' 27 27 0
+     :ElseIf (≢key)∊0 2
+         r←1
+     :Else
+         bool←key∘≡¨⊃¨ref.Items
+         :If 0<+/bool
+             ref.SelItems←bool
+             G.CurrentAPL←⊃bool/n.List.∆Orig
+         :EndIf
      :EndIf
  :EndIf
 ⍝Done

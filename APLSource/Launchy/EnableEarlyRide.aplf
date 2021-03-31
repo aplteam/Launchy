@@ -4,7 +4,7 @@
 ⍝ RIDEPORT=6000
      ⍵=0:r←⍬
      clp←2 ⎕NQ #'GetCommandLineArgs'
-     b←'RidePort'∘{(U.Uppercase ⍺)≡(⍴⍺)↑U.Uppercase ⍵}¨clp
+     b←'RidePort'∘{(1 ⎕C ⍺)≡(⍴⍺)↑1 ⎕C ⍵}¨clp
      0=+/b:r←⍬
      0=≢portno←(⍴'RidePort=')↓(b⍳1)⊃clp:r←⍬
      _←3502⌶'SERVE::',portno

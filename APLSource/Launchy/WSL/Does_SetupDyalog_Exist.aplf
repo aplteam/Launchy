@@ -1,9 +1,0 @@
- r←Does_SetupDyalog_Exist dummy;list;OS;path
- r←0
- :If 0<≢OS←1⊃##.F.Dir'C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited*'
- :AndIf ##.F.IsDir path←(1⊃OS),'\LocalState\rootfs\home\',⎕AN
- :AndIf ##.F.IsDir path←path,'\MyUCMDs'
-     list←819⌶{⊃,/1↓⎕NPARTS ⍵}¨⊃##.F.Dir path,'\'
-     r←∨/'setup.dyalog'∘≡¨list
- :EndIf
-⍝Done

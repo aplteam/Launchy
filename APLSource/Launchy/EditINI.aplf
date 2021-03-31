@@ -4,27 +4,27 @@
  n.ok.Active←0
  filename1←∆HomeDir,'\launchy.ini'
  ns←⎕NS''
- ns.GeneralIni←was1←U.ReadUtf8File filename1
+ ns.GeneralIni←was1←⊃F.NGET filename1
  filename2←F.PWD,'\Launchy_',S.GetComputerName,'.ini'
  :If exists←F.IsFile filename2
-     ns.ComputerSpecificIni←was2←U.ReadUtf8File filename2
+     ns.ComputerSpecificIni←was2←⊃F.NGET filename2
  :EndIf
  msg←''
  :If exists
      ns.⎕ED↑'GeneralIni' 'ComputerSpecificIni'
      :If ∨/flags←(was1≢ns.GeneralIni)(was2≢ns.ComputerSpecificIni)
          :If 1⊃flags
-             U.WriteUtf8File filename1 ns.GeneralIni
+             (⊂ns.GeneralIni)F.NPUT filename1 1
          :EndIf
          :If 2⊃flags
-             U.WriteUtf8File filename2 ns.ComputerSpecificIni
+             (⊂ns.ComputerSpecificIni)F.NPUT filename2 1
          :EndIf
          msg←⊂'You have changed ',((+/flags)⊃'one' 'both'),' of Launchy''s INI files.'
      :EndIf
  :Else
      ns.⎕ED'GeneralIni'
      :If was1≢ns.GeneralIni
-         U.WriteUtf8File filename1 ns.GeneralIni
+         (⊂ns.GeneralIni)F.NPUT filename1 1
          msg←⊂'You have changed Launchy''s INI file.'
      :EndIf
  :EndIf

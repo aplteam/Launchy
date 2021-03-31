@@ -3,7 +3,7 @@
      0<+/n.wssize.SelItems:n.wssize.((SelItems⍳1)⊃Items)
      val←⊃(//)⎕VFI{⍵/⍨⍵∊⎕D}n.wssize.Text
      0=≢val:''⊣ShowMsg2'Invalid WSSIZE'
-     type←U.Uppercase{⍵/⍨~⍵∊⎕D}n.wssize.Text
+     type←1 ⎕C{⍵/⍨~⍵∊⎕D}n.wssize.Text
      ~(⊂type)∊'' 'MB' 'GB':''⊣ShowMsg2'Invalid WSSIZE'
      GetWsSize_ val type
  }

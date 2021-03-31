@@ -1,7 +1,7 @@
  GetAllControls←{
 ⍝ Returns a list of refs pointing to all controls of type ⍺ (default: "Edit") recursively.
      ⍺←⊂'Edit'
-     ⍺←U.Nest ⍺
+     ⍺←⊆⍺
      l←⊃,/⍺{⍺ ⎕WN ⍵}¨⊂⍵
      0∊⍴gl←'Group'⎕WN ⍵:l
      l,⊃,/⍺∘∇¨gl

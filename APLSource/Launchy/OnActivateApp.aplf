@@ -1,0 +1,7 @@
+ OnActivateApp←{
+⍝ Makes sure that the app gets restored when activated
+     n←⍺
+     ~n.iconify.Checked:1
+     n.Form.State←0
+     1
+ }

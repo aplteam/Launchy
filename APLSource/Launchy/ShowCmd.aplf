@@ -4,7 +4,7 @@
      m←⊂'Are you sure that you want this to be executed',(adminFlag/' with admin rights'),'?'
      m,←⊂''
      m,←⊂parms.file
-     m,←U.dmb parms.lpParms~⊂''
+     m,←U.DMB parms.lpParms~⊂''
      ⍺:WantToExecute m
      1
  }

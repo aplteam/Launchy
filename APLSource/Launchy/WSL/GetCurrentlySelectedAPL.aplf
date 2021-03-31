@@ -1,7 +1,0 @@
- r←GetCurrentlySelectedAPL n
- :If 0=+/n.List2.SelItems
-     r←''
- :Else
-     r←##.G.CurrentAPL2←(n.List2.SelItems⍳1)⊃n.List2.∆Orig
- :EndIf
-⍝Done

@@ -3,6 +3,6 @@
      bat←parms.file
      bat,←' ',parms.lpParms
      filename←'bat'F.GetTempFilename2''
-     _←U.WriteUtf8File filename bat
+     _←(⊂bat)F.NPUT filename 1
      filename
  }

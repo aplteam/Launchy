@@ -3,18 +3,18 @@
  ∆,←⊂'Caption' ' Debug flags '
  ∆,←⊂'Posn'(65 2)
  ∆,←⊂'Size'(70 220)
- n.DebugGroup←n.GeneralSubForm.⎕NEW'Group'∆
+ n.DebugGroup←n.Form.⎕NEW'Group'∆
 
  ∆←''
  ∆,←⊂'Caption' 'Check workspace &integrity...'
- ∆,←⊂'Posn'(15 5)
+ ∆,←⊂'Posn'(15 10)
  n.Info←n.DebugGroup.⎕NEW'Label'∆
 
  ∆←''
  ∆,←⊂'Style' 'Drop'
  ∆,←⊂'Items'Ini.WS_CHECK.list
  ∆,←⊂'SelItems'(Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list)
- ∆,←⊂'Posn'(40 5)
+ ∆,←⊂'Posn'(40 10)
  ∆,←⊂'Size'(⍬ 210)
  ∆,←⊂'TipObj'n.tip
  n.debug←n.DebugGroup.⎕NEW'Combo'∆

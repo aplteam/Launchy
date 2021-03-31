@@ -1,5 +1,5 @@
  OnKeyPressInPushButton←{
-     0 115 0≢3↓⍵:1
+     0 117 0≢3↓⍵:1
      n←GetRef2n⊃⍵
      _←⎕NQ n.List'GotFocus'
      0

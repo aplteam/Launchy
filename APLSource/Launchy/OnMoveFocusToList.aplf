@@ -1,11 +1,6 @@
  r←OnMoveFocusToList msg;n
  r←0
  n←GetRef2n⊃,msg
- :If n.WSL.State
-     {}⎕NQ n.List2'GotFocus'
-     {}⎕NQ n.List2'KeyPress' 'DC' 0 40 4  ⍝ "DC" is required to get around bug 15644
- :Else
-     {}⎕NQ n.List'GotFocus'
-     {}⎕NQ n.List'KeyPress' 'DC' 0 40 4  ⍝ "DC" is required to get around bug 15644
- :EndIf
+ {}⎕NQ n.List'GotFocus'
+ {}⎕NQ n.List'KeyPress' 'DC' 0 40 4  ⍝ "DC" is required to get around bug 15644
 ⍝Done

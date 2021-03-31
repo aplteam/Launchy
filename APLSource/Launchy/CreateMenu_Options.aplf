@@ -32,8 +32,8 @@
  n.MakeDefault.onSelect←'OnMakeDefault'
 
  ∆←''
- ∆,←⊂'Caption'('Select the default version',(⎕UCS 9),'F4')
- ∆,←⊂'Accelerator'(115 0)
+ ∆,←⊂'Caption'('Select the default version',(⎕UCS 9),'F6')
+ ∆,←⊂'Accelerator'(117 0)
  ∆,←⊂'Posn' 5
  n.SelectDefault←n.MenuOptions.⎕NEW'MenuItem'∆
  n.SelectDefault.onSelect←'OnSelectDefault'

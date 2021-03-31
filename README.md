@@ -8,15 +8,13 @@
 
 If your are like me then you have about 16 versions of Dyalog installed, and you need different versions for different projects / clients. **_Launchy_** simplifies the process of firing up an instance of Dyalog as well as making adjustments like...
 
-* setting certain flags like PropertyExposeRoot
+* setting certain flags like `PropertyExposeRoot` and others
 * specifying the workspace size
 * setting debug flags
 * specifying additional command line parameters
 * running (or ignoring) a user define setup.dyalog script
 * starting the APL interpreter in elevated mode (admin rights required)
 * giving the interpreter a Ride.
-* In case you have Ubuntu installed in WSL ([Windows subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "How to install WSL")
-then Launchy also allows you to start any of the versions of Dyalog APL installed on Ubuntu.
 
 In addition to its main goal **_Launchy_** offers these features:
 
@@ -29,7 +27,6 @@ In addition to its main goal **_Launchy_** offers these features:
   * the installation directory of the currently selected version of Dyalog.
   * the help directory of the currently selected version of Dyalog.
 * Edit **_Launchy_**'s INI file(s).
-* Access Dyalog's online help.
 
 
 ## Preconditions

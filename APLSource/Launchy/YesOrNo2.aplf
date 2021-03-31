@@ -2,7 +2,7 @@
  #.CursorObj←0
  caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
  n2←⎕NS''
- question←U.Nest question
+ question←⊆question
 
  ∆←''
  ∆,←⊂'MaxButton' 0

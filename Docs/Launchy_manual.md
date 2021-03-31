@@ -14,11 +14,8 @@ This makes it easy to run any version of Dyalog APL. It also allows...
 * setting debug flags
 * specifying additional command line parameters
 * running (or ignoring) a user defined setup.dyalog script
-* starting the APL interpreter in elevated mode (admin right required)
+* starting the APL interpreter in elevated mode (admin rights required)
 * giving the interpreter a Ride.
-* In case you have Ubuntu installed in WSL ([Windows subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "How to install WSL")
-then Launchy also allows you to start any of the versions of Dyalog APL installed on Ubuntu.
-
 
 Note that Launchy is a Windows-only application.
 
@@ -32,7 +29,7 @@ With a default RIDE installation it should work out of the box. With a non-stand
 
 Launchy comes with reasonable defaults specified in the INI file. Normally their will be no need to make amendments to this INI file.
 
-The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can be changed even without admin rights. On a standard Windows installation this would be `C:\Users\%USERNAME%\AppData\Local\Launchy`
+The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can be changed even without admin rights. On a standard Windows installation this would be `%USERPROFILE%\AppData\Local\Launchy`
 
 For a programmer it will be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that section.
 
@@ -59,7 +56,13 @@ You can use the menu command "Check for updates..." from the Help menu to find o
   
 ## Errors
 
-In case Launchy crashes, for example because of an invalid or missing INI file entry, then some files are written into a folder `%localappdata%'),'\Launchy\Errors\`. These files, in particular the HTML file but also the workspace, should allow you to identify and fix the problem.
+In case Launchy crashes, for example because of an invalid or missing INI file entry, then some files are written into this folder:
+
+```
+%localappdata%'),'\Launchy\Errors\
+```
+
+These files, in particular the HTML file but also the workspace, should allow you to identify and fix the problem.
 
 However, if that does not work for you then please zip those files and send them to info@aplteam.com. 
 
@@ -69,7 +72,7 @@ If Dyalog finds a file `Setup.dyalog` in any of the User Command folders then a 
 
 ### The check box "Execute setup.dyalog"
 
-There might be situations when you **_do not_** want `setup.dyalog` to be executed. For that you can un-tick the box "Execute setup.dyalog". Launchy then passes `exec_setup=0` as a command line parameter.
+There might be situations when you do **_not_** want `setup.dyalog` to be executed. For that you can un-tick the box "Execute setup.dyalog". Launchy then passes `exec_setup=0` as a command line parameter.
 
 Note that it is up to the script itself to honour this setting.
 
@@ -122,23 +125,6 @@ The default is used in two scenarios:
 
 * When Launchy is fired up the default version is pre-selected.
 * By selecting "Select the default version" from the "Options" menu (F5) you can easily jump to the default version.
-
-
-## WSL
-
-Since version 7.0 Launchy supports the Windows Subsystem for Linux (WSL) though for the time being only for Ubuntu. However, adding other flavours is not a big deal.
-
-There are some differences:
-
-1. When you start Dyalog APL installed under WSL/Ubuntu then it's _always_ given a Ride
-2. You cannot start it with admin rights
-
-The INI file has two WSL-related sections:
-
-1. `[WSL_SET]` is used to define environment variables that are set before Dyalog/Ride is started
-2. `[WSL_CMD]` is used to define two settings: the port number to be used by Ride and the default directory (optional)
-
-Note that the "Explore" menu commands both work also for versions of Dyalog installed in WSL/Ubuntu. However, you **_must under no circumstances_** change any Linux files from Windows: that would corrupt the Linux file system.
 
 
 ## License, copyright, creator

@@ -2,7 +2,7 @@
  r←0
  caption←{0<⎕NC ⍵:⍎⍵ ⋄ 'Launchy'}'caption'
  n2←⎕NS''
- msg←U.Nest msg
+ msg←⊆msg
 
  ∆←''
  ∆,←⊂'MaxButton' 0

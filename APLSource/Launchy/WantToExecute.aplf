@@ -1,6 +1,6 @@
  flag←WantToExecute question;∆;ms;n2;this;startAt;rf;i;res;fontSizes
  n2←⎕NS''
- question←U.Nest question
+ question←⊆question
 
  ∆←''
  ∆,←⊂'MaxButton' 0

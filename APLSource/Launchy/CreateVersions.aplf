@@ -22,12 +22,12 @@
 
  ∆←''
  ∆,←⊂'Caption'(' ',(⍕⍴G.AplVersions),' APL Version',((1<⍴G.AplVersions)/'s'),' installed ')
- ∆,←⊂'Posn'(5 2)
- ∆,←⊂'Size'(50,n.GeneralSubForm.Size[2]-5)
- n.AplVersionGroup←n.GeneralSubForm.⎕NEW'Group'∆
+ ∆,←⊂'Posn'(8 2)
+ ∆,←⊂'Size'(50,n.Form.Size[2]-5)
+ n.AplVersionGroup←n.Form.⎕NEW'Group'∆
 
  ∆←''
- ∆,←⊂'Posn'(17 10)
+ ∆,←⊂'Posn'(20 10)
  ∆,←⊂'Size'(⍬(n.AplVersionGroup.Size[2]-2×10))
  ∆,←⊂'Items'aplList
  ∆,←⊂'indents'indents

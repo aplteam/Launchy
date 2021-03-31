@@ -3,9 +3,15 @@
 # Launchy Release Notes
 
 
-## 7.0.2 from 2020-08-16
+## 7.1.0 from 2021-03-29
 
-* Launchy crashed in machines that had no WSL or no Dyalog APL installed withing WSL
+**Note:** _We experienced some problems when trying to update our Launchy installations. We cannot figure out what is causing this, but uninstalling Launchy first, and then installing it again avoids the problem._
+
+* WSL removed from Launchy
+
+  Microsoft made changes to WSL2 that make it impossible to support WSL2 from Launchy
+
+* The GUI was cleaned up
 
 ## 7.0.1 from 2020-07-26
 

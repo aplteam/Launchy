@@ -6,7 +6,7 @@
  :If 0<Ini.⎕NC'RIDE'
  :AndIf 2=Ini.RIDE.⎕NC'path2ride'
  :AndIf F.IsDir Ini.RIDE.path2ride
-     flag←'programs\dyalog'≡U.Lowercase{⍵↑⍨-+/2>+\(⌽⍵)∊'/\'}Ini.RIDE.path2ride
+     flag←'programs\dyalog'≡⎕C{⍵↑⍨-+/2>+\(⌽⍵)∊'/\'}Ini.RIDE.path2ride
      path←Ini.RIDE.path2ride,flag/'\..'
  :AndIf 0≠≢list←F.ListDirs path,'\Dyalog\'
      list2←↑,/F.ListDirs¨list,¨'\'
@@ -14,7 +14,7 @@
      versionFiles←allRides,¨⊂'\app\_\version'
  :AndIf ∨/bool←F.IsFile versionFiles
      (allRides versionFiles)←bool∘/¨allRides versionFiles
-     versionNos←U.ReadUtf8File¨versionFiles
+     versionNos←⊃∘F.NGET¨versionFiles
      ind←∪#{⍵⍳⍵}versionNos
      allRides←'expand'F.NormalizePath allRides,¨⊂'\..'
      r←(versionNos,[1.5]allRides)[ind;]

@@ -2,7 +2,7 @@
      ref←1⊃,⍵
      n←GetRef2n ref
      flag←((ref.SelItems⍳1)⊃ref.∆Orig)∨.≠' '
-     n.ok.Active←flag
+     n.OnlineHelp.Active←n.ok.Active←flag
      _←⎕NQ n.List'GotFocus'
      1
  }

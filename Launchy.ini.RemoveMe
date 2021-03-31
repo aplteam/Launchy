@@ -33,17 +33,6 @@ list        ,=  'e) Log session keystrokes into ./apllog; -DK'
 list        ,=  'f) After every line of APL (very slow); -DW'
 default     =   'a' ; Can be one of: a,b,c,d,e,f
 
-[WSL_CMD]   ; 
-Port        = 4602
-DefaultDir  = ''        ; May be something like 'C:\Users\%USERNAME%\MyProjects'
-
-[STD_SET]       ; These are added to the command line when a "standard" APL is started
-PropertyExposeRoot  = 1
-
-[WSL_SET]       ; These are added to the command line when Dyalog is started in WSL
-ClassicMode = 1
-SingleTrace = 1
-APLCoreName = '' 		; something like '/mnt/d/DyalogSysErrors/aplcore_DyalogAPL_Linux-64_18_0_Unicode_*'
 
 [RIDE]
 active      =   1               ; Use this only to disable RIDE permanently

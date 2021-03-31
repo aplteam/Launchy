@@ -2,14 +2,10 @@
  rf←1⊃,arg                                                   ⍝ Ref to the button
  rf.Active←0
  n←GetRef2n rf
- :If n.WSL.State
-     n LaunchWSL_APL rf
- :Else
-     n LaunchWindowsAPL rf
-     :If n.Form.∆Reset
-         n.List.SelItems←n.List.∆DefaultSelection
-         n.Form.∆Reset←0
-     :EndIf
+ n LaunchWindowsAPL rf
+ :If n.Form.∆Reset
+     n.List.SelItems←n.List.∆DefaultSelection
+     n.Form.∆Reset←0
  :EndIf
  rf.Active←1
  n.runAsAdmin.State←0

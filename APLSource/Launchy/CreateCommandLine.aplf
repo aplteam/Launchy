@@ -1,17 +1,17 @@
  n←CreateCommandLine n;∆
 
  ∆←''
- ∆,←⊂'Posn'(160 3)
+ ∆,←⊂'Posn'(145 10)
  ∆,←⊂'Caption' 'Command line parameters:'
- n.LabelCmdLine←n.GeneralSubForm.⎕NEW'Label'∆
+ n.LabelCmdLine←n.Form.⎕NEW'Label'∆
 
  ∆←''
  ∆,←⊂'Style' 'DropEdit'
- ∆,←⊂'Posn'(180 2)
- ∆,←⊂'Size'(⍬(n.Form.Size[2]-31))
+ ∆,←⊂'Posn'(168 10)
+ ∆,←⊂'Size'(⍬(n.Form.Size[2]-25))
  ∆,←⊂'Items'G.CMDs
  ∆,←⊂'TipObj'n.tip
- n.cmdLineArgs←n.GeneralSubForm.⎕NEW'Combo'∆
+ n.cmdLineArgs←n.Form.⎕NEW'Combo'∆
  n.cmdLineArgs.tip←'Add here additional "free" parameters'
  n.cmdLineArgs.onSelect←'OnChanged' 'CMDLINE'
  n.cmdLineArgs.onKeyPress←'OnStandardKeyPress'

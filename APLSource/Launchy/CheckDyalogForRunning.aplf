@@ -2,13 +2,13 @@
      v←⍵
      l←⎕CMD'tasklist'                       ⍝ Get list
      l←3↓l                                  ⍝ Drop headers
-     m←↑U.{' 'Split dmb ⍵}¨l  ⍝ Transform into matrix
-     m[;1]←U.Lowercase m[;1]
+     m←↑U.{' 'Split DMB ⍵}¨l  ⍝ Transform into matrix
+     m[;1]←⎕C m[;1]
      0=+/b←m[;1]∊'dyalog.exe' 'dyalogrt.exe' 'dyalog.dll' 'dyalogrt.exe':0
      m←b⌿m
      no←+⌿m[;3]∘.≡'Console' 'Services'
-     msg←'Be aware!' ''
-     msg,←(0≠no)/('No. of Dyalog '∘,¨'EXEs' 'Services',¨⊂' currently running: '),¨⍕¨no
+     msg←⊂'Be aware:'
+     msg,←(0≠no)/('Number of Dyalog '∘,¨'EXEs' 'Services',¨⊂' currently running: '),¨⍕¨no
      ShowMsg2 msg:
      1:r←0
  }

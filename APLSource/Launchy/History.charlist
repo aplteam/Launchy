@@ -1,0 +1,16 @@
+* 7.1.0 from 2021-03-29
+  * WSL removed from Launchy
+  * GUI overhauled
+  * Couple of minor bug fixes
+* 7.0.3 from 2020-08-21
+  * WSL-options regarding setup.dyalog and command line parameters were buggy.
+* 7.0.2 from 2020-08-16
+  * Launchy crashed on machines with no WSL installed.
+* 7.0.1 from 2020-07-26
+  * Launchy crashed in case the APL that was selected as default disappeared.
+  * With WSL, only versions better than 17.0 may be started since 17.0 does not work.
+* 7.0.0 from 2020-07-16
+  * Launchy can now start Dyalog from any Linux version installed in WSL. Well, any translates to
+    "Ubuntu only" for the time being.
+
+For information regarding older versions see <https://github.com/aplteam/Launchy/releases>

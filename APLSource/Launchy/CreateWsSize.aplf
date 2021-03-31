@@ -5,11 +5,11 @@
  ∆,←⊂'Items'list
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
  startAt←2⊃n.StopSetup.Posn
- ∆,←⊂'Posn'((5+1⊃AddPosnAndSize n.StopSetup),startAt)
+ ∆,←⊂'Posn'((1⊃AddPosnAndSize n.StopSetup),startAt)
  ∆,←⊂'Size'(⍬ 60)
  ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip
- n.wssize←n.GeneralSubForm.⎕NEW'Combo'∆
+ n.wssize←n.Form.⎕NEW'Combo'∆
  n.wssize.tip←'Use this to specify the workspace size.' 'The list comes from Launchy''s INI file.'
  n.wssize.tip,←⊂'You can enter anything you like; use "MB" or "GB"'
  n.wssize.tip,←'If you enter just digits then anything lesser' 'than 16 gets "GB" and "MB" otherwise.'
@@ -18,6 +18,6 @@
  ∆←''
  ∆,←⊂'Caption' 'MAXWS'
  ∆,←⊂'Posn'(¯2+n.wssize.Posn[1],6+2⊃AddPosnAndSize n.wssize)
- n.wssize_Label←n.GeneralSubForm.⎕NEW'Label'∆
+ n.wssize_Label←n.Form.⎕NEW'Label'∆
  ⎕DL 0.01 ⋄ n.wssize.SelText←2⍴1+≢n.wssize.Text  ⍝ Without delay it has no effect?!
 ⍝Done

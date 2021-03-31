@@ -1,9 +1,0 @@
- ShowCmd←{
-⍝
-     cmd←⍵
-     m←⊂'Are you sure that you want this to be executed?'
-     m,←⊂''
-     m,←{⍵/⍨0<≢¨⍵}cmd
-     ⍺:##.WantToExecute m
-     1
- }

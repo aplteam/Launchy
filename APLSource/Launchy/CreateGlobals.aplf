@@ -9,10 +9,8 @@
  G.ShowCMD←0 R.GetValue GetAplLauncherRegistryKey,'ShowCmd'
  G.SE_FontSize←GetProperAPL_FontSize
  G.AplVersions←GetInstalledAPLs ⍬
- G.LinuxAplVersions←WSL.GetAllInstalledVersions ⍬
  G.CMDs←','U.Split''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
  G.Default←GetDefaultFromRegistry G.AplVersions
- G.WSL_Port←Ini.WSL_CMD.Port
  :If 0=≢G.RideVersions←Find_RIDE_Versions Ini
      G.RideVersion←''
  :Else

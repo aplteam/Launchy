@@ -1,5 +1,0 @@
- OnChanged←{
-⍝
-     n←##.GetRef2n 1⊃,⍵
-     n CheckDefaults ⍺
- }

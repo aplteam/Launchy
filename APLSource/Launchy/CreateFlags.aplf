@@ -6,7 +6,7 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Run as admin o&nce'
  ∆,←⊂'TipObj'n.tip
- n.runAsAdmin←n.GeneralSubForm.⎕NEW'Button'∆
+ n.runAsAdmin←n.Form.⎕NEW'Button'∆
  n.runAsAdmin.Tip←⊂'Run Dyalog with admin rights (elevated mode) but just once.'
  n.runAsAdmin.Tip,←⊂'Note: NO drag''n-drop when running as an admin!'
  n.runAsAdmin.onSelect←'OnChanged' 'RUNASADMIN'
@@ -20,7 +20,7 @@
  flag←F.IsFile F.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  ∆,←⊂'Active'flag
  ∆,←⊂'State'flag
- n.ExecMySetup←n.GeneralSubForm.⎕NEW'Button'∆
+ n.ExecMySetup←n.Form.⎕NEW'Button'∆
  n.ExecMySetup.Tip←''
  n.ExecMySetup.Tip,←⊂'Toggles whether'
  n.ExecMySetup.Tip,←⊂'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
@@ -38,7 +38,7 @@
  ∆,←⊂'TipObj'n.tip
  flag←##.FilesAndDirs.IsFile ##.FilesAndDirs.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  ∆,←⊂'Active'flag
- n.StopSetup←n.GeneralSubForm.⎕NEW'Button'∆
+ n.StopSetup←n.Form.⎕NEW'Button'∆
  n.StopSetup.Tip←''
  n.StopSetup.Tip,←⊂'If ticked -stop_in_setup is passed as command line parameter.'
  n.StopSetup.Tip,←⊂'Setup.dyalog needs to take care of that itself.'
