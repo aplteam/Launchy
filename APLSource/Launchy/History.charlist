@@ -1,3 +1,6 @@
+* 7.1.1 from 2021-04-01
+  * Version 7.1.0 introduced a bug: both command line parameter `stop_in_setup` and `exec_setup=0` were
+    not provided with a leading hyphen as they should.
 * 7.1.0 from 2021-03-29
   * WSL removed from Launchy
   * GUI overhauled
@@ -14,3 +17,4 @@
     "Ubuntu only" for the time being.
 
 For information regarding older versions see <https://github.com/aplteam/Launchy/releases>
+

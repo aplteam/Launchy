@@ -4,9 +4,10 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←T._Failed
 
- md←⊃F.NGET'Docs\Releasenotes.md'
+ md←↑##.FilesAndDirs.NGET'Docs\Releasenotes.md'
  version←{⍵/⍨2≥+\'.'=⍵}1⊃##.Launchy.Version
- →T.PassesIf∨/version⍷∊md
+ version↑⍨←version⍳'+'
+ →T.PassesIf 1=≢(version,'[^.]')⎕S 0⊣md
 
  R←T._OK
 ⍝Done

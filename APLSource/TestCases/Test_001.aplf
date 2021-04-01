@@ -10,4 +10,5 @@
      ⎕←'To continue press <enter>'
      0/⍞
      ##.Launchy.Run 1
+     R←T._OK
  :EndIf

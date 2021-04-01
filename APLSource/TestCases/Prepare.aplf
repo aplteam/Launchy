@@ -1,2 +1,2 @@
  Prepare
- T←⎕NEW ##.Tester2 ⎕THIS
+ T←⎕NEW Tester2 ⎕THIS

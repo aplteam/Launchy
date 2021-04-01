@@ -19,9 +19,9 @@
          parms.lpParms,←Ini.STD_CMD.{{⍵,'=',{0=1↑0⍴⍵:⍕⍵ ⋄ '"',⍵,'"'}⍎⍵}¨' '~¨⍨↓⎕NL 2}⍬
      :EndIf
      parms.lpParms,←⊂clp                       ⍝ Add command line parameters
-     parms.lpParms,←⊂'exec_setup=',⍕n.ExecMySetup.State
+     parms.lpParms,←⊂' -exec_setup=',⍕n.ExecMySetup.State
      :If n.StopSetup.State
-         parms.lpParms,←⊂'stop_in_setup=1'
+         parms.lpParms,←⊂' -stop_in_setup=1'
      :EndIf
      parms.lpParms,←⊂workspace                         ⍝ ⍺ might be a workspace name
      parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file

@@ -3,6 +3,12 @@
 # Launchy Release Notes
 
 
+## 7.1.1 from 2021-04-01
+
+* Bug fix: Version 7.1.0 introduced a bug: both command line parameters `stop_in_setup` and `exec_setup=0` were not provided with a leading hyphen as they should.
+
+  If you do not use either of them then in your `Ssetup.dyalog` then there is no point in upgrading.
+
 ## 7.1.0 from 2021-03-29
 
 **Note:** _We experienced some problems when trying to update our Launchy installations. We cannot figure out what is causing this, but uninstalling Launchy first, and then installing it again avoids the problem._
