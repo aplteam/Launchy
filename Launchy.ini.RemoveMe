@@ -4,6 +4,8 @@ workdir     =   ''  ; Think thrice before settings this
 iconify		=	0
 ; letscrash	=	0	; If this exists and is 1 then there is Help/Let's crash available (for testing error trapping)
 
+CommandLine = ''
+
 [WSSIZE]
 options     =   '32MB,64MB,128MB,256MB,512MB,1G,2G,4G'
 default     =   '64MB'

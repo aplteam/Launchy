@@ -33,7 +33,9 @@ The INI file is installed in `%localappdata%'),'\Launchy`, meaning that it can b
 
 For a programmer it will be self explanatory what the INI file entries are all about, with the noticeable exception of the [WS_CHECK] section. It is not recommended to delete or change that section.
 
-In addition to the general INI file one can also specify an INI file named `Launchy_{machineName}.ini` which will only be instantiated on machines with matching names. This allows one to specify machine dependent INI entries, "CONFIG:wssize", "CONFIG:workdir" and "FONT:Size" being the most obvious candidates.
+In addition to the general INI file one can also specify an INI file named `Launchy_{machineName}.ini` which will only be instantiated on machines with matching names. This allows one to specify machine dependent INI entries, "CONFIG:wssize", "CONFIG:workdir", "CONFIG:CommandLine" and "FONT:Size" being the most obvious candidates.
+
+"CONFIG:CommandLine" is nested and allows you to specify command line parameters that you want to use permanently. An example is the `DYALOGSTARTUPSE` parameter that can be used to tell Dyalog APL to permanently load stuff (particularly `Link`) from a non-standard folder.
           
 
 ## Notes

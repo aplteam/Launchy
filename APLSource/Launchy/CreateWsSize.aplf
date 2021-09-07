@@ -6,7 +6,7 @@
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
  startAt←2⊃n.StopSetup.Posn
  ∆,←⊂'Posn'((1⊃AddPosnAndSize n.StopSetup),startAt)
- ∆,←⊂'Size'(⍬ 60)
+ ∆,←⊂'Size'(⍬ 80)
  ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip
  n.wssize←n.Form.⎕NEW'Combo'∆

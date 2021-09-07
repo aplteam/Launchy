@@ -3,6 +3,12 @@
 # Launchy Release Notes
 
 
+## 7.2.0 from 2021-09-07
+
+* New INI entry `[CONFIG]CommandLine` introduced. 
+* Bug fixes
+  * Size of the field WSSIZE was too small for three-digit figures like "245M".
+
 ## 7.1.1 from 2021-04-01
 
 * Bug fix: Version 7.1.0 introduced a bug: both command line parameters `stop_in_setup` and `exec_setup=0` were not provided with a leading hyphen as they should.

@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "7.1.1+232"
+#define MyAppVersion "7.2.0+240"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "APL Team Ltd"
@@ -46,7 +46,7 @@ Source: "Launchy_manual.html"; DestDir: "{app}";
 Source: "ReleaseNotes.html"; DestDir: "{app}";
 Source: "Launchy.ico"; DestDir: "{app}";
 Source: "Launchy.ini.RemoveMe"; DestDir: "{localappdata}\Launchy"; DestName:"Launchy.ini"; Flags: onlyifdoesntexist;
-Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"
+Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion ;
 
 ; The .NET files are needed for the "Check for updates" menu command
 Source: "bridge180_unicode.dll"; DestDir: "{app}";
