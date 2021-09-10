@@ -7,7 +7,11 @@
  :If 0=≢homedir
      :If U.IsDevelopment
      :AndIf 'Launchy.exe'≢⊃,/1↓⎕NPARTS 1⊃2 ⎕NQ #'GetCommandLineArgs'
-         ∆HomeDir←F.PWD
+         :If 9=##.⎕NC'PromaConfig'
+             ∆HomeDir←##.PromaConfig.HOME
+         :Else
+             ∆HomeDir←F.PWD
+         :EndIf
      :Else
          ∆HomeDir←(S.ExpandEnv'%localappdata%'),'\Launchy'
      :EndIf

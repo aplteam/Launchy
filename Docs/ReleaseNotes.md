@@ -3,6 +3,10 @@
 # Launchy Release Notes
 
 
+## 7.2.1 from 2021-09-10
+
+ * The menu entry "Edit > Launchy's INI file(s)" put only the principal INI files on display but not any machine specific one.
+
 ## 7.2.0 from 2021-09-07
 
 * New INI entry `[CONFIG]CommandLine` introduced. 

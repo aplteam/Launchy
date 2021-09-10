@@ -2,7 +2,7 @@
  r←⍬
  ⎕EX'G'
  G←⎕NS''
- G.Home←F.PWD   ⍝ This is not necessarily the working directory.
+ G.Home←∆HomeDir
  G.Posn←⍎Ini.CONFIG.GUI_posn R.GetString GetAplLauncherRegistryKey,'Posn'
  G.ShowTips←1 R.GetValue GetAplLauncherRegistryKey,'ShowTips'
  G.RestoreDefaults←0 R.GetValue GetAplLauncherRegistryKey,'RestoreDefaults'

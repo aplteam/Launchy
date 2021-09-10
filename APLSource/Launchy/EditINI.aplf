@@ -5,7 +5,7 @@
  filename1←∆HomeDir,'\launchy.ini'
  ns←⎕NS''
  ns.GeneralIni←was1←⊃F.NGET filename1
- filename2←F.PWD,'\Launchy_',S.GetComputerName,'.ini'
+ filename2←∆HomeDir,'\Launchy_',S.GetComputerName,'.ini'
  :If exists←F.IsFile filename2
      ns.ComputerSpecificIni←was2←⊃F.NGET filename2
  :EndIf

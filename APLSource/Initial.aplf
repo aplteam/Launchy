@@ -1,8 +1,3 @@
- Initial;⎕TRAP;parent
- ⎕TRAP←0 'S'
- parent←⍕⎕THIS
- {}⎕SE.Tatin.LoadDependencies'./packages/'parent
- parent←(⍕⎕THIS),'.TestCases'
- {}⎕SE.Tatin.LoadDependencies'./packages_dev/'parent
- ∆HOME←⊃1 ⎕NPARTS''
+ Initial
+ ∆HOME←PromaConfig.HOME
 ⍝Done
