@@ -3,9 +3,16 @@
 # Launchy Release Notes
 
 
-## 7.2.1 from 2021-09-10
+## 7.3.0 from 2021-10-05
 
- * The menu entry "Edit > Launchy's INI file(s)" put only the principal INI files on display but not any machine specific one.
+* New options "DYALOGWSLOADEDSTOP" added as a check box.
+* Drawing attention to non-default settings was defeated by the Windows themes strategy. Now back.
+
+  This includes the button "Restore defaults" being functional again.
+* Bug fixes
+  * Only the main INI file was put on display when the menu command "Edit > Launchy's INI file(s)" was selected
+  * Now superfluous INI entries removed (F32, 5977, MYUCMDS)
+
 
 ## 7.2.0 from 2021-09-07
 

@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "7.2.1+241"
+#define MyAppVersion "7.3.0+242"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "APL Team Ltd"

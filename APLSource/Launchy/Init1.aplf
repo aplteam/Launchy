@@ -7,8 +7,8 @@
  :If 0=≢homedir
      :If U.IsDevelopment
      :AndIf 'Launchy.exe'≢⊃,/1↓⎕NPARTS 1⊃2 ⎕NQ #'GetCommandLineArgs'
-         :If 9=##.⎕NC'PromaConfig'
-             ∆HomeDir←##.PromaConfig.HOME
+         :If 9=##.⎕NC'CiderConfig'
+             ∆HomeDir←##.CiderConfig.HOME
          :Else
              ∆HomeDir←F.PWD
          :EndIf

@@ -12,3 +12,5 @@
  :AndIf 0<≢Ini.CONFIG.CommandLine
      r,←⊃,/' ',¨Ini.CONFIG.CommandLine
  :EndIf
+ r,←n.DyalogWSLoadedStop.State/' DYALOGWSLOADEDSTOP=1'
+⍝Done

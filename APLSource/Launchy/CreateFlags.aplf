@@ -1,8 +1,12 @@
- n←CreateFlags n;∆;f;flag;startAt
+ n←CreateFlags n;∆;f;startAt;add;hor
  startAt←10+2⊃+⌿↑n.DebugGroup.(Posn Size)
 
+ add←22      ⍝ Horizontal distance
+ hor←60      ⍝ Horizontal starting point
+
  ∆←''
- ∆,←⊂'Posn'(79 startAt)
+ ∆,←⊂'Posn'(hor startAt)
+ hor+←add
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Run as admin o&nce'
  ∆,←⊂'TipObj'n.tip
@@ -13,7 +17,8 @@
  n.runAsAdmin.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(98 startAt)
+ ∆,←⊂'Posn'(hor startAt)
+ hor+←add
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Execute setup.dyalog'
  ∆,←⊂'TipObj'n.tip
@@ -32,7 +37,8 @@
  n.ExecMySetup.onKeyPress←'OnStandardKeyPress'
 
  ∆←''
- ∆,←⊂'Posn'(117 startAt)
+ ∆,←⊂'Posn'(hor startAt)
+ hor+←add
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Stop in setup.dyalog'
  ∆,←⊂'TipObj'n.tip
@@ -44,4 +50,17 @@
  n.StopSetup.Tip,←⊂'Setup.dyalog needs to take care of that itself.'
  n.StopSetup.onSelect←'OnChanged' 'STOP_IN_SETUP'
  n.StopSetup.onKeyPress←'OnStandardKeyPress'
+
+ ∆←''
+ ∆,←⊂'Posn'(hor startAt)
+ hor+←add
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'DyalogWSLoadedStop'
+ ∆,←⊂'TipObj'n.tip
+ n.DyalogWSLoadedStop←n.Form.⎕NEW'Button'∆
+ n.DyalogWSLoadedStop.Tip←''
+ n.DyalogWSLoadedStop.Tip,←⊂'Makes Dyalog stop at a very early stage.'
+ n.DyalogWSLoadedStop.Tip,←⊂'Useful for debugging Dyalog''s bootstrapping process.'
+ n.DyalogWSLoadedStop.onSelect←'OnChanged' 'DYALOGWSLOADEDSTOP'
+ n.DyalogWSLoadedStop.onKeyPress←'OnStandardKeyPress'
 ⍝Done

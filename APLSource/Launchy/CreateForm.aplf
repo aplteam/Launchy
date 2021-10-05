@@ -7,7 +7,7 @@
  ∆←''
  ∆,←⊂'Caption'GetCaption
  ∆,←⊂'Posn'G.Posn
- ∆,←⊂'Size'(265 390)
+ ∆,←⊂'Size'(275 390)
  ∆,←⊂'MaxButton' 0
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Sizeable' 0

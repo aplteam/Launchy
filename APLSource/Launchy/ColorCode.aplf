@@ -1,3 +1,7 @@
- r←ColorCode
+ r←ColorCode flag
 ⍝ Returns the color code for drawing attention to non-defaults settings
- r←150 0 255
+ :If flag
+     r←255 215 255
+ :Else
+     r←0
+ :EndIf

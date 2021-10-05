@@ -1,11 +1,10 @@
- n←CreateWsSize n;∆;l;list;startAt
+ n←CreateWsSize n;∆;l;list
  list←','U.Split Ini.WSSIZE.options
  ∆←''
  ∆,←⊂'Style' 'Drop'
  ∆,←⊂'Items'list
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
- startAt←2⊃n.StopSetup.Posn
- ∆,←⊂'Posn'((1⊃AddPosnAndSize n.StopSetup),startAt)
+ ∆,←⊂'Posn'((3+1⊃AddPosnAndSize n.DebugGroup),10)
  ∆,←⊂'Size'(⍬ 80)
  ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip
