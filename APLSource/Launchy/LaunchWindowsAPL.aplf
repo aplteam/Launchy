@@ -10,7 +10,7 @@
  G.CurrentAPL←GetCurrentlySelectedAPL
  (status cmd port rideExe)←SelectRide n
  :If ¯1≢status                                              ⍝ ¯1 = User has cancelled
-     :If LaunchDyalog G.CurrentAPL ws'',GetCommandLineParms port
+     :If LaunchDyalog G.CurrentAPL ws'' port
          :If 0<≢rideExe
              ⎕DL 0.5
              cmd StartRide rideExe

@@ -1,0 +1,4 @@
+ n←CreateTipObject n;∆
+ ∆←''
+ ∆,←⊂'FontObj'n.aplFont
+ n.tip←n.Form.⎕NEW'TipField'∆

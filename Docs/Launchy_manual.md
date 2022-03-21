@@ -5,7 +5,7 @@
 
 ## Overview
 
-![Launchy's icon](http://misc.aplteam.com/launchy.ico{width="32" height="32"}) Launchy is designed to address the needs of developers who have more than just one version of Dyalog APL installed on their Windows machine. It investigates the Windows Registry in order to work out which versions of Dyalog APL are installed and offers them in a drop-down control for selection.
+![Launchy's icon](http://misc.aplteam.com/launchy.ico{width="32" height="32"}) Launchy is designed to address the needs of developers who have more than just one version of Dyalog APL installed on their Windows machine. It investigates the Windows Registry in order to work out which versions of Dyalog APL are installed, and offers them in a drop-down control for selection.
 
 This makes it easy to run any version of Dyalog APL. It also allows...
 

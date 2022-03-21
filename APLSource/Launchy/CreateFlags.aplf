@@ -20,7 +20,7 @@
  ∆,←⊂'Posn'(hor startAt)
  hor+←add
  ∆,←⊂'Style' 'Check'
- ∆,←⊂'Caption' 'Execute setup.dyalog'
+ ∆,←⊂'Caption' 'E&xecute setup.dyalog'
  ∆,←⊂'TipObj'n.tip
  flag←F.IsFile F.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  ∆,←⊂'Active'flag
@@ -40,7 +40,7 @@
  ∆,←⊂'Posn'(hor startAt)
  hor+←add
  ∆,←⊂'Style' 'Check'
- ∆,←⊂'Caption' 'Stop in setup.dyalog'
+ ∆,←⊂'Caption' '&Stop in setup.dyalog'
  ∆,←⊂'TipObj'n.tip
  flag←##.FilesAndDirs.IsFile ##.FilesAndDirs.NormalizePath'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  ∆,←⊂'Active'flag
@@ -55,7 +55,7 @@
  ∆,←⊂'Posn'(hor startAt)
  hor+←add
  ∆,←⊂'Style' 'Check'
- ∆,←⊂'Caption' 'DyalogWSLoadedStop'
+ ∆,←⊂'Caption' '&DyalogWSLoadedStop'
  ∆,←⊂'TipObj'n.tip
  n.DyalogWSLoadedStop←n.Form.⎕NEW'Button'∆
  n.DyalogWSLoadedStop.Tip←''

@@ -9,11 +9,12 @@
  ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip
  n.wssize←n.Form.⎕NEW'Combo'∆
- n.wssize.tip←'Use this to specify the workspace size.' 'The list comes from Launchy''s INI file.'
- n.wssize.tip,←⊂'You can enter anything you like; use "MB" or "GB"'
- n.wssize.tip,←'If you enter just digits then anything lesser' 'than 16 gets "GB" and "MB" otherwise.'
+ n.wssize.Tip←'Use this to specify the workspace size.' 'The list comes from Launchy''s INI file.'
+ n.wssize.Tip,←⊂'You can enter anything you like; use "MB" or "GB"'
+ n.wssize.Tip,←'If you enter just digits then anything lesser' 'than 16 gets "GB" and "MB" otherwise.'
  n.wssize.onChange←'OnChanged' 'WSSIZE'
  n.wssize.onKeyPress←'OnStandardKeyPress'
+
  ∆←''
  ∆,←⊂'Caption' 'MAXWS'
  ∆,←⊂'Posn'(¯2+n.wssize.Posn[1],6+2⊃AddPosnAndSize n.wssize)

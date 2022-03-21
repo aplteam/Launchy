@@ -1,0 +1,7 @@
+ HandleTips n
+⍝ Called once after the GUI was created.
+⍝ Switches the Tips off, which makes sure that within every control the Tip is copied to ∆Tip and then set to ''
+⍝ We then enable Tips if requested; that copied ∆Tip back to Tip.
+⍝ This is required because a Tipfield has no "Visible" proeprty.
+ 0 ToggleTipVisibility n                ⍝ Make sure we copy all Tips over to ∆Tip
+{} 1 ToggleTipVisibility⍣G.ShowTips⊣n     ⍝ Bring them back depending on G.ShowTips

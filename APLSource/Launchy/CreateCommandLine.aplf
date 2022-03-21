@@ -1,18 +1,29 @@
  n←CreateCommandLine n;∆
 
  ∆←''
- ∆,←⊂'Posn'(162 10)
- ∆,←⊂'Caption' 'Command line parameters:'
- n.LabelCmdLine←n.Form.⎕NEW'Label'∆
+ ∆,←⊂'Posn'(170 10)
+ ∆,←⊂'Size'(80(n.Form.Size[2]-25))
+ ∆,←⊂'Caption' '&Command line parameters'
+ n.CmdLineGroup←n.Form.⎕NEW'Group'∆
 
  ∆←''
- ∆,←⊂'Style' 'DropEdit'
- ∆,←⊂'Posn'(183 10)
- ∆,←⊂'Size'(⍬(n.Form.Size[2]-25))
- ∆,←⊂'Items'G.CMDs
+ ∆,←⊂'Posn'(20 5)
+ ∆,←⊂'Size'(⍬(n.CmdLineGroup.Size[2]-10))
+ ∆,←⊂'Text'G.CMDs
  ∆,←⊂'TipObj'n.tip
- n.cmdLineArgs←n.Form.⎕NEW'Combo'∆
- n.cmdLineArgs.tip←'Add here additional "free" parameters'
+ n.cmdLineArgs← n.CmdLineGroup.⎕NEW'Edit'∆
+ n.cmdLineArgs.Size[1]-←4
+ n.cmdLineArgs.Tip←'Add here additional "free" parameters'
  n.cmdLineArgs.onSelect←'OnChanged' 'CMDLINE'
+ n.cmdLineArgs.onKeyPress←'OnStandardKeyPress'
+
+ ∆←''
+ ∆,←⊂'Posn'((4+⊃+⌿↑n.cmdLineArgs.(Posn Size)) 5)
+ ∆,←⊂'Caption' 'Save on &quit'
+ ∆,←⊂'State' 1
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'TipObj'n.tip
+ n.saveCmdLineOnQuit← n.CmdLineGroup.⎕NEW'Button'∆
+ n.saveCmdLineOnQuit.Tip←'If ticked the contents of the fiels is saved in the Registry'
  n.cmdLineArgs.onKeyPress←'OnStandardKeyPress'
  ⍝Done

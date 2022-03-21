@@ -1,5 +1,7 @@
  OnHandleTipToggler←{
      rf←1⊃⍵
      rf.Checked←~rf.Checked
-     ToggleTipVisibility
+     n←GetRef2n rf
+     _←rf.Checked ToggleTipVisibility n
+     0
  }

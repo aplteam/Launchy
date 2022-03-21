@@ -1,0 +1,7 @@
+ {r}←CopyTips ref;t;tip
+⍝ Copy the value of "Tip" in "ref" to "∆Tip" but only if it is not empty
+ r←⍬
+ :If 0<≢t←ref.Tip
+     tip←⊃{⍺,(⎕UCS 10),⍵}/⊆t
+     ref.{⎕THIS.∆Tip←⍵}tip
+ :EndIf

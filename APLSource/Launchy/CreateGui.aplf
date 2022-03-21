@@ -11,7 +11,7 @@
  n←CreateCommandLine n
  n←CreateButtons n
  n←CreateRide n
- ToggleTipVisibility
+HandleTips n
  n.Form.∆Reset←0
 ⍝ # ⎕WS'Event' 'ActivateApp' 'OnActivateApp'n
 ⍝Done

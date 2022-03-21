@@ -2,8 +2,8 @@
 ⍝ Restore all defaults
      n.wssize.SelItems←n.wssize.Items≡¨⊂Ini.WSSIZE.default
      n.debug.SelItems←Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list
-     n.cmdLineArgs.SelItems←(⍴n.cmdLineArgs.SelItems)↑1
-     n.(AplVersionGroup wssize_Label DebugGroup RIDEflag LabelCmdLine runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop).BCol←0
+     n.cmdLineArgs.SelItems←(≢n.cmdLineArgs.SelItems)↑1
+     n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop).BCol←0
      n.RIDEflag.State←Ini.RIDE.tick
      n.StopSetup.State←0
      n.DyalogWSLoadedStop.State←0

@@ -9,5 +9,6 @@
  :EndIf
  rf.Active←1
  n.runAsAdmin.State←0
+ n.runAsAdmin.BCol←0
  r←0
 ⍝Done

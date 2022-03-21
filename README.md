@@ -14,19 +14,19 @@ If your are like me then you have about 16 versions of Dyalog installed, and you
 * specifying additional command line parameters
 * running (or ignoring) a user define setup.dyalog script
 * starting the APL interpreter in elevated mode (admin rights required)
-* giving the interpreter a Ride.
+* giving the interpreter a Ride
 
 In addition to its main goal **_Launchy_** offers these features:
 
-* Start any major version of Ride installed on your machine.
-* Store DSS credentials in the Registry.
-* Patch either the currently selected or all installed versions of Dyalog.
-* Edit the Registry entries for the currently selected version of Dyalog.
-* Display the online help for the currently selected version of Dyalog.
+* Start any major version of Ride installed on your machine
+* Store DSS credentials in the Registry
+* Patch either the currently selected or all installed versions of Dyalog
+* Edit the Registry entries for the currently selected version of Dyalog
+* Display the online help for the currently selected version of Dyalog
 * Open a Windows Explorer on...
-  * the installation directory of the currently selected version of Dyalog.
-  * the help directory of the currently selected version of Dyalog.
-* Edit **_Launchy_**'s INI file(s).
+  * the installation directory of the currently selected version of Dyalog
+  * the help directory of the currently selected version of Dyalog
+* Edit **_Launchy_**'s INI file(s)
 
 
 ## Preconditions

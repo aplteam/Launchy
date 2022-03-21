@@ -18,7 +18,7 @@
  ∆,←⊂'Size'(⍬ 210)
  ∆,←⊂'TipObj'n.tip
  n.debug←n.DebugGroup.⎕NEW'Combo'∆
- n.debug.tip←'Specify when a workspace integrity check shall be performed.' 'The closer to a problem a check is performed the better.'
+ n.debug.Tip←'Specify when a workspace integrity check shall be performed.' 'The closer to a problem a check is performed the better.'
  n.debug.onSelect←'OnChanged' 'DEBUGFLAG'
  n.debug.onKeyPress←'OnStandardKeyPress'
 ⍝Done

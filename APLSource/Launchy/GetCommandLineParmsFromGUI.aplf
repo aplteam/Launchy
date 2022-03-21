@@ -1,0 +1,4 @@
+ r←GetCommandLineParmsFromGUI;buff
+⍝ Returns the command line parms specified in the GUI, if any.
+ r←n.cmdLineArgs.Text
+⍝Done

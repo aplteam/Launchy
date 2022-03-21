@@ -3,6 +3,17 @@
 # Launchy Release Notes
 
 
+## 7.4.0 from 2022-03-21
+
+* The command line combo box got replaced by an edit field and a check box "Save on Quit"
+* The feature to display the command line is active only when something is entered into the
+  "Command line parameters" field, not when something for the command line comes from the INI.
+* Keyboard shortcuts added/improved
+* Bug fixes
+  * The "Run as admin once" check box was not reset in terms of colour
+  * Some tips were not displayed
+  * Toggling tips did not work anymore
+
 ## 7.3.0 from 2021-10-05
 
 * New options "DYALOGWSLOADEDSTOP" added as a check box.

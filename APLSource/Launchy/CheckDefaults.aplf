@@ -16,8 +16,6 @@
      n.RIDEflag.BCol←ColorCode f
  :Case 'RUNASADMIN'
      n.runAsAdmin.BCol←ColorCode×n.runAsAdmin.State
- :Case 'CMDLINE'
-     n.LabelCmdLine.BCol←ColorCode×~0∊⍴⍴n.cmdLineArgs.(⊃SelItems/Items)
  :Case 'EXEC_MY_SETUP'
      n.ExecMySetup.BCol←ColorCode×n.ExecMySetup.State≢1
  :Case 'STOP_IN_SETUP'
@@ -27,6 +25,6 @@
  :Else
      .    ⍝ Not yet
  :EndSelect
- l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag LabelCmdLine runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop)
+ l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop)
  n.reset.Active←∨/0<+/¨l.BCol
 ⍝Done

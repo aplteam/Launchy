@@ -9,7 +9,11 @@
  G.ShowCMD←0 R.GetValue GetAplLauncherRegistryKey,'ShowCmd'
  G.SE_FontSize←GetProperAPL_FontSize
  G.AplVersions←GetInstalledAPLs ⍬
- G.CMDs←','U.Split''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
+ :If ','∊G.CMDs←''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
+     G.CMDs←','U.Split G.CMDs
+     G.CMDs←(0<≢¨G.CMDs)/G.CMDs
+     G.CMDs←⊃{⍺,' ',⍵}/G.CMDs
+ :EndIf
  G.Default←GetDefaultFromRegistry G.AplVersions
  :If 0=≢G.RideVersions←Find_RIDE_Versions Ini
      G.RideVersion←''

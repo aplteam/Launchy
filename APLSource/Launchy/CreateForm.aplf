@@ -7,7 +7,7 @@
  ∆←''
  ∆,←⊂'Caption'GetCaption
  ∆,←⊂'Posn'G.Posn
- ∆,←⊂'Size'(275 390)
+ ∆,←⊂'Size'(320 390)  ⍝ was 275
  ∆,←⊂'MaxButton' 0
  ∆,←⊂'Coord' 'Pixel'
  ∆,←⊂'Sizeable' 0
@@ -25,9 +25,7 @@
  n.aplFont←n.Form.⎕NEW'Font'∆
  n.aplFont.Size←15
 
- ∆←''
- ∆,←⊂'FontObj'n.aplFont
- n.tip←n.Form.⎕NEW'TipField'∆
+ n←CreateTipObject n
 
  ∆←''
  ∆,←⊂'Bits'(1⊃Dyalog_BM)

@@ -9,13 +9,11 @@
  :Trap 0 ⋄ R.PutValue key n.restoreDefaults.Checked ⋄ :EndTrap
  key←regPath,'ShowCmd'
  :Trap 0 ⋄ R.PutValue key n.showCmd.Checked ⋄ :EndTrap
- cmds←n.cmdLineArgs.Items
- :If ~0∊⍴n.cmdLineArgs.Text
-     cmds,←⊂n.cmdLineArgs.Text
+ cmds←n.cmdLineArgs.Text
+ :If n.saveCmdLineOnQuit.State
+     key←regPath,'CommandLineArgs'
+     :Trap 0 ⋄ R.PutString key cmds ⋄ :EndTrap
  :EndIf
- cmds←1↓⊃,/',',¨∪cmds
- key←regPath,'CommandLineArgs'
- :Trap 0 ⋄ R.PutString key cmds ⋄ :EndTrap
  key←regPath,'ShowAPLs'
  :Trap 0 ⋄ R.PutValue key n.presentAPLs.Checked ⋄ :EndTrap
  key←regPath,'Iconify'

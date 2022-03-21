@@ -10,9 +10,7 @@
  n.ok.Posn[2]←10
  n.ok.onSelect←'OnLaunchAPL'
  n.ok.onKeyPress←'OnKeyPressInPushButton'
- n.ok.∆Tip1←'"Click" with either <Ctrl+Enter>' 'or <Ctrl+Shift+Enter> which' 'also resets the default'
- n.ok.∆Tip2←'"Click" with <Ctrl+Enter>'
- n.ok.Tip←n.ok.∆Tip1
+ n.ok.Tip←'"Click" with <Ctrl+Enter>'
 
  ∆←''
  ∆,←⊂'Caption' 'Restore defaults'

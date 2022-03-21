@@ -1,4 +1,12 @@
- ToggleTipVisibility;list
-⍝ Toggles the visibility of all tips available depending on n.showTips.Checked
- list←{⍵/⍨{⊃0<⍵.⎕NC'tip'}¨⍵}n.(⍎¨⎕NL-9)
- list.Tip←n.showTips.Checked/¨list.tip
+ {r}←flag ToggleTipVisibility n;list
+⍝ Toggles the visibility of all tips depending on n.showTips.Checked
+ r←⍬
+ :If 0<≢list←{⍵/⍨{11::0 ⋄ 1⊣⍵ ⎕WG'Tip'}¨⍵}{⍵.⍎¨' '~¨⍨↓⍵.⎕NL 9}n
+     :If flag
+         list←({⊃2=⍵.⎕NC'∆Tip'}¨list)/list
+         {⍵.Tip←⍵.∆Tip}¨list
+     :Else
+         CopyTips¨list
+         {⍵.Tip←''}¨list
+     :EndIf
+ :EndIf
