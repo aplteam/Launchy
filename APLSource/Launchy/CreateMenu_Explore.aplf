@@ -13,15 +13,4 @@
  ∆,←⊂'Hint' 'Starts Windows Explorer in the Help\ folder of the currently selected APL'
  n.runExplorerInHelpDir←n.MenuExplore.⎕NEW'MenuItem'∆
  n.runExplorerInHelpDir.onSelect←'OnStartExplorerInHelpDir'
-
- :If ThereIsAWorkingDir
-     n.Sep3←n.MenuExplore.⎕NEW⊂'Separator'
-
-     ∆←''
-     ∆,←⊂'Caption' 'WorkDir'
-     ∆,←⊂'Active'HasWorkDir
-     ∆,←⊂'Hint' 'Starts Windows Explorer in the directory CONFIG[workDir] is pointing to'
-     n.runExplorerInWorkDir←n.MenuExplore.⎕NEW'MenuItem'∆
-     n.runExplorerInWorkDir.onSelect←'OnStartExplorerInWorkDir'
- :EndIf
 ⍝Done

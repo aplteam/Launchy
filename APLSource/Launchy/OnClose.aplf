@@ -1,0 +1,6 @@
+ OnClose←{
+     testFlag←⍺
+     _←⎕NQ # 9999
+     _←Shutdown testFlag
+     1
+ }

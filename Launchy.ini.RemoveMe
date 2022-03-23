@@ -1,6 +1,5 @@
 ﻿[Config]
 GUI_posn    =   '80 60'
-workdir     =   ''  ; Think thrice before settings this
 iconify		=	0
 ; letscrash	=	0	; If this exists and is 1 then there is Help/Let's crash available (for testing error trapping)
 

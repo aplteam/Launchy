@@ -1,6 +1,0 @@
- OnStartExplorerInWorkDir←{
-⍝ Start Windows Explorer in the installation directory of the currently selected version of Dyalog
-     folder←GetFolder ⍬
-     rc←StartExplorer folder
-     ⍬
- }

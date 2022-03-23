@@ -1,6 +1,7 @@
  OnHelp←{
 ⍝ Attempts to view Launchy's help file in the user's browser
-     fn←G.Home,'\launchy_manual.html'
+     path←{0=≢⍵:F.PWD ⋄ G.Home,'/HTML'}⎕WSID
+     fn←path,'/launchy_manual.html'
      flag←⎕NEXISTS fn
      ((fn=' ')/fn)←⊂'%20'
      fn←⊃,/fn

@@ -1,8 +1,8 @@
- Shutdown testFlag
+ {r}←Shutdown testFlag
+ r←⍬
  #.IconObj←''
  #.onActivateApp←0
  SavePropsInRegistry
- CloseForm ⍬
  :If 0=testFlag
      Off
  :EndIf

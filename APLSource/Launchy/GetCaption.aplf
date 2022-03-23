@@ -1,3 +1,6 @@
  r←GetCaption
  r←'Launchy ',2⊃Version
+ :If 0=≢⎕WSID ⍝ When running as an installed EXE, ⎕WSID would be empty
+     r↑⍨←¯1+r⍳'+'
+ :EndIf
  r,←S.IsRunningAsAdmin/' (elevated)'

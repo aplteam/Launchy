@@ -1,0 +1,5 @@
+ RunTests;rc;protocol
+ Prepare
+ (rc protocol)←T.Run 1
+ {⍵:.}0≠rc
+⍝Done

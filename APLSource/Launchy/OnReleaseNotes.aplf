@@ -1,5 +1,6 @@
  OnReleaseNotes←{
-     fn←G.Home,'\ReleaseNotes.html'
+    path←{0=≢⍵:F.PWD ⋄ G.Home,'/HTML'}⎕WSID
+     fn←path,'\ReleaseNotes.html'
      flag←⎕NEXISTS fn
      ((fn=' ')/fn)←⊂'%20'
      fn←⊃,/fn

@@ -2,9 +2,6 @@
 ⍝ Establish a couple of essentials
  Ini←ProcessIniFile errorParms
  CreateGlobals Ini
- :If ThereIsAWorkingDir
-     {}F.Cd Ini.CONFIG.workdir
- :EndIf
  {}SetScaledPixel ⍬
  ∆AskForCommandLineParms←1
 ⍝Done

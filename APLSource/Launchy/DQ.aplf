@@ -6,4 +6,5 @@
      giveFocusTo←n.List
  :EndIf
  ⎕NQ giveFocusTo'GotFocus' ⋄ r←⎕DQ obj
+ CloseForm ⍬
 ⍝Done

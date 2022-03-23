@@ -1,1 +1,1 @@
- CloseForm←{6::⍬ ⋄ 2 ⎕NQ n.Form'Close'}
+ CloseForm←{6::shy←⍬ ⋄ shy←2 ⎕NQ n.Form'Close'}

@@ -1,4 +1,10 @@
 (
+ '* 7.4.1 from 2022-03-23'
+ '  * The INI entry [CONFIG]workdir and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry [CONFIG]workdir was not empty.'
+ '  * Bug fixes: '
+ '    * The Help file and the release notes both did not show.'
+ '    * The build number was shown in Launchy''s own caption. Should only happen in development.'
+ '    * "Check for updates" did not work anymore. Introduced with 7.4.0'
  '* 7.4.0 from 2022-03-21'
  '  * The command line combo box got replaced by an edit field and a check box "Save on Quit"'
  '  * The feature to display the command line is active only when something is entered into the'

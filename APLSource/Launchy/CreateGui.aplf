@@ -1,5 +1,5 @@
- n←CreateGui;ie;∆;flag;f
- n←CreateForm
+ n←CreateGui testFlag;ie;∆;flag;f
+ n←CreateForm testFlag
  n←CreateStatusbar n
  n←CreateMenubar n
  (↑,/{'MenuItem'⎕WN ⍵}¨'Menu'⎕WN n.MB).HintObj←⊂n.statusbarMsg
@@ -11,7 +11,7 @@
  n←CreateCommandLine n
  n←CreateButtons n
  n←CreateRide n
-HandleTips n
+ HandleTips n
  n.Form.∆Reset←0
-⍝ # ⎕WS'Event' 'ActivateApp' 'OnActivateApp'n
+ # ⎕WS'Event' 9999 1
 ⍝Done

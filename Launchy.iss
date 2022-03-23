@@ -1,6 +1,6 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "7.4.0+242"
+#define MyAppVersion "7.4.1+247"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "Kai Jaeger"
@@ -25,7 +25,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={commonpf64}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppPublisher}\{#MyAppName}
 AllowNoIcons=yes
-OutputDir=C:/Users/kai/AppData/Local/Temp/InnoTempDir\{#AppID}
+OutputDir=C:/Users/kai/AppData/Local/Temp/InnoTempDir\Local\Temp\InnoTempDir\{#AppID}
 OutputBaseFilename="SetUp_{#MyAppName}_{#MyAppVersion}"
 Compression=lzma
 SolidCompression=yes
@@ -42,22 +42,22 @@ Name: "english"; MessagesFile: "compiler:Default.isl"; LicenseFile: "License";
 Name: "{commonappdata}\{#MyAppName}"; Permissions: users-modify
 
 [Files]
-Source: "Launchy_manual.html"; DestDir: "{app}";
-Source: "ReleaseNotes.html"; DestDir: "{app}";
+Source: "HTML/*"; DestDir: "{app}";
 Source: "Launchy.ico"; DestDir: "{app}";
 Source: "Launchy.ini.RemoveMe"; DestDir: "{localappdata}\Launchy"; DestName:"Launchy.ini"; Flags: onlyifdoesntexist;
 Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion ;
 
 ; The .NET files are needed for the "Check for updates" menu command
-Source: "bridge180_unicode.dll"; DestDir: "{app}";
+; Note: *** they need to fit to the APL version uses ***
+Source: "bridge182_unicode.dll"; DestDir: "{app}";
 Source: "Dyalog.Net.Bridge.dll"; DestDir: "{app}"     
 Source: "Dyalog.Net.Bridge.Host.dll"; DestDir: "{app}"     
 Source: "dyalognet.dll"; DestDir: "{app}"     
 
 ; The Conga DLLs are needed for "Check for updates"
-;Source: "conga32ssl64.dll"; DestDir: "{app}";
-;Source: "conga32_64.dll"; DestDir: "{app}";
-
+;Source: "conga*ssl64.dll"; DestDir: "{app}";
+;Source: "conga*_64.dll"; DestDir: "{app}";
+; ↓↓↓
 Source: "Conga*.dll"; DestDir: "{app}";
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files!

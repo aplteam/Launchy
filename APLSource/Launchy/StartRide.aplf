@@ -3,7 +3,8 @@
  cmd←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'cmd'
  parms←##.OS.CreateParms_WinExecute
  bat←''
- :If 2=Ini.RIDE.⎕NC'profile'
+ :If 2=⎕NC'Ini'
+ :AndIf 2=Ini.RIDE.⎕NC'profile'
  :AndIf 0≠≢Ini.RIDE.profile
      bat,←'SET RIDE_PREFS=',Ini.RIDE.profile,'&'
  :EndIf

@@ -17,7 +17,7 @@
  'Create!'F.CheckPath #.ErrorParms.errorFolder
  ⎕TRAP←##.HandleError.SetTrap'#.ErrorParms'
  Ini←Init2 #.ErrorParms
- n←CreateGui
+ n←CreateGui testFlag
  n.∆Port←Ini.RIDE.port
  DQ'.'
- Shutdown testFlag
+⍝Done
