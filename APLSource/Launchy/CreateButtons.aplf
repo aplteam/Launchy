@@ -1,7 +1,7 @@
  n←CreateButtons n;∆;l
  ∆←''
  ∆,←⊂'Caption' 'Launch APL'
- ∆,←⊂'Size'(⍬ 90)
+ ∆,←⊂'Size'(⍬ 80)
  ∆,←⊂'Accelerator'(13 2)
  ∆,←⊂'TipObj'n.tip
  ∆,←⊂'Active'(~0∊≢G.AplVersions)
@@ -13,6 +13,16 @@
  n.ok.Tip←'"Click" with <Ctrl+Enter>'
 
  ∆←''
+ ∆,←⊂'Caption' 'Create LN&K'
+ ∆,←⊂'Size'(⍬ 80)
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Active'(0≠≢G.AplVersions)
+ n.lnk←n.Form.⎕NEW'Button'∆
+ n.lnk.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+10
+ n.lnk.onSelect←'OnCreateLNK'
+ n.lnk.Tip←'Create an LNK file (shortcut) with all',(⎕UCS 10),'the parameters currently defined.'
+
+ ∆←''
  ∆,←⊂'Caption' 'Restore defaults'
  ∆,←⊂'Size'(⍬ 110)
  ∆,←⊂'Active' 0
@@ -20,7 +30,7 @@
  ∆,←⊂'Tip' 'Restore all controls to their default settings'
  n.reset←n.Form.⎕NEW'Button'∆
  n.reset.Posn[1]←n.Form.Size[1]-n.ok.Size[1]+n.SB.Size[1]+10
- n.reset.Posn[2]←n.Form.Size[2]-120
+ n.reset.Posn[2]←n.Form.Size[2]-n.reset.Size[2]+10
  n.reset.onSelect←'OnResetDefaults'
  n.reset.onKeyPress←'OnKeyPressInPushButton'
 ⍝Done

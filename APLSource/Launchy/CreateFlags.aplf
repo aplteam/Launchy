@@ -1,4 +1,4 @@
- n←CreateFlags n;∆;f;startAt;add;hor
+ n←CreateFlags n;∆;f;startAt;add;hor;flag
  startAt←10+2⊃+⌿↑n.DebugGroup.(Posn Size)
 
  add←22      ⍝ Horizontal distance
@@ -63,4 +63,6 @@
  n.DyalogWSLoadedStop.Tip,←⊂'Useful for debugging Dyalog''s bootstrapping process.'
  n.DyalogWSLoadedStop.onSelect←'OnChanged' 'DYALOGWSLOADEDSTOP'
  n.DyalogWSLoadedStop.onKeyPress←'OnStandardKeyPress'
+
+ n←(hor startAt) CreateRide n
 ⍝Done

@@ -1,0 +1,48 @@
+ Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc
+⍝ Version 2.0.0 ⋄ 2022-09-25
+⍝ For details see `History`
+ ⎕IO←1 ⋄ ⎕ML←1
+ :If flag
+     home←##.CiderConfig.HOME,'/'
+     targetPath←home,'Dist/'
+     {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'  ⍝ avoids creating a link in # that point to ⎕SE
+     C←##.CiderConfig
+     myUCMDsFolder←M.GetMyUCMDsFolder'\'
+     name←'Launchy'
+     tempFolder←(M.##.F.GetTempSubDir name),'/'
+    ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
+     M.RecreateFolder targetPath
+     M.IncreaseBuildID'#.',name,'.',name,'.Version'
+     {}⎕SE.Cider.CloseProject''  ⍝ Precaution
+     ⎕WSID←tempFolder,name,'.dws'
+     0 ⎕SAVE ⎕WSID
+     #.⎕EX ⎕NL⍳16
+     ⎕LX←'#.Launchy.Run 0'
+     '#.Launchy.Launchy'#.⎕CY ⎕WSID
+     {}⎕SE.Tatin.LoadDependencies(home,'packages/')#  ⍝ Yes, this IS correct: we reorganize the WS
+     0 ⎕SAVE ⎕WSID
+     M.ConvertMarkdownToHtml5(home,'Docs/')(tempFolder,'html/')
+     M.##.F.DeleteFile tempFolder,'/html/readme.html'
+     (home,'Launchy.ini.RemoveMe')M.CopyTo tempFolder
+     (home,'LICENSE')M.CopyTo tempFolder
+     (home,'Launchy.ico')M.CopyTo tempFolder
+     (home,'*.dll')M.CopyTo tempFolder
+     (home,'Launchy.iss')M.CopyTo tempFolder
+     parms←M.CreateStandAloneExeParms(tempFolder,name,'.exe')'#.Launchy'
+     parms.CompanyName←'Kai Jaeger'
+     parms.Icon←tempFolder,'Launchy.ico'
+     parms.ProductName←name
+     rc←M.MakeStandAloneRunTimeExe parms
+     data←⊃⎕NGET tempFolder,'Launchy.iss'
+     data←M.##.F.EnforceSlash tempFolder{ss←'<<TARGETDIR>>' ⋄ sp←¯1+1⍳⍨ss⍷⍵ ⋄ (-sp)⌽⍺,(≢ss)↓sp⌽⍵}data
+     (⊂data)⎕NPUT(tempFolder,'Launchy.iss')1
+     setupExe←tempFolder ##.TestCases.Inno.Run name
+     targetPath ⎕NMOVE setupExe
+     setupExe←⊃,/1↓⎕NPARTS setupExe
+     M.##.F.RmDir tempFolder
+     :If 1 M.YesOrNo'Would you like to execute "',setupExe,'" ?'
+         ⎕CMD targetPath,setupExe
+     :EndIf
+     ⎕←'Clearing the workspace...'
+     ⎕CLEAR
+ :EndIf

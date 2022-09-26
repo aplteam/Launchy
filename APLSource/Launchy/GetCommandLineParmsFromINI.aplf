@@ -2,5 +2,5 @@ r←GetCommandLineParmsFromINI
 r←''
  :If 0<Ini.CONFIG.⎕NC'CommandLine'
  :AndIf 0<≢Ini.CONFIG.CommandLine
-     r←⊃,/' ',¨⊆Ini.CONFIG.CommandLine
+     r←⊆Ini.CONFIG.CommandLine
  :EndIf

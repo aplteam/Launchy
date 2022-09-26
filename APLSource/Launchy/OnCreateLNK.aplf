@@ -1,0 +1,23 @@
+ OnCreateLNK msg;exe;arg;clp1;clp2;filename;res;∆;ref;ref2;keyboardShortcut
+ G.CurrentAPL←GetCurrentlySelectedAPL
+ arg←n CollectCommandLineParms ⍬
+ ref2←⎕NS''
+ ∆←''
+ ∆,←⊂'FileMode' 'Write'
+ ∆,←⊂'Caption' 'Name of the LNK file to be saved'
+ ∆,←⊂'Directory'GetPathToDesktop
+ ∆,←⊂'file'('My ',{'-'@(⍸⍵∊'/\')⊣⍵}G.CurrentAPL)
+ ∆,←⊂'Filters'(⊂'*.lnk' 'LNK files (*.lnk)')
+ ref←n.Form.⎕NEW'FileBox'∆
+ ref.onFileBoxOK←'OnFileBoxOK'ref2
+ ref.onFileBoxCancel←'OnFileBoxCancel'ref2
+ res←⎕DQ ref
+ :If ref2._OK
+     exe←(GetInstallPath G.CurrentAPL),'dyalog.exe'
+     filename←ref.Directory,'.lnk'{⍵↓⍨(-≢⍺)×⍺≡⎕c(-≢⍺)↑⍵} ref.File
+     keyboardShortcut←AskForKeyboardShortcutForLNK n
+     :If 0=CreateShortcut exe filename(⊃,/' ',¨arg)keyboardShortcut
+         'Launchy error'ShowMsg2'An error occurred while attempting to create an LNK file'
+     :EndIf
+ :EndIf
+ ⍝Done

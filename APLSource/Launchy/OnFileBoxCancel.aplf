@@ -1,0 +1,5 @@
+ OnFileBoxCancel←{
+     ref←⍺
+     ref._OK←0
+1
+ }

@@ -1,13 +1,13 @@
 ; This script is best executed by Launchy's "Make" utility.
 
-#define MyAppVersion "7.4.1+247"
+#define MyAppVersion "7.4.2+249"
 #define MyAppName "Launchy"
 #define MyAppExeName "Launchy.exe"
 #define MyAppPublisher "Kai Jaeger"
 #define MyAppURL "https://github.com/aplteam/Launchy"
 #define MyAppIcoName "Launchy.ico"
 #define MyBlank " "
-#define TargetDir "Dist\"
+#define TargetDir "<<TARGETDIR>>"
 #define AppID "{{57141EAE-48E6-41A4-87B6-C33C19ED91BE}"
 #define TempDir GetEnv('TMP')
 
@@ -15,7 +15,7 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 AppId={#AppID}
 
-AppName={#MyAppName}
+AppName="{#MyAppName}"
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName}{#MyBlank}{#MyAppVersion}
 AppPublisher={#MyAppPublisher}
@@ -25,7 +25,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={commonpf64}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppPublisher}\{#MyAppName}
 AllowNoIcons=yes
-OutputDir=C:/Users/kai/AppData/Local/Temp/InnoTempDir\Local\Temp\InnoTempDir\{#AppID}
+OutputDir={#TargetDir}
 OutputBaseFilename="SetUp_{#MyAppName}_{#MyAppVersion}"
 Compression=lzma
 SolidCompression=yes
@@ -55,15 +55,12 @@ Source: "Dyalog.Net.Bridge.Host.dll"; DestDir: "{app}"
 Source: "dyalognet.dll"; DestDir: "{app}"     
 
 ; The Conga DLLs are needed for "Check for updates"
-;Source: "conga*ssl64.dll"; DestDir: "{app}";
-;Source: "conga*_64.dll"; DestDir: "{app}";
 ; ↓↓↓
 Source: "Conga*.dll"; DestDir: "{app}";
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files!
 
 [Icons]
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyAppIcoName}"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\ReleaseNotes.html"; Description: "View the Launchy Release Notes"; Flags: postinstall shellexec skipifsilent

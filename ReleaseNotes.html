@@ -19,12 +19,28 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 </a>
 </div>
 <div class="h_tag">
+<a href="#750-from-2022-09-26" id="750-from-2022-09-26" class="autoheader_anchor">
+<h2 data-id="750-from-2022-09-26">7.5.0 from 2022-09-26</h2>
+</a>
+</div>
+<ul>
+<li>Launchy now supports creating an LNK file (shortcut) with all parameters defined in Launchy.
+<p>Note that although you may associate a keybaord shortcut with any LNK file, you can start only one Dyalog instance this way. As long as that instance is up and running pressing the keystrokes again has no effect.</p></li>
+<li>Bug fixes
+<ul>
+<li>Launchy used to add a parameter <code>-exec_setup=1</code> to the command line so that it became the last parameter. With <code>-cef_all</code> there is a Chromium-specific parameter that, when specified, <em>must be the last parameter</em>.
+<p>This version addresses this problem by making sure that <code>-cef_all</code> will always be the last parameter (except the workspace).</p></li>
+<li>The build list as well as the dependency file for both package folders contained a superfluous <code>/</code></li>
+<li>The image embedded into README.md pointed to “master” rather than “main”.</li>
+</ul></li>
+</ul>
+<div class="h_tag">
 <a href="#741-from-2022-03-23" id="741-from-2022-03-23" class="autoheader_anchor">
 <h2 data-id="741-from-2022-03-23">7.4.1 from 2022-03-23</h2>
 </a>
 </div>
 <ul>
-<li>The INI entry [CONFIG]workdir and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry [CONFIG]workdir was not empty.</li>
+<li>The INI entry <code>[CONFIG]workdir</code> and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry <code>[CONFIG]workdir</code> was not empty.</li>
 <li>Bug fixes:
 <ul>
 <li>The Help file and the release notes both did not show.</li>

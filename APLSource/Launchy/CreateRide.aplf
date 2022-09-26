@@ -1,11 +1,11 @@
- n←CreateRide n;∆;flag;tip;f2;f;f1;version
+ n←posn CreateRide n;∆;flag;tip;f2;f;f1;version
  :If 0≠version←GetVersionOfSelectedAPL n
      f1←⊃14.1≤version                               ⍝ RIDE is an option only from 14.0 onwards
      f2←0≠≢G.RideVersions                           ⍝ At least one RIDE exe must be known
 
      ∆←''
      ∆,←⊂'Style' 'Check'
-     ∆,←⊂'Caption' 'Ask for a &RIDE'
+     ∆,←⊂'Caption' 'Ask for &RIDE'
      ∆,←⊂'Active'(f1∧f2)
      ∆,←⊂'Visible'f1
      :If 0<Ini.⎕NC'RIDE'
@@ -17,7 +17,7 @@
      ∆,←⊂'TipObj'n.tip
      ∆,←⊂'Tip'('Let Launchy ask whether Dyalog should try to' 'connect to RIDE')
      n.RIDEflag←n.Form.⎕NEW'Button'∆
-     n.RIDEflag.Posn[1]←n.ok.Posn[1]
+     n.RIDEflag.Posn←posn
      n.RIDEflag.tip←GetRideMsg ⍬
      n.RIDEflag.onSelect←'OnChangeRide'
  :EndIf

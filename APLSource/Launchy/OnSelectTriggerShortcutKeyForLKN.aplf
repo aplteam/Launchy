@@ -1,0 +1,5 @@
+ OnSelectTriggerShortcutKeyForLKN←{
+     n←GetRef2n 1⊃,⍵
+     n.(Modifier TriggerKey).Active←~n.(Modifier TriggerKey).Active
+     1
+ }

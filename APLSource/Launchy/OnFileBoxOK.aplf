@@ -1,0 +1,5 @@
+ OnFileBoxOK←{
+     ref←⍺
+     ref._OK←1
+     1
+ }

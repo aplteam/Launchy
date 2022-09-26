@@ -1,4 +1,4 @@
- {r}←{workspace}LaunchDyalog(ty ws dseType  port);p;parms;rc;tempfile;dir;kai;msg;en;success;clp1;clp2
+ {r}←{workspace}LaunchDyalog(ty ws dseType port);p;parms;rc;tempfile;dir;kai;msg;en;success;flag
 ⍝ Compiles the "batch script" and finally launches any version of Dyalog.
  r←1
  workspace←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'workspace'
@@ -8,30 +8,18 @@
  :Else
      parms←##.OS.CreateParms_WinExecute
      parms.file←p,'Dyalog.exe'
-     parms.lpParms←''
+     parms.lpParms←n CollectCommandLineParms ⍬
      :If 0≠port
-         parms.lpParms,←⊂'RIDE_INIT=SERVE::',(⍕port)       ⍝ Make it listen to ride
+         parms.lpParms←('RIDE_INIT=SERVE::',(⍕port)),' ',parms.lpParms   ⍝ Make it listen to ride
      :EndIf
-     parms.lpParms,←⊂'MAXWS=',ws
-     parms.lpParms,←⊂GetDebugCode ⍬
-     :If 0<Ini.⎕NC'STD_CMD'
-     :AndIf 0<≢Ini.STD_CMD.⎕NL 2
-         parms.lpParms,←Ini.STD_CMD.{{⍵,'=',{0=1↑0⍴⍵:⍕⍵ ⋄ '"',⍵,'"'}⍎⍵}¨' '~¨⍨↓⎕NL 2}⍬
-     :EndIf
-     clp1←GetCommandLineParmsFromINI                        ⍝ INI definition (if any)
-     clp2←GetCommandLineParmsFromGUI                        ⍝ Come from the GUI
-     parms.lpParms,←{0=≢⍺:⍵ ⋄ 0=≢⍵:⍺ ⋄ ⍺,' ',⍵}/clp1 clp2   ⍝ Add command line parameters
-     parms.lpParms,←⊂' -exec_setup=',⍕n.ExecMySetup.State
-     :If n.StopSetup.State
-         parms.lpParms,←⊂' -stop_in_setup=1'
-     :EndIf
-     parms.lpParms,←⊂workspace                              ⍝ ⍺ might be a workspace name
+     parms.lpParms,←{0=≢⍵:⍵ ⋄ ⊂' ',⍵}workspace                           ⍝ ⍺ might be a workspace name
      parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
-     parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''                  ⍝ Flatten in case the directory does not exist
+     parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''                               ⍝ Flatten in case the directory does not exist
      parms.show←0≡port
-     n.showCmd.Checked←AskForShowCommandLineParms⍣((0≠≢clp2)∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
+     flag←0<≢GetCommandLineParmsFromGUI
+     n.showCmd.Checked←AskForShowCommandLineParms⍣(flag∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
      :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
-         parms.lpParms←1↓⊃,/' ',¨parms.lpParms
+         parms.lpParms←⊃,/' ',¨parms.lpParms
          (success rc msg)←n.runAsAdmin.State ##.OS.WinExecute parms
          :If 1≠success
              ShowMsg2'Error! Could not start:' ''parms.file('in ',parms.lpDirectory)(S.IsRunningAsAdmin/'with admin rights')

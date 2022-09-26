@@ -12,7 +12,7 @@
 ⍝   list.
 ⍝ * ∆GetVersion returns name, version number and version date.
 ⍝ * ∆GetMethods returns a nested list with the names of all methods.
-⍝ Kai Jaeger ⋄ APL Team Ltd
+⍝ Kai Jaeger
 
     ∇ n←Create displayName
       :Access Public Shared

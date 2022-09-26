@@ -10,7 +10,6 @@
  n←CreateWsSize n
  n←CreateCommandLine n
  n←CreateButtons n
- n←CreateRide n
  HandleTips n
  n.Form.∆Reset←0
  # ⎕WS'Event' 9999 1

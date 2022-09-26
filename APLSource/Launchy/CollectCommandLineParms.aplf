@@ -1,0 +1,30 @@
+ parms←n CollectCommandLineParms dummy;clp1;clp2;bool;ws
+⍝ Returns a vector
+ parms←''
+⍝ :If 0≠port
+⍝     parms,←⊂'RIDE_INIT=SERVE::',(⍕port)       ⍝ Make it listen to ride
+⍝ :EndIf
+ parms,←⊂'MAXWS=',n.wssize.Text
+ parms,←⊂GetDebugCode ⍬
+ :If 0<Ini.⎕NC'STD_CMD'
+ :AndIf 0<≢Ini.STD_CMD.⎕NL 2
+     parms,←Ini.STD_CMD.{{⍵,'=',{0=1↑0⍴⍵:⍕⍵ ⋄ '"',⍵,'"'}⍎⍵}¨' '~¨⍨↓⎕NL 2}⍬
+ :EndIf
+ :If n.StopSetup.State
+     parms,←⊂'-stop_in_setup=1'
+ :EndIf
+ parms,←⊂'-exec_setup=',⍕n.ExecMySetup.State
+ parms,←GetCommandLineParmsFromINI                ⍝ INI definition (if any)
+ parms,←GetCommandLineParmsFromGUI                ⍝ Come from the GUI
+ parms←(0<≢¨parms)/parms
+ :If 0<+/bool←{'""'≡(1↑⍵),¯1↑⍵}¨parms
+     ws←(bool⍳1)⊃parms
+     parms←(~bool)/parms
+ :Else
+     ws←''
+ :EndIf
+ parms←parms[⍒(,⊂'-cef_all')⍳parms]
+ :If 0<≢ws
+     parms,←⊂ws
+ :EndIf
+⍝Done

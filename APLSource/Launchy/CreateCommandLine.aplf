@@ -24,6 +24,6 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'TipObj'n.tip
  n.saveCmdLineOnQuit← n.CmdLineGroup.⎕NEW'Button'∆
- n.saveCmdLineOnQuit.Tip←'If ticked the contents of the fiels is saved in the Registry'
+ n.saveCmdLineOnQuit.Tip←'If ticked the contents of',SEP,'"Command line parameters"',SEP,'is saved in the Registry'
  n.cmdLineArgs.onKeyPress←'OnStandardKeyPress'
  ⍝Done

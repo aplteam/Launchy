@@ -3,8 +3,23 @@
 # Launchy Release Notes
 
 
+## 7.5.0 from 2022-09-26
+
+* Launchy now supports creating an LNK file (shortcut) with all parameters defined in Launchy.
+
+  Note that although you may associate a keybaord shortcut with any LNK file, you can start only one Dyalog instance this way. As long as that instance is up and running pressing the keystrokes again has no effect.
+
+* Bug fixes
+
+  * Launchy used to add a parameter `-exec_setup=1` to the command line so that it became the last parameter. With `-cef_all` there is a Chromium-specific parameter that, when specified, _must be the last parameter_. 
+
+   This version addresses this problem by making sure that `-cef_all` will always be the last parameter (except the workspace).
+
+  * The build list as well as the dependency file for both package folders contained a superfluous `/`
+  * The image embedded into README.md pointed to "master" rather than "main".
+
 ## 7.4.1 from 2022-03-23
- * The INI entry [CONFIG]workdir and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry [CONFIG]workdir was not empty.
+ * The INI entry `[CONFIG]workdir` and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry `[CONFIG]workdir` was not empty.
  * Bug fixes: 
    * The Help file and the release notes both did not show.
    * The build number was shown in Launchy's own caption. Should only happen in development.

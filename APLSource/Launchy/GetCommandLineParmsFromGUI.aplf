@@ -1,4 +1,7 @@
- r←GetCommandLineParmsFromGUI;buff
-⍝ Returns the command line parms specified in the GUI, if any.
- r←n.cmdLineArgs.Text
+ r←GetCommandLineParmsFromGUI;buff;r_
+⍝ Returns the command line parms specified in the GUI, if any, as nested vector (if not empty)
+ r_←r←n.cmdLineArgs.Text
+ r_[¯1↓1↓⍸{{⍵∨≠\⍵}'"'=⍵}r]←'⌹'  ⍝ All spaces between double quotes become "⌹"
+ (r r_)←({~'  '⍷⍵}r_)∘/¨r r_    ⍝ Remove double spaces from r according to r_
+ r←1↓¨(' '=' ',r_)⊂' ',r        ⍝ Split at spaces
 ⍝Done

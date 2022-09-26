@@ -1,5 +1,5 @@
  GetDebugCode←{
 ⍝ Return either an empty vector or one of: "-Dc ", "-Dw ", "-DW "
      l←{(~';'∊⍵):'' ⋄ ⍵↑⍨1+-';'⍳⍨⌽⍵}¨Ini.WS_CHECK.list
-     (n.debug.SelItems⍳1)⊃l
+     ' '~⍨(n.debug.SelItems⍳1)⊃l
  }

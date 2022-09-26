@@ -1,0 +1,71 @@
+ r←AskForKeyboardShortcutForLNK n;∆;n2;items;res
+⍝
+ r←''
+ n2←⎕NS''
+ ∆←''
+ ∆,←⊂'Caption' 'Launchy: LNK Keyboard Shortcut'
+ ∆,←⊂'Size'(180 400)
+ ∆,←⊂'Posn'(n.Form.Posn+10)
+ ∆,←⊂'MinButton' 0
+ ∆,←⊂'MaxButton' 0
+ n2.Form←n.Form.⎕NEW'Form'∆
+
+ ∆←''
+ ∆,←⊂'Posn'(10 10)
+ ∆,←⊂'Caption' '&Define shortcut key for starting Dyalog'
+ ∆,←⊂'Style' 'Check'
+ n2.YesNo←n2.Form.⎕NEW'Button'∆
+ n2.YesNo.onSelect←'OnSelectTriggerShortcutKeyForLKN'
+
+ ∆←''
+ ∆,←⊂'Posn'(35 10)
+ ∆,←⊂'Caption' 'Modifier:'
+ n2.Label1←n2.Form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Posn'(60 10)
+ ∆,←⊂'Size'(⍬ 140)
+ ∆,←⊂'Font'n.aplFont
+ items←'Ctrl' 'Shift' 'Alt' 'Ctrl+Shift' 'Ctrl+Alt' 'Shift+Alt' 'Ctrl+Shift+Alt'
+ ∆,←⊂'Items'items
+ ∆,←⊂'SelItems'((≢items)↑1)
+ ∆,←⊂'Active' 0
+ n2.Modifier←n2.Form.⎕NEW'Combo'∆
+ n2.Modifier.Text←'Ctrl'
+
+ ∆←''
+ ∆,←⊂'Posn'(35 (20+2⊃+⌿↑n2.Modifier.(Posn Size)))
+ ∆,←⊂'Caption' 'Trigger key:'
+ n2.Label2←n2.Form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Posn'(60(20+2⊃+⌿↑n2.Modifier.(Posn Size)))
+ ∆,←⊂'Size'(⍬ 100)
+ ∆,←⊂'Font'n.aplFont
+ items←(,¨⎕A,⎕D),'F',¨¯2↑¨'0',¨⍕¨⍳12
+ ∆,←⊂'Items'items
+ ∆,←⊂'SelItems'((≢items)↑1)
+ ∆,←⊂'Active' 0
+ n2.TriggerKey←n2.Form.⎕NEW'Combo'∆
+
+  ∆←''
+ ∆,←⊂'Posn'((15+1⊃+⌿↑n2.TriggerKey.(Posn Size))10)
+ ∆,←⊂'Caption' 'Note that you can start only just ONE instance of Dyalog with this.'
+ n2.Label3←n2.Form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Caption' '&OK'
+ n2.ok←n2.Form.⎕NEW'Button'∆
+ n2.ok.Size[1]+←⌈0.15×n2.ok.Size[1]
+ n2.ok.Size[2]←100
+ n2.ok.Posn←(n2.Form.Size[1]-n2.ok.Size[1]+10)10
+ n2.ok.onSelect←1
+ n2.Form.n←n2
+
+ :If 0<≢res←⎕DQ n2.Form
+ :AndIf n2.ok≡1⊃res
+ :AndIf n2.YesNo.State
+     r←n2.Modifier.Text,'+',n2.TriggerKey.Text
+ :EndIf
+ :Trap 0 ⋄ 2 ⎕NQ n2.Form'Close' ⋄ :EndTrap
+ ⍝Done

@@ -1,0 +1,3 @@
+r←GetPathToDesktop;wsh
+'wsh'⎕WC'OLEClient' 'WScript.Shell'
+r←wsh.SpecialFolders.Item(⊂'Desktop')

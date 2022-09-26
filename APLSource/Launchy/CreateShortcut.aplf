@@ -1,0 +1,20 @@
+ {success}←CreateShortcut(exe filename parms keyboardShortcut);wsh;lnk;path;ext
+⍝ Creates a shortcut (LNK file) pointing to "exe" with command line parameters "parms".
+⍝ Returns 1 in case the shortcut was successfuly created, otherwise 0.
+ 'Specified EXE does not exist'⎕SIGNAL 11/⍨~⎕NEXISTS exe
+ 'wsh'⎕WC'OLEClient' 'WScript.Shell'
+ path←1⊃⎕NPARTS filename
+ filename←(≢path)↓filename
+ filename←'.lnk'{⍵↓⍨(-≢⍺)×⍺≡⎕C(-≢⍺)↑⍵}filename
+ filename←'-'@(⍸filename∊'\/')⊣filename
+ lnk←wsh.CreateShortcut(⊂path,filename,'.lnk')
+ lnk.TargetPath←'"',exe,'"'
+ lnk.Arguments←parms
+ lnk.WorkingDirectory←1⊃⎕NPARTS exe
+ lnk.Hotkey←keyboardShortcut
+ :Trap 0
+     lnk.Save
+     success←1
+ :Else
+     success←0
+ :EndTrap
