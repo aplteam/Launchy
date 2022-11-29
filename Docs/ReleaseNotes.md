@@ -3,7 +3,7 @@
 # Launchy Release Notes
 
 
-## 7.5.0 from 2022-09-26
+## 7.5.0 from 2022-10-09
 
 * Launchy now supports creating an LNK file (shortcut) with all parameters defined in Launchy.
 

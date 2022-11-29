@@ -8,7 +8,7 @@
  :Else
      parms←##.OS.CreateParms_WinExecute
      parms.file←p,'Dyalog.exe'
-     parms.lpParms←n CollectCommandLineParms ⍬
+     (parms.lpParms flag)←n CollectCommandLineParms port
      :If 0≠port
          parms.lpParms←('RIDE_INIT=SERVE::',(⍕port)),' ',parms.lpParms   ⍝ Make it listen to ride
      :EndIf
@@ -16,7 +16,6 @@
      parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
      parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''                               ⍝ Flatten in case the directory does not exist
      parms.show←0≡port
-     flag←0<≢GetCommandLineParmsFromGUI
      n.showCmd.Checked←AskForShowCommandLineParms⍣(flag∧∆AskForCommandLineParms∧0=n.showCmd.Checked)⊣n.showCmd.Checked
      :If 0≠n.showCmd.Checked ShowCmd parms n.runAsAdmin.State
          parms.lpParms←⊃,/' ',¨parms.lpParms

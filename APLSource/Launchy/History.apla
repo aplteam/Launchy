@@ -1,9 +1,9 @@
 (
- '* 7.5.0 from 2022-09-26'
+ '* 7.5.0 from 2022-10-09'
  '  * New button added: "Create shortcut (LNK)". '
  '  * Bug fixes'
  '    * The build list as well as the dependency file for both package folders contained superfluous "/"'
- '    * The image embedded into README.md pointed to "master" rather than "main".'
+ '    * The image embedded into README.md pointed to the "master" branch rather than "main".'
  '  * Internal change: "Make" updated to using `MakeHelpers`'
  '* 7.4.1 from 2022-03-23'
  '  * The INI entry [CONFIG]workdir and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry [CONFIG]workdir was not empty.'
