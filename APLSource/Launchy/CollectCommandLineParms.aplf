@@ -13,6 +13,12 @@
  :If n.StopSetup.State
      parms,←⊂'-stop_in_setup=1'
  :EndIf
+ :If n.DYALOGSTARTUPDEBUG.State
+     parms,←⊂'DYALOGSTARTUPDEBUG=1'
+ :EndIf
+ :If n.DYALOGSTARTUPSTOP.State
+     parms,←⊂'DYALOGSTARTUPSTOP=1'
+ :EndIf
  parms,←⊂'-exec_setup=',⍕n.ExecMySetup.State
  clp1←GetCommandLineParmsFromINI                ⍝ INI definition (if any)
  parms,←clp1

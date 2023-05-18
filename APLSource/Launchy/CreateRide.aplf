@@ -1,24 +1,20 @@
- n←posn CreateRide n;∆;flag;tip;f2;f;f1;version
- :If 0≠version←GetVersionOfSelectedAPL n
-     f1←⊃14.1≤version                               ⍝ RIDE is an option only from 14.0 onwards
-     f2←0≠≢G.RideVersions                           ⍝ At least one RIDE exe must be known
+ n←posn CreateRide n;∆;flag;tip;f;version
+ f←0≠≢G.RideVersions                           ⍝ At least one RIDE exe must be known
 
-     ∆←''
-     ∆,←⊂'Style' 'Check'
-     ∆,←⊂'Caption' 'Ask for &RIDE'
-     ∆,←⊂'Active'(f1∧f2)
-     ∆,←⊂'Visible'f1
-     :If 0<Ini.⎕NC'RIDE'
-     :AndIf 0<Ini.RIDE.⎕NC'tick'
-         ∆,←⊂'State'Ini.RIDE.tick
-     :Else
-         ∆,←⊂'Active' 0
-     :EndIf
-     ∆,←⊂'TipObj'n.tip
-     ∆,←⊂'Tip'('Let Launchy ask whether Dyalog should try to' 'connect to RIDE')
-     n.RIDEflag←n.Form.⎕NEW'Button'∆
-     n.RIDEflag.Posn←posn
-     n.RIDEflag.tip←GetRideMsg ⍬
-     n.RIDEflag.onSelect←'OnChangeRide'
+ ∆←''
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Ask for &RIDE'
+ ∆,←⊂'Active' f
+ :If 0<Ini.⎕NC'RIDE'
+ :AndIf 0<Ini.RIDE.⎕NC'tick'
+     ∆,←⊂'State'Ini.RIDE.tick
+ :Else
+     ∆,←⊂'Active' 0
  :EndIf
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Tip'('Let Launchy ask whether Dyalog should try to' 'connect to RIDE')
+ n.RIDEflag←n.Form.⎕NEW'Button'∆
+ n.RIDEflag.Posn←posn
+ n.RIDEflag.tip←GetRideMsg ⍬
+ n.RIDEflag.onSelect←'OnChangeRide'
 ⍝Done

@@ -56,13 +56,27 @@ In case Launchy crashes, for example because of an invalid or missing INI file e
 %localappdata%'),'\Launchy\Errors\
 ```
 
-These files, in particular the HTML file but also the workspace, should allow you to identify and fix the problem.
+These files, in particular the HTML file but also the workspace, should allow you to identify and fix the problem, which is often caused by invalid adjustments to the INI file.
 
-However, if that does not work for you then please zip those files and send them to info@aplteam.com. 
+However, if that does not work for you then please zip those files and send them to kai@aplteam.com. 
+
+## The Dyalog bootstrapping process in 19.0 and later
+
+With version 19.0 two new environment variables were introduced: `DYALOGSTARTUPDEBUG` and `DYALOGSTARTUPSTOP`. You may switch them on or off in the Launchy GUI but of course this has an effect only when a version 19.0 interpreter (or later) is started.
+
+### `DYALOGSTARTUPDEBUG` 
+
+If this is assigned a 1 on the command line Dyalog only traps WS FULL errors during the startup process. Otherwise all errors are trapped.
+
+### `DYALOGSTARTUPSTOP`
+
+If this is assigned a 1 on the command line Dyalog will stop early in the startup process. This allows a user to trace through the code, typically in order to identify the source of a problem.
+
+Note that on non-Windows platforms the name of the file is case sensitive.
 
 ## Setup.dyalog
 
-If Dyalog finds a file `Setup.dyalog` in any of the User Command folders then a function `Setup` within that file is executed. This is perfect for making amendments to your session etc.
+If Dyalog finds a file `setup.dyalog` in any of the User Command folders then a function `Setup` within that file is executed. This is perfect for making amendments to your session etc.
 
 ### The check box "Execute setup.dyalog"
 

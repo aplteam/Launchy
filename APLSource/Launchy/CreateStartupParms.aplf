@@ -1,0 +1,23 @@
+ n←x CreateStartupParms n;∆;posn;add
+⍝ Creates the checkboxes for DYALOGSTARTUPSTOP & DYALOGSTARTUPDEBUG
+ (posn add)←x
+ ∆←''
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Don''t trap errors in StartUp script'
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Tip'('Very early; 19.0 and better only')
+ n.DYALOGSTARTUPDEBUG←n.Form.⎕NEW'Button'∆
+ n.DYALOGSTARTUPDEBUG.Posn←posn
+ n.DYALOGSTARTUPDEBUG.onSelect←'OnDYALOGSTARTUPDEBUG'
+
+ posn[1]+←add
+
+ ∆←''
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Stop within StartUp script'
+ ∆,←⊂'TipObj'n.tip
+ ∆,←⊂'Tip'('Very early; 19.0 and better only')
+ n.DYALOGSTARTUPSTOP←n.Form.⎕NEW'Button'∆
+ n.DYALOGSTARTUPSTOP.Posn←posn
+ n.DYALOGSTARTUPSTOP.onSelect←'OnDYALOGSTARTUPSTOP'
+⍝Done

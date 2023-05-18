@@ -4,7 +4,7 @@
  ∆,←⊂'Style' 'Drop'
  ∆,←⊂'Items'list
  ∆,←⊂'SelItems'(list≡¨⊂Ini.WSSIZE.default)
- ∆,←⊂'Posn'((3+1⊃AddPosnAndSize n.DebugGroup),10)
+ ∆,←⊂'Posn'((6+1⊃AddPosnAndSize n.DebugGroup),10)
  ∆,←⊂'Size'(⍬ 80)
  ∆,←⊂'Style' 'DropEdit'
  ∆,←⊂'TipObj'n.tip

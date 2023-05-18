@@ -1,7 +1,7 @@
  n←CreateCommandLine n;∆
 
  ∆←''
- ∆,←⊂'Posn'(170 10)
+ ∆,←⊂'Posn'(190 10)
  ∆,←⊂'Size'(80(n.Form.Size[2]-25))
  ∆,←⊂'Caption' '&Command line parameters'
  n.CmdLineGroup←n.Form.⎕NEW'Group'∆

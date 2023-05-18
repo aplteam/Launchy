@@ -1,0 +1,4 @@
+ OnDYALOGSTARTUPSTOP←{
+     _←CheckDefaults'DYALOGSTARTUPSTOP'
+     1
+ }

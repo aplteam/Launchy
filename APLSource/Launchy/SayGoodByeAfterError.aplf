@@ -12,7 +12,7 @@
  :EndIf
  msg,←⊂'For additional information check this folder:'
  msg,←⊂parms.errorFolder
- msg,←⊂'Consider sending the error WS to info@aplteam.com.'
+ msg,←⊂'Consider sending the error WS to kai@aplteam.com.'
  msg,←⊂''
  msg,←⊂'Error message: ',1⊃⎕DM
  msg,←⊂''

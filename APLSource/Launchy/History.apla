@@ -1,6 +1,10 @@
 (
+ '* 7.6.0 from 2023-05-17'
+ '  * New command line options added : `DYALOGSTARTUPSTOP` & `DYALOGSTARTUPDEBUG` (19.0 and better)'
  '* 7.5.1 from 2023-04-09'
  '  * Bug fix: Ride did not refer to a specific config file when specified in the Launchy INI file'
+ '  * Packages updated'
+ '  * `Make` updated'
  '* 7.5.0 from 2022-10-09'
  '  * New button added: "Create shortcut (LNK)". '
  '  * Bug fixes'

@@ -3,6 +3,20 @@
 # Launchy Release Notes
 
 
+## 7.6.0 from 2023-05-17
+
+With version 19.0 two new parameters were introduced:
+
+* `DYALOGSTARTUPSTOP=1` tells the interpreter to stop at a very early stage in the StartupSession script
+
+* `DYALOGSTARTUPDEBUG=1` tells the interpreter to only trap WS FULL rather than all errors at a very early stage in the StartupSession script
+
+With this version you can set both parameters.
+
+## 7.5.1 from 2023-04-09
+
+* Somehow Launchy lost its ability to start Ride with a user-specific config file to be defined in the Launchy INI files --- this version brings that back.
+
 ## 7.5.0 from 2022-10-09
 
 * Launchy now supports creating an LNK file (shortcut) with all parameters defined in Launchy.

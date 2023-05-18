@@ -1,26 +1,28 @@
  Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc
-⍝ Version 2.0.0 ⋄ 2022-09-25
+⍝ Version 2.0.1 ⋄ 2023-04-09
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
      home←##.CiderConfig.HOME,'/'
      targetPath←home,'Dist/'
-     {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'  ⍝ avoids creating a link in # that point to ⎕SE
+     M←⎕SE.MakeHelpers
      C←##.CiderConfig
      myUCMDsFolder←M.GetMyUCMDsFolder'\'
      name←'Launchy'
      tempFolder←(M.##.F.GetTempSubDir name),'/'
     ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
      M.RecreateFolder targetPath
-     M.IncreaseBuildID'#.',name,'.',name,'.Version'
+     M.IncreaseBuildIDInFunction'#.',name,'.',name,'.Version'
      {}⎕SE.Cider.CloseProject''  ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
+     ⎕EX'M'
      0 ⎕SAVE ⎕WSID
      #.⎕EX ⎕NL⍳16
      ⎕LX←'#.Launchy.Run 0'
      '#.Launchy.Launchy'#.⎕CY ⎕WSID
      {}⎕SE.Tatin.LoadDependencies(home,'packages/')#  ⍝ Yes, this IS correct: we reorganize the WS
      0 ⎕SAVE ⎕WSID
+     M←⎕SE.MakeHelpers
      M.ConvertMarkdownToHtml5(home,'Docs/')(tempFolder,'html/')
      M.##.F.DeleteFile tempFolder,'/html/readme.html'
      (home,'Launchy.ini.RemoveMe')M.CopyTo tempFolder

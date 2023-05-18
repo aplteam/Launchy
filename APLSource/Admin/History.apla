@@ -1,4 +1,7 @@
 (
+ '* 2.1.0 ⋄ 2023-04-09'
+ '  * Is now using the latest version of MakeHelpers'
+ '  * Problems related to `M` fixed'
  '* 2.0.0 ⋄ 2022-09-25'
  '  * "Make" integrated into the project'
 )
