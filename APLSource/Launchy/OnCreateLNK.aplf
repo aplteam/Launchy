@@ -1,6 +1,6 @@
  OnCreateLNK msg;exe;arg;clp1;clp2;filename;res;∆;ref;ref2;keyboardShortcut
  G.CurrentAPL←GetCurrentlySelectedAPL
- arg←n CollectCommandLineParms ⍬
+ arg←⊃n CollectCommandLineParms 0
  ref2←⎕NS''
  ∆←''
  ∆,←⊂'FileMode' 'Write'
