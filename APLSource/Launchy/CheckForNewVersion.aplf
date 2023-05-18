@@ -7,7 +7,7 @@
      TellCommunicationWithGitHubFailed'Launchy'
      :Return
  :EndTrap
- flag←api.CheckForUpdate'Launchy'(2⊃Version)
+ flag←api.CheckForUpdate'Launchy'({⍵↑⍨¯1+⌊/⍵⍳'+-'}2⊃Version)
  :If ~flag
      TellLaunchyIsUp2Date ⍬
  :Else

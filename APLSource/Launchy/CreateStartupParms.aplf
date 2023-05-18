@@ -3,7 +3,7 @@
  (posn add)←x
  ∆←''
  ∆,←⊂'Style' 'Check'
- ∆,←⊂'Caption' 'Don''t trap errors in StartUp script'
+ ∆,←⊂'Caption' 'No trapping in StartUp script'
  ∆,←⊂'TipObj'n.tip
  ∆,←⊂'Tip'('Very early; 19.0 and better only')
  n.DYALOGSTARTUPDEBUG←n.Form.⎕NEW'Button'∆
