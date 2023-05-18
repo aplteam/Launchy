@@ -11,7 +11,9 @@
  lnk.TargetPath←'"',exe,'"'
  lnk.Arguments←parms
  lnk.WorkingDirectory←1⊃⎕NPARTS exe
- lnk.Hotkey←keyboardShortcut
+ :If 0<≢keyboardShortcut
+     lnk.Hotkey←keyboardShortcut
+ :EndIf
  :Trap 0
      lnk.Save
      success←1
