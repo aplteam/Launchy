@@ -6,9 +6,7 @@
  :If batchFlag
      R←T._NoBatchTest
  :Else
-     ⎕←'This test cases just fires up Launchy in order to make sure the basics do work.'
-     ⎕←'To continue press <enter>'
-     0/⍞
+     CommTools.Pause'This test cases just fires up Launchy in order to make sure the basics do work.'
      ##.Launchy.Run 1
      R←T._OK
  :EndIf

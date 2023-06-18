@@ -3,6 +3,7 @@
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
+ :AndIf ##.TestCases.CommTools.YesOrNo'Sure you want to create a new version? (The WS will be destroyed in the process)'
      home←##.CiderConfig.HOME,'/'
      targetPath←home,'Dist/'
      M←⎕SE.MakeHelpers
@@ -45,6 +46,6 @@
      :If 1 M.YesOrNo'Would you like to execute "',setupExe,'" ?'
          ⎕CMD targetPath,setupExe
      :EndIf
-     ⎕←'Clearing the workspace...'
+     ⎕←'****** Clearing the workspace...'
      ⎕CLEAR
  :EndIf
