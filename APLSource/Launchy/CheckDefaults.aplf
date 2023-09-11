@@ -1,5 +1,5 @@
  {r}←CheckDefaults type;f;l;wssize
-⍝ Checks which data is different from defaults and hightlight it.
+⍝ Checks which controls are different from defaults and hightlight them.
  r←1
  :Select type
  :Case 'APL_Version'

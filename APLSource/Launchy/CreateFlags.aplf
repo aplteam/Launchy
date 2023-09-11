@@ -64,6 +64,5 @@
  n.DyalogWSLoadedStop.onSelect←'OnChanged' 'DYALOGWSLOADEDSTOP'
  n.DyalogWSLoadedStop.onKeyPress←'OnStandardKeyPress'
 
- n←(hor startAt)CreateRide n
- n←((hor,startAt) add)CreateStartupParms n
+ n←((hor,startAt)add)CreateStartupParms n
 ⍝Done

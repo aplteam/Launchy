@@ -8,6 +8,7 @@
  n←CreateDebugFlags n
  n←CreateFlags n
  n←CreateWsSize n
+ n←CreateRide n
  n←CreateCommandLine n
  n←CreateButtons n
  HandleTips n

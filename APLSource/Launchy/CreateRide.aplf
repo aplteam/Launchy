@@ -1,10 +1,12 @@
- n←posn CreateRide n;∆;flag;tip;f;version
+ n←CreateRide n;∆;flag;tip;f;version;posn
  f←0≠≢G.RideVersions                           ⍝ At least one RIDE exe must be known
+
+ posn←(5+⊃+⌿↑n.wssize.(Posn Size)),12
 
  ∆←''
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Ask for &RIDE'
- ∆,←⊂'Active' f
+ ∆,←⊂'Active'f
  :If 0<Ini.⎕NC'RIDE'
  :AndIf 0<Ini.RIDE.⎕NC'tick'
      ∆,←⊂'State'Ini.RIDE.tick
