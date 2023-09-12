@@ -29,6 +29,6 @@
  :Else
      .    ⍝ Not yet
  :EndSelect
- l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop)
+ l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop DYALOGSTARTUPDEBUG DYALOGSTARTUPSTOP)
  n.reset.Active←∨/0<+/¨l.BCol
 ⍝Done

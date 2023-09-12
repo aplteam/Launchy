@@ -1,4 +1,6 @@
 (
+ '* 7.6.2 from 2023-09-12'
+ '  The "Restore defaults" button did not always became active when it should.'
  '* 7.6.1 from 2023-09-11'
  '  * Bug fixes'
  '    * The "Ask for Ride" checkbox was shadowed by other check boxes'
