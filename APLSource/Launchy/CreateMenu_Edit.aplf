@@ -18,4 +18,24 @@
  ∆,←⊂'Hint' 'Saves DSS credentials for all installed APLs in one go'
  n.editCredentials←n.MenuEdit.⎕NEW'MenuItem'∆
  n.editCredentials.onSelect←'OnEditCredentials'
+
+ ∆←''
+ ∆,←⊂'Caption' '.NET-bridge JSON files'
+ ∆,←⊂'Hint' 'Requires ADMIN rights to change those two files'
+ n.editNETbridgeJSONfiles←n.MenuEdit.⎕NEW'MenuItem'∆
+ n.editNETbridgeJSONfiles.onSelect←'OnEditNETbridgeJSONfiles'
+
+ n.Sep65←n.MenuEdit.⎕NEW(⊂'Separator')
+
+ ∆←''
+ ∆,←⊂'Caption' 'Version-specific config.dcfg'
+ ∆,←⊂'Hint' 'Typically found in C:\Users\<⎕AN>\Documents\Dyalog APL[-64] <version> [Unicode] Files\config.dcfg'
+ n.editConfigDcfgVersion←n.MenuEdit.⎕NEW'MenuItem'∆
+ n.editConfigDcfgVersion.onSelect←'OnEditConfigFilesVersionSpecific'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Version-agnostic config.dcfg'
+ ∆,←⊂'Hint' 'Typically found in C:\Users\<⎕AN>\Documents\Dyalog APL Files\config.dcfg'
+ n.editConfigDcfg←n.MenuEdit.⎕NEW'MenuItem'∆
+ n.editConfigDcfg.onSelect←'OnEditConfigFilesVersionAgnostic'
 ⍝Done

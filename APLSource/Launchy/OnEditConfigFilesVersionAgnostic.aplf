@@ -1,0 +1,14 @@
+ OnEditConfigFilesVersionAgnostic msg;rf;n;filename
+ rf←1⊃msg
+ n←GetRef2n rf
+ G.CurrentAPL←GetCurrentlySelectedAPL
+ filename←(1⊃⎕NPARTS 2⊃4070⌶0),'Dyalog APL Files\config.dcfg'
+ :If 0=⎕NEXISTS filename
+     :If 'Create config.dcfg'YesOrNo2'The file:'filename'does not yet exist - create?'
+         (⊂'')⎕NPUT filename 1
+     :Else
+         :Return
+     :EndIf
+ :EndIf
+ EditFileWithNotepad filename
+⍝Done

@@ -1,0 +1,68 @@
+ {r}←level ReportDotNetJSON n;n;APLs;html;htmlFileame;APL;folder;filename;filenames;filename_;json;ns;i;txt
+ r←0
+ APLs←{⍵/⍨⍵∨.≠¨' '}n.List.∆Orig
+ html←''
+ html,←⊂'<html>'
+ html,←⊂'<head>'
+ html,←⊂'<title>.NET report</title>'
+ html,←⊂'</head>'
+ html,←⊂'<body>'
+ :If level=1
+     html,←⊂'<h1>Short Report of all .NET-*.JSON files</h1>'
+     html,←⊂'<p>Reports the .NET-version specific values from all .NET JSON files of all version of Dyalog APL installed</p>'
+ :ElseIf level=2
+     html,←⊂'<h1>Detailed Report of all .NET-*.JSON files</h1>'
+     html,←⊂'<p>Reports the .NET-version specific values from all .NET JSON files of all version of Dyalog APL installed</p>'
+ :Else
+     ∘∘∘ ⍝ Huuh?!
+ :EndIf
+ filenames←'Dyalog.Net.Bridge.deps.json' 'Dyalog.Net.Bridge.runtimeconfig.json'
+ :For APL :In APLs
+     folder←GetInstallPath APL
+     html,←⊂'<h2>',APL,'</h2>'
+     :For i :In 1 2
+         filename←i⊃filenames
+         :If level=2
+             html,←⊂'<h3>',filename,'/h3>'
+         :EndIf
+         filename_←folder,'/',filename
+         :If F.IsFile filename_
+             :If level=1
+                 json←⊃⎕NGET filename_
+                 ns←⎕JSON json
+                 :If i=1
+                     html,←⊂'<p>',filename,'</p>'
+                     html,←⊂'<ul>'
+                     html,←⊂'<li>runtimeTarget.name.',(ns.runtimeTarget.name),'</li>'
+                     txt←,ns.targets.⎕NL 9
+                     txt←1(7162⌶)txt
+                     html,←⊂'<li>target.',txt,'</li>'
+                     html,←⊂'</ul>'
+                 :ElseIf i=2
+                     html,←⊂'<p>',filename,'</p>'
+                     html,←⊂'<ul>'
+                     html,←⊂'<li>runtimeOptions.tfm.',(ns.runtimeOptions.tfm),'</li>'
+                     html,←⊂'<li>runtimeOptions.framework.version.',ns.runtimeOptions.framework.version,'</li>'
+                     html,←⊂'</ul>'
+                 :Else
+                     ∘∘∘,Huuh?!
+                 :EndIf
+             :Else
+                 html,←⊂'<details>'
+                 html,←⊂'<summary>',filename,'</summary>'
+                 html,←⊂'<pre><code>'
+                 html,←⊃⎕NGET filename_ 1
+                 html,←⊂'</code></pre>'
+                 html,←⊂'</details>'
+             :EndIf
+         :Else
+             html,←⊂'<p>File not found: ',filename,'</p>'
+         :EndIf
+     :EndFor
+ :EndFor
+ html,←⊂'</body>'
+ html,←⊂'</html>'
+ htmlFileame←'html'F.GetTempFilename2'ReportOnDotNetJsonConfigFilesForDyalog'
+ (⊂html)⎕NPUT htmlFileame 1
+ ⎕CMD'"',htmlFileame,'"'
+ ⍝Done

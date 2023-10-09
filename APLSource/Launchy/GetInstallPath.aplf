@@ -1,6 +1,6 @@
  r←GetInstallPath ty;rk
 ⍝ Return the proper installation path depending on the version selected
  r←R.GetString({⍵↓⍨¯1×'\'=¯1↑⍵}GetDyalogRegKey ty),'\dyalog'
- :If ~0∊⍴r←F.NormalizePath r
+ :If 0≠≢r←F.NormalizePath r
      r,←'\'
  :EndIf

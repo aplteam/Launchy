@@ -1,0 +1,6 @@
+ OnReportDotNetJSON msg;rf;n;res
+ rf←1⊃msg
+ n←GetRef2n rf
+ res←1+~'.NET JOSON Report'YesOrNo2'Would ypu like to get a short report? ("No"=detailed report)'
+ {}res ReportDotNetJSON n
+ ⍝Done

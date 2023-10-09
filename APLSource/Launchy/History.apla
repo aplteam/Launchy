@@ -1,4 +1,10 @@
 (
+ '* 7.7.0 from 2023-10-02'
+ '  * Menu item added allowing to edit the version-specific JSON files in [DYALOG] associated with the .NET bridge'
+ '  * Menu items added that allow editing the Dyalog config files in its default locations'
+ '  * Menu item added: Explore > Report .NET configurations       '
+ '* 7.6.2 from 2023-09-12'
+ '  The "Restore defaults" button did not always became active when it should.'
  '* 7.6.1 from 2023-09-11'
  '  * Bug fixes'
  '    * The "Ask for Ride" checkbox was shadowed by other check boxes'
