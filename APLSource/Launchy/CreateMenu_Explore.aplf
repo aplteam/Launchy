@@ -13,4 +13,16 @@
  ∆,←⊂'Hint' 'Starts Windows Explorer in the Help\ folder of the currently selected APL'
  n.runExplorerInHelpDir←n.MenuExplore.⎕NEW'MenuItem'∆
  n.runExplorerInHelpDir.onSelect←'OnStartExplorerInHelpDir'
+
+ ∆←''
+ ∆,←⊂'Caption' '[HOME]\Documents\'
+ ∆,←⊂'Hint' 'Starts Windows Explorer on the given directory'
+ n.runExplorerInHOMEdocuments←n.MenuExplore.⎕NEW'MenuItem'∆
+ n.runExplorerInHOMEdocuments.onSelect←'OnStartExplorerInHOMEdocuments'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Report .NET configurations'
+ ∆,←⊂'Hint' 'Compiles report on the .NET-specific *.JSON files of all versions'
+ n.reportDotNetJSON←n.MenuExplore.⎕NEW'MenuItem'∆
+ n.reportDotNetJSON.onSelect←'OnReportDotNetJSON'
 ⍝Done

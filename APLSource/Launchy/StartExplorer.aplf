@@ -2,6 +2,6 @@
      path←⍵
      parms←##.OS.CreateParms_WinExecute
      parms.file←'Explorer'
-     parms.lpParms←'/e',(~0∊⍴path)/' /select,',F.NormalizePath path
+     parms.lpParms←'/e',(0≠≢path)/' /select,',F.NormalizePath path
      ##.OS.WinExecute parms
  }

@@ -1,0 +1,8 @@
+ OnEditNETbridgeJSONfiles msg;n;rf;path;files;file
+ rf←1⊃msg
+ n←GetRef2n rf
+ G.CurrentAPL←GetCurrentlySelectedAPL
+ path←GetInstallPath G.CurrentAPL
+ files←'Dyalog.Net.Bridge.deps.json' 'Dyalog.Net.Bridge.runtimeconfig.json'
+ 1 EditFileWithNotepad¨path∘,¨files
+ ⍝Done

@@ -1,0 +1,11 @@
+ r←OnStartExplorerInHOMEdocuments dummy;msg;path;parms
+⍝ Start Windows Explorer in the help directory of the currently selected version of Dyalog
+ r←0
+ path←(1⊃⎕NPARTS 2⊃4070⌶0),'Dyalog APL*'
+ path←1⊃F.ListDirs path
+     parms←##.OS.CreateParms_WinExecute
+     parms.file←'Explorer'
+     parms.lpParms←'/e',(0≠≢path)/' /select,',F.NormalizePath path
+     parms.lpParms←' /select,',F.NormalizePath path
+     ##.OS.WinExecute parms
+⍝Done

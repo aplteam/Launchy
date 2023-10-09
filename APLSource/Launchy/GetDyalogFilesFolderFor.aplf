@@ -1,0 +1,4 @@
+ r←GetDyalogFilesFolderFor apl
+⍝ Returns the version-specific Dyalog files folder in [HOME]/Documents/
+ r←(1⊃⎕NPARTS 2⊃4070⌶0),('APL/W'⎕R'APL'⊣apl),' Files'
+⍝Done

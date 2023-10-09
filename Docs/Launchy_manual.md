@@ -137,8 +137,9 @@ The default is used in two scenarios:
 
 ## License, copyright, creator
 
-Launchy was created by Kai Jaeger. It is sponsored by APL Team Ltd. 
+Launchy was created by Kai Jaeger.
 
 Launchy comes with an MIT license.
     
 For details go to <https://github.com/aplteam/Launchy>
+

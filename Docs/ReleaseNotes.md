@@ -3,6 +3,17 @@
 # Launchy Release Notes
 
 
+## 7.7.0 from 2023-10-02
+
+* The "Edit" menu has several new items:
+  * .NET-bridge JSON files
+  * Version-specific dyalog.dcfg file
+  * Version-agnostic dyalog.dcfg file
+
+* The "Explore" menu has new items:
+  * [HOME]\Documents\
+  * Report .NET configurations
+
 ## 7.6.2 from 2023-09-12
 
 * The "Restore defaults" should become active as soon as one of the checkboxes except "Save Command line on quit" is ticked
