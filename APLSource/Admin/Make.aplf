@@ -1,5 +1,5 @@
  Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc
-⍝ Version 2.0.1 ⋄ 2023-04-09
+⍝ Version 2.1.0 ⋄ 2024-01-28
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
@@ -25,6 +25,8 @@
      0 ⎕SAVE ⎕WSID
      M←⎕SE.MakeHelpers
      M.ConvertMarkdownToHtml5(home,'Docs/')(tempFolder,'html/')
+     M.RecreateFolder home,'HTML'
+     (tempFolder,'html/*')M.CopyTo home,'HTML'
      M.##.F.DeleteFile tempFolder,'/html/readme.html'
      (home,'Launchy.ini.RemoveMe')M.CopyTo tempFolder
      (home,'LICENSE')M.CopyTo tempFolder
