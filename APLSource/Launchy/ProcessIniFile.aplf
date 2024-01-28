@@ -1,13 +1,34 @@
- Ini←ProcessIniFile errParms;iniFilename;iniFilename2;msg;rc;more;parms
+ Ini←ProcessIniFile errParms;iniFilename;iniFilename2;msg;rc;more;parms;qdmx;EndIf;q
 ⍝ Process the main INI file (that MUST exist) and then check whether there is also
 ⍝ an INI file for the current machine available. If that is the case, this one
 ⍝ is processed as well. That way one cn overwrite general values with machine
 ⍝ dependent ones.
+ Ini←⍬
  errParms.addToErrMsg←' "ProcessIniFile"'
  iniFilename←∆HomeDir,'\Launchy.ini'
  iniFilename2←∆HomeDir,'\Launchy_',S.GetComputerName,'.ini'
  :If ∧/⎕NEXISTS¨iniFilename iniFilename2
-     Ini←⎕NEW ##.IniFiles(,⊂iniFilename iniFilename2)
+     :Trap 0
+         Ini←⎕NEW ##.IniFiles(,⊂iniFilename iniFilename2)
+     :Else
+         qdmx←⎕DMX
+         :Trap 0
+             Ini←⎕NEW ##.IniFiles(,⊂iniFilename)
+             q←'The INI file:'('   ',iniFilename2)'has a problem, therefore Launchy cannot start.' 'Location is:'
+             q,←('   ',iniFilename2)('(',qdmx.EM,')')''('Edit with Notepad?')
+             :If YesOrNo q
+                 ⎕CMD'notepad ',iniFilename2
+             :EndIf
+             →
+         :Else
+             q←'The INI file:'('   ',iniFilename)'has a problem, therefore Launchy cannot start.' 'Location is:'
+             q,←('   ',iniFilename)('(',qdmx.EM,')')''('Edit with Notepad?')
+             :If YesOrNo q
+                 ⎕CMD'notepad ',iniFilename
+             :EndIf
+             →
+         :EndTrap
+     :EndTrap
  :ElseIf ⎕NEXISTS iniFilename
      Ini←⎕NEW ##.IniFiles(,⊂iniFilename)
  :Else
