@@ -9,11 +9,11 @@
 
 This makes it easy to run any version of Dyalog APL. It also allows...
 
-* setting certain flags like PropertyExposeRoot
+* setting certain flags like `PropertyExposeRoot`
 * specifying the workspace size
 * setting debug flags
 * specifying additional command line parameters
-* running (or ignoring) a user defined setup.dyalog script
+* running (or ignoring) a user defined `setup.dyalog` script
 * starting the APL interpreter in elevated mode (admin rights required)
 * giving the interpreter a Ride.
 
@@ -58,7 +58,7 @@ In case Launchy crashes, for example because of an invalid or missing INI file e
 
 These files, in particular the HTML file but also the workspace, should allow you to identify and fix the problem, which is often caused by invalid adjustments to the INI file.
 
-However, if that does not work for you then please zip those files and send them to kai@aplteam.com. 
+However, if that does not work for you then please zip those files and send them to kai@aplteam.com.
 
 ## The Dyalog bootstrapping process in 19.0 and later
 
@@ -66,17 +66,16 @@ With version 19.0 two new environment variables were introduced: `DYALOGSTARTUPD
 
 ### `DYALOGSTARTUPDEBUG` 
 
-If this is assigned a 1 on the command line Dyalog only traps WS FULL errors during the startup process. Otherwise all errors are trapped.
+If this is assigned a 1 on the command line, Dyalog only traps WS FULL errors during the startup process. Otherwise all errors are trapped.
 
 ### `DYALOGSTARTUPSTOP`
 
 If this is assigned a 1 on the command line Dyalog will stop early in the startup process. This allows a user to trace through the code, typically in order to identify the source of a problem.
 
-Note that on non-Windows platforms the name of the file is case sensitive.
 
 ## Setup.dyalog
 
-If Dyalog finds a file `setup.dyalog` in any of the User Command folders then a function `Setup` within that file is executed. This is perfect for making amendments to your session etc.
+If Dyalog finds a file `setup.dyalog` in any of the User Command folders then a function `Setup` within that file is executed. This can be used for making amendments to your session etc.
 
 ### The check box "Execute setup.dyalog"
 
@@ -120,14 +119,14 @@ Notes:
 
 I keep getting bug reports because drag-and-drop sometimes does not work on the status bar of the session or any GUIs created with `⎕WC`. This is because you have started Dyalog with the check box "Run as admin once" ticked. Microsoft considers drag-and-drop to be too dangerous in such cases, and there is nothing that can be done about this.
 
-However, with version 3.0 the check box "Run admin once" unticks itself, so you cannot forget any more that you've ticked it. 
+However, with version 3.0 the check box "Run admin once" unticks itself after "Launch APL" was pressed, so you cannot forget any more that you've ticked it. 
 
     
 ## Default version
     
 Note that the default version of Dyalog APL to be used is saved on a per-user basis in the Windows Registry.
 
-If there is no such RegKey yet, the first of the list of all installed APLs is defined as default. The user might change this at any time by selecting the appropriate version and then selecting "Make currently selected APL the defaults" from the "Options" menu.
+If there is no such RegKey yet, the first of the list of all installed APLs is defined as default. The user might change this at any time by selecting the appropriate version and then selecting "Make currently selected APL the default" from the "Options" menu.
 
 The default is used in two scenarios:
 
@@ -142,4 +141,5 @@ Launchy was created by Kai Jaeger.
 Launchy comes with an MIT license.
     
 For details go to <https://github.com/aplteam/Launchy>
+
 

@@ -64,5 +64,18 @@
  n.DyalogWSLoadedStop.onSelect←'OnChanged' 'DYALOGWSLOADEDSTOP'
  n.DyalogWSLoadedStop.onKeyPress←'OnStandardKeyPress'
 
+ ∆←''
+ ∆,←⊂'Posn'(hor startAt)
+ hor+←add
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' 'Use .NET Framework'
+ ∆,←⊂'TipObj'n.tip
+∆,←⊂'State' 1
+ n.NET_Framework←n.Form.⎕NEW'Button'∆
+ n.NET_Framework.Tip←''
+ n.NET_Framework.Tip,←⊂'Forces Dyalog to use .NET rather than .NET Framework if not ticked.'
+ n.NET_Framework.onSelect←'OnChanged' 'NET_Framework'
+ n.NET_Framework.onKeyPress←'OnStandardKeyPress'
+
  n←((hor,startAt)add)CreateStartupParms n
 ⍝Done

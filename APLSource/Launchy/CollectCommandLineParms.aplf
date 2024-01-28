@@ -22,6 +22,9 @@
  :If n.DyalogWSLoadedStop.State
      parms,←⊂'DYALOGWSLOADEDSTOP=1'
  :EndIf
+ :If ~n.NET_Framework.State
+     parms,←⊂'DYALOG_NETCORE=1'
+ :EndIf
  parms,←⊂'-exec_setup=',⍕n.ExecMySetup.State
  clp1←GetCommandLineParmsFromINI                ⍝ INI definition (if any)
  parms,←clp1

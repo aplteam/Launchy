@@ -26,9 +26,11 @@
      n.DYALOGSTARTUPDEBUG.BCol←ColorCode×n.DYALOGSTARTUPDEBUG.State≢0
  :Case 'DYALOGSTARTUPSTOP'
      n.DYALOGSTARTUPSTOP.BCol←ColorCode×n.DYALOGSTARTUPSTOP.State≢0
+ :Case 'NET_Framework'
+     n.NET_Framework.BCol←ColorCode×n.NET_Framework.State≢1
  :Else
      .    ⍝ Not yet
  :EndSelect
- l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop DYALOGSTARTUPDEBUG DYALOGSTARTUPSTOP)
+ l←n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop DYALOGSTARTUPDEBUG NET_Framework)
  n.reset.Active←∨/0<+/¨l.BCol
 ⍝Done

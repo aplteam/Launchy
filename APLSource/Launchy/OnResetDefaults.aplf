@@ -2,7 +2,7 @@
 ⍝ Restore all defaults
      n.wssize.SelItems←n.wssize.Items≡¨⊂Ini.WSSIZE.default
      n.debug.SelItems←Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list
-     n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop RIDEflag DYALOGSTARTUPDEBUG DYALOGSTARTUPSTOP).BCol←0
+     n.(AplVersionGroup wssize_Label DebugGroup RIDEflag runAsAdmin ExecMySetup StopSetup DyalogWSLoadedStop RIDEflag DYALOGSTARTUPDEBUG DYALOGSTARTUPSTOP NET_Framework).BCol←0
      n.RIDEflag.State←Ini.RIDE.tick
      n.StopSetup.State←0
      n.DyalogWSLoadedStop.State←0
@@ -10,8 +10,10 @@
      n.statusbarMsg.Text←'APL, WSSIZE and debug flags back on defaults'
      n.reset.Active←0
      n.runAsAdmin.State←0
+     n.NET_Framework.State←1
      _←CheckRide n
      n.DYALOGSTARTUPDEBUG.State←0
+     n.DYALOGSTARTUPSTOP.State←0
      n.DYALOGSTARTUPSTOP.State←0
      ⍬
 ⍝Done

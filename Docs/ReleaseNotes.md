@@ -3,6 +3,10 @@
 # Launchy Release Notes
 
 
+## 7.8.0 from 2024-01-08
+
+* Check box "Use .NET Framework" added, which is ticked by default.
+
 ## 7.7.0 from 2023-10-02
 
 * The "Edit" menu has several new items:
@@ -131,5 +135,6 @@ With this version you can set both parameters.
   While `[WSL_CMD]` is used to set certain WSL-specific parameters, `[WSL_SET]` is passed onto the command line. For example, specifying `files=30` in this section lets Launchy add `files=30` to the command line.
 
 * To keep WSL and standard APL in sync a new section `[STD_SET]` has been invented  which may contain parameters that are supposed to go onto the command for Windows versions of Dyalog.
+
 
 

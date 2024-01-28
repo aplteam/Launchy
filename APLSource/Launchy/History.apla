@@ -1,4 +1,6 @@
 (
+ '* 7.8.0 from 2024-01-28'
+ '  New parameter `DYALOG_NETCORE` added to the list of check boxes'
  '* 7.7.0 from 2023-10-02'
  '  * Menu item added allowing to edit the version-specific JSON files in [DYALOG] associated with the .NET bridge'
  '  * Menu items added that allow editing the Dyalog config files in its default locations'
