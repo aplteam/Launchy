@@ -18,15 +18,27 @@
              q,←('   ',iniFilename2)('(',qdmx.EM,')')''('Edit with Notepad?')
              :If YesOrNo q
                  ⎕CMD'notepad ',iniFilename2
+             :Else
+                 →
              :EndIf
-             →
+             :If YesOrNo'Would you like to try to start Launchy again?'
+                 →1
+             :Else
+                 →
+             :EndIf
          :Else
              q←'The INI file:'('   ',iniFilename)'has a problem, therefore Launchy cannot start.' 'Location is:'
              q,←('   ',iniFilename)('(',qdmx.EM,')')''('Edit with Notepad?')
              :If YesOrNo q
                  ⎕CMD'notepad ',iniFilename
+             :Else
+                 →
              :EndIf
-             →
+             :If YesOrNo'Would you like to try to start Launchy again?'
+                 →1
+             :Else
+                 →
+             :EndIf
          :EndTrap
      :EndTrap
  :ElseIf ⎕NEXISTS iniFilename
