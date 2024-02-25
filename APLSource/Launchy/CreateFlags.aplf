@@ -70,10 +70,10 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Use .NET Framework'
  ∆,←⊂'TipObj'n.tip
-∆,←⊂'State' 1
+ ∆,←⊂'State' 1
  n.NET_Framework←n.Form.⎕NEW'Button'∆
  n.NET_Framework.Tip←''
- n.NET_Framework.Tip,←⊂'Forces Dyalog to use .NET rather than .NET Framework if not ticked.'
+ n.NET_Framework.Tip,←'Uses the .NET Framework rather than .NET' 'Passes command line parameter "DYALOG_NETCORE"'
  n.NET_Framework.onSelect←'OnChanged' 'NET_Framework'
  n.NET_Framework.onKeyPress←'OnStandardKeyPress'
 

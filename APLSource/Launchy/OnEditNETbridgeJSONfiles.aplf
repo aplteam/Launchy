@@ -4,5 +4,5 @@
  G.CurrentAPL←GetCurrentlySelectedAPL
  path←GetInstallPath G.CurrentAPL
  files←'Dyalog.Net.Bridge.deps.json' 'Dyalog.Net.Bridge.runtimeconfig.json'
- 1 EditFileWithNotepad¨path∘,¨files
+ 1 EditFileWithNotepad path∘,¨files
  ⍝Done

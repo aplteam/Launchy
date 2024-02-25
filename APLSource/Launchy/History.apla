@@ -1,4 +1,8 @@
 (
+ '* 7.9.0 from 2024-02-25'
+ '  * Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two '
+ '    requests for Admin rights and offer one window with two tabs rather than two Windows.'
+ '  * Tips and Hints improved.'
  '* 7.8.0 from 2024-01-28'
  '  * New parameter `DYALOG_NETCORE` added to the list of check boxes'
  '  * Invalid INI files are now handled in a much more user friendly manner'

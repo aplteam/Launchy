@@ -21,7 +21,7 @@
 
  ∆←''
  ∆,←⊂'Caption' '.NET-bridge JSON files'
- ∆,←⊂'Hint' 'Requires ADMIN rights to change those two files'
+ ∆,←⊂'Hint' 'Version specific. Requires ADMIN rights for a change'
  n.editNETbridgeJSONfiles←n.MenuEdit.⎕NEW'MenuItem'∆
  n.editNETbridgeJSONfiles.onSelect←'OnEditNETbridgeJSONfiles'
 

@@ -5,7 +5,7 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'No trapping in StartUp script'
  ∆,←⊂'TipObj'n.tip
- ∆,←⊂'Tip'('Very early; 19.0 and better only')
+ ∆,←⊂'Tip'('19.0 and better only' 'Honoured very early')
  n.DYALOGSTARTUPDEBUG←n.Form.⎕NEW'Button'∆
  n.DYALOGSTARTUPDEBUG.Posn←posn
  n.DYALOGSTARTUPDEBUG.onSelect←'OnDYALOGSTARTUPDEBUG'
@@ -16,7 +16,7 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' 'Stop within StartUp script'
  ∆,←⊂'TipObj'n.tip
- ∆,←⊂'Tip'('Very early; 19.0 and better only')
+ ∆,←⊂'Tip'('19.0 and better only' 'Honoured very early')
  n.DYALOGSTARTUPSTOP←n.Form.⎕NEW'Button'∆
  n.DYALOGSTARTUPSTOP.Posn←posn
  n.DYALOGSTARTUPSTOP.onSelect←'OnDYALOGSTARTUPSTOP'

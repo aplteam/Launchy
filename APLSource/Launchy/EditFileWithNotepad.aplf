@@ -1,9 +1,10 @@
- {r}←{asAdmin}EditFileWithNotepad filename;parms
+ {r}←{asAdmin}EditFileWithNotepad filenames;parms
  r←0
+ filenames←⊆filenames
  asAdmin←{0<⎕NC ⍵:⍎⍵ ⋄ 0}'asAdmin'
  parms←##.OS.CreateParms_WinExecute
  parms.verb←'OPEN'
  parms.file←'Notepad.exe'
- parms.lpParms←'"',(filename~'"'),'"'
+ parms.lpParms←⊃,/' "'∘,¨'"',⍨¨filenames
  {}asAdmin ##.OS.WinExecute parms
 ⍝Done
