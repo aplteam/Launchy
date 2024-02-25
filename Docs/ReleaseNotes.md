@@ -3,6 +3,11 @@
 # Launchy Release Notes
 
 
+## 7.9.0 from 2024-02-25
+
+* Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two requests for Admin rights, and offers one window with two tabs rather than two Windows.
+* Tips and Hints improved.
+
 ## 7.8.0 from 2024-01-08
 
 * Check box "Use .NET Framework" added, which is ticked by default.
@@ -136,6 +141,7 @@ With this version you can set both parameters.
   While `[WSL_CMD]` is used to set certain WSL-specific parameters, `[WSL_SET]` is passed onto the command line. For example, specifying `files=30` in this section lets Launchy add `files=30` to the command line.
 
 * To keep WSL and standard APL in sync a new section `[STD_SET]` has been invented  which may contain parameters that are supposed to go onto the command for Windows versions of Dyalog.
+
 
 
 
