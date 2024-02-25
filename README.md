@@ -12,7 +12,7 @@ If your are like me then you have about 16 versions of Dyalog installed, and you
 * specifying the workspace size
 * setting debug flags
 * specifying additional command line parameters
-* running (or ignoring) a user define setup.dyalog script
+* running (or ignoring) a user defined `setup.dyalog` script
 * starting the APL interpreter in elevated mode (admin rights required)
 * giving the interpreter a Ride
 
@@ -27,6 +27,8 @@ In addition to its main goal **_Launchy_** offers these features:
   * the installation directory of the currently selected version of Dyalog
   * the help directory of the currently selected version of Dyalog
 * Edit **_Launchy_**'s INI file(s)
+* Edit version-specific or -agnostic files `config.dcfg` for the currently selected version of Dyalog
+* Start the Registry editor for the currently selected version of Dyalog.
 
 
 ## Preconditions
@@ -39,3 +41,4 @@ In addition to its main goal **_Launchy_** offers these features:
 * Have a look at the "launchy_manual.html" file which provides details. This file will be shown in your default browser by pressing F1 in **_Launchy_** or by selecting "Help > Help on Launchy" from Launchy's menu bar.
 
 * Pay attention to the INI file which should be self-explanatory for programmers.
+
