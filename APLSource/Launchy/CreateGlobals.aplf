@@ -1,5 +1,5 @@
- {r}←CreateGlobals Ini;_
- r←⍬
+ {success}←CreateGlobals Ini;_
+ success←1
  ⎕EX'G'
  G←⎕NS''
  G.Home←∆HomeDir
@@ -8,18 +8,20 @@
  G.RestoreDefaults←0 R.GetValue GetAplLauncherRegistryKey,'RestoreDefaults'
  G.ShowCMD←0 R.GetValue GetAplLauncherRegistryKey,'ShowCmd'
  G.SE_FontSize←GetProperAPL_FontSize
- G.AplVersions←GetInstalledAPLs ⍬
- :If ','∊G.CMDs←''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
-     G.CMDs←','U.Split G.CMDs
-     G.CMDs←(0<≢¨G.CMDs)/G.CMDs
-     G.CMDs←⊃{⍺,' ',⍵}/G.CMDs
+ success←0<≢G.AplVersions←GetInstalledAPLs ⍬
+ :If success
+     :If ','∊G.CMDs←''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'
+         G.CMDs←','U.Split G.CMDs
+         G.CMDs←(0<≢¨G.CMDs)/G.CMDs
+         G.CMDs←⊃{⍺,' ',⍵}/G.CMDs
+     :EndIf
+     G.Default←GetDefaultFromRegistry G.AplVersions
+     :If 0=≢G.RideVersions←Find_RIDE_Versions Ini
+         G.RideVersion←''
+     :Else
+         G.RideVersion←2⊃⊢⌿G.RideVersions
+     :EndIf
+     G.Iconify←Ini.CONFIG.iconify R.GetValue GetAplLauncherRegistryKey,'Iconify'
+     {}GetWinCoords G.Default
  :EndIf
- G.Default←GetDefaultFromRegistry G.AplVersions
- :If 0=≢G.RideVersions←Find_RIDE_Versions Ini
-     G.RideVersion←''
- :Else
-     G.RideVersion←2⊃⊢⌿G.RideVersions
- :EndIf
- G.Iconify←Ini.CONFIG.iconify R.GetValue GetAplLauncherRegistryKey,'Iconify'
- {}GetWinCoords G.Default
 ⍝Done

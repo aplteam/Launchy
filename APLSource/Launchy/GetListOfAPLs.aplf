@@ -6,10 +6,11 @@
  list←'APL/W '⎕R'APL/W-32 '⊣list
  default←G.AplVersions≡¨⊂G.Default
  :If 0≠≢list←'[0-9]$'⎕R'& Classic'⊣list
-     list←list[ind←⍒(↑list)[;14 15]]
+     ind←⍒(↑list)[;14 15]
+     list←list[ind]
      default←default[ind]
      orig←orig[ind]
-     list←list[ind←⍒↑(-⍴'Unicode')↑¨list]
+     list←list[ind←⍒↑(-≢'Unicode')↑¨list]
      default←default[ind]
      orig←orig[ind]
      :If 0<+/default

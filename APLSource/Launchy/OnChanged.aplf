@@ -1,4 +1,7 @@
- OnChanged←{
+ {r}←type OnChanged msg;ref;n
 ⍝
-     CheckDefaults ⍺
- }
+ ref←1⊃msg
+ n←GetRef2n ref
+ n.editNETbridgeJSONfiles.Active←~ref.State
+ r←CheckDefaults type
+ ⍝Done

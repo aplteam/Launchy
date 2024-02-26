@@ -16,8 +16,9 @@
  :EndIf
  'Create!'F.CheckPath #.ErrorParms.errorFolder
  ⎕TRAP←##.HandleError.SetTrap'#.ErrorParms'
- Ini←Init2 #.ErrorParms
- n←CreateGui testFlag
- n.∆Port←Ini.RIDE.port
- DQ'.'
+ :If 0<≢Ini←Init2 #.ErrorParms
+     n←CreateGui testFlag
+     n.∆Port←Ini.RIDE.port
+     DQ'.'
+ :EndIf
 ⍝Done

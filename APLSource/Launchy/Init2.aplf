@@ -1,7 +1,10 @@
  Ini←Init2 errorParms;msg
 ⍝ Establish a couple of essentials
  Ini←ProcessIniFile errorParms
- CreateGlobals Ini
- {}SetScaledPixel ⍬
- ∆AskForCommandLineParms←1
+ :If CreateGlobals Ini
+     {}SetScaledPixel ⍬
+     ∆AskForCommandLineParms←1
+ :Else
+     Ini←⍬
+ :EndIf
 ⍝Done

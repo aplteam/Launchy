@@ -35,7 +35,7 @@
     ⍝ "type" can be either a simple string or a vector of strings.
       ⎕ML←3
       refs←' '~¨⍨↓⎕NL 9
-      r←↑{6 2::'-' '' ⋄ rf←⍎⍵ ⋄ (⊂⍵),(⊂rf.Type),(⊂{0::'' ⋄ ⍵.Caption}rf)}¨refs
+      r←⊃{6 2::'-' '' ⋄ rf←⍎⍵ ⋄ (⊂⍵),(⊂rf.Type),(⊂{0::'' ⋄ ⍵.Caption}rf)}¨refs
       :If 0≠≢type
           type←{(,∘⊂∘,⍣(1=≡,⍵))⍵}type
           bool←({0::'' ⋄ ⍵.Type}∘⍎¨refs)∊type

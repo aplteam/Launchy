@@ -3,7 +3,9 @@
 ⍝ Dyalog are installed on the current machine
  :If 0∊≢list←R.GetAllSubKeyNames'Software\Dyalog'
  :OrIf 0∊≢list←(50<⊃∘⍴¨R.GetAllValueNames¨(⊂'Software\Dyalog\'),¨list)/list
-     msg←⊂'No version of Dyalog was found'
+     msg←''
+     msg,←⊂'No version of Dyalog was found.'
+     msg,←⊂'Launchy cannot continue'
      msg,←⊂''
      msg,←⊂'In case you have just installed Dyalog'
      msg,←⊂'you might need to reboot your machine now.'

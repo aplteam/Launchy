@@ -15,6 +15,7 @@
      n.DYALOGSTARTUPDEBUG.State←0
      n.DYALOGSTARTUPSTOP.State←0
      n.DYALOGSTARTUPSTOP.State←0
+     n.editNETbridgeJSONfiles.Active←~n.NET_Framework.State
      ⍬
 ⍝Done
  }
