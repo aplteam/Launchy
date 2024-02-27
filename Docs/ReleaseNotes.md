@@ -3,10 +3,12 @@
 # Launchy Release Notes
 
 
-## 7.9.0 from 2024-02-25
+## 7.9.0 from 2024-02-27
 
 * Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two requests for Admin rights, and offers one window with two tabs rather than two Windows.
 * Tips and Hints improved.
+* Toggling "Use .NET Framework" toggles the "Active" property of the menu item "Edit > .NET bridge JSON files"
+* Ini section [FONT] removed from the INI file template and the code: not used anymore anywhere
 
 ## 7.8.0 from 2024-01-08
 

@@ -7,7 +7,6 @@
  G.ShowTips←1 R.GetValue GetAplLauncherRegistryKey,'ShowTips'
  G.RestoreDefaults←0 R.GetValue GetAplLauncherRegistryKey,'RestoreDefaults'
  G.ShowCMD←0 R.GetValue GetAplLauncherRegistryKey,'ShowCmd'
- G.SE_FontSize←GetProperAPL_FontSize
  success←0<≢G.AplVersions←GetInstalledAPLs ⍬
  :If success
      :If ','∊G.CMDs←''R.GetString GetAplLauncherRegistryKey,'CommandLineArgs'

@@ -10,9 +10,9 @@ CommandLine = ''
 options     =   '32MB,64MB,128MB,256MB,512MB,1G,2G,4G'
 default     =   '64MB'
 
-[FONT]          ; Make sure that these settings reflect your setting in []SE!
+[FONT]          ; Used internally only - not passed on
 name        =   'APL385 Unicode'
-size        =   19
+size        =   20
 
 [EXEC_SETUP]         ; Decides whether the option "Execute Setup.dyalog" is ticked or not
 default     = 1

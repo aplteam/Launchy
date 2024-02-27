@@ -1,79 +1,83 @@
-* 7.9.0 from 2024-02-26
-  * Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two 
-    requests for Admin rights and offer one window with two tabs rather than two Windows.
-  * Toggling "Use .NET Framework" toggles the "Active" property of the menu item "Edit > .NET bridge JSON files"
-  * Tips and Hints improved.
-* 7.8.0 from 2024-01-28
-  * New parameter `DYALOG_NETCORE` added to the list of check boxes
-  * Invalid INI files are now handled in a much more user friendly manner
-  * Bug fix: both user manual and release notes were not updated in recent versions
-* 7.7.0 from 2023-10-02
-  * Menu item added allowing to edit the version-specific JSON files in [DYALOG] associated with the .NET bridge
-  * Menu items added that allow editing the Dyalog config files in its default locations
-  * Menu item added: Explore > Report .NET configurations       
-* 7.6.2 from 2023-09-12
-  The "Restore defaults" button did not always became active when it should.
-* 7.6.1 from 2023-09-11
-  * Bug fixes
-    * The "Ask for Ride" checkbox was shadowed by other check boxes
-    * The "DyalogWSLoadedStop" check box had no effect
-    * The "Restore Defaults" button restored all but two defaults
-* 7.6.0 from 2023-05-17
-  * New command line options added : `DYALOGSTARTUPSTOP` & `DYALOGSTARTUPDEBUG` (19.0 and better)
-  * Bug fix: creating a Link on the desktop for starting Dyalog failed under some circumstances
-* 7.5.1 from 2023-04-09
-  * Bug fix: Ride did not refer to a specific config file when specified in the Launchy INI file
-  * Packages updated
-  * `Make` updated
-* 7.5.0 from 2022-10-09
-  * New button added: "Create shortcut (LNK)". 
-  * Bug fixes
-    * The build list as well as the dependency file for both package folders contained superfluous "/"
-    * The image embedded into README.md pointed to the "master" branch rather than "main".
-  * Internal change: "Make" updated to using `MakeHelpers`
-* 7.4.1 from 2022-03-23
-  * The INI entry [CONFIG]workdir and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry [CONFIG]workdir was not empty.
-  * Bug fixes: 
-    * The Help file and the release notes both did not show.
-    * The build number was shown in Launchy's own caption. Should only happen in development.
-    * "Check for updates" did not work anymore. Introduced with 7.4.0
-* 7.4.0 from 2022-03-21
-  * The command line combo box got replaced by an edit field and a check box "Save on Quit"
-  * The feature to display the command line is active only when something is entered into the
-    "Command line parameters" field, not when something for the command line comes from the INI.
-  * Keyboard shortcuts added/improved
-  * Bug fixes
-    * The "Run as admin once" check box was not reset in terms of colour
-    * Some tips were not displayed
-    * Toggling tips did not work anymore
-* 7.3.0 from 2021-10-05
-  * New options "DYALOGWSLOADEDSTOP" added as a check box
-  * Drawing attention to non-default settings was defeated by the Windows themes strategy. Now back.
-    This includes the button "Restore defaults" being functional again
-  * Bug fixes
-    * Only the main INI file was put on display when the menu command "Edit > Launchy's INI file(s)" 
-      was selected
-    * Now superfluous INI entries removed (F32, 5977, MYUCMDS)
-* 7.2.0 from 2021-07-09
-  * New INI entry "CommandLine" that allows nested structures
-  * Bug fixes:
-    * Field for WSSIZE was too small for thre-digit  figures like "256MB".
-* 7.1.1 from 2021-04-01
-  * Version 7.1.0 introduced a bug: both command line parameter `stop_in_setup` and `exec_setup=0` were
-    not provided with a leading hyphen as they should.
-* 7.1.0 from 2021-03-29
-  * WSL removed from Launchy
-  * GUI overhauled
-  * Couple of minor bug fixes
-* 7.0.3 from 2020-08-21
-  * WSL-options regarding setup.dyalog and command line parameters were buggy.
-* 7.0.2 from 2020-08-16
-  * Launchy crashed on machines with no WSL installed.
-* 7.0.1 from 2020-07-26
-  * Launchy crashed in case the APL that was selected as default disappeared.
-  * With WSL, only versions better than 17.0 may be started since 17.0 does not work.
-* 7.0.0 from 2020-07-16
-  * Launchy can now start Dyalog from any Linux version installed in WSL. Well, any translates to
-    "Ubuntu only" for the time being.
-
-For information regarding older versions see <https://github.com/aplteam/Launchy/releases>
+(
+ '* 7.9.0 from 2024-02-26'
+ '  * Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two '
+ '    requests for Admin rights and offer one window with two tabs rather than two Windows.'
+ '  * Toggling "Use .NET Framework" toggles the "Active" property of the menu item "Edit > .NET bridge JSON files"'
+ '  * Tips and Hints improved.'
+ '* 7.8.0 from 2024-01-28'
+ '  * New parameter `DYALOG_NETCORE` added to the list of check boxes'
+ '  * Invalid INI files are now handled in a much more user friendly manner'
+ '  * Bug fix: both user manual and release notes were not updated in recent versions'
+ '* 7.7.0 from 2023-10-02'
+ '  * Menu item added allowing to edit the version-specific JSON files in [DYALOG] associated with the .NET bridge'
+ '  * Menu items added that allow editing the Dyalog config files in its default locations'
+ '  * Menu item added: Explore > Report .NET configurations       '
+ '* 7.6.2 from 2023-09-12'
+ '  The "Restore defaults" button did not always became active when it should.'
+ '* 7.6.1 from 2023-09-11'
+ '  * Bug fixes'
+ '    * The "Ask for Ride" checkbox was shadowed by other check boxes'
+ '    * The "DyalogWSLoadedStop" check box had no effect'
+ '    * The "Restore Defaults" button restored all but two defaults'
+ '* 7.6.0 from 2023-05-17'
+ '  * New command line options added : `DYALOGSTARTUPSTOP` & `DYALOGSTARTUPDEBUG` (19.0 and better)'
+ '  * Bug fix: creating a Link on the desktop for starting Dyalog failed under some circumstances'
+ '* 7.5.1 from 2023-04-09'
+ '  * Bug fix: Ride did not refer to a specific config file when specified in the Launchy INI file'
+ '  * Packages updated'
+ '  * `Make` updated'
+ '* 7.5.0 from 2022-10-09'
+ '  * New button added: "Create shortcut (LNK)". '
+ '  * Bug fixes'
+ '    * The build list as well as the dependency file for both package folders contained superfluous "/"'
+ '    * The image embedded into README.md pointed to the "master" branch rather than "main".'
+ '  * Internal change: "Make" updated to using `MakeHelpers`'
+ '* 7.4.1 from 2022-03-23'
+ '  * The INI entry [CONFIG]workdir and the menu command “Explore work dir” were both removed. The menu command showed only when the (now removed) INI entry [CONFIG]workdir was not empty.'
+ '  * Bug fixes: '
+ '    * The Help file and the release notes both did not show.'
+ '    * The build number was shown in Launchy''s own caption. Should only happen in development.'
+ '    * "Check for updates" did not work anymore. Introduced with 7.4.0'
+ '* 7.4.0 from 2022-03-21'
+ '  * The command line combo box got replaced by an edit field and a check box "Save on Quit"'
+ '  * The feature to display the command line is active only when something is entered into the'
+ '    "Command line parameters" field, not when something for the command line comes from the INI.'
+ '  * Keyboard shortcuts added/improved'
+ '  * Bug fixes'
+ '    * The "Run as admin once" check box was not reset in terms of colour'
+ '    * Some tips were not displayed'
+ '    * Toggling tips did not work anymore'
+ '* 7.3.0 from 2021-10-05'
+ '  * New options "DYALOGWSLOADEDSTOP" added as a check box'
+ '  * Drawing attention to non-default settings was defeated by the Windows themes strategy. Now back.'
+ '    This includes the button "Restore defaults" being functional again'
+ '  * Bug fixes'
+ '    * Only the main INI file was put on display when the menu command "Edit > Launchy''s INI file(s)" '
+ '      was selected'
+ '    * Now superfluous INI entries removed (F32, 5977, MYUCMDS)'
+ '* 7.2.0 from 2021-07-09'
+ '  * New INI entry "CommandLine" that allows nested structures'
+ '  * Bug fixes:'
+ '    * Field for WSSIZE was too small for thre-digit  figures like "256MB".'
+ '* 7.1.1 from 2021-04-01'
+ '  * Version 7.1.0 introduced a bug: both command line parameter `stop_in_setup` and `exec_setup=0` were'
+ '    not provided with a leading hyphen as they should.'
+ '* 7.1.0 from 2021-03-29'
+ '  * WSL removed from Launchy'
+ '  * GUI overhauled'
+ '  * Couple of minor bug fixes'
+ '* 7.0.3 from 2020-08-21'
+ '  * WSL-options regarding setup.dyalog and command line parameters were buggy.'
+ '* 7.0.2 from 2020-08-16'
+ '  * Launchy crashed on machines with no WSL installed.'
+ '* 7.0.1 from 2020-07-26'
+ '  * Launchy crashed in case the APL that was selected as default disappeared.'
+ '  * With WSL, only versions better than 17.0 may be started since 17.0 does not work.'
+ '* 7.0.0 from 2020-07-16'
+ '  * Launchy can now start Dyalog from any Linux version installed in WSL. Well, any translates to'
+ '    "Ubuntu only" for the time being.'
+ ''
+ 'For information regarding older versions see <https://github.com/aplteam/Launchy/releases>'
+ ''
+ ''
+)
