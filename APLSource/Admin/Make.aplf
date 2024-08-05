@@ -13,7 +13,7 @@
      tempFolder←(M.##.F.GetTempSubDir name),'/'
     ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
      M.RecreateFolder targetPath
-     M.IncreaseBuildIDInFunction'#.',name,'.',name,'.Version'
+     {}M.IncreaseBuildIDInFunction'#.',name,'.',name,'.Version'
      {}⎕SE.Cider.CloseProject''  ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
      ⎕EX'M'
