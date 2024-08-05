@@ -21,7 +21,7 @@
 
  ∆←''
  ∆,←⊂'Caption' '.NET-bridge JSON files'
- ∆,←⊂'Hint' 'Version specific. .NET only (not Framework!)'
+ ∆,←⊂'Hint' 'Define .NET version to be used (NOT with .NET Framework)'
  n.editNETbridgeJSONfiles←n.MenuEdit.⎕NEW'MenuItem'∆
  n.editNETbridgeJSONfiles.onSelect←'OnEditNETbridgeJSONfiles'
 

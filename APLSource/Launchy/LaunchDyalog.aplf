@@ -9,9 +9,6 @@
      parms←##.OS.CreateParms_WinExecute
      parms.file←p,'Dyalog.exe'
      (parms.lpParms flag)←n CollectCommandLineParms port
-     :If 0≠port
-         parms.lpParms←('RIDE_INIT=SERVE::',(⍕port)),' ',parms.lpParms   ⍝ Make it listen to ride
-     :EndIf
      parms.lpParms,←{0=≢⍵:⍵ ⋄ ⊂' ',⍵}workspace                           ⍝ ⍺ might be a workspace name
      parms.lpDirectory←ExecuteIn ¯1↓⊃⎕NPARTS parms.file
      parms.lpDirectory{F.IsDir ⍺:⍺ ⋄ ⍵}←''                               ⍝ Flatten in case the directory does not exist
