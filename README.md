@@ -4,9 +4,11 @@
 
 ## Overview
 
-**_Launchy_** is useful for people with several versions of Dyalog installed on their Windows machine(s). 
+Originally, **_Launchy_** was designed to be useful for people with multiple versions of Dyalog installed on their Windows machine(s). 
 
-If your are like me then you have about 16 versions of Dyalog installed, and you need different versions for different projects / clients. **_Launchy_** simplifies the process of firing up an instance of Dyalog as well as making adjustments like...
+However, over the years it evolved into an all-singing-all-dancing tool that allows to manipulate all sorts of parameters, so it's now a useful tool even if you have ony a single version of Dyalog installed on your machine.
+
+**_Launchy_** simplifies the process making adjustments like...
 
 * setting certain flags like `PropertyExposeRoot` and others
 * specifying the workspace size
@@ -41,4 +43,5 @@ In addition to its main goal **_Launchy_** offers these features:
 * Have a look at the "launchy_manual.html" file which provides details. This file will be shown in your default browser by pressing F1 in **_Launchy_** or by selecting "Help > Help on Launchy" from Launchy's menu bar.
 
 * Pay attention to the INI file which should be self-explanatory for programmers.
+
 
