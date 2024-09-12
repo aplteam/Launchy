@@ -1,4 +1,7 @@
 (
+ '* 7.10.0 from 2024-09-12'
+ '  * Bug fixes'
+ '    * Updating did not work'
  '* 7.9.0 from 2024-08-05'
  '  * Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two '
  '    requests for Admin rights and offer one window with two tabs rather than two Windows'

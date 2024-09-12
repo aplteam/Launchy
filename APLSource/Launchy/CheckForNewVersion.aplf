@@ -1,30 +1,32 @@
  {r}←CheckForNewVersion dummy;tag;msg;rc;dmx;api;flag;url
  r←⍬
- api←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
- :Trap 0
-     tag←api.GetLatestTag'Launchy'
- :Else
-     TellCommunicationWithGitHubFailed'Launchy'
-     :Return
- :EndTrap
- flag←api.CheckForUpdate'Launchy'({⍵↑⍨¯1+⌊/⍵⍳'+-'}2⊃Version)
- :If ~flag
-     TellLaunchyIsUp2Date ⍬
- :Else
-     msg←⊂'There is a better version available on GitHub.'
-     msg,←'' 'Would you like to download this version?'
-     :If YesOrNo msg
-         :Trap 0
-             url←api.GetRelease'Launchy' 'EXE'
-         :Else
-             dmx←⎕DMX
-             TellCommunicationWithGitHubFailed'Launchy'
-             :Return
-         :EndTrap
-         :If 0=≢url
-             n TellErrorWhileCheckingForBetterVersion''
-         :Else
-             A.GoToWebPage url
+ :If CheckNetInterface
+     api←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
+     :Trap 0
+         tag←api.GetLatestTag'Launchy'
+     :Else
+         TellCommunicationWithGitHubFailed'Launchy'
+         :Return
+     :EndTrap
+     flag←api.CheckForUpdate'Launchy'({⍵↑⍨¯1+⌊/⍵⍳'+-'}2⊃Version)
+     :If ~flag
+         TellLaunchyIsUp2Date ⍬
+     :Else
+         msg←⊂'There is a better version available on GitHub.'
+         msg,←'' 'Would you like to download this version?'
+         :If YesOrNo msg
+             :Trap 0
+                 url←api.GetRelease'Launchy' 'EXE'
+             :Else
+                 dmx←⎕DMX
+                 TellCommunicationWithGitHubFailed'Launchy'
+                 :Return
+             :EndTrap
+             :If 0=≢url
+                 n TellErrorWhileCheckingForBetterVersion''
+             :Else
+                 A.GoToWebPage url
+             :EndIf
          :EndIf
      :EndIf
  :EndIf
