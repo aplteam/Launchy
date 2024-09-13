@@ -1,8 +1,9 @@
  Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc
-⍝ Version 2.1.0 ⋄ 2024-01-28
+⍝ Version 2.2.0 ⋄ 2024-09-13
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
+     'Wrong version'⎕SIGNAL 11/⍨19≠⊃(//)⎕VFI{⍵/⍨2>+\⍵='.'}2⊃#.APLVersion  ⍝ You may change this, but you might need to change the Conga & Bridge DLLs as well
  :AndIf ##.TestCases.CommTools.YesOrNo'Sure you want to create a new version? (The WS will be destroyed in the process)'
      home←##.CiderConfig.HOME,'/'
      targetPath←home,'Dist/'
@@ -22,6 +23,7 @@
      ⎕LX←'#.Launchy.Run 0'
      '#.Launchy.Launchy'#.⎕CY ⎕WSID
      {}⎕SE.Tatin.LoadDependencies(home,'packages/')#  ⍝ Yes, this IS correct: we reorganize the WS
+     'Conga'#.⎕CY'Conga'
      0 ⎕SAVE ⎕WSID
      M←⎕SE.MakeHelpers
      M.ConvertMarkdownToHtml5(home,'Docs/')(tempFolder,'html/')

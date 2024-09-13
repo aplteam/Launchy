@@ -31,6 +31,7 @@ Compression=lzma
 SolidCompression=yes
 SetupIconFile={#MyAppIcoName}
 PrivilegesRequired=admin
+AppMutex=LaunchyMutex
 
 
 [Languages]
@@ -49,14 +50,12 @@ Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion ;
 
 ; The .NET files are needed for the "Check for updates" menu command
 ; Note: *** they need to fit to the APL version uses ***
-Source: "bridge182_unicode.dll"; DestDir: "{app}";
-Source: "Dyalog.Net.Bridge.dll"; DestDir: "{app}"     
-Source: "Dyalog.Net.Bridge.Host.dll"; DestDir: "{app}"     
-Source: "dyalognet.dll"; DestDir: "{app}"     
+Source: "bridge190-64_unicode.dll"; DestDir: "{app}";
+Source: "dyalognet.dll"; DestDir: "{app}";
 
-; The Conga DLLs are needed for "Check for updates"
-; ↓↓↓
-Source: "Conga*.dll"; DestDir: "{app}";
+; The Conga DLLs are required for "Check for updates" (and potentially a Ride)
+Source: "conga35ssl64.dll"; DestDir: "{app}";
+Source: "conga35_64.dll"; DestDir: "{app}";
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files!
 

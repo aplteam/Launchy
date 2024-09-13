@@ -1,0 +1,13 @@
+ success←CheckNetInterface;rc;loaded;msg;errMsg
+ (rc loaded errMsg)←3↑2250⌶0
+ :If 2 1≡rc loaded
+     success←1
+ :Else
+     success←0
+     msg←⊂'.NET Interface is not available, therefore the check for a new version cannot be carried out'
+     :If 0<≢errMsg
+         msg,←⊂'(',({1=≡⍵:⍵ ⋄ 1⊃,⍵}errMsg),')'
+     :EndIf
+     #.CursorObj←0
+     {}'Launchy update check'ShowMsg2 msg
+ :EndIf

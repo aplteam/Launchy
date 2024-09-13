@@ -3,7 +3,13 @@
 # Launchy Release Notes
 
 
-## 7.9.0 from 2024-08-5
+## 7.10.0 from 2024-09-13
+
+* The auto-update feature works again, though that won't make a difference until a later version than 7.10.0 comes along
+* The message provided in case of a missing INI file has been improved
+* Check for updates now checks for the .NET interface to be loaded properly, and tells the user if it is not
+
+## 7.9.0 from 2024-08-05
 
 * Editing the .NET-related JSON files in the installation directory of Dyalog now results in one rather than two requests for Admin rights, and offers one window with two tabs rather than two Windows.
 * Tips and Hints improved.
@@ -143,6 +149,7 @@ With this version you can set both parameters.
   While `[WSL_CMD]` is used to set certain WSL-specific parameters, `[WSL_SET]` is passed onto the command line. For example, specifying `files=30` in this section lets Launchy add `files=30` to the command line.
 
 * To keep WSL and standard APL in sync a new section `[STD_SET]` has been invented  which may contain parameters that are supposed to go onto the command for Windows versions of Dyalog.
+
 
 
 
