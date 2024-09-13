@@ -5,9 +5,10 @@
     "aplteam-OS-3.1.1",
     "aplteam-IniFiles-5.0.3",
     "aplteam-HandleError-4.1.4",
-    "aplteam-GitHubAPIv3-0.7.0",
+    "aplteam-GitHubAPIv3-1.2.1",
     "aplteam-FilesAndDirs-5.8.1",
     "aplteam-APLTreeUtils2-1.4.0",
+    "dyalog-HttpCommand-5.6.0",
     "aplteam-WindowsEventLog-3.0.1",
   ],
   principal: [
@@ -20,8 +21,10 @@
     1,
     1,
     0,
+    0,
   ],
   url: [
+    "https://tatin.dev/",
     "https://tatin.dev/",
     "https://tatin.dev/",
     "https://tatin.dev/",

@@ -50,10 +50,7 @@ Source: "{#TargetDir}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion ;
 ; The .NET files are needed for the "Check for updates" menu command
 ; Note: *** they need to fit to the APL version uses ***
 Source: "bridge190-64_unicode.dll"; DestDir: "{app}";
-Source: "Dyalog.Net.Bridge.dll"; DestDir: "{app}";
-Source: "Dyalog.Net.Bridge.Host.Windows.dll"; DestDir: "{app}";
 Source: "dyalognet.dll"; DestDir: "{app}";
-Source: "nethost.dll"; DestDir: "{app}";
 
 ; The Conga DLLs are required for "Check for updates" (and potentially a Ride)
 Source: "conga35ssl64.dll"; DestDir: "{app}";

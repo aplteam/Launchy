@@ -63,7 +63,7 @@
              Off
          :EndIf
      :Else
-         ShowMsg2'Cannot find the requiered INI file'
+         'Launchy INI file'ShowMsg2'Cannot find the requiered INI file in ',1⊃⎕NPARTS iniFilename
          Off
      :EndIf
  :EndIf

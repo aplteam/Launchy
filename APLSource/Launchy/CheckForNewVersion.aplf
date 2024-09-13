@@ -1,4 +1,4 @@
- {r}←CheckForNewVersion dummy;tag;msg;rc;dmx;api;flag;url
+ {r}←CheckForNewVersion dummy;tag;msg;rc;dmx;api;flag;url;bv
  r←⍬
  :If CheckNetInterface
      api←⎕NEW ##.GitHubAPIv3(,⊂'aplteam')
@@ -8,11 +8,11 @@
          TellCommunicationWithGitHubFailed'Launchy'
          :Return
      :EndTrap
-     flag←api.CheckForUpdate'Launchy'({⍵↑⍨¯1+⌊/⍵⍳'+-'}2⊃Version)
+     flag←0<≢bv←api.CheckForUpdate'Launchy'({⍵↑⍨¯1+⌊/⍵⍳'+-'}2⊃Version)
      :If ~flag
          TellLaunchyIsUp2Date ⍬
      :Else
-         msg←⊂'There is a better version available on GitHub.'
+         msg←⊂'There is a better version (',bv,') available on GitHub.'
          msg,←'' 'Would you like to download this version?'
          :If YesOrNo msg
              :Trap 0
@@ -25,7 +25,8 @@
              :If 0=≢url
                  n TellErrorWhileCheckingForBetterVersion''
              :Else
-                 A.GoToWebPage url
+                 U.GoToWebPage url
+                 ShowMsg2 'Check the download folder of your default browser.'
              :EndIf
          :EndIf
      :EndIf

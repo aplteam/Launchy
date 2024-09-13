@@ -3,7 +3,7 @@
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
-     'Wrong version'⎕SIGNAL 11/⍨19≠⊃(//)⎕VFI{⍵/⍨2>+\⍵='.'}2⊃#.APLVersion  ⍝ You may change this, but you might need to change the Conga DLLs as well
+     'Wrong version'⎕SIGNAL 11/⍨19≠⊃(//)⎕VFI{⍵/⍨2>+\⍵='.'}2⊃#.APLVersion  ⍝ You may change this, but you might need to change the Conga & Bridge DLLs as well
  :AndIf ##.TestCases.CommTools.YesOrNo'Sure you want to create a new version? (The WS will be destroyed in the process)'
      home←##.CiderConfig.HOME,'/'
      targetPath←home,'Dist/'

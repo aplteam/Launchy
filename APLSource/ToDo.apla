@@ -1,0 +1,5 @@
+(
+ '* The update procedure has a problem: it appears that GitHub has changes the content of the HTML page I investigate, '
+ '  and that it cannot find the download link for a given release anymore because it is not available on that page.'
+ '  This must be fixed in `GitHubAPIv3`! '
+)
