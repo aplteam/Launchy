@@ -31,6 +31,7 @@ Compression=lzma
 SolidCompression=yes
 SetupIconFile={#MyAppIcoName}
 PrivilegesRequired=admin
+AppMutex=LaunchyMutex
 
 
 [Languages]
