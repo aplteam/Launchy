@@ -26,7 +26,7 @@
                  n TellErrorWhileCheckingForBetterVersion''
              :Else
                  U.GoToWebPage url
-                 ShowMsg2 'Check the download folder of your default browser.'
+                 ShowMsg2'Check the download folder of your default browser.'
              :EndIf
          :EndIf
      :EndIf

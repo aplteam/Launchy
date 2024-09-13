@@ -1,5 +1,5 @@
  Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc
-⍝ Version 2.1.0 ⋄ 2024-01-28
+⍝ Version 2.2.0 ⋄ 2024-09-13
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
@@ -23,6 +23,7 @@
      ⎕LX←'#.Launchy.Run 0'
      '#.Launchy.Launchy'#.⎕CY ⎕WSID
      {}⎕SE.Tatin.LoadDependencies(home,'packages/')#  ⍝ Yes, this IS correct: we reorganize the WS
+     'Conga'#.⎕CY'Conga'
      0 ⎕SAVE ⎕WSID
      M←⎕SE.MakeHelpers
      M.ConvertMarkdownToHtml5(home,'Docs/')(tempFolder,'html/')
