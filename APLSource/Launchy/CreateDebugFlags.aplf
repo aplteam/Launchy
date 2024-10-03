@@ -7,7 +7,7 @@
 
  ∆←''
  ∆,←⊂'Caption' 'Check workspace &integrity...'
- ∆,←⊂'Posn'(15 10)
+ ∆,←⊂'Posn'(17 10)
  n.Info←n.DebugGroup.⎕NEW'Label'∆
 
  ∆←''
@@ -15,7 +15,7 @@
  ∆,←⊂'Items'Ini.WS_CHECK.list
  ∆,←⊂'SelItems'(Ini.WS_CHECK.default=⊃¨Ini.WS_CHECK.list)
  ∆,←⊂'Posn'(40 10)
- ∆,←⊂'Size'(⍬ 210)
+ ∆,←⊂'Size'(⍬ 200)
  ∆,←⊂'TipObj'n.tip
  n.debug←n.DebugGroup.⎕NEW'Combo'∆
  n.debug.Tip←'Specify when a workspace integrity check shall be performed.' 'The closer to a problem a check is performed the better.'
