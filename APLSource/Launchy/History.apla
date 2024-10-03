@@ -1,4 +1,6 @@
 (
+ '* 7.10.1 from 2024-10-03'
+ '  * Bug fix: selected any item but the current one made Launchy crash'
  '* 7.10.0 from 2024-09-13'
  '  * The message provided in case of a missing INI file has been improved'
  '  * Check for updates now checks for the .NET interface to be loaded properly, and tells user if not'

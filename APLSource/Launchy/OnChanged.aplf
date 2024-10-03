@@ -1,7 +1,11 @@
  {r}←type OnChanged msg;ref;n
 ⍝
+ ⎕←'OnChange: 'msg  ⍝TODO⍝
  ref←1⊃msg
  n←GetRef2n ref
- n.editNETbridgeJSONfiles.Active←~ref.State
+ :Select type
+ :Case 'NET_Framework'
+     n.editNETbridgeJSONfiles.Active←~ref.State
+ :EndSelect
  r←CheckDefaults type
  ⍝Done
