@@ -1,4 +1,6 @@
 (
+ '* 7.10.? from 2025-05-??'
+ '  * Packages updated'
  '* 7.10.1 from 2024-10-03'
  '  * Bug fix: selected any item but the current one made Launchy crash'
  '* 7.10.0 from 2024-09-13'
