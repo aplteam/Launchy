@@ -1,6 +1,5 @@
  {r}←type OnChanged msg;ref;n
 ⍝
- ⎕←'OnChange: 'msg  ⍝TODO⍝
  ref←1⊃msg
  n←GetRef2n ref
  :Select type

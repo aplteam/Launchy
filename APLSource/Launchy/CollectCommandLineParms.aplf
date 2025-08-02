@@ -11,7 +11,7 @@
      parms,←Ini.STD_CMD.{{⍵,'=',{0=1↑0⍴⍵:⍕⍵ ⋄ '"',⍵,'"'}⍎⍵}¨' '~¨⍨↓⎕NL 2}⍬
  :EndIf
  :If n.StopSetup.State
-     parms,←⊂'-stop_in_setup=1'
+     parms,←⊂'-STOP_IN_SETUP'
  :EndIf
  :If n.DYALOGSTARTUPDEBUG.State
      parms,←⊂'DYALOGSTARTUPDEBUG=1'
@@ -25,7 +25,7 @@
  :If ~n.NET_Framework.State
      parms,←⊂'DYALOG_NETCORE=1'
  :EndIf
- parms,←⊂'-exec_setup=',⍕n.ExecMySetup.State
+ parms,←⊂'EXEC_SETUP=',⍕n.ExecMySetup.State
  clp1←GetCommandLineParmsFromINI                ⍝ INI definition (if any)
  parms,←clp1
  clp2←GetCommandLineParmsFromGUI                ⍝ Come from the GUI

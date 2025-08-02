@@ -1,10 +1,42 @@
- Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc
+ Make flag;targetPath;home;M;name;setupExe;myUCMDsFolder;C;tempFolder;data;parms;rc;needs;answer;noOf
 ⍝ Version 2.2.0 ⋄ 2024-09-13
 ⍝ For details see `History`
  ⎕IO←1 ⋄ ⎕ML←1
  :If flag
-     'Wrong version'⎕SIGNAL 11/⍨19≠⊃(//)⎕VFI{⍵/⍨2>+\⍵='.'}2⊃#.APLVersion  ⍝ You may change this, but you might need to change the Conga & Bridge DLLs as well
- :AndIf ##.TestCases.CommTools.YesOrNo'Sure you want to create a new version? (The WS will be destroyed in the process)'
+     needs←19
+     ('Wrong version; needs ',⍕needs)⎕SIGNAL 11/⍨needs≠⊃(//)⎕VFI{⍵/⍨2>+\⍵='.'}2⊃#.APLVersion  ⍝ You may change this, but you might need to change the Conga & Bridge DLLs as well
+ :AndIf 1 ##.TestCases.CommTools.YesOrNo'Sure you want to create a new version? (The WS will be destroyed in the process)'
+     :Section  ⍝ Establish ref to "MakeHelpers"
+         :If 0=⎕NC'refToMakeHelpers'
+             :If 9=⎕SE.⎕NC'MakeHelpers'
+                 flag←¯1
+                 :Repeat
+                     answer←⍞,0/⍞←q←'Do you want to use "MakeHelpers" ',⎕SE.MakeHelpers.Version,' in ⎕SE (n=re-load) (Y/n)?'
+                     answer←(≢q)↓answer
+                     :If 0=≢answer
+                     :OrIf 'Yy'∊⍨¯1↑answer
+                         flag←1
+                     :ElseIf 'Nn'∊⍨¯1↑answer
+                         flag←0
+                     :EndIf
+                 :Until flag∊0 1
+                 :If flag
+                     M←⎕SE.MakeHelpers
+                 :Else
+                     noOf←⎕SE.Tatin.LoadPackages'MakeHelpers'⎕SE
+                     'Could not load the package "MakeHelpers"'⎕SIGNAL 6/⍨0=noOf
+                     M←⎕SE.MakeHelpers
+                 :EndIf
+             :Else
+                 noOf←⎕SE.Tatin.LoadPackages'MakeHelpers'⎕SE
+                 'Could not load the package "MakeHelpers"'⎕SIGNAL 6/⍨0=noOf
+                 M←⎕SE.MakeHelpers
+             :EndIf
+         :Else
+             M←refToMakeHelpers
+         :EndIf
+     :EndSection
+     ⎕←'Using "MakeHelpers" version ',⎕SE.MakeHelpers.Version
      home←##.CiderConfig.HOME,'/'
      targetPath←home,'Dist/'
      M←⎕SE.MakeHelpers

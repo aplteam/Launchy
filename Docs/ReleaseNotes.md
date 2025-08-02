@@ -3,6 +3,17 @@
 # Launchy Release Notes
 
 
+## 7.10.2 from 2025-08-02
+
+* Bug fixes                                                                      
+  * Breaking change: Launchy now sets `-STOP_IN_EXEC` (rather than `-STOP_IN_EXEC=1`)
+  * Breaking change: Launchy now sets `EXEC_SET=[0|1]` (rather than `-EXEC_SET=[0|1]`
+  
+    Because of these changes you might need to amend any `setup.dyalog` script of yours in `[MyUCMDs]`.
+    If you don't have a `setup.dyalog` in `[MyUCMDs]` nothing breaks. 
+
+* Packages updated
+
 ## 7.10.1 from 2024-10-03
 
 * Selecting any but the current item from the list of debug flags made Launchy crash.
@@ -153,6 +164,7 @@ With this version you can set both parameters.
   While `[WSL_CMD]` is used to set certain WSL-specific parameters, `[WSL_SET]` is passed onto the command line. For example, specifying `files=30` in this section lets Launchy add `files=30` to the command line.
 
 * To keep WSL and standard APL in sync a new section `[STD_SET]` has been invented  which may contain parameters that are supposed to go onto the command for Windows versions of Dyalog.
+
 
 
 

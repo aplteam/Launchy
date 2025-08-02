@@ -1,5 +1,4 @@
 [parm]:title             = 'Launchy Manual'
-[parm]:collapsibleTOC    = 1
 
 # Launchy User Manual
 
@@ -63,14 +62,14 @@ If Dyalog finds a file `setup.dyalog` in any of the User Command folders then a 
 
 ### The check box "Execute setup.dyalog"
 
-There might be situations when you do **_not_** want `setup.dyalog` to be executed. For that you can un-tick the box "Execute setup.dyalog". Launchy then passes `exec_setup=0` as a command line parameter.
+There might be situations when you do **_not_** want `setup.dyalog` to be executed. For that you can un-tick the box "Execute setup.dyalog". Launchy passes `exec_setup=[1|0]` as a command line parameter.
 
 Note that it is up to the script itself to honour this setting.
 
 
 ### The check box "Stop in setup.dyalog"
 
-By default this check box is not ticked. If you tick it then `stop_in_setup=1` is passed as command line parameter.
+By default this check box is not ticked. If you tick it then `-stop_in_setup` is passed as command line parameter.
 
 Note that it is up to the script itself to honour this settings.
 
@@ -125,6 +124,7 @@ Launchy was created by Kai Jaeger.
 Launchy comes with an MIT license.
     
 For details go to <https://github.com/aplteam/Launchy>
+
 
 
 

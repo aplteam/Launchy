@@ -30,7 +30,7 @@
  n.ExecMySetup.Tip,←⊂'Toggles whether'
  n.ExecMySetup.Tip,←⊂'%USERPROFILE%\Documents\MyUCmds\setup.dyalog'
  n.ExecMySetup.Tip,←⊂'should be executed or not.'
- n.ExecMySetup.Tip,←⊂'This passes -exec_setup=0|1 on the command line.'
+ n.ExecMySetup.Tip,←⊂'This passes exec_setup=0|1 on the command line.'
  n.ExecMySetup.Tip,←⊂'Setup.dyalog needs to take care of that itself.'
  n.ExecMySetup.Tip,←⊂'Leave unticked for Dyalog''s default setup.'
  n.ExecMySetup.onSelect←'OnChanged' 'EXEC_MY_SETUP'
@@ -46,7 +46,7 @@
  ∆,←⊂'Active'flag
  n.StopSetup←n.Form.⎕NEW'Button'∆
  n.StopSetup.Tip←''
- n.StopSetup.Tip,←⊂'If ticked -stop_in_setup is passed as command line parameter.'
+ n.StopSetup.Tip,←⊂'If ticked, -stop_in_setup is passed as command line flag.'
  n.StopSetup.Tip,←⊂'Setup.dyalog needs to take care of that itself.'
  n.StopSetup.onSelect←'OnChanged' 'STOP_IN_SETUP'
  n.StopSetup.onKeyPress←'OnStandardKeyPress'
