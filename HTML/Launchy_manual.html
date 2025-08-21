@@ -85,14 +85,14 @@ html{-webkit-text-size-adjust:100%;}body{margin:0;}main{display:block;}h1{margin
 <h3 data-id="The-check-box-Execute-setupdyalog">The check box “Execute setup.dyalog”</h3>
 </a>
 </div>
-<p>There might be situations when you do <strong><em>not</em></strong> want <code>setup.dyalog</code> to be executed. For that you can un-tick the box “Execute setup.dyalog”. Launchy then passes <code>exec_setup=0</code> as a command line parameter.</p>
+<p>There might be situations when you do <strong><em>not</em></strong> want <code>setup.dyalog</code> to be executed. For that you can un-tick the box “Execute setup.dyalog”. Launchy passes <code>exec_setup=[1|0]</code> as a command line parameter.</p>
 <p>Note that it is up to the script itself to honour this setting.</p>
 <div class="h_tag">
 <a href="#the-check-box-stop-in-setupdyalog" id="the-check-box-stop-in-setupdyalog" class="autoheader_anchor">
 <h3 data-id="The-check-box-Stop-in-setupdyalog">The check box “Stop in setup.dyalog”</h3>
 </a>
 </div>
-<p>By default this check box is not ticked. If you tick it then <code>stop_in_setup=1</code> is passed as command line parameter.</p>
+<p>By default this check box is not ticked. If you tick it then <code>-stop_in_setup</code> is passed as command line parameter.</p>
 <p>Note that it is up to the script itself to honour this settings.</p>
 <div class="h_tag">
 <a href="#ride" id="ride" class="autoheader_anchor">
